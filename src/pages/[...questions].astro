@@ -1,39 +1,32 @@
 ---
+ 
 export async function getStaticPaths() {
-  const questions = [
-    {
-      slug: "pytanie-1",
-      title: "Astro Store",
-      text: "Welcome to the Astro store!",
-    },
-    {
-      slug: "pytanie-2",
-      title: "Astro products",
-      text: "We have lots of products for you",
-    },
-    {
-      slug: "kat-a/pytanie-1",
-      title: "The ultimate Astro handbook",
-      text: "If you want to learn Astro, you must read this book.",
-    },
-  ];
-
-  return questions.map(({ slug, title, text }) => {
+  const length = 3000
+  const questions = Array.from({ length }, (_, i) => i+1).map(nr => {
+    return {
+          slug: `pytanie-${nr}`,
+          text: `Pytanie nr ${nr}`,
+          }
+      }
+  )
+    
+  return questions.map(({ slug,   text }) => {
     return {
       params: {  questions : slug },
-      props: { title, text },
+      props: {   text },
     };
   });
 }
 
-const { title, text } = Astro.props;
+const {   text } = Astro.props;
 ---
 <html>
   <head>
-    <title>{title}</title>
+    <title>{text}</title>
   </head>
   <body>
-    <h1>{title}</h1>
-    <p>{text}</p>
+    <h1>{text}</h1>
+    <p><a href="/question-2">question-2</a></p>
+   
   </body>
 </html>
