@@ -1,6 +1,4 @@
 ---
-import Button from '@mui/material/Button';
-
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Counter from '../reactComponents/Counter.jsx'
@@ -39,20 +37,16 @@ const {   text, slug, nextSlug } = Astro.props;
         <Card>
           <h3>{text}</h3>
           
-<Button variant="outlined">Primary</Button>
-<Button variant="outlined" disabled>
-  Disabled
-</Button>
-<Button variant="outlined" href="#outlined-buttons">
-  Link
-</Button>
-<Button color="secondary">Secondary</Button>
-<Button variant="contained" color="success">
-  Success
-</Button>
-<Button variant="outlined" color="error">
-  Error
-</Button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
 
       <Counter   />
       <Counter  />
