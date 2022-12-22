@@ -4,7 +4,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Counter from '../reactComponents/Counter.jsx'
-
+import {Year} from '../reactComponents/Counter.jsx'
  
 
 export async function getStaticPaths() {
@@ -28,13 +28,34 @@ export async function getStaticPaths() {
 
 const {   text, slug, nextSlug } = Astro.props;
 
-const clickedAnswer = "TAK.."
+const clickedAnswer = "TAK..";
+
+const year = Date.now();
 
 ---
  
 
 <Layout title={text}>
  
+ <!-- HEADLINE -->
+              <div class="row">
+                <div class="col">
+                  <p> To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy z 
+                  
+                  <Year client:load />
+
+                   roku.
+                    <a href="kategorie-prawa-jazdy.html"> Zmień kategorię prawa jazdy.
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+<Year />
+
+<Counter client:load />
+<Counter />
+
   <section class="page-content">
     <div class="container">
    
