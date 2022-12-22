@@ -1,32 +1,44 @@
 ---
- 
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
 export async function getStaticPaths() {
-  const length = 3000
+  const length = 10
   const questions = Array.from({ length }, (_, i) => i+1).map(nr => {
     return {
           slug: `pytanie-${nr}`,
+          nextSlug: `pytanie-${nr+1}`,
           text: `Pytanie nr ${nr}`,
           }
       }
   )
     
-  return questions.map(({ slug,   text }) => {
+  return questions.map((props) => {
     return {
-      params: {  questions : slug },
-      props: {   text },
+      params: {  questions : props.slug },
+      props ,
     };
   });
 }
 
-const {   text } = Astro.props;
+const {   text, slug, nextSlug } = Astro.props;
+
+
 ---
-<html>
-  <head>
-    <title>{text}</title>
-  </head>
-  <body>
-    <h1>{text}</h1>
-    <p><a href="/question-2">question-2</a></p>
+ 
+
+<Layout title={text}>
+ 
+  <section class="page-content">
+    <div class="container">
    
-  </body>
-</html>
+        <Card>
+          <h3>{text}</h3>
+          
+         
+          <a class="btn" href={`/${nextSlug}`}>Next question</a>
+        </Card>
+ 
+    </div>
+  </section>
+</Layout>
