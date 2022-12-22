@@ -26,8 +26,14 @@ const { title = 'Astro Crash Course' } = Astro.props as Props;
     <title>{title}</title>
   </head>
   <body>
+
+
+
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
+<!-- JavaScript Bundle with Popper -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

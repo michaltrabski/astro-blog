@@ -1,7 +1,10 @@
 ---
+ 
+
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Counter from '../reactComponents/Counter.jsx'
+
  
 
 export async function getStaticPaths() {
@@ -25,6 +28,7 @@ export async function getStaticPaths() {
 
 const {   text, slug, nextSlug } = Astro.props;
 
+const clickedAnswer = "TAK.."
 
 ---
  
@@ -36,20 +40,14 @@ const {   text, slug, nextSlug } = Astro.props;
    
         <Card>
           <h3>{text}</h3>
+          <div>
           
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-outline-secondary">TAK</button>
+          
+<button type="button" class="btn btn-outline-secondary">NIE</button>
+          </div>
 
-<button type="button" class="btn btn-link">Link</button>
-
-      <Counter   />
-      <Counter  />
+      Odpowiedź = <span class="opd">...</span>
          
           <a class="btn" href={`/${nextSlug}`}>Next question</a>
         </Card>
@@ -57,3 +55,11 @@ const {   text, slug, nextSlug } = Astro.props;
     </div>
   </section>
 </Layout>
+
+
+<script>
+
+
+
+
+</script>

@@ -2,8 +2,8 @@
 import logo from '../images/logo.svg'
 ---
 
-<header class="header">
-  <div class="container">
+<header >
+  <!-- <div class="container">
     <div class="logo">
       <a href="/">
         <img src={logo} alt="" />
@@ -16,8 +16,40 @@ import logo from '../images/logo.svg'
         <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
+  </div> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">LOGO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100vh;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pytanie-1">pytanie 1</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/about">about</a>
+        </li>  <li class="nav-item">
+          <a class="nav-link" href="/blog">blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
   </div>
+</nav>
 </header>
+
+
 
 <style>
   .header {
