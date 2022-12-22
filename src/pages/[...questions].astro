@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Counter from '../reactComponents/Counter.jsx'
+ 
 
 export async function getStaticPaths() {
   const length = 10
@@ -35,6 +37,10 @@ const {   text, slug, nextSlug } = Astro.props;
         <Card>
           <h3>{text}</h3>
           
+
+
+      <Counter client:load />
+      <Counter  />
          
           <a class="btn" href={`/${nextSlug}`}>Next question</a>
         </Card>
