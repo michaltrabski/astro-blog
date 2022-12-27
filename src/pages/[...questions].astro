@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Counter from "../reactComponents/Counter.jsx";
-import { Year } from "../reactComponents/Counter.jsx";
+import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 
 export async function getStaticPaths() {
   const length = 10;
@@ -30,6 +29,8 @@ const year = Date.now();
 ---
 
 <Layout title={question.text}>
+ 
+<YesNoAnswer client:visible />
  
   <div class="row">
     <div class="col">
