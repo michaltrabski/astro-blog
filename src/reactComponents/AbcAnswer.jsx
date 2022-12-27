@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
 const possibleAnswers = [
-  { value: 'YES', label: 'TAK' },
-  { value: 'NO', label: 'Nie' },
+  { value: 'a', label: 'lorem ipsum a' },
+  { value: 'b', label: 'lorem ipsum b' },
+  { value: 'c', label: 'lorem ipsum c' },
 ];
 
-const correctAnswerValue = 'YES';
+const correctAnswerValue = 'c';
 
-export default function YesNoAnswer() {
+export default function AbcAnswer() {
   const [clickedAnswerValue, setClickedAnswerValue] = useState(null);
 
   return (
     <div>
+      clickedAnswerValue === {clickedAnswerValue} <br />
       {possibleAnswers.map((answer) => {
         let btnColor = 'danger';
 
@@ -24,16 +26,16 @@ export default function YesNoAnswer() {
         }
 
         return (
-          <>
+          <div>
             <button
               key={possibleAnswers.value}
               onClick={() => setClickedAnswerValue(answer.value)}
               type="button"
-              className={`btn btn-${btnColor} me-2`}
+              className={`btn btn-${btnColor} mb-2`}
             >
               {answer.label}
             </button>
-          </>
+          </div>
         );
       })}
     </div>
