@@ -5,7 +5,7 @@ import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
 
 import {data} from "../data/data.ts";
-
+import {xxx} from "../api/xxx.json.ts";
 
 export async function getStaticPaths() {
   const length = 10;
@@ -41,7 +41,7 @@ const year = Date.now();
  
   <div class="row">
     <div class="col">
-
+<pre>{JSON.stringify(xxx, null,2)}</pre>
 <pre>{JSON.stringify(Astro.props, null,2)}</pre>
  
 
