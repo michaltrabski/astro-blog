@@ -6,7 +6,7 @@ export interface Props {
 const { dark = false } = Astro.props as Props;
 ---
 
-<div class={`card ${dark && 'dark'}`}>
+<div class={`card ${dark && "dark"}`}>
   <slot />
 </div>
 
@@ -26,8 +26,7 @@ const { dark = false } = Astro.props as Props;
 </style>
 
 <script>
+  const cards = document.querySelectorAll(".card");
 
-const cards = document.querySelectorAll(".card")
- 
-console.log("działa", cards?.length)
+  console.log("działa", cards?.length);
 </script>

@@ -1,84 +1,99 @@
 ---
-import logo from '../images/logo.svg'
+import logo from "../images/logo.svg";
+import {URLS} from "../urls/urls.ts";
+
 ---
 
-<header >
-  <!-- <div class="container">
-    <div class="logo">
-      <a href="/">
-        <img src={logo} alt="" />
+<header>
+  <!-- NAVBAR  -->
+  <nav
+    id="navbar"
+    class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg fixed-top border-bottom border-dark"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href={URLS.HOME}>
+        <img scr={logo} />
+        blog
       </a>
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic mixed styles example"
+      >
+        <a href={URLS.GOOD_ANSWERS} class="btn btn-success btn-sm">0</a>
+      <a href={URLS.BAD_ANSWERS} class="btn btn-danger btn-sm">0</a>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"> </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="index.html"
+            >
+              Strona główna
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="cennik.html"
+            >
+              Cennik
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="blog.html"
+            >
+              Blog
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="kategorie-prawa-jazdy.html"
+            >
+              Kategorie prawa jazdy
+            </a>
+          </li>
+          <li class="nav-item mb-2 mb-md-0">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="logowanie.html"
+            >
+              Logowanie
+            </a>
+          </li>
+          <li class="nav-item mb-2 mb-md-0">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="rejestracja.html"
+            >
+              Rejestracja
+            </a>
+          </li>
+          <form class="m-0">
+            <a
+              class="btn btn-secondary w-100"
+              :class="{'btn-success':uidFromAuth,'btn-danger':!uidFromAuth}"
+              href="twoje-konto.html"
+              >Twoje konto
+            </a>
+          </form>
+        </ul>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="/pytanie-1">1</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
-    </nav>
-  </div> -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">LOGO</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100vh;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pytanie-1">pytanie 1</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/about">about</a>
-        </li>  <li class="nav-item">
-          <a class="nav-link" href="/blog">blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Link</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+  </nav>
 </header>
-
-
-
-<style>
-  .header {
-  height: 70px;
-  background: var(--color-primary);
-}
-
-.header .container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.header img {
-  height: 35px;
-  vertical-align: middle;
-}
-
-.header nav ul {
-  display: flex;
-}
-
-.header nav ul li {
-  padding: 0 10px;
-}
-
-.header nav ul li a {
-  color: #fff;
-}
-</style>

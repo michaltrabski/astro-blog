@@ -1,90 +1,78 @@
 ---
- 
-
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Counter from '../reactComponents/Counter.jsx'
-import {Year} from '../reactComponents/Counter.jsx'
- 
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Counter from "../reactComponents/Counter.jsx";
+import { Year } from "../reactComponents/Counter.jsx";
 
 export async function getStaticPaths() {
-  const length = 10
-  const questions = Array.from({ length }, (_, i) => i+1).map(nr => {
+  const length = 10;
+  const questions = Array.from({ length }, (_, i) => i + 1).map((nr) => {
     return {
-          slug: `pytanie-${nr}`,
-          nextSlug: `pytanie-${nr+1}`,
-          text: `Pytanie nr ${nr}`,
-          }
-      }
-  )
-    
+      slug: `pytanie-${nr}`,
+      nextSlug: `pytanie-${nr + 1}`,
+      text: `Pytanie nr ${nr}`,
+    };
+  });
+
   return questions.map((props) => {
     return {
-      params: {  questions : props.slug },
-      props ,
+      params: { questions: props.slug },
+      props,
     };
   });
 }
 
-const {   text, slug, nextSlug } = Astro.props;
+const { text, slug, nextSlug } = Astro.props;
 
 const clickedAnswer = "TAK..";
 
 const year = Date.now();
-
 ---
- 
 
 <Layout title={text}>
- 
- <!-- HEADLINE -->
-              <div class="row">
-                <div class="col">
-                  <p> To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy z 
-                  
-                  <Year   />
+  <!-- HEADLINE -->
+  <div class="row">
+    <div class="col">
+      <p>
+        To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy z
 
-                   roku.
-                    <a href="kategorie-prawa-jazdy.html"> Zmień kategorię prawa jazdy.
-                    </a>
-                  </p>
-                </div>
-              </div>
+        <Year />
 
-<Year   />
+        roku.
+        <a href="kategorie-prawa-jazdy.html"> Zmień kategorię prawa jazdy.</a>
+      </p>
+    </div>
+  </div>
 
-<Counter  />
-<Counter />
+  <Year />
+
+  <Counter />
+  <Counter />
 
   <section class="page-content">
     <div class="container">
-   
-        <Card>
-          <h3>{text}</h3>
-          <div>
-          
-<button type="button" class="btn btn-outline-secondary">TAK</button>
-          
-<button type="button" class="btn btn-outline-secondary">NIE</button>
-          </div>
+      <Card>
+        <h3>{text}</h3>
+        <div>
+          <button type="button" class="btn btn-outline-secondary">TAK</button>
 
-      Odpowiedź = <span class="odp">...</span>
-         
-          <a class="btn" href={`/${nextSlug}`}>Next question</a>
+          <button type="button" class="btn btn-outline-secondary">NIE</button>
+        </div>
 
-          
-        </Card>
- 
+        Odpowiedź = <span class="odp">...</span>
+
+        <a class="btn" href={`/${nextSlug}`}>Next question</a>
+      </Card>
     </div>
   </section>
 </Layout>
 
-
 <script>
+  const x =
+    "lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, ";
+  const odps = document.querySelectorAll(".odp");
 
-
- const x = "lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, "
-const odps = document.querySelectorAll(".odp") 
-
-odps.forEach(odp => {odp.innerHTML = "Działa" + x+ x+ x+ x+ x})
+  odps.forEach((odp) => {
+    odp.innerHTML = "Działa" + x + x + x + x + x;
+  });
 </script>
