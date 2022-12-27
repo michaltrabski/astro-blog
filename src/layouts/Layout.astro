@@ -32,9 +32,22 @@ const { title = "Domyślny tytuł strony" } = Astro.props as Props;
 
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-dark text-light mt-5 p-3 border-top border-primary">
     <Header />
+
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col">
+    <h1>{title}</h1>
+    
+    </div>
+    
+    </div>
+
+   
     <slot />
+   
+    </div>
     <Footer />
   </body>
 </html>

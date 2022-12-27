@@ -14,65 +14,29 @@ export async function getStaticPaths() {
     };
   });
 
-  return questions.map((props) => {
+  return questions.map((question) => {
     return {
-      params: { questions: props.slug },
-      props,
+      params: { questions: question.slug },
+      props: {question},
     };
   });
 }
 
-const { text, slug, nextSlug } = Astro.props;
+const { question } = Astro.props;
 
 const clickedAnswer = "TAK..";
 
 const year = Date.now();
 ---
 
-<Layout title={text}>
-  <!-- HEADLINE -->
+<Layout title={question.text}>
+ 
   <div class="row">
     <div class="col">
-      <p>
-        To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy z
 
-        <Year />
+<pre>{JSON.stringify(Astro.props, null,2)}</pre>
 
-        roku.
-        <a href="kategorie-prawa-jazdy.html"> Zmień kategorię prawa jazdy.</a>
-      </p>
-    </div>
+    </div> 
   </div>
-
-  <Year />
-
-  <Counter />
-  <Counter />
-
-  <section class="page-content">
-    <div class="container">
-      <Card>
-        <h3>{text}</h3>
-        <div>
-          <button type="button" class="btn btn-outline-secondary">TAK</button>
-
-          <button type="button" class="btn btn-outline-secondary">NIE</button>
-        </div>
-
-        Odpowiedź = <span class="odp">...</span>
-
-        <a class="btn" href={`/${nextSlug}`}>Next question</a>
-      </Card>
-    </div>
-  </section>
+ 
 </Layout>
-
-<script>
-  const x =
-    "lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, ";
-  const odps = document.querySelectorAll(".odp");
-
-  odps.forEach((odp) => {
-    odp.innerHTML = "Działa" + x + x + x + x + x;
-  });
-</script>
