@@ -16,20 +16,22 @@ export async function getStaticPaths() {
   return newQuestions.map((question) => {
     return {
       params: { questions: question.slug },
-      props: { question },
+      props: { question,questions },
     };
   });
 }
 ---
 
 <Layout title={Astro.props.question.text}>
+  
+
+  <YesNoAnswer client:visible />
+
+  <AbcAnswer client:visible  questions={Astro.props.questions}/>
+
   <div class="row">
     <div class="col">
       <pre>{JSON.stringify(Astro.props, null,2)}</pre>
     </div>
   </div>
-
-  <YesNoAnswer client:visible />
-
-  <AbcAnswer client:visible />
 </Layout>

@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 const possibleAnswers = [
-  { value: "a", label: "lorem ipsum a" },
-  { value: "b", label: "lorem ipsum b" },
-  { value: "c", label: "lorem ipsum c" },
+  { value: 'a', label: 'lorem ipsum a' },
+  { value: 'b', label: 'lorem ipsum b' },
+  { value: 'c', label: 'lorem ipsum c' },
 ];
 
-const correctAnswerValue = "c";
+const correctAnswerValue = 'c';
 
-export default function AbcAnswer() {
+export default function AbcAnswer(props) {
   const [clickedAnswerValue, setClickedAnswerValue] = useState(null);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState(props.questions);
 
   useEffect(async () => {
-    const data = await fetch("../data.json").then((r) => r.json());
+    const data = await fetch('../data.json').then((r) => r.json());
 
     console.log(111111111, data.questions);
     setQuestions(data.questions);
@@ -22,14 +22,14 @@ export default function AbcAnswer() {
   return (
     <div>
       {possibleAnswers.map((answer) => {
-        let btnColor = "danger";
+        let btnColor = 'danger';
 
         if (answer.value === correctAnswerValue) {
-          btnColor = "success";
+          btnColor = 'success';
         }
 
         if (!clickedAnswerValue) {
-          btnColor = "secondary";
+          btnColor = 'secondary';
         }
 
         return (
@@ -50,7 +50,7 @@ export default function AbcAnswer() {
       <div>
         {questions.map((q, index) => (
           <p>
-            <a href={`pytanie-${index + 1}`}>{q.text}</a>
+            <a href={`/pytanie-${index + 1}`}>{q.text}</a>
           </p>
         ))}
       </div>
