@@ -6,32 +6,25 @@ import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
 import { questions } from "../data/data";
 
 export async function getStaticPaths() {
-  const newQuestions = questions.map((question, nr) => {
+   return questions.map((question) => {
     return {
-      slug: `pytanie-${nr}`,
-      ...question,
-    };
-  });
-
-  return newQuestions.map((question) => {
-    return {
-      params: { questions: question.slug },
-      props: { question,questions },
+      params: { questions: question.id }, 
+      props: { question, questions },
     };
   });
 }
 ---
 
-<Layout title={Astro.props.question.text}>
+<Layout title={`${Astro.props.question.id}. ${Astro.props.question.text}`}>
   
 
   <YesNoAnswer client:visible />
 
-  <AbcAnswer client:visible  questions={Astro.props.questions}/>
+  <AbcAnswer client:visible questions={Astro.props.questions}/>
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col">
       <pre>{JSON.stringify(Astro.props, null,2)}</pre>
     </div>
-  </div>
+  </div> -->
 </Layout>

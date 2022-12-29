@@ -50,7 +50,9 @@ export default function AbcAnswer(props) {
       <div>
         {questions.map((q, index) => (
           <p>
-            <a href={`/pytanie-${index + 1}`}>{q.text}</a>
+            <a href={`/${q.id}`}>
+              {q.id}. {q.text}
+            </a>
           </p>
         ))}
       </div>
