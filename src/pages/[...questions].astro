@@ -3,40 +3,33 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
-
-import { data } from "../data/data.ts";
-
- 
-
- 
+import { questions } from "../data/data";
 
 export async function getStaticPaths() {
-  const length = 10;
-  const questions = Array.from({ length }, (_, i) => i + 1).map((nr) => {
+  const newQuestions = questions.map((question, nr) => {
     return {
       slug: `pytanie-${nr}`,
-      nextSlug: `pytanie-${nr + 1}`,
-      text: `Pytanie nr ${nr}`,
+      ...question,
     };
   });
 
-  return questions.map((question) => {
+  return newQuestions.map((question) => {
     return {
       params: { questions: question.slug },
-      props: { question, data },
+      props: { question },
     };
   });
 }
 ---
 
 <Layout title={Astro.props.question.text}>
-  <YesNoAnswer client:visible />
-
-  <AbcAnswer client:visible />
-
   <div class="row">
     <div class="col">
       <pre>{JSON.stringify(Astro.props, null,2)}</pre>
     </div>
   </div>
+
+  <YesNoAnswer client:visible />
+
+  <AbcAnswer client:visible />
 </Layout>

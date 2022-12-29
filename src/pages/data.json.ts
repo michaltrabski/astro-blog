@@ -1,4 +1,4 @@
-import { questions } from '../data/data';
+import { questions } from "../data/data";
 
 export async function get({ params, request }) {
   return {
