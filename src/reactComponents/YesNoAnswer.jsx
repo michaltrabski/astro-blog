@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const possibleAnswers = [
-  { value: 'YES', label: 'TAK' },
-  { value: 'NO', label: 'Nie' },
+  { value: "YES", label: "TAK" },
+  { value: "NO", label: "Nie" },
 ];
 
-const correctAnswerValue = 'YES';
+const correctAnswerValue = "YES";
 
 export default function YesNoAnswer() {
   const [clickedAnswerValue, setClickedAnswerValue] = useState(null);
@@ -13,14 +13,14 @@ export default function YesNoAnswer() {
   return (
     <div>
       {possibleAnswers.map((answer) => {
-        let btnColor = 'danger';
+        let btnColor = "danger";
 
         if (answer.value === correctAnswerValue) {
-          btnColor = 'success';
+          btnColor = "success";
         }
 
         if (!clickedAnswerValue) {
-          btnColor = 'secondary';
+          btnColor = "secondary";
         }
 
         return (

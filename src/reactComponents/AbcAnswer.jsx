@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const possibleAnswers = [
   { value: 'a', label: 'lorem ipsum a' },
@@ -10,10 +10,17 @@ const correctAnswerValue = 'c';
 
 export default function AbcAnswer() {
   const [clickedAnswerValue, setClickedAnswerValue] = useState(null);
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(async () => {
+    const data = await fetch('../data.json').then((r) => r.json());
+
+    console.log(111111111, data.questions);
+    setQuestions(data.questions);
+  }, []);
 
   return (
     <div>
-      clickedAnswerValue === {clickedAnswerValue} <br />
       {possibleAnswers.map((answer) => {
         let btnColor = 'danger';
 
@@ -27,17 +34,24 @@ export default function AbcAnswer() {
 
         return (
           <div>
-            <button
-              key={possibleAnswers.value}
-              onClick={() => setClickedAnswerValue(answer.value)}
-              type="button"
-              className={`btn btn-${btnColor} mb-2`}
-            >
-              {answer.label}
-            </button>
+            <div>
+              <button
+                key={possibleAnswers.value}
+                onClick={() => setClickedAnswerValue(answer.value)}
+                type="button"
+                className={`btn btn-${btnColor} mb-2`}
+              >
+                {answer.label}
+              </button>
+            </div>
           </div>
         );
       })}
+      <div>
+        {questions.map((q) => (
+          <p>{q.text}</p>
+        ))}
+      </div>
     </div>
   );
 }

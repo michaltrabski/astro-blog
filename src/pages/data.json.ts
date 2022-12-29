@@ -1,10 +1,9 @@
-// Outputs: /builtwith.json
+import { questions } from '../data/data';
+
 export async function get({ params, request }) {
   return {
     body: JSON.stringify({
-      name: 'Astro',
-      url: 'https://astro.build/',
-      xxx: 'yyy',
+      questions,
     }),
   };
 }

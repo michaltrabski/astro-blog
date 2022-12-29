@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
   {
     id: 'id99',
     text: 'Czy w tej sytuacji masz obowiązek zatrzymać pojazd?',
@@ -381,5 +381,3 @@ const questions = [
     is_video: false,
   },
 ];
-
-export const data = { questions };
