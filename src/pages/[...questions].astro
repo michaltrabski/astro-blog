@@ -3,24 +3,34 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
-import { questions } from "../data/data";
+import { allQuestions } from "../data/data";
 
 export async function getStaticPaths() {
-   return questions.map((question) => {
+   return allQuestions.map((question, index) => {
+
+     const newQuestion = {...question, 
+     prevId: index > 0 ? allQuestions[index-1].id : question.id,
+          nextId: index < allQuestions.length - 1 ? allQuestions[index+1].id : question.id
+     }
+
+
+
     return {
       params: { questions: question.id }, 
-      props: { question, questions },
+      props: { question:newQuestion },
     };
   });
 }
+
+const {question} = Astro.props
 ---
 
 <Layout title={`${Astro.props.question.id}. ${Astro.props.question.text}`}>
   
 
-  <YesNoAnswer client:visible />
+  <!-- <YesNoAnswer client:visible /> -->
 
-  <AbcAnswer client:visible questions={Astro.props.questions}/>
+  <AbcAnswer client:visible question={question}/>
 
   <!-- <div class="row">
     <div class="col">
