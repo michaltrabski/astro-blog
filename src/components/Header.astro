@@ -1,5 +1,5 @@
 ---
-import logo from "../images/logo.svg";
+import {Year} from "../reactComponents/Year.jsx";
 import { URLS } from "../urls/urls.ts";
 ---
 
@@ -11,8 +11,9 @@ import { URLS } from "../urls/urls.ts";
   >
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
-        <img scr={logo} />
-        blog
+      
+        <span>blog</span>
+        <Year client:visible/>
       </a>
       <div
         class="btn-group"
