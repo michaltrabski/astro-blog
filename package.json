@@ -23,6 +23,8 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.1",
     "@nanostores/react": "^0.4.1",
-    "nanostores": "^0.7.1"
+    "convert-excel-to-json": "^1.7.0",
+    "nanostores": "^0.7.1",
+    "xlsx": "^0.18.5"
   }
 }

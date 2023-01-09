@@ -1,3 +1,8 @@
+import sourceData from './sourceData';
+
+console.log(111111, sourceData);
+// const excelFile = convertExcelToJson(sourceFile);
+
 export const allQuestions = [
   {
     id: 'id99',
