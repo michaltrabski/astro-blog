@@ -1,9 +1,17 @@
 ---
 import {Year} from "../reactComponents/Year.jsx";
 import { URLS } from "../urls/urls.ts";
+
+import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
+  
+
+
 ---
 
 <header>
+
+  <LoadQuestions client:visible />
+  
   <!-- NAVBAR  -->
   <nav
     id="navbar"

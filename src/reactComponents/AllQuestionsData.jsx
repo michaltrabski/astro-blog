@@ -19,7 +19,7 @@ export default function AllQuestionsData() {
         setCount(data.allQuestionsData.length);
       }
 
-      addQuestions([{ id: 'id2', text: 'question 2.' }]);
+      // addQuestions([{ id: 'id2', text: 'question 2.' }]);
     })();
   }, []);
 
