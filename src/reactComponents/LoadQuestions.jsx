@@ -3,7 +3,7 @@ import { loadQuestions } from '../store/questions';
 
 export default function LoadQuestions() {
   useEffect(() => {
-    loadQestions();
+    loadQuestions();
   }, []);
 
   return <div>LoadQuestions</div>;
