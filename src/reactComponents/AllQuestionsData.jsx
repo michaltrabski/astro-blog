@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useStore } from '@nanostores/react';
-import { addQuestions, questions } from '../store/questions';
+import React, { useEffect, useState } from "react";
+import { useStore } from "@nanostores/react";
+import { addQuestions, questions } from "../store/questions";
 
 export default function AllQuestionsData() {
   const $questions = useStore(questions);
@@ -9,7 +9,7 @@ export default function AllQuestionsData() {
 
   useEffect(() => {
     (async () => {
-      const data = await fetch('../all-questions-data.json').then((r) =>
+      const data = await fetch("../all-questions-data.json").then((r) =>
         r.json()
       );
 

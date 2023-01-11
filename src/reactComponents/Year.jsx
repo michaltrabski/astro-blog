@@ -1,13 +1,9 @@
-import React from 'react';
-import { useStore } from '@nanostores/react';
-import { isCartOpen } from '../cartStore';
+import React from "react";
+import { useStore } from "@nanostores/react";
+import { year } from "../store/info";
 
 export const Year = () => {
-  const $isCartOpen = useStore(isCartOpen);
+  const $year = useStore(year);
 
-  return (
-    <span>
-      {new Date().getFullYear()} / {JSON.stringify($isCartOpen)}
-    </span>
-  );
+  return <span>{$year}</span>;
 };

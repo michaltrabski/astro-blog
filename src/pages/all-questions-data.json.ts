@@ -1,4 +1,4 @@
-import allQuestionsData from '../data/allQuestionsData';
+import allQuestionsData from "../data/allQuestionsData";
 
 console.log(2222222222222, allQuestionsData);
 

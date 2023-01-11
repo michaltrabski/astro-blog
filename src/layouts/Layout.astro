@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import "../styles/global.css";
 
 export interface Props {
   title?: string;
@@ -41,19 +40,13 @@ const theme: "LIGHT" | "DARK" = "LIGHT";
   >
     <Header />
 
-    
-
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h1>{title}</h1>
+          <slot />
         </div>
       </div>
-
-      <slot />
     </div>
-
-
 
     <Footer />
   </body>

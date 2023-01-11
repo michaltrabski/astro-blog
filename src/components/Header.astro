@@ -1,17 +1,13 @@
 ---
-import {Year} from "../reactComponents/Year.jsx";
+import { Year } from "../reactComponents/Year.jsx";
 import { URLS } from "../urls/urls.ts";
 
 import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
-  
-
-
 ---
 
 <header>
-
   <LoadQuestions client:visible />
-  
+
   <!-- NAVBAR  -->
   <nav
     id="navbar"
@@ -19,9 +15,8 @@ import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
   >
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
-      
         <span>Testy!</span>
-        <Year client:visible/>
+        <Year client:visible />
       </a>
       <div
         class="btn-group"

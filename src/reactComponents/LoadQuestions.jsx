@@ -6,5 +6,5 @@ export default function LoadQuestions() {
     loadQuestions();
   }, []);
 
-  return <div>LoadQuestions</div>;
+  return null;
 }
