@@ -1,6 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+    import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
+ 
 
 export interface Props {
   title?: string;
@@ -49,5 +51,10 @@ const theme: "LIGHT" | "DARK" = "LIGHT";
     </div>
 
     <Footer />
+
+
+
+ 
+  <LoadQuestions client:load />
   </body>
 </html>
