@@ -47,18 +47,23 @@ export const questions = atom<Question[]>([
 ]);
 
 export const loadQuestions = async () => {
-  const data = await fetch('../all-questions-data.json').then((r) => r.json());
-
-  console.log(111111111, data);
-
-  console.log(111111111111, 'loadQuestions');
+  try {
+    const { allQuestionsData } = await fetch('../all-questions-data.json').then(
+      (r) => r.json()
+    );
+    questions.set(allQuestionsData);
+  } catch (err) {
+    console.log('err', err);
+    questions.set([]);
+  }
 
   const questionsFromSessionStorage = [
     { id: 'id1', text: 'question 1.' },
     { id: 'id2', text: 'question 2.' },
     { id: 'id3', text: 'question 3.' },
   ];
-  questions.set(data);
+
+  // questions.set([]);
 };
 
 export const addQuestions = (newQuestions: Question[]) => {

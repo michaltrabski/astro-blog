@@ -1,31 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { useStore } from "@nanostores/react";
-import { addQuestions, questions } from "../store/questions";
+import React, { useEffect, useState } from 'react';
+import { useStore } from '@nanostores/react';
+import { loadQuestions, questions } from '../store/questions';
 
 export default function AllQuestionsData() {
   const $questions = useStore(questions);
 
-  const [count, setCount] = useState(-1);
-
   useEffect(() => {
-    (async () => {
-      const data = await fetch("../all-questions-data.json").then((r) =>
-        r.json()
-      );
+    // loadQuestions();
 
-      // console.log(111111111, data);
-
-      if (data.allQuestionsData) {
-        setCount(data.allQuestionsData.length);
-      }
-
-      // addQuestions([{ id: 'id2', text: 'question 2.' }]);
-    })();
-  }, []);
+    console.log($questions);
+  });
 
   return (
     <div>
-      allqUESTIONSDATA count = {count} ,{JSON.stringify($questions)}
+      <h1>AllQuestionsData aaaaaaaaaaa</h1>
+      <div>
+        {$questions.map((q) => (
+          <p key={q.id}>{q.text}</p>
+        ))}
+      </div>
     </div>
   );
 }

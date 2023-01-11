@@ -4,7 +4,9 @@ import { loadQuestions } from '../store/questions';
 export default function LoadQuestions() {
   useEffect(() => {
     loadQuestions();
-  }, []);
 
-  return null;
+    console.log(1111111);
+  });
+
+  return 'ładuję pytania => LoadQuestions()';
 }
