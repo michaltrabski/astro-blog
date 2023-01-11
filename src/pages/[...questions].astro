@@ -3,16 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
-import { allQuestions } from "../data/data";
+import allQuestionsData from "../data/allQuestionsData";
+
 
 export async function getStaticPaths() {
-  return allQuestions.map((question, index) => {
+  return allQuestionsData.map((question, index) => {
     const newQuestion = {
       ...question,
-      prevId: index > 0 ? allQuestions[index - 1].id : question.id,
+      prevId: index > 0 ? allQuestionsData[index - 1].id : question.id,
       nextId:
-        index < allQuestions.length - 1
-          ? allQuestions[index + 1].id
+        index < allQuestionsData.length - 1
+          ? allQuestionsData[index + 1].id
           : question.id,
     };
 

@@ -47,6 +47,7 @@ export const questions = atom<Question[]>([
 ]);
 
 export const loadQuestions = async () => {
+  console.log('loadQuestions execute');
   try {
     const { allQuestionsData } = await fetch('../all-questions-data.json').then(
       (r) => r.json()

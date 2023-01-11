@@ -6,9 +6,8 @@ export default function LoadQuestions() {
   const $questions = useStore(questions);
 
   useEffect(() => {
+    console.log('loadQuestions called');
     loadQuestions();
-
-    console.log(1111111);
   }, []);
 
   return (
