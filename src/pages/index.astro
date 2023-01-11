@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AllQuestionsData from "../reactComponents/AllQuestionsData.jsx";
+import QuestionsTable from "../reactComponents/QuestionsTable.jsx";
 ---
 
 <Layout>
-  <AllQuestionsData client:visible />
+  <QuestionsTable client:visible />
+  <!-- <AllQuestionsData client:visible /> -->
 </Layout>
