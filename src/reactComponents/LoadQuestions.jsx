@@ -9,7 +9,7 @@ export default function LoadQuestions() {
     loadQuestions();
 
     console.log(1111111);
-  });
+  }, []);
 
   return (
     <div>
