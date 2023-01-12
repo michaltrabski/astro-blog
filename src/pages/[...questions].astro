@@ -7,7 +7,7 @@ import allQuestionsData from "../data/allQuestionsData";
 import { mapAllQuestionsData } from '../utils/utils';
 
 export async function getStaticPaths() {
-  return mapAllQuestionsData(allQuestionsData).map((question, index) => {
+  const d = mapAllQuestionsData(allQuestionsData).map((question, index) => {
     const newQuestion = {
       ...question,
       prevId: index > 0 ? allQuestionsData[index - 1].id : question.id,
@@ -18,10 +18,12 @@ export async function getStaticPaths() {
     };
 
     return {
-      params: { questions: question.id },
+      params: { questions: `kat-b/${question.id}` },
       props: { question: newQuestion },
     };
   });
+
+  return d;
 }
 
 const { question } = Astro.props;
