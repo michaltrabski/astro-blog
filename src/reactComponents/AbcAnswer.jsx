@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
-import { isCartOpen } from '../cartStore';
 
 export default function AbcAnswer(props) {
-  const $isCartOpen = useStore(isCartOpen);
-
   const { question } = props;
   const { a, b, c, correct_answer, prevId, nextId } = question;
 
@@ -20,12 +17,6 @@ export default function AbcAnswer(props) {
 
   return (
     <div>
-      <div>
-        <button onClick={() => isCartOpen.set(!$isCartOpen)}>
-          Cart {JSON.stringify($isCartOpen)}
-        </button>
-      </div>
-
       {possibleAnswers.map((answer) => {
         let btnColor = 'danger';
 

@@ -1,7 +1,7 @@
 import { atom } from 'nanostores';
 import { mapAllQuestionsData } from '../utils/utils';
 
-interface Question {
+export interface Question {
   id: string;
   text: string;
   media: string;
@@ -15,37 +15,12 @@ interface Question {
   score: number;
   is_active: boolean;
   is_video: boolean;
+  slug: string;
 }
 
-export const questions = atom<Question[]>([
-  {
-    id: 'id99',
-    text: 'Czy w tej sytuacji masz obowiązek zatrzymać pojazd?',
-    media: 'AK_D05_06_org',
-    a: '',
-    b: '',
-    c: '',
-    t: 'tak',
-    n: 'nie',
-    correct_answer: 't',
-    question_belongs_to_categories: [
-      'a',
-      'b',
-      'c',
-      'd',
-      't',
-      'am',
-      'a1',
-      'a2',
-      'b1',
-      'c1',
-      'd1',
-    ],
-    score: 3,
-    is_active: true,
-    is_video: true,
-  },
-]);
+export const currentCategory = atom('a');
+
+export const questions = atom<Question[]>([]);
 
 export const loadQuestions = async () => {
   console.log('loadQuestions execute');

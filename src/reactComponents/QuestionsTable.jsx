@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
-import { questions } from '../store/questions';
+import { questions, currentCategory } from '../store/questions';
 
 // interface Props {
 //   x: string;
@@ -8,10 +8,12 @@ import { questions } from '../store/questions';
 
 export default function QuestionsTable(props) {
   const $questions = useStore(questions);
+  const $currentCategory = useStore(currentCategory);
 
   return (
     <div>
       <h1>QuestionsTable:</h1>
+      <p>currentCategory={$currentCategory}</p>
 
       <div class="table-responsive">
         <table class="table table-sm">
