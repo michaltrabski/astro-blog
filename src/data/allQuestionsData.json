@@ -9,19 +9,7 @@
     "t": "tak",
     "n": "nie",
     "correct_answer": "t",
-    "question_belongs_to_categories": [
-      "a",
-      "b",
-      "c",
-      "d",
-      "t",
-      "am",
-      "a1",
-      "a2",
-      "b1",
-      "c1",
-      "d1"
-    ],
+    "question_belongs_to_categories": ["c", "d"],
     "score": 3,
     "is_active": true,
     "is_video": true
@@ -90,19 +78,7 @@
     "t": "tak",
     "n": "nie",
     "correct_answer": "n",
-    "question_belongs_to_categories": [
-      "a",
-      "b",
-      "c",
-      "d",
-      "t",
-      "am",
-      "a1",
-      "a2",
-      "b1",
-      "c1",
-      "d1"
-    ],
+    "question_belongs_to_categories": ["a"],
     "score": 3,
     "is_active": true,
     "is_video": true

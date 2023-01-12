@@ -14,10 +14,10 @@ export default function QuestionsTable(props) {
       <h1>QuestionsTable:</h1>
 
       <div class="table-responsive">
-        <table class="table">
+        <table class="table table-sm">
           <thead>
             <tr>
-              {['#', 'text'].map((headerEl) => (
+              {['#', 'id', 'text', 'cat'].map((headerEl) => (
                 <th scope="col">{headerEl}</th>
               ))}
             </tr>
@@ -26,9 +26,11 @@ export default function QuestionsTable(props) {
             {$questions.map((q, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
+                <td>{q.id}</td>
                 <td>
                   <a href={`/${q.id}`}>{q.text}</a>
                 </td>
+                <td>{q.question_belongs_to_categories.join(',')}</td>
               </tr>
             ))}
           </tbody>
