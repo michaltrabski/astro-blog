@@ -4,10 +4,10 @@ import Card from "../components/Card.astro";
 import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
 import allQuestionsData from "../data/allQuestionsData";
-
+import { mapAllQuestionsData } from '../utils/utils';
 
 export async function getStaticPaths() {
-  return allQuestionsData.map((question, index) => {
+  return mapAllQuestionsData(allQuestionsData).map((question, index) => {
     const newQuestion = {
       ...question,
       prevId: index > 0 ? allQuestionsData[index - 1].id : question.id,

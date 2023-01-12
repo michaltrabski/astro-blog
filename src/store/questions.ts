@@ -1,4 +1,5 @@
 import { atom } from 'nanostores';
+import { mapAllQuestionsData } from '../utils/utils';
 
 interface Question {
   id: string;
@@ -52,7 +53,7 @@ export const loadQuestions = async () => {
     const { allQuestionsData } = await fetch('../all-questions-data.json').then(
       (r) => r.json()
     );
-    questions.set(allQuestionsData);
+    questions.set(mapAllQuestionsData(allQuestionsData));
   } catch (err) {
     console.log('err', err);
     questions.set([]);

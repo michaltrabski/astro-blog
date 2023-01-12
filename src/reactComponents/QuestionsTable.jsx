@@ -35,13 +35,7 @@ export default function QuestionsTable(props) {
         </table>
       </div>
 
-      <div>
-        {$questions.map((q, index) => (
-          <p key={q.id}>
-            {index + 1}. {q.text}
-          </p>
-        ))}
-      </div>
+      <pre>{JSON.stringify($questions[0], null, 2)}</pre>
     </div>
   );
 }
