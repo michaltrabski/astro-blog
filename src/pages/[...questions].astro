@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import YesNoAnswer from "../reactComponents/YesNoAnswer.jsx";
 import AbcAnswer from "../reactComponents/AbcAnswer.jsx";
-import allQuestionsData from "../data/allQuestionsData";
+import allQuestionsData from "../data/allQuestionsDataSlim";
 import { mapAllQuestionsData } from '../utils/utils';
 
 export async function getStaticPaths() {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     };
 
     return {
-      params: { questions: `kat-b/${question.id}` },
+      params: { questions: `${question.id}` },
       props: { question: newQuestion },
     };
   });
