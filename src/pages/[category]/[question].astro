@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+ 
+
+export async function getStaticPaths() {
+  const categories = ["a","b","c1"];
+  const questions = [1,2,3,4,5,6];
+
+  const questionsPerCategories = [];
+
+  categories.forEach(category => {
+      questions.forEach(question => {
+        questionsPerCategories.push({category , question})
+      })
+  })
+
+
+  return questionsPerCategories.map((item, index) => {
+    const {category , question} = item;
+    return {
+      params: { category, question },
+      props: { item },
+    };
+  });
+
+ 
+}
+
+const { category, question } = Astro.params;
+---
+
+<Layout >
+ <h1>Halo tu xxx</h1>
+
+<pre>Astro.props = {JSON.stringify(Astro.props, null,2)}</pre>
+<pre>Astro.params = {JSON.stringify(Astro.params, null,2)}</pre>
+
+<div>
+ 
+{ category  }/{  question }
+
+<a href={`${Astro.url.origin}/${category}/${+question + 1 }`}>{Astro.url.origin}/{category}/{+question + 1 }</a>
+
+<p>----------</p>
+<p>The current URL is: {Astro.url}</p>
+<p>The current URL pathname is: {Astro.url.pathname}</p>
+<p>The current URL origin is: {Astro.url.origin}</p>
+<pre>Astro.url = {JSON.stringify(Astro.url, null,2)}</pre>
+
+</div>
+</Layout>
