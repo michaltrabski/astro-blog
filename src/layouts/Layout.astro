@@ -45,6 +45,10 @@ const theme: "LIGHT" | "DARK" = "LIGHT";
     <div class="container-fluid">
       <div class="row">
         <div class="col">
+        <p>---------------------------</p>
+        {import.meta.env.MODE}
+        {import.meta.env.BASE_URL}
+        <p>---------------------------</p>
           <slot />
         </div>
       </div>
