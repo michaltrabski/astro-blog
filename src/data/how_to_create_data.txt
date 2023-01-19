@@ -1,3 +1,0 @@
-1. Get excel file with questions
-2. Convert it to json
-3. Save json sourceData.json

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useStore } from '@nanostores/react';
+import React, { useEffect, useState } from "react";
+import { useStore } from "@nanostores/react";
 
 export default function AbcAnswer(props) {
   const { question } = props;
@@ -8,9 +8,9 @@ export default function AbcAnswer(props) {
   const [clickedAnswerValue, setClickedAnswerValue] = useState(null);
 
   const possibleAnswers = [
-    { value: 'a', label: a },
-    { value: 'b', label: b },
-    { value: 'c', label: c },
+    { value: "a", label: a },
+    { value: "b", label: b },
+    { value: "c", label: c },
   ];
 
   const correctAnswerValue = correct_answer;
@@ -18,14 +18,14 @@ export default function AbcAnswer(props) {
   return (
     <div>
       {possibleAnswers.map((answer) => {
-        let btnColor = 'danger';
+        let btnColor = "danger";
 
         if (answer.value === correctAnswerValue) {
-          btnColor = 'success';
+          btnColor = "success";
         }
 
         if (!clickedAnswerValue) {
-          btnColor = 'secondary';
+          btnColor = "secondary";
         }
 
         return (
@@ -43,7 +43,7 @@ export default function AbcAnswer(props) {
       })}
 
       <div>
-        <a href={`/${prevId}`}>poprzednie</a>{' '}
+        <a href={`/${prevId}`}>poprzednie</a>{" "}
         <a href={`/${nextId}`}>następne</a>
       </div>
 

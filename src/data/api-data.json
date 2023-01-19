@@ -1,0 +1,208 @@
+[
+  {
+    "id": "id99",
+    "t": "Czy w tej sytuacji masz obowiązek zatrzymać pojazd?",
+    "m": "AK_D05_06_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id100",
+    "t": "Czy w tej sytuacji masz obowiązek zatrzymać pojazd?",
+    "m": "AK_D10_30_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id109",
+    "t": "Czy w przedstawionej sytuacji masz prawo kontynuować jazdę?",
+    "m": "AK_D11_43org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id110",
+    "t": "Czy w przedstawionej sytuacji masz prawo - mimo podawanego sygnału - skręcić w prawo?",
+    "m": "AK_D11_45org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id290",
+    "t": "Jaką odległość należy zachować między jadącymi kolumnami samochodów ciężarowych?",
+    "m": "default.jpg",
+    "right": "b",
+    "cats": ["c"],
+    "s": 3,
+    "a": "Nie mniejszą niż 800 metrów.",
+    "b": "Nie mniejszą niż 500 metrów.",
+    "c": "Nie mniejszą niż 200 metrów."
+  },
+  {
+    "id": "id293",
+    "t": "Kierujesz samochodem ciężarowym. Który z wymienionych czynników jesteś zobowiązany uwzględnić, aby zachować bezpieczny odstęp od poprzedzającego pojazdu?",
+    "m": "default.jpg",
+    "right": "a",
+    "cats": ["c"],
+    "s": 3,
+    "a": "Prędkość pojazdów.",
+    "b": "Moc silnika.",
+    "c": "Szerokość pojazdów."
+  },
+  {
+    "id": "id352",
+    "t": "Czy na jezdni oznaczonej tym znakiem wolno Ci zawrócić?",
+    "m": "IMG_4251orgbm.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id469",
+    "t": "Czy w tej sytuacji powinieneś oczekiwać, że następnym sygnałem będzie światło zielone?",
+    "m": "3106D15_a_org.jpg",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id475",
+    "t": "Czy w tej sytuacji wolno Ci skręcić w prawo bez zatrzymania się przed sygnalizatorem?",
+    "m": "0118D14MM_a_org.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id477",
+    "t": "Czy w tej sytuacji sygnał świetlny nadawany dla Twojego pasa ruchu zezwala Ci na zawracanie?",
+    "m": "2064D14MM_a_org.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id478",
+    "t": "Czy w tej sytuacji nadawany sygnał świetlny oznacza, że podczas jazdy w prawo nie występuje kolizja z innymi uczestnikami ruchu?",
+    "m": "066D16_a_org.jpg",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id480",
+    "t": "Czy w tej sytuacji nadawany sygnał świetlny zezwala Ci na wjazd za sygnalizator?",
+    "m": "IMG_0325_9550d5_a_org.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id486",
+    "t": "Czy w tej sytuacji wolno Ci skręcić w prawo, jeśli nie spowodujesz tym utrudnienia ruchu?",
+    "m": "0084D18_a_org.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 3
+  },
+  {
+    "id": "id544",
+    "t": "Czy w tej sytuacji wolno Ci zmienić zajmowany pas ruchu, gdy zamierzasz jechać na wprost?",
+    "m": "IMG_9324_org.jpg",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id589",
+    "t": "Czy na tej drodze możesz spodziewać się rowerzystów nadjeżdżających z przeciwka?",
+    "m": "4152D15Xorg.jpg",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id591",
+    "t": "Czy w tej sytuacji wolno Ci wjechać na pas ruchu po lewej stronie?",
+    "m": "4170D15_a_org.jpg",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id595",
+    "t": "Czy ten znak poziomy wyznacza miejsce bezwzględnego zatrzymania się, nawet w sytuacji, gdy z żadnej ze stron nie nadjeżdża pojazd?",
+    "m": "D16_01_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id599",
+    "t": "Czy w tej sytuacji widoczna linia przerywana wyznacza Ci miejsce zatrzymania w związku ze znakiem \"stop\"?",
+    "m": "D16_05_org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id600",
+    "t": "Czy ta linia ciągła wyznacza Ci miejsce zatrzymania pojazdu w związku ze znakiem \"stop\"?",
+    "m": "D16_06_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id610",
+    "t": "Zamierzasz zawrócić na tym skrzyżowaniu. Czy zajmujesz właściwy pas ruchu?",
+    "m": "MM_D14_15_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id612",
+    "t": "Skręcasz w lewo na skrzyżowaniu. Czy po wjechaniu na jezdnię poprzeczną znaki poziome pozwalają Ci zająć pas ruchu przy prawej krawędzi jezdni?",
+    "m": "MM_D14_17_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id617",
+    "t": "Czy w tym miejscu wolno Ci skręcić w lewo i wjechać na stację paliw?",
+    "m": "MM_D14_24_org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id621",
+    "t": "Czy widoczna linia złożona z trójkątów wskazuje Ci miejsce zatrzymania pojazdu w celu ustąpienia pierwszeństwa?",
+    "m": "MM_D14_29_org.mp4",
+    "right": "t",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id623",
+    "t": "Czy w tym miejscu możesz skręcić w lewo, na parking?",
+    "m": "MM_D14_34_org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  },
+  {
+    "id": "id624",
+    "t": "Zamierzasz odpocząć. Czy w tym miejscu możesz skręcić w lewo, na parking?",
+    "m": "MM_D14_38_org.mp4",
+    "right": "n",
+    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "s": 1
+  }
+]

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
+
 import { questions, currentCategory } from "../store/questions";
 
 // interface Props {
@@ -15,11 +16,13 @@ export default function QuestionsTable() {
       <h1>QuestionsTable:</h1>
       <p>currentCategory={$currentCategory}</p>
 
+      {/* <pre>{JSON.stringify($questions[0], null, 3)}</pre> */}
+
       <div className="table-responsive">
         <table className="table table-sm">
           <thead>
             <tr>
-              {["#", "id", "text", "cat"].map((headerEl) => (
+              {["#", "id", "slug", "text", "cat"].map((headerEl) => (
                 <th scope="col">{headerEl}</th>
               ))}
             </tr>
@@ -28,11 +31,11 @@ export default function QuestionsTable() {
             {$questions.map((q, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{q.id}</td>
+                <td>{q.id}</td> <td>{q.id}</td>
                 <td>
                   <a href={`/${q.id}`}>{q.text}</a>
                 </td>
-                <td>{q.question_belongs_to_categories.join(",")}</td>
+                <td>{q.categories.join(",")}</td>
               </tr>
             ))}
           </tbody>

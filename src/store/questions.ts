@@ -1,16 +1,14 @@
-import { atom } from 'nanostores';
-import { mapAllQuestionsData } from '../utils/utils';
+import { atom } from "nanostores";
+import { mapApiData } from "../utils/utils";
 
- 
-
-export interface QuestionSlim {
+export interface ApiDataItem {
   id: string;
   t: string;
   m: string;
   a?: string;
   b?: string;
   c?: string;
-   right: string;
+  right: string;
   cats: string[];
   s: number;
 }
@@ -22,40 +20,34 @@ export interface Question {
   a: string;
   b: string;
   c: string;
-  correct_answer: string;
-  question_belongs_to_categories: string[];
+  correctAnswer: string;
+  categories: string[];
   score: number;
-  is_video: boolean;
-  slug: string;
+  isVideo: boolean;
 }
 
-export const currentCategory = atom('a');
+export interface QuestionPageData extends Question {
+  slug: string;
+  category: string;
+  prevSlug: string;
+  nextSlug: string;
+}
+
+export const currentCategory = atom("a");
 
 export const questions = atom<Question[]>([]);
 
 export const loadQuestions = async () => {
-  
   try {
-    const  allQuestionsDataSlim: QuestionSlim[]  = await fetch('../all-questions-data-slim.json').then(
-      (r) => r.json()
-    );
+    const fetchResponse = await fetch("../api.json") 
+    const  apiData: ApiDataItem[] = await fetchResponse.json();
+ 
 
-    console.log('loadQuestions execute allQuestionsDataSlim',allQuestionsDataSlim);
-
-
-    questions.set(mapAllQuestionsData(allQuestionsDataSlim));
+    questions.set(mapApiData(apiData));
   } catch (err) {
-    console.log('err', err);
+    console.log("err", err);
     questions.set([]);
   }
-
-  // const questionsFromSessionStorage = [
-  //   { id: 'id1', text: 'question 1.' },
-  //   { id: 'id2', text: 'question 2.' },
-  //   { id: 'id3', text: 'question 3.' },
-  // ];
-
-  // questions.set([]);
 };
 
 export const addQuestions = (newQuestions: Question[]) => {

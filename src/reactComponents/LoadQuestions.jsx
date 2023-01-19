@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { useStore } from '@nanostores/react';
-import { loadQuestions, questions } from '../store/questions';
+import React, { useEffect } from "react";
+import { useStore } from "@nanostores/react";
+import { loadQuestions, questions } from "../store/questions";
 
 export default function LoadQuestions() {
   const $questions = useStore(questions);
 
   useEffect(() => {
-    console.log('loadQuestions called');
+    console.log("loadQuestions called");
     loadQuestions();
   }, []);
 

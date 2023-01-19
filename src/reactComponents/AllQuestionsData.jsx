@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useStore } from '@nanostores/react';
-import { questions } from '../store/questions';
+import React, { useEffect, useState } from "react";
+import { useStore } from "@nanostores/react";
+import { questions } from "../store/questions";
 
 export default function AllQuestionsData() {
   const $questions = useStore(questions);
