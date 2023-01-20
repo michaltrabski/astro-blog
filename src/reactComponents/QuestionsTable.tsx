@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
 import { questions, currentCategory } from "../store/questions";
-import { createQuestionUrl } from "../utils/utils";
+import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
 // interface Props {
 //   x: string;
@@ -33,9 +33,9 @@ export default function QuestionsTable() {
               <tr>
                 <th scope="row">{index + 1}</th>
                 <td>{q.id}</td>
-                <td>{createQuestionUrl(q.id)}</td>
+                <td>{getFullUrl(createQuestionUrl(q.id))}</td>
                 <td>
-                  <a href={createQuestionUrl(q.id)}>{q.text}</a>
+                  <a href={getFullUrl(createQuestionUrl(q.id))}>{q.text}</a>
                 </td>
                 <td>{q.categories.join(",")}</td>
               </tr>

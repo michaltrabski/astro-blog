@@ -20,5 +20,18 @@ export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
 };
 
 export const createQuestionUrl = (questionId: string) => {
-  return `to-jest-url-${questionId}`;
+
+ 
+  return  `to-jest-url-${questionId}`;
 }
+
+export const getFullUrl = (url: string) => {
+
+  //   import.meta.env.MODE 
+  // import.meta.env.PROD 
+  // import.meta.env.DEV
+  
+  const domain = import.meta.env.MODE === "development" ? "http://127.0.0.1:3000" : "https://poznaj-testy-astro.netlify.app";
+  
+    return domain + "/" + url;
+  }

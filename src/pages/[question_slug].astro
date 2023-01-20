@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
-import { createQuestionUrl, mapApiData } from "../utils/utils";
+import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/questions";
 
 export async function getStaticPaths() {
@@ -10,8 +10,8 @@ export async function getStaticPaths() {
       ...q,
       slug: createQuestionUrl(q.id),
       category: "b",
-      prevSlug: index === 0 ? createQuestionUrl(q.id) : createQuestionUrl(apiData[index - 1].id),
-      nextSlug: index === apiData.length - 1 ? createQuestionUrl(q.id) : createQuestionUrl(apiData[index + 1].id),
+      prevSlug: index === 0 ? getFullUrl(createQuestionUrl(q.id)) : getFullUrl(createQuestionUrl(apiData[index - 1].id)),
+      nextSlug: index === apiData.length - 1 ? getFullUrl(createQuestionUrl(q.id)) : getFullUrl(createQuestionUrl(apiData[index + 1].id)),
     };
 
     return {
