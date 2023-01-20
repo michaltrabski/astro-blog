@@ -1,17 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
-import { mapApiData } from "../utils/utils";
+import { createQuestionUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/questions";
 
 export async function getStaticPaths() {
   return mapApiData(apiData as ApiDataItem[]).map((q, index) => {
     const questionPageData: QuestionPageData = {
       ...q,
-      slug: q.id,
+      slug: createQuestionUrl(q.id),
       category: "b",
-      prevSlug: index === 0 ? q.id : apiData[index - 1].id,
-      nextSlug: index === apiData.length - 1 ? q.id : apiData[index + 1].id,
+      prevSlug: index === 0 ? createQuestionUrl(q.id) : createQuestionUrl(apiData[index - 1].id),
+      nextSlug: index === apiData.length - 1 ? createQuestionUrl(q.id) : createQuestionUrl(apiData[index + 1].id),
     };
 
     return {
@@ -21,12 +21,13 @@ export async function getStaticPaths() {
   });
 }
 
-const { id, text, prevSlug, nextSlug } = Astro.props.questionPageData;
+const { id, text,category, prevSlug, nextSlug } = Astro.props.questionPageData;
 ---
 
 <Layout>
   <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
-  <h1>{id}. {text}</h1>
+  <h2>Kategoria: <strong>{category}</strong>, id: {id}</h2>
+  <h1>{text}</h1>
 
   <pre>{JSON.stringify( Astro.params, null,2)}</pre>
   <pre>{JSON.stringify( Astro.props, null,2)}</pre>

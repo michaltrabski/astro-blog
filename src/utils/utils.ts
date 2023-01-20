@@ -18,3 +18,7 @@ export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
     return newQuestion;
   });
 };
+
+export const createQuestionUrl = (questionId: string) => {
+  return `to-jest-url-${questionId}`;
+}

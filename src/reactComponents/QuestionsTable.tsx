@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
 import { questions, currentCategory } from "../store/questions";
+import { createQuestionUrl } from "../utils/utils";
 
 // interface Props {
 //   x: string;
@@ -31,9 +32,10 @@ export default function QuestionsTable() {
             {$questions.map((q, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{q.id}</td> <td>{q.id}</td>
+                <td>{q.id}</td>
+                <td>{createQuestionUrl(q.id)}</td>
                 <td>
-                  <a href={`/${q.id}`}>{q.text}</a>
+                  <a href={createQuestionUrl(q.id)}>{q.text}</a>
                 </td>
                 <td>{q.categories.join(",")}</td>
               </tr>
