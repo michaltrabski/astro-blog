@@ -39,9 +39,8 @@ export const questions = atom<Question[]>([]);
 
 export const loadQuestions = async () => {
   try {
-    const fetchResponse = await fetch("../api.json") 
-    const  apiData: ApiDataItem[] = await fetchResponse.json();
- 
+    const fetchResponse = await fetch("../api.json");
+    const apiData: ApiDataItem[] = await fetchResponse.json();
 
     questions.set(mapApiData(apiData));
   } catch (err) {

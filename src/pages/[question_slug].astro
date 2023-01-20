@@ -10,8 +10,14 @@ export async function getStaticPaths() {
       ...q,
       slug: createQuestionUrl(q.id),
       category: "b",
-      prevSlug: index === 0 ? getFullUrl(createQuestionUrl(q.id)) : getFullUrl(createQuestionUrl(apiData[index - 1].id)),
-      nextSlug: index === apiData.length - 1 ? getFullUrl(createQuestionUrl(q.id)) : getFullUrl(createQuestionUrl(apiData[index + 1].id)),
+      prevSlug:
+        index === 0
+          ? getFullUrl(createQuestionUrl(q.id))
+          : getFullUrl(createQuestionUrl(apiData[index - 1].id)),
+      nextSlug:
+        index === apiData.length - 1
+          ? getFullUrl(createQuestionUrl(q.id))
+          : getFullUrl(createQuestionUrl(apiData[index + 1].id)),
     };
 
     return {
@@ -21,7 +27,7 @@ export async function getStaticPaths() {
   });
 }
 
-const { id, text,category, prevSlug, nextSlug } = Astro.props.questionPageData;
+const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
 ---
 
 <Layout>
