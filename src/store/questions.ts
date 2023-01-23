@@ -29,11 +29,16 @@ export interface Question {
 export interface QuestionPageData extends Question {
   slug: string;
   category: string;
-  prevSlug: string;
-  nextSlug: string;
+  prevSlug: string | null;
+  nextSlug: string | null;
 }
 
 export const currentCategory = atom("a");
+
+// change current category
+export const changeCategory = (newCategory: string) => {
+  currentCategory.set(newCategory);
+};
 
 export const questions = atom<Question[]>([]);
 

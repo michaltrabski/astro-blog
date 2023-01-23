@@ -5,22 +5,21 @@ import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/questions";
 
 export async function getStaticPaths() {
-  const category = "b"
-
+  const category = "b";
 
   return mapApiData(apiData as ApiDataItem[]).map((q, index) => {
     const questionPageData: QuestionPageData = {
       ...q,
-      slug: createQuestionUrl(q.id,category),
+      slug: createQuestionUrl(q.id, category),
       category,
       prevSlug:
         index === 0
-          ? getFullUrl(createQuestionUrl(q.id,category))
-          : getFullUrl(createQuestionUrl(apiData[index - 1].id,category)),
+          ? getFullUrl(createQuestionUrl(q.id, category))
+          : getFullUrl(createQuestionUrl(apiData[index - 1].id, category)),
       nextSlug:
         index === apiData.length - 1
-          ? getFullUrl(createQuestionUrl(q.id,category))
-          : getFullUrl(createQuestionUrl(apiData[index + 1].id,category)),
+          ? getFullUrl(createQuestionUrl(q.id, category))
+          : getFullUrl(createQuestionUrl(apiData[index + 1].id, category)),
     };
 
     return {

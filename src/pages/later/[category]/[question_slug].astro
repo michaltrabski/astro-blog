@@ -7,51 +7,35 @@ import type { ApiDataItem, QuestionPageData } from "../../store/questions";
 export async function getStaticPaths() {
   const categories = ["a", "c", "c1", "d1"];
 
-  
-
   const arrayToGeneratePages: any[] = [];
 
-  categories.forEach((category) => { 
-    const arrayToGeneratePagesPerCategory =  mapApiData(apiData as ApiDataItem[])
-    .filter((q) => q.categories.includes(category))
-    .map((q, index) => {
-    const questionPageData: QuestionPageData = {
-      ...q,
-      slug: createQuestionUrl(q.id,category),
-      category,
-      prevSlug:
-        index === 0
-          ? getFullUrl(createQuestionUrl(q.id,category))
-          : getFullUrl(createQuestionUrl(apiData[index - 1].id,category)),
-      nextSlug:
-        index === apiData.length - 1
-          ? getFullUrl(createQuestionUrl(q.id,category))
-          : getFullUrl(createQuestionUrl(apiData[index + 1].id,category)),
-    };
+  categories.forEach((category) => {
+    const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
+      .filter((q) => q.categories.includes(category))
+      .map((q, index) => {
+        const questionPageData: QuestionPageData = {
+          ...q,
+          slug: createQuestionUrl(q.id, category),
+          category,
+          prevSlug:
+            index === 0
+              ? getFullUrl(createQuestionUrl(q.id, category))
+              : getFullUrl(createQuestionUrl(apiData[index - 1].id, category)),
+          nextSlug:
+            index === apiData.length - 1
+              ? getFullUrl(createQuestionUrl(q.id, category))
+              : getFullUrl(createQuestionUrl(apiData[index + 1].id, category)),
+        };
 
- 
-
-    return {
-      params: {category, question_slug: createQuestionUrl(q.id,"b") },
-      props: { questionPageData },
-    };
-   
-
-  });
-  arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
-
-
-
-    
+        return {
+          params: { category, question_slug: createQuestionUrl(q.id, "b") },
+          props: { questionPageData },
+        };
+      });
+    arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
-
-
- 
-
- return arrayToGeneratePages
- 
-  
+  return arrayToGeneratePages;
 }
 
 const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
@@ -65,9 +49,6 @@ const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
   <pre>{JSON.stringify( Astro.params, null,2)}</pre>
   <pre>{JSON.stringify( Astro.props, null,2)}</pre>
 </Layout>
-
-
-
 
 <!-- ---
 import Layout from "../../layouts/Layout.astro";

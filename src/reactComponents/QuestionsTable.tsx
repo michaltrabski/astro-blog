@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
-import { questions, currentCategory } from "../store/questions";
+import { questions, currentCategory,changeCategory } from "../store/questions";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
 // interface Props {
@@ -12,28 +12,26 @@ export default function QuestionsTable() {
   const $questions = useStore(questions);
   const $currentCategory = useStore(currentCategory);
 
-  const questionKeys = Object.keys(
-    $questions.length > 0 ? $questions[0] : []
-  );
+  const questionKeys = Object.keys($questions.length > 0 ? $questions[0] : []);
 
   return (
     <div>
       <h1>QuestionsTable:</h1>
       <p>currentCategory={$currentCategory}</p>
+      <div>
+        {[..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")].map(category => <button className={`btn me-2 btn-${category === $currentCategory ? "primary" : "secondary"}`} onClick={() => changeCategory(category)}>{category}</button>)}
+      </div>
 
       {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre>
       <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
- 
-{$questions.length > 0 && 
 
-      <p><a href={getFullUrl(createQuestionUrl($questions[0].id))}>{$questions[0].id}</a></p>
-}
+
 
       <div className="table-responsive">
         <table className="table table-sm">
           <thead>
             <tr>
-              {questionKeys.map((questionKey) => (
+              {["url", ...questionKeys].map((questionKey) => (
                 <th scope="col">{questionKey}</th>
               ))}
             </tr>
@@ -42,45 +40,39 @@ export default function QuestionsTable() {
             {$questions.map((question, index) => {
               const questionValues = Object.values(question);
 
+              return (
+                <tr>
+                  {["url", ...questionValues].map((questionValue, index) => {
+                    if (index === 0) {
+                      return (
+                        <td>
+                          <a
+                            href={getFullUrl(
+                              createQuestionUrl(question.id, $currentCategory)
+                            )}
+                          >
+                            {getFullUrl(
+                              createQuestionUrl(question.id, $currentCategory)
+                            )}
+                          </a>
+                        </td>
+                      );
+                    }
 
+                    if (typeof questionValue === "string") {
+                      return <td>{questionValue}</td>;
+                    }
 
-              return <tr>
-              {questionValues.map((questionValue) => {
+                    if (Array.isArray(questionValue)) {
+                      return <td>{questionValue.join(",")}</td>;
+                    }
 
-                if (typeof questionValue === 'string') {
-                  return <td>{questionValue}</td>
-                } 
-                
-                if (Array.isArray(questionValue)) {
-                  return <td>{questionValue.join(",")}</td>
-                } 
-                
-                
-                  return <td>{JSON.stringify(questionValue)}</td>
-               
-              })}
-            </tr>
-
-
-
-            //   return <tr>
-            //   <th scope="row">
-            //     <pre>{JSON.stringify(questionValues, null, 2)}</pre>
-            //   </th>
-            //   <td>{question.id}</td>
-            //   <td>{getFullUrl(createQuestionUrl(question.id))}</td>
-            //   <td>
-            //     <a href={getFullUrl(createQuestionUrl(question.id))}>
-            //       {question.text}
-            //     </a>
-            //   </td>
-            //   <td>{question.categories.join(",")}</td>
-            // </tr>
-          
-          
-          
-          
-          })}
+                    return <td>{JSON.stringify(questionValue)}</td>;
+                  })}
+                </tr>
+              );
+ 
+            })}
           </tbody>
         </table>
       </div>
