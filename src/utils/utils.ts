@@ -19,8 +19,14 @@ export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
   });
 };
 
-export const createQuestionUrl = (questionId: string) => {
-  return `${questionId}`;
+export const createQuestionUrl = (questionId: string, category: string) => {
+
+  if (category === "b") {
+    return `${questionId}`;
+
+  }
+
+  return `${category}/${questionId}`;
 };
 
 export const getFullUrl = (url: string) => {

@@ -1,0 +1,121 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import apiData from "../../data/api-data";
+import { createQuestionUrl, getFullUrl, mapApiData } from "../../utils/utils";
+import type { ApiDataItem, QuestionPageData } from "../../store/questions";
+
+export async function getStaticPaths() {
+  const categories = ["a", "c", "c1", "d1"];
+
+  
+
+  const arrayToGeneratePages: any[] = [];
+
+  categories.forEach((category) => { 
+    const arrayToGeneratePagesPerCategory =  mapApiData(apiData as ApiDataItem[])
+    .filter((q) => q.categories.includes(category))
+    .map((q, index) => {
+    const questionPageData: QuestionPageData = {
+      ...q,
+      slug: createQuestionUrl(q.id,category),
+      category,
+      prevSlug:
+        index === 0
+          ? getFullUrl(createQuestionUrl(q.id,category))
+          : getFullUrl(createQuestionUrl(apiData[index - 1].id,category)),
+      nextSlug:
+        index === apiData.length - 1
+          ? getFullUrl(createQuestionUrl(q.id,category))
+          : getFullUrl(createQuestionUrl(apiData[index + 1].id,category)),
+    };
+
+ 
+
+    return {
+      params: {category, question_slug: createQuestionUrl(q.id,"b") },
+      props: { questionPageData },
+    };
+   
+
+  });
+  arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
+
+
+
+    
+  });
+
+
+
+ 
+
+ return arrayToGeneratePages
+ 
+  
+}
+
+const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
+---
+
+<Layout>
+  <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
+  <h2>Kategoria: <strong>{category}</strong>, id: {id}</h2>
+  <h1>{text}</h1>
+
+  <pre>{JSON.stringify( Astro.params, null,2)}</pre>
+  <pre>{JSON.stringify( Astro.props, null,2)}</pre>
+</Layout>
+
+
+
+
+<!-- ---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const categories = ["a", "b", "c1"];
+  const questions = [1, 2, 3, 4, 5, 6, 7];
+
+  const questionsPerCategories: { category: string; question: number }[] = [];
+
+  categories.forEach((category) => {
+    questions.forEach((question) => {
+      questionsPerCategories.push({ category, question });
+    });
+  });
+
+  return questionsPerCategories.map((item, index) => {
+    const { category, question } = item;
+    return {
+      params: { category, question },
+      props: { item },
+    };
+  });
+}
+
+const { category } = Astro.params;
+const question = Astro.params.question ? +Astro.params.question : null;
+---
+
+{
+  question && (
+    <Layout>
+      <h1>Halo tu xxx</h1>
+
+      <pre>Astro.props = {JSON.stringify(Astro.props, null, 2)}</pre>
+      <pre>Astro.params = {JSON.stringify(Astro.params, null, 2)}</pre>
+
+      <div>
+        {category}/{question}
+        <a href={`${Astro.url.origin}/${category}/${question + 1}`}>
+          {Astro.url.origin}/{category}/{question + 1}
+        </a>
+        <p>----------</p>
+        <p>The current URL is: {Astro.url}</p>
+        <p>The current URL pathname is: {Astro.url.pathname}</p>
+        <p>The current URL origin is: {Astro.url.origin}</p>
+        <pre>Astro.url = {JSON.stringify(Astro.url, null, 2)}</pre>
+      </div>
+    </Layout>
+  )
+} -->
