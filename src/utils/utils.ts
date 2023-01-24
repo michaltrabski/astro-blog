@@ -1,3 +1,4 @@
+import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, SESSION_STORAGE_KEY } from "../settings/settings";
 import type { Question, ApiDataItem } from "../store/questions";
 
 export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
@@ -39,3 +40,20 @@ export const getFullUrl = (url: string) => {
 
   return domain + "/" + url;
 };
+
+export const getCurrentCategoryInitialValue = () => {
+  try {
+    const currentCategory = sessionStorage.getItem(SESSION_STORAGE_KEY.CURRENT_CATEGORY) || DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    return currentCategory;
+  } catch (err) {
+    return DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+  }
+};
+
+export const sessionStorageSetStringItem = (key: string, value: string) => {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch (err) {
+    console.log("err", err);
+  }
+}

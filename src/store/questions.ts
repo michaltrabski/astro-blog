@@ -1,5 +1,8 @@
 import { atom } from "nanostores";
-import { mapApiData } from "../utils/utils";
+import { SESSION_STORAGE_KEY } from "../settings/settings";
+
+
+import { getCurrentCategoryInitialValue, mapApiData, sessionStorageSetStringItem } from "../utils/utils";
 
 export interface ApiDataItem {
   id: string;
@@ -33,11 +36,16 @@ export interface QuestionPageData extends Question {
   nextSlug: string | null;
 }
 
-export const currentCategory = atom("a");
+
+
+
+
+export const currentCategory = atom(getCurrentCategoryInitialValue());
 
 // change current category
 export const changeCategory = (newCategory: string) => {
   currentCategory.set(newCategory);
+  sessionStorageSetStringItem(SESSION_STORAGE_KEY.CURRENT_CATEGORY, newCategory);
 };
 
 export const questions = atom<Question[]>([]);

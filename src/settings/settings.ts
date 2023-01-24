@@ -1,0 +1,5 @@
+export const DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE = "b";
+
+export const SESSION_STORAGE_KEY = {
+    CURRENT_CATEGORY: "CURRENT_CATEGORY",
+} as const;
