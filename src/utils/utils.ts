@@ -1,4 +1,7 @@
-import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, SESSION_STORAGE_KEY } from "../settings/settings";
+import {
+  DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
+  SESSION_STORAGE_KEY,
+} from "../settings/settings";
 import type { Question, ApiDataItem } from "../store/questions";
 
 export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
@@ -43,17 +46,48 @@ export const getFullUrl = (url: string) => {
 
 export const getCurrentCategoryInitialValue = () => {
   try {
-    const currentCategory = sessionStorage.getItem(SESSION_STORAGE_KEY.CURRENT_CATEGORY) || DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    const currentCategory =
+      sessionStorage.getItem(SESSION_STORAGE_KEY.CURRENT_CATEGORY) ||
+      DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
     return currentCategory;
   } catch (err) {
     return DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
   }
 };
 
-export const sessionStorageSetStringItem = (key: string, value: string) => {
+export const getApiDataFromSessionStorage = () => {
   try {
-    sessionStorage.setItem(key, value);
+    const apiData = sessionStorage.getItem(SESSION_STORAGE_KEY.API_DATA);
+
+    if (apiData) {
+      return JSON.parse(apiData) as ApiDataItem[];
+    }
+
+    return null;
+  } catch (err) {
+    return null;
+  }
+};
+
+export const sessionStorageSetStringItem = (
+  key: string,
+  stringValue: string
+) => {
+  try {
+    if (typeof stringValue === "string") {
+      sessionStorage.setItem(key, stringValue);
+    }
   } catch (err) {
     console.log("err", err);
   }
-}
+};
+
+export const sessionStorageSetArrayItem = (key: string, arr: any[]) => {
+  try {
+    if (arr instanceof Array) {
+      sessionStorage.setItem(key, JSON.stringify(arr));
+    }
+  } catch (err) {
+    console.log("err", err);
+  }
+};

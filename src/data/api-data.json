@@ -20,7 +20,7 @@
     "t": "Czy w przedstawionej sytuacji masz prawo kontynuować jazdę?",
     "m": "AK_D11_43org.mp4",
     "right": "n",
-    "cats": ["z"],
+    "cats": ["X"],
     "s": 3
   },
   {
@@ -58,7 +58,7 @@
     "t": "Czy na jezdni oznaczonej tym znakiem wolno Ci zawrócić?",
     "m": "IMG_4251orgbm.jpg",
     "right": "n",
-    "cats": ["a", "b", "c", "d", "t", "am", "a1", "a2", "b1", "c1", "d1"],
+    "cats": [],
     "s": 1
   },
   {
