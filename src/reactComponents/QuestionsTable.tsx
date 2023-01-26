@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
-import { questions, currentCategory, changeCategory } from "../store/questions";
+import { questions, currentCategory, changeCategory,_categories } from "../store/questions";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
  
 
 export default function QuestionsTable() {
   const $questions = useStore(questions);
+  const categories = useStore(_categories);
   const $currentCategory = useStore(currentCategory);
 
   const questionsFilteredByCurrentCategory = $questions.filter((question) =>
@@ -23,9 +24,9 @@ export default function QuestionsTable() {
   return (
     <div>
       <h1>QuestionsTable:</h1>
-      <p>currentCategory={$currentCategory}</p>
+ 
       <div>
-        {[..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")].map((category) => (
+        {categories.map((category) => (
           <button
             className={`btn me-2 btn-${
               category === $currentCategory ? "primary" : "secondary"
@@ -37,42 +38,35 @@ export default function QuestionsTable() {
         ))}
       </div>
 
-      {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre>
-      <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
 
       <div className="table-responsive">
         <table className="table table-sm">
           <thead>
             <tr>
-              {["url", ...questionKeys].map((questionKey) => (
+              {questionKeys.map((questionKey) => (
                 <th scope="col">{questionKey}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {questionsFilteredByCurrentCategory.map((question, index) => {
+              
               const questionValues = Object.values(question);
 
               return (
                 <tr>
-                  {["url", ...questionValues].map((questionValue, index) => {
-                    if (index === 0) {
-                      return (
-                        <td>
-                          <a
-                            href={getFullUrl(
-                              createQuestionUrl(question.id, $currentCategory)
-                            )}
-                          >
-                            {getFullUrl(
-                              createQuestionUrl(question.id, $currentCategory)
-                            )}
-                          </a>
-                        </td>
-                      );
-                    }
+                  {questionValues.map((questionValue, index) => {
+                    const questionKey = questionKeys[index]
+                     
 
                     if (typeof questionValue === "string") {
+
+                      if (questionKey === "text") {
+                       return  <td><a href={getFullUrl(createQuestionUrl(question.id, $currentCategory))}>{questionValue}</a></td>
+                      }
+
                       return <td>{questionValue}</td>;
                     }
 

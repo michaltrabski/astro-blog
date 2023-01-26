@@ -2,6 +2,6 @@ import apiData from "../data/api-data";
 
 export async function get({ params, request }) {
   return {
-    body: JSON.stringify(apiData),
+    body: JSON.stringify(apiData.slice(0, 10)),
   };
 }
