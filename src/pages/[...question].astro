@@ -47,17 +47,20 @@ export async function getStaticPaths() {
       };
     }
   );
+  
 
-  arrayToGeneratePagesWithPrevNext.map((page, index) => {
-    console.log(
-      index,
-      page.props.questionPageData.slug,
-      page.props.questionPageData.prevSlug,
-      page.props.questionPageData.nextSlug
-    );
 
-    return page;
-  });
+  // console log makes build long ?? 
+  // arrayToGeneratePagesWithPrevNext.map((page, index) => {
+  //   console.log(
+  //     index,
+  //     page.props.questionPageData.slug,
+  //     page.props.questionPageData.prevSlug,
+  //     page.props.questionPageData.nextSlug
+  //   );
+
+  //   return page;
+  // });
 
   return arrayToGeneratePagesWithPrevNext;
 }
