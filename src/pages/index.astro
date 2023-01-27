@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Auth from "../reactComponents/Auth";
 import QuestionsTable from "../reactComponents/QuestionsTable";
 ---
 
 <Layout>
+  <Auth client:visible />
   <QuestionsTable client:visible />
 </Layout>

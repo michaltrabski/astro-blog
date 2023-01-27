@@ -34,7 +34,7 @@
   {
     "id": "id290",
     "t": "Jaką odległość należy zachować między jadącymi kolumnami samochodów ciężarowych?",
-    
+
     "right": "b",
     "cats": ["c"],
     "s": 3,
@@ -45,7 +45,7 @@
   {
     "id": "id293",
     "t": "Kierujesz samochodem ciężarowym. Który z wymienionych czynników jesteś zobowiązany uwzględnić, aby zachować bezpieczny odstęp od poprzedzającego pojazdu?",
-    
+
     "right": "a",
     "cats": ["c"],
     "s": 3,
@@ -2080,7 +2080,7 @@
   {
     "id": "id1864",
     "t": "Jakiej kategorii prawo jazdy jest wymagane, gdy chcesz kierować czterokołowcem innym niż lekki?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 1,
@@ -2091,7 +2091,7 @@
   {
     "id": "id1866",
     "t": "Który z obowiązków dotyczy właściciela samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 1,
@@ -2102,7 +2102,7 @@
   {
     "id": "id1876",
     "t": "Kiedy powinieneś sprawdzać ciśnienie w ogumieniu samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2113,7 +2113,7 @@
   {
     "id": "id1877",
     "t": "W jaki sposób wolno Ci przewozić ładunek w przyczepie ciągniętej przez samochód osobowy?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -2124,7 +2124,7 @@
   {
     "id": "id1878",
     "t": "W jaki sposób przewieziesz ładunek w przyczepie ciągniętej przez samochód osobowy?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2135,7 +2135,7 @@
   {
     "id": "id1879",
     "t": "Jak przewieziesz ładunek sypki w przyczepie ciągniętej przez samochód osobowy?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -2146,7 +2146,7 @@
   {
     "id": "id1880",
     "t": "Jak powinieneś zabezpieczyć urządzenie, którym zamocowałeś ładunek w przyczepie ciągniętej przez samochód osobowy?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2157,7 +2157,7 @@
   {
     "id": "id1881",
     "t": "W jaki sposób powinien być umieszczony ładunek na samochodzie osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -2168,7 +2168,7 @@
   {
     "id": "id1882",
     "t": "Jak umieścisz bagaż w samochodzie osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2179,7 +2179,7 @@
   {
     "id": "id1883",
     "t": "W jaki sposób umieścisz ładunek na przyczepie samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2190,7 +2190,7 @@
   {
     "id": "id1888",
     "t": "Czego nie możesz robić kierując samochodem osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -2217,7 +2217,7 @@
   {
     "id": "id1905",
     "t": "Który z wymienionych sposobów przewożenia gaśnicy w samochodzie osobowym jest właściwy?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -2228,7 +2228,7 @@
   {
     "id": "id2025",
     "t": "Jaki jest cel stosowania układu ASR w samochodzie osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -2239,7 +2239,7 @@
   {
     "id": "id2026",
     "t": "Jaki jest cel stosowania układu ESP w samochodzie osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -2296,7 +2296,7 @@
   {
     "id": "id2161",
     "t": "Jak zabezpieczysz krwawienie z rany przy braku jałowego opatrunku?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -2318,7 +2318,7 @@
   {
     "id": "id2164",
     "t": "Kiedy należy założyć opatrunek uciskowy?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -3142,7 +3142,7 @@
   {
     "id": "id2535",
     "t": "Kierujesz pojazdem w czasie deszczu. Którą z wymienionych czynności powinieneś przede wszystkim wykonać, by jechać bezpieczniej?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -3153,7 +3153,7 @@
   {
     "id": "id2536",
     "t": "Kierujesz samochodem osobowym podczas ulewnego deszczu. Którą z wymienionych czynności należy wykonać po wjechaniu w koleinę wypełnioną wodą?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -3164,7 +3164,7 @@
   {
     "id": "id2538",
     "t": "Która z wymienionych czynności może zwiększyć bezpieczeństwo podczas jazdy po zaśnieżonej drodze?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -3231,7 +3231,7 @@
   {
     "id": "id2595",
     "t": "Czy podczas cofania tramwajem motorniczy ma pierwszeństwo przed innymi pojazdami i uczestnikami ruchu?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -3279,7 +3279,7 @@
   {
     "id": "id2619",
     "t": "Czy wskazane jest użycie gaśnicy proszkowej do stłumienia palącego się paliwa, np. po kolizji z samochodem?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -3287,7 +3287,7 @@
   {
     "id": "id2620",
     "t": "Czy kierując tramwajem możesz opuścić miejsce wypadku drogowego, w którym jest ranny, by nie powodować utrudnień w ruchu?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -3295,7 +3295,7 @@
   {
     "id": "id2621",
     "t": "Czy jako uczestnik wypadku drogowego masz obowiązek podjąć działania służące zapewnieniu bezpieczeństwa w miejscu zdarzenia?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -3303,7 +3303,7 @@
   {
     "id": "id2635",
     "t": "W jaką liczbę gaśnic musi być wyposażony skład dwuwagonowy?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -3314,7 +3314,7 @@
   {
     "id": "id2649",
     "t": "Który z czynników atmosferycznych zmniejsza możliwość wystąpienia poślizgu?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -3349,7 +3349,7 @@
   {
     "id": "id2684",
     "t": "Czy kierując tramwajem jesteś obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu dokument stwierdzający dopuszczenie tramwaju do ruchu?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -3360,7 +3360,7 @@
   {
     "id": "id2686",
     "t": "Kto jest uprawniony do kontroli dokumentów kierującego tramwajem?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -3523,7 +3523,7 @@
   {
     "id": "id2756",
     "t": "Czy motorniczych obowiązuje taka sama norma dopuszczalnej zawartości alkoholu we krwi co pozostałych kierowców?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -3531,7 +3531,7 @@
   {
     "id": "id2757",
     "t": "Czy motorniczy przed rozpoczęciem pracy może przyjąć lek, w którego ulotce znajduje się następujący zapis \"w czasie stosowania preparatu nie wolno prowadzić pojazdów\"?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 3
@@ -3539,7 +3539,7 @@
   {
     "id": "id2758",
     "t": "Czy motorniczy przed rozpoczęciem pracy powinien upewnić się, że przyjmowane przez niego leki nie mają przeciwwskazań do prowadzenia pojazdów?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -3547,7 +3547,7 @@
   {
     "id": "id2759",
     "t": "Czy kierowanie tramwajem pod wpływem środków działających tak jak alkohol jest zabronione?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -3555,7 +3555,7 @@
   {
     "id": "id2782",
     "t": "Czy wychodząc z tramwaju podczas postoju na pętli, powinieneś zabezpieczyć go przed uruchomieniem przez osoby niepowołane?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 1
@@ -3563,7 +3563,7 @@
   {
     "id": "id2797",
     "t": "Czy hamulce szynowe zadziałają po awarii przetwornicy?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -3574,7 +3574,7 @@
   {
     "id": "id2801",
     "t": "Czy kierując tramwajem powinieneś spodziewać się, że bawiące się niedaleko torów dzieci mogą zachować się nieprzewidywalnie i konieczne będzie zmniejszenie prędkości lub zatrzymanie pojazdu?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -3582,7 +3582,7 @@
   {
     "id": "id2802",
     "t": "Czy podczas długotrwałej awarii możesz pozwolić pasażerom opuścić tramwaj, nawet jeśli może to utrudnić ruch lub narazić ich na niebezpieczeństwo?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 1
@@ -3590,7 +3590,7 @@
   {
     "id": "id2805",
     "t": "Czy jako motorniczy jesteś zobowiązany do podania swoich danych personalnych pasażerowi uczestniczącemu w wypadku?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -3598,7 +3598,7 @@
   {
     "id": "id2806",
     "t": "Czy jesteś zobowiązany podać dane firmy, w której pracujesz oraz dane dotyczące ubezpieczyciela tramwaju pasażerowi, który uczestniczy w wypadku?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -3606,7 +3606,7 @@
   {
     "id": "id2807",
     "t": "Czy jako motorniczy, niezależnie od tego, czy zostałeś przeszkolony, czy nie, jesteś zobowiązany udzielić niezbędnej pomocy ofiarom wypadku?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -3614,7 +3614,7 @@
   {
     "id": "id2812",
     "t": "Czy zmęczenie może powodować skutki zbliżone do działania alkoholu, takie jak obniżona możliwość koncentracji oraz wydłużony czas reakcji?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -4350,7 +4350,7 @@
   {
     "id": "id3109",
     "t": "Czy uczestnicząc w wypadku, w którym są zabici lub ranni, masz prawo oddalić się z miejsca wypadku, gdy przybędą służby nadzoru ruchu?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -4358,7 +4358,7 @@
   {
     "id": "id3110",
     "t": "Czy uczestnicząc w wypadku, w którym są zabici lub ranni, masz prawo zacząć samodzielnie usuwać jego skutki - sprzątać, przygotowywać tramwaj do holowania itp.?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -4590,7 +4590,7 @@
   {
     "id": "id3187",
     "t": "Czy zażycie przez prowadzącego pojazd niewielkiej ilości narkotyku wpływa na poprawę zdolności do prawidłowej oceny ryzyka na drodze?",
-    
+
     "right": "n",
 
     "s": 2
@@ -4646,7 +4646,7 @@
   {
     "id": "id3232",
     "t": "Czy kierujący pojazdem po spożyciu alkoholu, może mieć trudności w jednoczesnym wykonywaniu dwóch i więcej czynności?",
-    
+
     "right": "t",
 
     "s": 2
@@ -4670,7 +4670,7 @@
   {
     "id": "id3340",
     "t": "Którą z wymienionych czynności powinieneś wykonać, aby płynnie ruszyć z miejsca?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 2,
@@ -4689,7 +4689,7 @@
   {
     "id": "id3353",
     "t": "Czego nie masz prawa robić, gdy kierujesz samochodem osobowym?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -4884,7 +4884,7 @@
   {
     "id": "id3429",
     "t": "Którą z wymienionych czynności należy wykonać, kierując samochodem osobowym w nocy podczas mgły?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -5143,7 +5143,7 @@
   {
     "id": "id3523",
     "t": "Kierujesz samochodem osobowym. Jak powinieneś postąpić w czasie przejazdu przez rozległą kałużę?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -5154,7 +5154,7 @@
   {
     "id": "id3524",
     "t": "Kierujesz samochodem. Jak powinieneś się zachować w czasie wymijania pojazdu nocą?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -5413,7 +5413,7 @@
   {
     "id": "id3573",
     "t": "Jesteś świadkiem potrącenia pieszego. Jak powinieneś się zachować?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -5495,7 +5495,7 @@
   {
     "id": "id3625",
     "t": "Jaki odstęp należy zachować podczas wymijania samochodem osobowym innego pojazdu?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5506,7 +5506,7 @@
   {
     "id": "id3626",
     "t": "Podczas wykonywania którego z wymienionych manewrów masz obowiązek zachować odstęp nie mniejszy niż 1 metr od pojazdu?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -5517,7 +5517,7 @@
   {
     "id": "id3627",
     "t": "Jaki odstęp należy zachować podczas omijania samochodem osobowym przeszkody na drodze?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -5528,7 +5528,7 @@
   {
     "id": "id3628",
     "t": "Jaki odstęp należy zachować podczas wyprzedzania samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -5539,7 +5539,7 @@
   {
     "id": "id3629",
     "t": "Jaki odstęp należy zachować podczas wyprzedzania motocykla?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -5550,7 +5550,7 @@
   {
     "id": "id3630",
     "t": "Jaki odstęp należy zachować podczas wyprzedzania kolumny pieszych?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -5561,7 +5561,7 @@
   {
     "id": "id3634",
     "t": "Jak dwukrotne zwiększenie prędkości samochodu osobowego wpływa na długość jego drogi hamowania?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5612,7 +5612,7 @@
   {
     "id": "id3650",
     "t": "Jak duży odstęp od poprzedzającego pojazdu należy utrzymywać, kierując samochodem osobowym poza obszarem zabudowanym w tunelu o długości 600 metrów?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -5623,7 +5623,7 @@
   {
     "id": "id3651",
     "t": "Który z czynników ma bezpośredni wpływ na długość drogi zatrzymania samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -5634,7 +5634,7 @@
   {
     "id": "id3652",
     "t": "Który z czynników ma bezpośredni wpływ na długość drogi zatrzymania samochodu osobowego?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5669,7 +5669,7 @@
   {
     "id": "id3658",
     "t": "Czy będąc uczestnikiem wypadku drogowego, masz obowiązek udzielenia pomocy rannym nawet, jeśli nie masz kwalifikacji medycznych?",
-    
+
     "right": "t",
 
     "s": 1
@@ -5840,7 +5840,7 @@
   {
     "id": "id3723",
     "t": "Który z wymienionych elementów stanowi obowiązkowe wyposażenie każdego samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -5851,7 +5851,7 @@
   {
     "id": "id3724",
     "t": "Który z wymienionych elementów stanowi obowiązkowe wyposażenie każdego samochodu osobowego?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5926,7 +5926,7 @@
   {
     "id": "id3759",
     "t": "Którego z wymienionych świateł wolno Ci używać, gdy kierujesz samochodem osobowym podczas mgły?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5937,7 +5937,7 @@
   {
     "id": "id3761",
     "t": "Którą z tych czynności masz obowiązek wykonać podczas wyprzedzania samochodem osobowym we mgle poza obszarem zabudowanym?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -5972,7 +5972,7 @@
   {
     "id": "id3778",
     "t": "Jak należy zachować się podczas wymijania samochodem osobowym w nocy innego pojazdu?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -5983,7 +5983,7 @@
   {
     "id": "id3781",
     "t": "Czy w każdym reflektorze samochodu osobowego wolno Ci zamiast żarówki halogenowej wykorzystywać lampę ksenonową?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -5994,7 +5994,7 @@
   {
     "id": "id3783",
     "t": "Która z wymienionych czynności jest dozwolona podczas kierowania samochodem osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -6005,7 +6005,7 @@
   {
     "id": "id3784",
     "t": "Jaka jest dopuszczalna minimalna głębokość bieżnika w oponie niewyposażonej we wskaźnik granicznego jej zużycia?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 1,
@@ -6016,7 +6016,7 @@
   {
     "id": "id3785",
     "t": "Która z wymienionych usterek, uniemożliwia bezpieczne używanie samochodu w ruchu drogowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -6075,7 +6075,7 @@
   {
     "id": "id3856",
     "t": "Jaki może być skutek zbyt słabego nacisku na pedał hamulca w samochodzie osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -6086,7 +6086,7 @@
   {
     "id": "id3857",
     "t": "Do czego może doprowadzić zbyt mocne hamowanie samochodu osobowego niewyposażonego w system ABS?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -6097,7 +6097,7 @@
   {
     "id": "id3858",
     "t": "Który ze sposobów hamowania samochodu osobowego wyposażonego w system ABS jest najbardziej efektywny?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -6108,7 +6108,7 @@
   {
     "id": "id3859",
     "t": "Którą z czynności należy wykonać, gdy działający system ABS wypycha w czasie hamowania pedał hamulca?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 2,
@@ -6119,7 +6119,7 @@
   {
     "id": "id3860",
     "t": "W którym z przypadków system ABS może pomóc kierującemu pojazdem w utrzymaniu sterowności?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 2,
@@ -6130,7 +6130,7 @@
   {
     "id": "id3861",
     "t": "Jaki efekt może wystąpić, gdy podczas ruszania na wzniesieniu zbyt wcześnie zwolnisz dźwignię hamulca awaryjnego, w porównaniu ze zwolnieniem pedału sprzęgła?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -6149,7 +6149,7 @@
   {
     "id": "id3882",
     "t": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna układu hamulcowego?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 1,
@@ -6160,7 +6160,7 @@
   {
     "id": "id3885",
     "t": "O czym ostrzega świecąca się na czerwono w czasie jazdy samochodem osobowym lampka kontrolna układu chłodzenia?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 1,
@@ -6171,7 +6171,7 @@
   {
     "id": "id3889",
     "t": "Która z wymienionych okoliczności może świadczyć o złym stanie technicznym samochodu osobowego?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 1,
@@ -6182,7 +6182,7 @@
   {
     "id": "id3890",
     "t": "Który z wymienionych przypadków może świadczyć o złym stanie technicznym samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 1,
@@ -6193,7 +6193,7 @@
   {
     "id": "id3891",
     "t": "W którym z wymienionych przypadków, używanie samochodu osobowego nie zagraża bezpieczeństwu ruchu drogowego?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -6308,7 +6308,7 @@
   {
     "id": "id3943",
     "t": "Jeśli tramwaj, wyposażony w hamulec szczękowy toczy się mimo wciśniętego hamulca i świecącej kontrolki hamulców postojowych, świadczyć to może o:",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 1,
@@ -6319,7 +6319,7 @@
   {
     "id": "id3976",
     "t": "W jaki sposób kierujący tramwajem powinien hamować?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -6330,7 +6330,7 @@
   {
     "id": "id3983",
     "t": "Jak, kierując tramwajem, powinieneś zareagować, gdy warunki atmosferyczne ulegają pogorszeniu, np. pada deszcz lub opadają liście?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -6341,7 +6341,7 @@
   {
     "id": "id3991",
     "t": "Czy motorniczemu wolno podczas kierowania tramwajem korzystać z trzymanego w ręku telefonu komórkowego?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 3
@@ -6349,7 +6349,7 @@
   {
     "id": "id3992",
     "t": "Czy podczas kierowania tramwajem dozwolone jest korzystanie z telefonu komórkowego, jeśli nie wymaga to trzymania aparatu w ręku?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -6357,7 +6357,7 @@
   {
     "id": "id3993",
     "t": "Czy uczestnicząc w wypadku drogowym, w którym są ranni, masz obowiązek niezwłocznie zatrzymać tramwaj, nie powodując przy tym zagrożenia?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -6365,7 +6365,7 @@
   {
     "id": "id3994",
     "t": "Czy masz obowiązek, o ile to możliwe, usunąć tramwaj z miejsca wypadku, w którym nie ma rannych, ani zabitych.?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -6373,7 +6373,7 @@
   {
     "id": "id3995",
     "t": "Czy uczestnicząc w wypadku, masz obowiązek podać swoje dane personalne na żądanie pasażera, który także uczestniczył w zdarzeniu?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -6381,7 +6381,7 @@
   {
     "id": "id3996",
     "t": "Czy uczestnicząc w wypadku drogowym, masz obowiązek powiadomić policję, jeśli w wypadku nie ma zabitych lub rannych?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -6389,7 +6389,7 @@
   {
     "id": "id3997",
     "t": "Czy uczestnicząc w wypadku drogowym, masz obowiązek powiadomić policję i wezwać zespół ratownictwa medycznego, jeśli w wypadku są osoby zabite lub ranne?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -6453,7 +6453,7 @@
   {
     "id": "id4006",
     "t": "Czy podczas kierowania tramwajem masz prawo rozmawiać przez telefon komórkowy, wymagający trzymania słuchawki lub mikrofonu w ręku?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 3
@@ -6477,7 +6477,7 @@
   {
     "id": "id4009",
     "t": "Jak się zachowasz wjeżdżając na skrzyżowanie równorzędne?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -6512,7 +6512,7 @@
   {
     "id": "id4013",
     "t": "Z jakiego powodu motorniczy powinien zwolnić przejeżdżając przez miejsce z obniżoną siecią trakcyjną np. pod wiaduktem?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -6579,7 +6579,7 @@
   {
     "id": "id4023",
     "t": "Czy przed ręcznym przełożeniem zwrotnicy motorniczy powinien \"zaparkować\" tramwaj?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 1
@@ -6587,7 +6587,7 @@
   {
     "id": "id4024",
     "t": "Czy w czasie postoju na pętli masz prawo opuścić tramwaj bez zabezpieczenia go?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 1
@@ -6595,7 +6595,7 @@
   {
     "id": "id4025",
     "t": "Czy motorniczy ma prawo prowadzić tramwaj w stanie po użyciu alkoholu (np. po wypiciu jednego piwa), jeśli czuje się dobrze?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 3
@@ -6603,7 +6603,7 @@
   {
     "id": "id4026",
     "t": "Czy motorniczy, uwzględniając wszystkie formy zatrudnienia, może odpoczywać krócej niż 11 godzin na dobę?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 3
@@ -6611,7 +6611,7 @@
   {
     "id": "id4027",
     "t": "Czy podczas kierowania tramwajem masz prawo rozmawiać przez telefon komórkowy, jeżeli nie trzymasz słuchawki i mikrofonu w ręku?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -6643,7 +6643,7 @@
   {
     "id": "id4032",
     "t": "Czy motorniczemu wykonującemu przewozy pasażerskie, przysługuje prawo do co najmniej 35 godzin nieprzerwanego odpoczynku w tygodniu?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 3
@@ -6683,7 +6683,7 @@
   {
     "id": "id4038",
     "t": "Która z wymienionych przyczyn może powodować przerwy w dopływie prądu wysokiego napięcia bezpośrednio do wagonu?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 1,
@@ -6694,7 +6694,7 @@
   {
     "id": "id4039",
     "t": "Jaki skutek może wywołać wyszczerbienie grafitowej wkładki pantografu?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6705,7 +6705,7 @@
   {
     "id": "id4040",
     "t": "Kiedy używa się hamulca mechanicznego (nazywanego też postojowym)?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6716,7 +6716,7 @@
   {
     "id": "id4041",
     "t": "Który z wymienionych czynników powoduje działanie hamulca postojowego?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6727,7 +6727,7 @@
   {
     "id": "id4042",
     "t": "Od czego zależy sprawność hamulców elektrodynamicznych?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -6738,7 +6738,7 @@
   {
     "id": "id4043",
     "t": "Co należy zrobić aby zwolnić (zluzować) hamulce postojowe do holowania uszkodzonego tramwaju?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6821,7 +6821,7 @@
   {
     "id": "id4054",
     "t": "Czy w każdym przypadku masz obowiązek zachować odległość co najmniej 1 metra od omijanego pojazdu, uczestnika ruchu lub przeszkody?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -6829,7 +6829,7 @@
   {
     "id": "id4055",
     "t": "Czy motorniczy, który nie ma możliwości obserwacji drogi za tramwajem, może cofać, nie zapewniając sobie pomocy innej osoby?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -6837,7 +6837,7 @@
   {
     "id": "id4056",
     "t": "Czy motorniczy, który źle przełożył zwrotnicę i zauważył to ok. 1 m za nią, ma prawo wycofać tramwaj nie sprawdzając, czy nie spowoduje tym zagrożenia?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 2
@@ -6845,7 +6845,7 @@
   {
     "id": "id4057",
     "t": "Czy masz obowiązek zachować szczególną ostrożność, gdy omijasz pojazd przewożący zorganizowaną grupę dzieci do 18 lat, które z niego wysiadają?",
-    
+
     "right": "t",
     "cats": ["pt"],
     "s": 2
@@ -6853,7 +6853,7 @@
   {
     "id": "id4059",
     "t": "Jakiego rodzaju hamulcem jest hamulec postojowy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6864,7 +6864,7 @@
   {
     "id": "id4063",
     "t": "Jaki skutek wywoła zatrzymanie wagonu w miejscu styku pantografu z izolatorem?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -6883,7 +6883,7 @@
   {
     "id": "id4065",
     "t": "W jakich sytuacjach motorniczy może wpuścić lub wypuścić pasażera, któremu się bardzo śpieszy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -6894,7 +6894,7 @@
   {
     "id": "id4066",
     "t": "Które, z tych oznaczeń tramwaju, oprócz oznakowania liniowego, jest wymagane?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -6905,7 +6905,7 @@
   {
     "id": "id4067",
     "t": "W jakich miejscach motorniczy może wpuszczać lub wypuszczać pasażerów?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -6924,7 +6924,7 @@
   {
     "id": "id4069",
     "t": "Czy kierując tramwajem, masz obowiązek posiadać przy sobie pozwolenie na kierowanie tym pojazdem?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -6935,7 +6935,7 @@
   {
     "id": "id4071",
     "t": "Jak należy postąpić w przypadku wymiany przepalonego bezpiecznika topikowego - wysokiego napięcia?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -6946,7 +6946,7 @@
   {
     "id": "id4072",
     "t": "Co powinien zrobić motorniczy przed rozpoczęciem jazdy, bezpośrednio po zamknięciu drzwi?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -6957,7 +6957,7 @@
   {
     "id": "id4073",
     "t": "Jaka pozycja motorniczego jest prawidłowa podczas ręcznego przestawiania zwrotnicy?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -6968,7 +6968,7 @@
   {
     "id": "id4075",
     "t": "W jakim miejscu motorniczy może wypuścić pasażerów z powodu długotrwałych utrudnień w ruchu drogowym?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -6979,7 +6979,7 @@
   {
     "id": "id4076",
     "t": "Co powinien zrobić motorniczy, aby bezpiecznie dokonać elektrycznego połączenia wagonów?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -6990,7 +6990,7 @@
   {
     "id": "id4077",
     "t": "Jak powinien zachować się motorniczy przed wyjściem z kabiny na jezdnię, poza przystankiem, w celu ręcznego ustawienia zwrotnicy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7001,7 +7001,7 @@
   {
     "id": "id4078",
     "t": "Co może być przyczyną przerwania jazdy w czasie rozruchu, jeżeli dzwoni dzwonek wewnętrzny i brak jest sygnalizacji zamkniętych drzwi?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7012,7 +7012,7 @@
   {
     "id": "id4079",
     "t": "Jak powinieneś zachować się, gdy kierujesz tramwajem w czasie burzy z wyładowaniami atmosferycznymi i obawiasz się uderzenia pioruna?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7023,7 +7023,7 @@
   {
     "id": "id4080",
     "t": "Jak powinien zachować się motorniczy przejeżdżając przez miejsca z obniżoną siecią trakcyjną np. pod wiaduktem?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7034,7 +7034,7 @@
   {
     "id": "id4081",
     "t": "W jaki sposób powinien jechać motorniczy zbliżając się do skrzyżowania?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7045,7 +7045,7 @@
   {
     "id": "id4082",
     "t": "W jakiej sytuacji motorniczy może bezpiecznie przejechać przez zwrotnicę?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7056,7 +7056,7 @@
   {
     "id": "id4083",
     "t": "Jakiego zachowania wymaga od motorniczego przejazd tramwajem przez zwrotnice i krzyżownice?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7067,7 +7067,7 @@
   {
     "id": "id4084",
     "t": "Jaką zasadą techniki jazdy powinien kierować się motorniczy wjeżdżając w ostry łuk toru?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7078,7 +7078,7 @@
   {
     "id": "id4085",
     "t": "Jaki wpływ na obsługę urządzeń sterujących ma ustawienie fotela motorniczego?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7089,7 +7089,7 @@
   {
     "id": "id4086",
     "t": "Jeśli wystąpi poślizg kół tramwaju w czasie rozruchu, należy go przerwać, a następnie:",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7100,7 +7100,7 @@
   {
     "id": "id4087",
     "t": "Co powinien zrobić motorniczy podczas nagłego pojawienia się pojazdu na torach bezpośrednio przed tramwajem?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7111,7 +7111,7 @@
   {
     "id": "id4088",
     "t": "Jak należy prowadzić rozruch tramwaju?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7122,7 +7122,7 @@
   {
     "id": "id4089",
     "t": "Które hamulce są wykorzystane do łagodnego zatrzymania tramwaju na przystanku?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -7133,7 +7133,7 @@
   {
     "id": "id4090",
     "t": "Jaki skutek może spowodować łuk elektryczny powstający przy przejeżdżaniu przez izolator z załączoną jazdą?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7144,7 +7144,7 @@
   {
     "id": "id4091",
     "t": "Kiedy motorniczy ma obowiązek dostosowania prędkości do warunków na drodze?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7155,7 +7155,7 @@
   {
     "id": "id4092",
     "t": "Co motorniczy powinien zrobić, gdy po wejściu pasażerów nie chcą się zamknąć drzwi i konieczna jest ich fachowa naprawa?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7166,7 +7166,7 @@
   {
     "id": "id4093",
     "t": "Co powinien zrobić motorniczy dojeżdżając do zanieczyszczonej zwrotnicy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -7177,7 +7177,7 @@
   {
     "id": "id4094",
     "t": "Co powinien zrobić motorniczy po ruszeniu tramwajem?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7188,7 +7188,7 @@
   {
     "id": "id4096",
     "t": "W jaki sposób motorniczy powinien przejeżdżać pod izolatorami sekcyjnymi umieszczonymi na sieci trakcyjnej?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7199,7 +7199,7 @@
   {
     "id": "id4097",
     "t": "Co spowoduje wciśnięcie czuwaka podczas postoju tramwaju?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7210,7 +7210,7 @@
   {
     "id": "id4098",
     "t": "Jaka jest maksymalna dopuszczalna prędkość tramwaju na obszarze zabudowanym w godzinach 5:00 - 23:00 (jeżeli znaki drogowe nie wskazują inaczej)?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7221,7 +7221,7 @@
   {
     "id": "id4099",
     "t": "Z czym powinien liczyć się motorniczy holując uszkodzony tramwaj?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7232,7 +7232,7 @@
   {
     "id": "id4101",
     "t": "Czy zmniejszenie prędkości tramwaju podczas przejeżdżania przez zwrotnicę jest konieczne?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7276,7 +7276,7 @@
   {
     "id": "id4107",
     "t": "Jaki skutek wywoła użycie piasecznic podczas rozruchu na śliskich szynach?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -7287,7 +7287,7 @@
   {
     "id": "id4108",
     "t": "W którego rodzaju gaśnicę powinien być wyposażony tramwaj?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7298,7 +7298,7 @@
   {
     "id": "id4109",
     "t": "Czy jazda tramwajem bez osłony sprzęgów międzywagonowych od strony drzwi pasażerskich jest dozwolona?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7309,7 +7309,7 @@
   {
     "id": "id4110",
     "t": "W której sytuacji powinieneś używać świateł awaryjnych, jeżeli tramwaj jest w nie wyposażony?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7320,7 +7320,7 @@
   {
     "id": "id4111",
     "t": "W którym przypadku masz prawo wyjechać z zajezdni tramwajem z uszkodzonym zewnętrznym dzwonkiem ostrzegawczym?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7331,7 +7331,7 @@
   {
     "id": "id4112",
     "t": "Które hamulce pełnią w tramwaju funkcję awaryjnych?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -7342,7 +7342,7 @@
   {
     "id": "id4113",
     "t": "Do czego służy obwód blokady jazdy (\"zielona linia\")?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7353,7 +7353,7 @@
   {
     "id": "id4114",
     "t": "Jaki skutek wywoła użycie piasecznic podczas hamowania na śliskich szynach?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7364,7 +7364,7 @@
   {
     "id": "id4115",
     "t": "W jaki sposób motorniczy może regulować siłę hamowania hamulców szynowych?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7375,7 +7375,7 @@
   {
     "id": "id4117",
     "t": "Jaki powinien być odstęp od poprzedzającego tramwaju podczas jazdy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7386,7 +7386,7 @@
   {
     "id": "id4118",
     "t": "Które z wymienionych hamulców zostaną uruchomione, jeżeli puścisz czuwak podczas jazdy?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7397,7 +7397,7 @@
   {
     "id": "id4119",
     "t": "Jak należy się zachować wjeżdżając na przystanek?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7408,7 +7408,7 @@
   {
     "id": "id4120",
     "t": "W jaki sposób należy hamować po wyprowadzeniu tramwaju z poślizgu?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7419,7 +7419,7 @@
   {
     "id": "id4121",
     "t": "Co powinieneś założyć ustalając odstęp od poprzedzającego tramwaju?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7430,7 +7430,7 @@
   {
     "id": "id4122",
     "t": "Od czego może zależeć bezpieczny odstęp od poprzedzającego tramwaju?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7441,7 +7441,7 @@
   {
     "id": "id4123",
     "t": "Do czego powinna być dostosowana w szczególności prędkość tramwaju, od której zależy możliwość bezpiecznego zatrzymania się?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7452,7 +7452,7 @@
   {
     "id": "id4124",
     "t": "Jak powinieneś zachować się, gdy kierując tramwajem, zbliżasz się do kałuży znajdującej się na torowisku?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7463,7 +7463,7 @@
   {
     "id": "id4125",
     "t": "Jaki skutek wywołuje zalegająca na torach substancja, która powstała z wilgotnych liści?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7474,7 +7474,7 @@
   {
     "id": "id4126",
     "t": "Jaki wpływ na zachowanie tramwaju ma obecność liści na torowisku?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7485,7 +7485,7 @@
   {
     "id": "id4127",
     "t": "Jaki wpływ na stan torowiska ma początkowa faza opadów?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7496,7 +7496,7 @@
   {
     "id": "id4128",
     "t": "Kiedy opady deszczu mają największy wpływ na rozruch i hamowanie tramwaju?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7507,7 +7507,7 @@
   {
     "id": "id4129",
     "t": "Co zwiększa ryzyko wystąpienia poślizgu tramwaju?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7518,7 +7518,7 @@
   {
     "id": "id4130",
     "t": "W której porze roku warunki do jazdy tramwajem są najtrudniejsze?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7529,7 +7529,7 @@
   {
     "id": "id4131",
     "t": "Jak powienien zachować się motorniczy, jeżeli główki szyn są zalane wodą na znaczynym odcinku?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -7540,7 +7540,7 @@
   {
     "id": "id4132",
     "t": "Jak powienien zachować się motorniczy, jeśli zauważy kamienie w rowkach szyn?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7551,7 +7551,7 @@
   {
     "id": "id4136",
     "t": "W jaki sposób powinno być ustawione wewnętrzne lusterko w tramwaju?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7562,7 +7562,7 @@
   {
     "id": "id4138",
     "t": "W jakiej sytuacji motorniczy może rozpocząć jazdę, jeśli pasażerowie nie odsunęli się od krawędzi przystanku?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7573,7 +7573,7 @@
   {
     "id": "id4141",
     "t": "Kiedy motorniczy może zwiększyć prędkość pokonując łuk drogi?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7595,7 +7595,7 @@
   {
     "id": "id4143",
     "t": "W jakiej sytuacji, podczas jazdy, motorniczemu wolno wyłączyć blokadę jazdy?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 1,
@@ -7606,7 +7606,7 @@
   {
     "id": "id4144",
     "t": "W który z wymienionych systemów hamowania powinien być wyposażony każdy tramwaj liniowy?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 2,
@@ -7617,7 +7617,7 @@
   {
     "id": "id4145",
     "t": "Co należy sprawdzić w pierwszej kolejności jeśli po załączeniu jazdy tramwaj nie rusza?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 1,
@@ -7628,7 +7628,7 @@
   {
     "id": "id4146",
     "t": "Jakie napięcie powienien wskazywać woltomierz po włączeniu baterii?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 1,
@@ -7639,7 +7639,7 @@
   {
     "id": "id4147",
     "t": "Co powienien zrobić motorniczy, jeśli po załączeniu jazdy nie nastąpi odhamowanie hamulców szczękowych?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 1,
@@ -7650,7 +7650,7 @@
   {
     "id": "id4148",
     "t": "Jaki skutek wywołuje wciśnięcie pedału lub wychylenie dźwigni hamulca elektordynamicznego \"za ogranicznik\"?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -7661,7 +7661,7 @@
   {
     "id": "id4149",
     "t": "Czym najczęściej spowodowany jest zanik rozruchu?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 1,
@@ -7704,7 +7704,7 @@
   {
     "id": "id4160",
     "t": "Która z tych czynności zwiększy bezpieczeństwo jazdy, gdy kierujesz samochodem osobowym podczas mgły ograniczającej widoczność do 40 metrów?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -7715,7 +7715,7 @@
   {
     "id": "id4167",
     "t": "Co zrobisz, by zmniejszyć efekt wewnętrznego zaparowania przedniej szyby podczas jazdy w deszczu?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7726,7 +7726,7 @@
   {
     "id": "id4169",
     "t": "Jak motorniczy powinien ustawić  prawe zewnętrzne lusterko?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -7737,7 +7737,7 @@
   {
     "id": "id4170",
     "t": "Z jaką dopuszczalną prędkością możesz jechać w strefie zamieszkania?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -7756,7 +7756,7 @@
   {
     "id": "id4173",
     "t": "Czy ze względu na nakaz zabezpieczenia pojazdu w czasie postoju wszystkie drzwi tramwaju powinny pozostać zamknięte, gdy w kabinie przebywa motorniczy?",
-    
+
     "right": "n",
     "cats": ["pt"],
     "s": 1
@@ -7828,7 +7828,7 @@
   {
     "id": "id4233",
     "t": "Jak powinieneś zachować się, aby jechać z prędkością bezpieczną?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -8015,7 +8015,7 @@
   {
     "id": "id4362",
     "t": "Jakie jest ryzyko poślizgu pojazdu podczas jazdy w czasie deszczu?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -8026,7 +8026,7 @@
   {
     "id": "id4364",
     "t": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -8037,7 +8037,7 @@
   {
     "id": "id4367",
     "t": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -8048,7 +8048,7 @@
   {
     "id": "id4368",
     "t": "Który z wymienionych czynników może ograniczyć pole widzenia kierującego samochodem osobowym podczas jazdy nocą?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -8059,7 +8059,7 @@
   {
     "id": "id4369",
     "t": "Który z wymienionych czynników ma wpływ na ograniczenie pola widzenia kierującego samochodem osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -8070,7 +8070,7 @@
   {
     "id": "id4370",
     "t": "Który z wymienionych czynników może powodować ograniczenie pola widzenia kierującego samochodem osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -8081,7 +8081,7 @@
   {
     "id": "id4371",
     "t": "Jaki wpływ ma prędkość jazdy na kąt widzenia kierującego samochodem osobowym?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -8114,7 +8114,7 @@
   {
     "id": "id4374",
     "t": "Jak powinieneś postąpić, aby rozpędzić samochód osobowy na płaskim odcinku drogi?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -8125,7 +8125,7 @@
   {
     "id": "id4375",
     "t": "W jaki sposób wolno Ci przewozić rowery samochodem osobowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -8376,7 +8376,7 @@
   {
     "id": "id4472",
     "t": "W którym z wymienionych przypadków regularne wykonywanie badania technicznego pojazdu ma wpływ na jego bezpieczne używanie w ruchu drogowym?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -8477,7 +8477,7 @@
   {
     "id": "id4495",
     "t": "Jaki jest cel stosowania systemu ABS w samochodzie osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -8488,7 +8488,7 @@
   {
     "id": "id4534",
     "t": "Jak należy postąpić, podczas jazdy samochodem osobowym po drodze pokrytej śniegiem?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -8547,7 +8547,7 @@
   {
     "id": "id4547",
     "t": "Jak powinien zachować się motorniczy przy narastającym natężeniu ruchu?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -8558,7 +8558,7 @@
   {
     "id": "id4548",
     "t": "Na czym polega zjawisko \"pocenia się szyn\"?",
-    
+
     "right": "b",
     "cats": ["pt"],
     "s": 3,
@@ -8569,7 +8569,7 @@
   {
     "id": "id4549",
     "t": "Jak powinien zachować się kierujący tramwajem, gdy zaczyna padać deszcz?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 3,
@@ -8602,7 +8602,7 @@
   {
     "id": "id4553",
     "t": "Na czym polega prawidłowa technika kierowania tramwajem?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 2,
@@ -8613,7 +8613,7 @@
   {
     "id": "id4562",
     "t": "Kto podlega odpowiedzialności karnej w przypadku nieudzielenia pomocy poszkodowanemu w wypadku drogowym z bezpośrednim zagrożeniu utraty zdrowia i życia?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -8624,7 +8624,7 @@
   {
     "id": "id4563",
     "t": "Jak należy postąpić z poszkodowanym w wypadku drogowym, znajdującym się w pojeździe?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -8651,7 +8651,7 @@
   {
     "id": "id4578",
     "t": "Jesteś uczestnikiem lub świadkiem wypadku drogowego. Które z wymienionych informacji należy podać dzwoniąc pod numer alarmowy?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -8662,7 +8662,7 @@
   {
     "id": "id4579",
     "t": "Jesteś uczestnikiem lub świadkiem wypadku drogowego. Jak należy postąpić, gdy na poszkodowanym pali się ubranie?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -8673,7 +8673,7 @@
   {
     "id": "id4592",
     "t": "Która z wymienionych awarii, uniemożliwia używanie samochodu osobowego w ruchu drogowym?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -8684,7 +8684,7 @@
   {
     "id": "id4593",
     "t": "Które z wymienionych działań należy podjąć w pierwszej kolejności, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna ciśnienia oleju silnikowego?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -8719,7 +8719,7 @@
   {
     "id": "id4600",
     "t": "Czy numer telefonu 112 jest ogólnopolskim numerem alarmowym dla wszystkich służb ratowniczych?",
-    
+
     "right": "t",
 
     "s": 1
@@ -8727,7 +8727,7 @@
   {
     "id": "id4601",
     "t": "Co powinieneś zrobić jeżeli na skutek wypadku drogowego, wokół tramwaju zbiera się paliwo wyciekające z uszkodzonych pojazdów?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -8738,7 +8738,7 @@
   {
     "id": "id4602",
     "t": "Kierujesz pojazdem szynowym. Jak postąpisz, gdy zauważysz pożar instalacji elektrycznej?",
-    
+
     "right": "a",
     "cats": ["pt"],
     "s": 2,
@@ -10707,7 +10707,7 @@
   {
     "id": "id6318",
     "t": "Czy spożyty alkohol wpływa na zmianę pola widzenia kierującego pojazdem?",
-    
+
     "right": "t",
 
     "s": 2
@@ -10813,7 +10813,7 @@
   {
     "id": "id6340",
     "t": "Jaką funkcję spełniają poduszki powietrzne?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -10978,7 +10978,7 @@
   {
     "id": "id6361",
     "t": "Kiedy masz obowiązek przełączyć światła drogowe na światła mijania?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -10989,7 +10989,7 @@
   {
     "id": "id6362",
     "t": "Kiedy masz obowiązek przełączyć światła drogowe na światła mijania?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -11143,7 +11143,7 @@
   {
     "id": "id6378",
     "t": "Co powinieneś widzieć w dobrze ustawionych lusterkach zewnętrznych, gdy kierujesz samochodem osobowym?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -11693,7 +11693,7 @@
   {
     "id": "id6442",
     "t": "Do czego służą światła pozycyjne pojazdu?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 1,
@@ -11704,7 +11704,7 @@
   {
     "id": "id6443",
     "t": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -11792,7 +11792,7 @@
   {
     "id": "id6451",
     "t": "Jaki może być skutek nieprawidłowo ustawionych reflektorów świateł mijania?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 1,
@@ -11913,7 +11913,7 @@
   {
     "id": "id6463",
     "t": "Jadąc zimą spotykasz na poboczu sinego, półprzytomnego, wyziębionego człowieka. Jak należy mu pomóc?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 3,
@@ -12133,7 +12133,7 @@
   {
     "id": "id6488",
     "t": "Z którą z wymienionych prędkości możesz jechać przewożąc motorowerem sześcioletnie dziecko?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -12397,7 +12397,7 @@
   {
     "id": "id6516",
     "t": "Jak, w przybliżeniu, wzrasta długość drogi hamowania motocykla przy dwukrotnie większej prędkości?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -12419,7 +12419,7 @@
   {
     "id": "id6519",
     "t": "Jaki odstęp, kierując motocyklem, powinieneś zachować podczas wyprzedzania poza obszarem zabudowanym?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -12507,7 +12507,7 @@
   {
     "id": "id6527",
     "t": "Co w zasadniczy sposób decyduje o długości drogi hamowania motoroweru?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -12518,7 +12518,7 @@
   {
     "id": "id6528",
     "t": "Jak, w przybliżeniu, wzrasta długość drogi hamowania motoroweru przy dwukrotnie większej prędkości?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -12540,7 +12540,7 @@
   {
     "id": "id6530",
     "t": "Jaki minimalny odstęp, kierując motorowerem, masz obowiązek zachować wyprzedzając pojazd poza obszarem zabudowanym?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -12782,7 +12782,7 @@
   {
     "id": "id6553",
     "t": "Gdzie skierujesz wzrok skręcając motorowerem?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 2,
@@ -12969,7 +12969,7 @@
   {
     "id": "id6576",
     "t": "Czy masz prawo przewozić motorowerem pasażera, który jest w stanie po użyciu alkoholu?",
-    
+
     "right": "a",
     "cats": ["am"],
     "s": 2,
@@ -12980,7 +12980,7 @@
   {
     "id": "id6577",
     "t": "Czy masz prawo motorowerem przewozić pasażera bez kasku ochronnego?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 2,
@@ -13332,7 +13332,7 @@
   {
     "id": "id6623",
     "t": "Którą z wymienionych czynności powinieneś wykonać przed rozpoczęciem jazdy motocyklem?",
-    
+
     "right": "a",
     "cats": ["a", "a1", "a2"],
     "s": 1,
@@ -13618,7 +13618,7 @@
   {
     "id": "id6652",
     "t": "Ile osób, stanowiących drużynę roboczą, masz prawo przewozić w przyczepie ciągniętej przez ciągnik rolniczy?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 2,
@@ -13882,7 +13882,7 @@
   {
     "id": "id6678",
     "t": "Który bieg należy włączyć, aby na oblodzonej nawierzchni ruszyć ciągnikiem rolniczym?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 2,
@@ -13959,7 +13959,7 @@
   {
     "id": "id6688",
     "t": "W jaki sposób należy obserwować otoczenie, kierując ciągnikiem rolniczym z przyczepą, podczas jazdy do przodu?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -14630,7 +14630,7 @@
   {
     "id": "id6760",
     "t": "Jaki jest maksymalny, nieprzedłużony dzienny czas prowadzenia pojazdu kierowcy wykonującego przewóz drogowy?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -15070,7 +15070,7 @@
   {
     "id": "id6827",
     "t": "Jaki może być skutek wycieku oleju z mechanicznej skrzyni biegów?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 1,
@@ -15499,7 +15499,7 @@
   {
     "id": "id6877",
     "t": "Który z wymienionych czynników w zasadniczy sposób decyduje o długości drogi hamowania autobusu?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -15510,7 +15510,7 @@
   {
     "id": "id6879",
     "t": "Jak, w przybliżeniu, wzrasta długość drogi hamowania autobusu przy dwukrotnie większej prędkości?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -15587,7 +15587,7 @@
   {
     "id": "id6886",
     "t": "Jaka odległość powinna być zachowana pomiędzy zorganizowanymi kolumnami autobusów?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -15697,7 +15697,7 @@
   {
     "id": "id6896",
     "t": "Co, kierując autobusem, powinieneś widzieć w prawidłowo ustawionych lusterkach zewnętrznych (bocznych)?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -16016,7 +16016,7 @@
   {
     "id": "id6932",
     "t": "Co może być powodem nieszczelności w pneumatycznym układzie hamulcowym stosowanym w autobusach?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 1,
@@ -16027,7 +16027,7 @@
   {
     "id": "id6933",
     "t": "Który z wymienionych objawów może świadczyć o niesprawności sprężarki powietrza układu hamulcowego w autobusie?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 1,
@@ -17056,7 +17056,7 @@
   {
     "id": "id7072",
     "t": "Jakie mogą być przyczyny nieprzylegania iglic zwrotnicy?",
-    
+
     "right": "c",
     "cats": ["pt"],
     "s": 3,
@@ -19627,7 +19627,7 @@
   {
     "id": "id7445",
     "t": "Której z tych czynności nie masz prawa wykonywać samochodem osobowym?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 2,
@@ -19638,7 +19638,7 @@
   {
     "id": "id7446",
     "t": "Jaki odstęp od poprzedzającego pojazdu masz obowiązek zachować podczas zatrzymania w zatorze drogowym w tunelu?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -19649,7 +19649,7 @@
   {
     "id": "id7447",
     "t": "Która z wymienionych czynności jest zabroniona podczas kierowania pojazdem?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 2,
@@ -19684,7 +19684,7 @@
   {
     "id": "id7451",
     "t": "Jakiej barwy chorągiewką wolno Ci oznaczyć ładunek wystający z tyłu samochodu osobowego?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -19695,7 +19695,7 @@
   {
     "id": "id7452",
     "t": "Jakiej wielkości nie ma prawa przekroczyć rzeczywista masa całkowita przyczepy ciągniętej przez samochód osobowy?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 2,
@@ -19714,7 +19714,7 @@
   {
     "id": "id7454",
     "t": "Na której z tych dróg nie masz prawa holować samochodem osobowym innego pojazdu?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -19736,7 +19736,7 @@
   {
     "id": "id7457",
     "t": "W jakich warunkach drogowych dozwolone jest używanie łańcuchów przeciwślizgowych?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -19766,7 +19766,7 @@
   {
     "id": "id7461",
     "t": "W jakich warunkach droga hamowania jest najdłuższa?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 3,
@@ -19785,7 +19785,7 @@
   {
     "id": "id7463",
     "t": "Jaką funkcję w pojeździe spełnia system przeciwblokujący ABS?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,
@@ -19804,7 +19804,7 @@
   {
     "id": "id7465",
     "t": "Czy masz obowiązek zabezpieczyć przed stoczeniem się pojazd zaparkowany na wzniesieniu?",
-    
+
     "right": "t",
 
     "s": 2
@@ -19860,7 +19860,7 @@
   {
     "id": "id7509",
     "t": "Czy dozwolone jest przewożenie pasażera znajdującego się w stanie nietrzeźwości?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -19871,7 +19871,7 @@
   {
     "id": "id7510",
     "t": "Zamierzasz holować motocyklem inny motocykl. W jaki sposób oba pojazdy powinny być ze sobą połączone?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -19882,7 +19882,7 @@
   {
     "id": "id7511",
     "t": "Jakiej wielkości nie ma prawa przekraczać rzeczywista masa całkowita przyczepy ciągniętej przez motocykl?",
-    
+
     "right": "a",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -19893,7 +19893,7 @@
   {
     "id": "id7512",
     "t": "Jak masz obowiązek oznakować holowany samochód osobowy?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 2,
@@ -19904,7 +19904,7 @@
   {
     "id": "id7513",
     "t": "Czy jako właściciel pojazdu masz obowiązek wskazać na żądanie uprawnionego organu, komu powierzyłeś pojazd do kierowania lub używania w określonym czasie?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 1,
@@ -19915,7 +19915,7 @@
   {
     "id": "id7515",
     "t": "Czy wolno Ci kierować pojazdem, którego tablica rejestracyjna jest niewidoczna?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -19926,7 +19926,7 @@
   {
     "id": "id7516",
     "t": "Czy wolno Ci nakleić na pojeździe znak określający inne państwo niż to, w którym pojazd został zarejestrowany?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -19948,7 +19948,7 @@
   {
     "id": "id7518",
     "t": "Co należy sprawdzić, gdy lampka kontrolna kierunkowskazów zaczęła migać dużo szybciej?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -19959,7 +19959,7 @@
   {
     "id": "id7519",
     "t": "Kiedy należy sprawdzać poziom oleju w silniku?",
-    
+
     "right": "c",
     "cats": ["b", "b1"],
     "s": 1,
@@ -19992,7 +19992,7 @@
   {
     "id": "id7527",
     "t": "Czy wolno Ci przewozić osoby w przyczepie ciągniętej przez samochód ciężarowy?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20003,7 +20003,7 @@
   {
     "id": "id7529",
     "t": "Jaki warunek masz obowiązek spełnić, żeby samochodem ciężarowym przewozić osoby poza kabiną kierowcy?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20014,7 +20014,7 @@
   {
     "id": "id7531",
     "t": "Na jaką maksymalną długość ma prawo wystawać drewno długie z tyłu przyczepy kłonicowej?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20025,7 +20025,7 @@
   {
     "id": "id7532",
     "t": "Kiedy masz obowiązek oznaczyć ładunek wystający poza przednią płaszczyznę obrysu samochodu ciężarowego?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20036,7 +20036,7 @@
   {
     "id": "id7533",
     "t": "Jakiej barwy powinna być chorągiewka, którą zastosujesz do oznaczenia ładunku wystającego z przodu samochodu ciężarowego?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20047,7 +20047,7 @@
   {
     "id": "id7534",
     "t": "Która czynność jest zabroniona, gdy samochodem ciężarowym przewozisz osoby poza kabiną kierowcy?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -20058,7 +20058,7 @@
   {
     "id": "id7535",
     "t": "Do jakiego poziomu powinien ograniczać prędkość zamontowany w autobusie ogranicznik prędkości?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20069,7 +20069,7 @@
   {
     "id": "id7536",
     "t": "W ile gaśnic powinien być wyposażony autobus o długości przekraczającej 6 metrów?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20080,7 +20080,7 @@
   {
     "id": "id7537",
     "t": "W ile gaśnic powinien być wyposażony autobus o długości nieprzekraczającej 6 metrów?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20091,7 +20091,7 @@
   {
     "id": "id7538",
     "t": "Czy wolno Ci spożywać posiłek podczas kierowania autobusem?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20102,7 +20102,7 @@
   {
     "id": "id7539",
     "t": "Jakiego pojazdu nie wolno Ci holować?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20113,7 +20113,7 @@
   {
     "id": "id7540",
     "t": "Czy wolno Ci holować autobusem samochód ciężarowy z przyczepą?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -20124,7 +20124,7 @@
   {
     "id": "id7541",
     "t": "Do jakiej wartości powinna być ograniczona prędkość konstrukcyjna ciągnika rolniczego wchodzącego w skład kolejki turystycznej?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 2,
@@ -20135,7 +20135,7 @@
   {
     "id": "id7542",
     "t": "W jaki sposób wolno Ci przewozić osoby w przyczepie kolejki turystycznej?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -20165,7 +20165,7 @@
   {
     "id": "id7545",
     "t": "Jak powinieneś zachować się, gdy poszkodowany w wypadku odzyska świadomość i chce się oddalić?",
-    
+
     "right": "a",
     "cats": ["a", "am", "a1", "a2"],
     "s": 3,
@@ -20176,7 +20176,7 @@
   {
     "id": "id7546",
     "t": "W jaki sposób należy opatrzyć silnie krwawiącą ranę?",
-    
+
     "right": "a",
     "cats": ["a", "am", "a1", "a2"],
     "s": 3,
@@ -20198,7 +20198,7 @@
   {
     "id": "id7548",
     "t": "Jak długo, przed rozpoczęciem resuscytacji krążeniowo-oddechowej, powinieneś sprawdzać, czy osoba nieprzytomna oddycha?",
-    
+
     "right": "b",
     "cats": ["a", "am", "a1", "a2"],
     "s": 3,
@@ -20253,7 +20253,7 @@
   {
     "id": "id7553",
     "t": "Co może być następstwem zbyt wysokiego ciśnienia w oponach motocykla?",
-    
+
     "right": "a",
     "cats": ["a", "a1", "a2"],
     "s": 1,
@@ -20308,7 +20308,7 @@
   {
     "id": "id7558",
     "t": "W jaki sposób niesprawne amortyzatory wpływają na jazdę motorowerem?",
-    
+
     "right": "b",
     "cats": ["am"],
     "s": 1,
@@ -20319,7 +20319,7 @@
   {
     "id": "id7559",
     "t": "W jakim terminie należy zawiadomić starostę o nabyciu motocykla?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 1,
@@ -20330,7 +20330,7 @@
   {
     "id": "id7560",
     "t": "Do kierowania którym z wymienionych pojazdów uprawnia Cię prawo jazdy kategorii A?",
-    
+
     "right": "a",
     "cats": ["a", "a1", "a2"],
     "s": 1,
@@ -20363,7 +20363,7 @@
   {
     "id": "id7567",
     "t": "Czy wolno Ci przewozić motocyklem jednośladowym pasażera znajdującego się w stanie po użyciu środków działających podobnie do alkoholu?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -20374,7 +20374,7 @@
   {
     "id": "id7568",
     "t": "W jakich warunkach wolno Ci przewozić motocyklem pasażera, który jest w stanie nietrzeźwości?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -20396,7 +20396,7 @@
   {
     "id": "id7570",
     "t": "Której z wymienionych reakcji motoroweru możesz spodziewać się, gdy podczas ruszania gwałtownie zwolnisz dźwignię sprzęgła bez zwiększania obrotów silnika?",
-    
+
     "right": "a",
     "cats": ["am"],
     "s": 2,
@@ -20407,7 +20407,7 @@
   {
     "id": "id7572",
     "t": "Której z tych reakcji motoroweru możesz się spodziewać, gdy zbyt gwałtownie użyjesz przedniego hamulca?",
-    
+
     "right": "b",
     "cats": ["am"],
     "s": 2,
@@ -20418,7 +20418,7 @@
   {
     "id": "id7573",
     "t": "Który ze sposobów hamowania jest najskuteczniejszy dla motoroweru na śliskiej nawierzchni?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 2,
@@ -20440,7 +20440,7 @@
   {
     "id": "id7575",
     "t": "Jak zmienia się kąt widzenia motocyklisty wraz ze wzrostem prędkości pojazdu?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -20451,7 +20451,7 @@
   {
     "id": "id7577",
     "t": "Który ze sposobów hamowania należy zastosować, jeśli na długim zjeździe zachodzi potrzeba nagłego zmniejszenia prędkości motocykla?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20462,7 +20462,7 @@
   {
     "id": "id7578",
     "t": "Którą technikę jazdy powinieneś zastosować, kierując motocyklem po drodze gruntowej o piaszczystym podłożu?",
-    
+
     "right": "a",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -20484,7 +20484,7 @@
   {
     "id": "id7580",
     "t": "Kierujesz motorowerem. Jakiego zagrożenia powinieneś się spodziewać podczas wymijania autobusu?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -20495,7 +20495,7 @@
   {
     "id": "id7581",
     "t": "Kierujesz motocyklem. Jakiego zagrożenia powinieneś się spodziewać podczas wymijania autobusu?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20506,7 +20506,7 @@
   {
     "id": "id7582",
     "t": "Od którego z wymienionych czynników, uzależnisz odstęp od poprzedzającego pojazdu podczas jazdy motocyklem?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20517,7 +20517,7 @@
   {
     "id": "id7583",
     "t": "Jaki odstęp od wyprzedzanego pojazdu lub uczestnika ruchu musisz zachować, kierując motocyklem poza obszarem zabudowanym?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20528,7 +20528,7 @@
   {
     "id": "id7584",
     "t": "Czy, przez dłuższy czas, wolno Ci kierować motorowerem po jezdni obok innego motoroweru?",
-    
+
     "right": "a",
     "cats": ["am"],
     "s": 3,
@@ -20550,7 +20550,7 @@
   {
     "id": "id7586",
     "t": "Jaki minimalny odstęp powinien być zachowany między kolumnami motorowerów?",
-    
+
     "right": "b",
     "cats": ["am"],
     "s": 3,
@@ -20561,7 +20561,7 @@
   {
     "id": "id7587",
     "t": "Jaki odstęp należy zachować podczas wyprzedzania motorowerem kolumny pieszych?",
-    
+
     "right": "a",
     "cats": ["am"],
     "s": 3,
@@ -20572,7 +20572,7 @@
   {
     "id": "id7588",
     "t": "Czy kierując motocyklem, masz obowiązek używania kasku ochronnego?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20616,7 +20616,7 @@
   {
     "id": "id7592",
     "t": "Którą z funkcji powinien przede wszystkim spełniać kombinezon używany przez motocyklistę?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20638,7 +20638,7 @@
   {
     "id": "id7596",
     "t": "Którym z wymienionych pojazdów wolno Ci kierować, jeśli masz prawo jazdy kategorii AM?",
-    
+
     "right": "b",
     "cats": ["am"],
     "s": 1,
@@ -20649,7 +20649,7 @@
   {
     "id": "id7599",
     "t": "Jeżeli długość drogi hamowania motocykla, którym kierujesz z prędkością 30 km/h, wynosi około 6 metrów, to zwiększenie prędkości do 60 km/h spowoduje:",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -20682,7 +20682,7 @@
   {
     "id": "id7604",
     "t": "Prawidłowo ustawione lusterko zewnętrzne ciągnika rolniczego pokazuje:",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 3,
@@ -20704,7 +20704,7 @@
   {
     "id": "id7607",
     "t": "W jaki sposób kierujący ciągnikiem rolniczym z przyczepą powinien kontrolować swój tor jazdy podczas cofania?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20715,7 +20715,7 @@
   {
     "id": "id7608",
     "t": "Czy podczas jazdy ciągnikiem rolniczym po drodze z licznymi zakrętami, zalecane jest włączenie blokady mechanizmu różnicowego?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 3,
@@ -20726,7 +20726,7 @@
   {
     "id": "id7609",
     "t": "Kiedy nie powinieneś włączać przedniego napędu kierując ciągnikiem rolniczym?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20737,7 +20737,7 @@
   {
     "id": "id7610",
     "t": "W którym z przypadków nie należy włączać blokady mechanizmu różnicowego w ciągniku rolniczym?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 3,
@@ -20748,7 +20748,7 @@
   {
     "id": "id7611",
     "t": "W którym momencie powinieneś włączyć odpowiednio niski bieg, gdy zamierzasz zjechać ciągnikiem rolniczym ze wzniesienia?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -20759,7 +20759,7 @@
   {
     "id": "id7612",
     "t": "Którą z wymienionych technik należy zastosować, zjeżdżając ze wzniesienia?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20770,7 +20770,7 @@
   {
     "id": "id7613",
     "t": "Co powinieneś uwzględnić podczas jazdy po łuku ciągnikiem rolniczym z przyczepą jednoosiową?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20825,7 +20825,7 @@
   {
     "id": "id7621",
     "t": "Co stwierdza dowód rejestracyjny przyczepy?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -20847,7 +20847,7 @@
   {
     "id": "id7625",
     "t": "Do kierowania którym z pojazdów uprawnia prawo jazdy kategorii T?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 1,
@@ -20858,7 +20858,7 @@
   {
     "id": "id7626",
     "t": "Do kierowania którym z pojazdów uprawnia prawo jazdy kategorii T?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -20869,7 +20869,7 @@
   {
     "id": "id7627",
     "t": "Jaki obowiązek ma właściciel ciągnika rolniczego, który sprzedał pojazd?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 1,
@@ -20891,7 +20891,7 @@
   {
     "id": "id7629",
     "t": "Który z wymienionych czynników powinieneś, przede wszystkim, uwzględnić dostosowując podczas jazdy odległość od pojazdu jadącego przed Tobą?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20935,7 +20935,7 @@
   {
     "id": "id7633",
     "t": "Jaka może być minimalna odległość między jadącymi kolumnami ciągników rolniczych?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -20946,7 +20946,7 @@
   {
     "id": "id7634",
     "t": "Ile metrów odstępu od pojazdu poprzedzającego masz obowiązek zachować podczas zatrzymania w tunelu wynikającego z warunków ruchu?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -20957,7 +20957,7 @@
   {
     "id": "id7635",
     "t": "Jakich świateł nie należy używać podczas jazdy ciągnikiem rolniczym w gęstej mgle?",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 2,
@@ -20968,7 +20968,7 @@
   {
     "id": "id7639",
     "t": "W którym przypadku masz obowiązek dawać krótkotrwałe sygnały dźwiękowe podczas jazdy ciągnikiem rolniczym we mgle?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 2,
@@ -21051,7 +21051,7 @@
   {
     "id": "id7659",
     "t": "Której z wymienionych reakcji motoroweru możesz spodziewać się, gdy podczas ruszania znacznie zwiększysz obroty silnika i nagle zwolnisz dźwignię sprzęgła?",
-    
+
     "right": "a",
     "cats": ["am"],
     "s": 2,
@@ -21084,7 +21084,7 @@
   {
     "id": "id7663",
     "t": "Ile osób wolno Ci przewozić autobusem przegubowym komunikacji miejskiej?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21106,7 +21106,7 @@
   {
     "id": "id7665",
     "t": "Ile wynosi maksymalny łączny czas prowadzenia autobusu w ciągu dwóch kolejnych tygodni?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21117,7 +21117,7 @@
   {
     "id": "id7666",
     "t": "Rekompensatą za skrócony tygodniowy okres odpoczynku kierowcy jest dodatkowy odpoczynek, który powinien wykorzystać:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21139,7 +21139,7 @@
   {
     "id": "id7668",
     "t": "Jak długi okres odpoczynku musi wykorzystać kierowca jako rekompensatę za skrócony tygodniowy okres odpoczynku, który trwał 24 godziny?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21172,7 +21172,7 @@
   {
     "id": "id7674",
     "t": "Co może być przyczyną niewłaściwej oceny sytuacji na drodze przez kierującego autobusem?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21183,7 +21183,7 @@
   {
     "id": "id7675",
     "t": "W jakiej sytuacji masz prawo używać tylnych świateł przeciwmgłowych, gdy kierujesz autobusem?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21194,7 +21194,7 @@
   {
     "id": "id7676",
     "t": "W jakiej sytuacji masz obowiązek przełączyć światła drogowe na światła mijania, gdy kierujesz autobusem?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21205,7 +21205,7 @@
   {
     "id": "id7677",
     "t": "W jakiej sytuacji powinieneś używać zwalniacza prędkości podczas jazdy autobusem w terenie górzystym?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21216,7 +21216,7 @@
   {
     "id": "id7678",
     "t": "W jakiej sytuacji system ABS może być nieskuteczny podczas hamowania autobusu?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21227,7 +21227,7 @@
   {
     "id": "id7679",
     "t": "W jakiej pozycji powinieneś ustawić fotel kierowcy, przygotowując się do jazdy autobusem?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21238,7 +21238,7 @@
   {
     "id": "id7680",
     "t": "Co powinieneś widzieć we właściwie ustawionym lusterku zewnętrznym kierując autobusem?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21249,7 +21249,7 @@
   {
     "id": "id7682",
     "t": "W jaki sposób powinieneś zwiększać prędkość jazdy autobusu, chcąc jechać ekonomicznie?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21260,7 +21260,7 @@
   {
     "id": "id7683",
     "t": "Który ze sposobów zatrzymania autobusu przed skrzyżowaniem na jezdni suchej jest właściwy?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21282,7 +21282,7 @@
   {
     "id": "id7685",
     "t": "Którą z wymienionych czynności powinieneś wykonać, aby rozpocząć hamowanie silnikiem?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21293,7 +21293,7 @@
   {
     "id": "id7686",
     "t": "Które z wymienionych czynności powinieneś wykonać, hamując gwałtownie autobusem w sytuacji awaryjnej?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21304,7 +21304,7 @@
   {
     "id": "id7687",
     "t": "Którą z wymienionych funkcji spełnia w autobusie retarder?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21315,7 +21315,7 @@
   {
     "id": "id7688",
     "t": "Której z wymienionych czynności nie wolno Ci wykonywać podczas przewożenia pasażerów autobusem?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21326,7 +21326,7 @@
   {
     "id": "id7689",
     "t": "Ile osób, maksymalnie, wolno Ci przewozić autobusem turystycznym?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21403,7 +21403,7 @@
   {
     "id": "id7698",
     "t": "W jaki sposób powinieneś opatrzyć silnie krwawiącą ranę, by powstrzymać krwawienie?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21436,7 +21436,7 @@
   {
     "id": "id7701",
     "t": "Której z wymienionych czynności nie należy wykonać przy przeciwdziałaniu krwotokowi z nosa?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21447,7 +21447,7 @@
   {
     "id": "id7702",
     "t": "W jaki sposób powinieneś opatrzyć rannego, u którego wystąpił krwotok z przedramienia?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21458,7 +21458,7 @@
   {
     "id": "id7703",
     "t": "Przy podejrzeniu złamania kończyny powinieneś unieruchomić u rannego:",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -21469,7 +21469,7 @@
   {
     "id": "id7705",
     "t": "W jaki sposób należy postąpić w przypadku gdy poszkodowany uległ oparzeniu?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -21502,7 +21502,7 @@
   {
     "id": "id7708",
     "t": "Który bieg jest właściwy do rozpoczęcia jazdy samochodem osobowym na suchej nawierzchni?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -21543,7 +21543,7 @@
   {
     "id": "id7713",
     "t": "Jak powinieneś postąpić, gdy w nogę rannego w wypadku wbite jest ciało obce (np. drut, patyk, nóż)?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 3,
@@ -21554,7 +21554,7 @@
   {
     "id": "id7714",
     "t": "W jakich warunkach drogowych technika hamowania silnikiem jest szczególnie zalecana podczas jazdy ciągnikiem rolniczym?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21565,7 +21565,7 @@
   {
     "id": "id7715",
     "t": "Której z wymienionych technik hamowania należy użyć, w celu znacznego zmniejszenia prędkości jazdy ciągnika rolniczego, na bardzo śliskiej nawierzchni?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21576,7 +21576,7 @@
   {
     "id": "id7716",
     "t": "Czy podczas zjeżdżania ze wzniesienia ciągnikiem rolniczym należy wyłączyć bieg?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 3,
@@ -21587,7 +21587,7 @@
   {
     "id": "id7717",
     "t": "W jaki sposób, dwukrotne zwiększenie prędkości motocykla, wpływa na długość jego drogi hamowania?",
-    
+
     "right": "b",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -21606,7 +21606,7 @@
   {
     "id": "id7725",
     "t": "Na jaką odległość nie może z przodu wystawać przewożony ładunek?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -21617,7 +21617,7 @@
   {
     "id": "id7726",
     "t": "W jaki sposób wolno Ci wykorzystać skrócony dzienny okres odpoczynku?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -21628,7 +21628,7 @@
   {
     "id": "id7727",
     "t": "Jak długo powinien trwać regularny tygodniowy okres odpoczynku kierującego samochodem ciężarowym, wykonującego przewozy drogowe?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -21639,7 +21639,7 @@
   {
     "id": "id7728",
     "t": "W jakiej pozycji powinien być ustawiony przełącznik tachografu gdy nadzorujesz rozładunek swojego pojazdu ?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 3,
@@ -21650,7 +21650,7 @@
   {
     "id": "id7731",
     "t": "Który czynnik ma największy wpływ na przyczepność opony samochodu ciężarowego do podłoża?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -21661,7 +21661,7 @@
   {
     "id": "id7746",
     "t": "Które z podanych zasad należy stosować podczas rozmieszczania lub mocowania ładunku w samochodzie ciężarowym?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 2,
@@ -21672,7 +21672,7 @@
   {
     "id": "id7747",
     "t": "W którym przypadku masz obowiązek dodatkowo zabezpieczyć odpowiednimi zasłonami, uniemożliwiającymi wysypywanie się na drogę sypkiego ładunku, który zamierzasz przewieźć samochodem ciężarowym w szczelnej skrzyni ładunkowej?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 2,
@@ -21683,7 +21683,7 @@
   {
     "id": "id7748",
     "t": "Jak położenie środka ciężkości ładunku wpływa na sposób zabezpieczenia ładunku?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -21694,7 +21694,7 @@
   {
     "id": "id7764",
     "t": "Który dokument masz obowiązek mieć przy sobie, gdy kierujesz autobusem przewożącym osoby w ramach przewozu regularnego?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21705,7 +21705,7 @@
   {
     "id": "id7765",
     "t": "Którą z czynności należy wykonać, przystępując do wymiany koła w autobusie?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21716,7 +21716,7 @@
   {
     "id": "id7766",
     "t": "Czy w okresie zimowym zalecane jest dolewanie benzyny do zbiornika paliwa autobusu z silnikiem wysokoprężnym?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21727,7 +21727,7 @@
   {
     "id": "id7767",
     "t": "Jaką funkcję w silniku wysokoprężnym spełnia świeca żarowa?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21738,7 +21738,7 @@
   {
     "id": "id7769",
     "t": "Który z wymienionych objawów może świadczyć o niedoborze płynu do wspomagania układu kierowniczego w autobusie?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21749,7 +21749,7 @@
   {
     "id": "id7770",
     "t": "Który z objawów najbardziej wskazuje na zużycie tarczy sprzęgła?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21760,7 +21760,7 @@
   {
     "id": "id7771",
     "t": "W trakcie przewożenia pasażerów autobusem turystycznym zauważyłeś dym wydobywający się z komory silnika. Które z wymienionych działań powinieneś podjąć natychmiast po zatrzymaniu pojazdu?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21771,7 +21771,7 @@
   {
     "id": "id7772",
     "t": "W którym miejscu na drodze powinieneś zatrzymać swój pojazd, gdy dostrzeżesz przed sobą osoby ranne i rozbite pojazdy oraz podjeżdżające do nich pojazdy służb ratowniczych?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -21804,7 +21804,7 @@
   {
     "id": "id7775",
     "t": "Objawem zbyt dużego sumarycznego luzu układu kierowniczego jest:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 1,
@@ -21823,7 +21823,7 @@
   {
     "id": "id7778",
     "t": "Czy kierując autobusem, wolno Ci spożywać posiłek podczas jazdy?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -21891,7 +21891,7 @@
   {
     "id": "id7833",
     "t": "W jaki sposób powinieneś obserwować drogę za kierowanym przez siebie motocyklem, gdy zamierzasz wjechać na pas ruchu po swojej lewej stronie?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 2,
@@ -21957,7 +21957,7 @@
   {
     "id": "id7856",
     "t": "W którym z wymienionych przypadków hamulec silnikowy wyłącza się automatycznie?",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 3,
@@ -22603,7 +22603,7 @@
   {
     "id": "id8320",
     "t": "Czy na jezdni jednokierunkowej dopuszcza się wyprzedzanie pojazdu szynowego z jego lewej strony?",
-    
+
     "right": "t",
     "cats": ["b"],
     "s": 3
@@ -23883,7 +23883,7 @@
   {
     "id": "id9012",
     "t": "Które wymienione czynniki zależne od kierującego pojazdem mają istotny wpływ na jego ostrość widzenia?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -23894,7 +23894,7 @@
   {
     "id": "id9035",
     "t": "Jaki wpływ na pole widzenia kierującego pojazdem ma prędkość jazdy?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -23905,7 +23905,7 @@
   {
     "id": "id9058",
     "t": "Używanie pojazdu w sposób powodujący uciążliwości związane z nadmierną emisją spalin do środowiska lub nadmiernym hałasem jest:",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 1,
@@ -23916,7 +23916,7 @@
   {
     "id": "id9065",
     "t": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -23927,7 +23927,7 @@
   {
     "id": "id9067",
     "t": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ASR, czyli układ zapobiegający poślizgowi kół napędzanych podczas ruszania?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -23938,7 +23938,7 @@
   {
     "id": "id9068",
     "t": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 1,
@@ -23949,7 +23949,7 @@
   {
     "id": "id9069",
     "t": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 1,
@@ -23960,7 +23960,7 @@
   {
     "id": "id9070",
     "t": "W której z wymienionych niebezpiecznych sytuacji na drodze najlepiej sprawdzi się pojazd wyposażony w tzw. ESP, czyli układ stabilizacji toru jazdy?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 1,
@@ -25217,7 +25217,7 @@
   {
     "id": "id10081",
     "t": "Czy dopuszczalne jest holowanie za pomocą połączenia sztywnego pojazdu o niesprawnym układzie kierowniczym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -25456,7 +25456,7 @@
   {
     "id": "id10109",
     "t": "Czy podczas holowania motocykla powinny być sprawne w nim dwa układy hamulcowe?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -27290,7 +27290,7 @@
   {
     "id": "id10805",
     "t": "Czy masz obowiązek stosować się do poleceń lub sygnałów dawanych przez pilota pojazdu nienormatywnego?",
-    
+
     "right": "t",
     "cats": ["a", "b", "c", "d", "t", "am", "pt", "a1", "a2", "b1", "c1", "d1"],
     "s": 1
@@ -27298,7 +27298,7 @@
   {
     "id": "id10806",
     "t": "Przewożenie dziecka w foteliku bezpieczeństwa zamontowanym tyłem do kierunku jazdy na przednim siedzeniu pojazdu samochodowego, wyposażonego w poduszkę powietrzną dla pasażera jest:",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -27309,7 +27309,7 @@
   {
     "id": "id10807",
     "t": "Przewożenie dziecka siedzącego tyłem do kierunku jazdy w urządzeniu przytrzymującym dla dzieci, zamontowanym na przednim siedzeniu pojazdu samochodowego wyposażonego w poduszkę powietrzną jest:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27320,7 +27320,7 @@
   {
     "id": "id10808",
     "t": "Przewożenie samochodem osobowym dziecka w wieku poniżej 3 lat jest:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27331,7 +27331,7 @@
   {
     "id": "id10809",
     "t": "Przewożenie dziecka w wieku poniżej trzech lat samochodem osobowym, niewyposażonym w pasy bezpieczeństwa i fotelik bezpieczeństwa dla dziecka lub w pasy bezpieczeństwa i inne urządzenie przytrzymujące dla dzieci jest:",
-    
+
     "right": "a",
     "cats": ["d1"],
     "s": 2,
@@ -27342,7 +27342,7 @@
   {
     "id": "id10810",
     "t": "Przewożenie dziecka na przednim siedzeniu samochodu bez fotelika bezpieczeństwa dla dziecka jest:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27353,7 +27353,7 @@
   {
     "id": "id10811",
     "t": "Obowiązek korzystania z pasów bezpieczeństwa:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27364,7 +27364,7 @@
   {
     "id": "id10812",
     "t": "Dziecko mające mniej niż 150 cm wzrostu, przewożone samochodem osobowym wyposażonym w pasy bezpieczeństwa, powinno znajdować się w foteliku bezpieczeństwa dla dziecka, zgodnym z:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27375,7 +27375,7 @@
   {
     "id": "id10813",
     "t": "Jeżeli w samochodzie osobowym na tylnym siedzeniu przewożonych jest dwoje dzieci w fotelikach bezpieczeństwa i nie ma możliwości zainstalowania trzeciego fotelika, to:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27386,7 +27386,7 @@
   {
     "id": "id10814",
     "t": "Przewożenie na tylnym siedzeniu samochodu osobowego dziecka przytrzymywanego za pomocą pasów bezpieczeństwa jest:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27397,7 +27397,7 @@
   {
     "id": "id10815",
     "t": "Foteliki bezpieczeństwa dla dzieci oraz inne urządzenia przytrzymujące dla dzieci należy instalować w pojeździe:",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -27408,7 +27408,7 @@
   {
     "id": "id10816",
     "t": "Policjant zatrzyma prawo jazdy za pokwitowaniem w przypadku ujawnienia czynu polegającego na:\r\n\r\n\r\nPolicjant zatrzyma",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -27419,7 +27419,7 @@
   {
     "id": "id10817",
     "t": "Policjant zatrzyma wydane w kraju prawo jazdy za pokwitowaniem, w przypadku ujawnienia czynu polegającego na przewożeniu osób samochodem osobowym, w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym o:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27430,7 +27430,7 @@
   {
     "id": "id10818",
     "t": "Pokwitowanie zatrzymania wydanego w kraju prawa jazdy z powodu przekroczenia przez kierującego dopuszczalnej prędkości o więcej niż 50 km/h na obszarze zabudowanym, uprawnia do kierowania pojazdem w okresie:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27441,7 +27441,7 @@
   {
     "id": "id10819",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy, gdy kierujący pojazdem przekroczył dopuszczalną prędkość o:",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -27452,7 +27452,7 @@
   {
     "id": "id10820",
     "t": "Jeżeli pomimo decyzji o zatrzymaniu prawa jazdy na 3 miesiące osoba nadal kierowała pojazdem, starosta przedłuża okres, na który zatrzymano prawo jazdy do:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27463,7 +27463,7 @@
   {
     "id": "id10821",
     "t": "Policjant zatrzyma za pokwitowaniem, wydane w kraju prawo jazdy, w przypadku ujawnienia czynu polegającego na przewożeniu autobusem osób, w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym o:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27474,7 +27474,7 @@
   {
     "id": "id10822",
     "t": "W przypadku gdy kierujący przekroczył dopuszczalną prędkość o więcej niż 50 km/h na obszarze zabudowanym, starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres:",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -27485,7 +27485,7 @@
   {
     "id": "id10823",
     "t": "W przypadku gdy kierujący pojazdem silnikowym przewozi osoby w liczbie przekraczającej liczbę miejsc określoną w dowodzie rejestracyjnym, starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27496,7 +27496,7 @@
   {
     "id": "id10824",
     "t": "Jeżeli osoba kierowała pojazdem silnikowym pomimo wydania decyzji administracyjnej o zatrzymaniu prawa jazdy i przedłużeniu okresu zatrzymania prawa jazdy do 6 miesięcy, starosta wydaje decyzję administracyjną o:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27507,7 +27507,7 @@
   {
     "id": "id10825",
     "t": "Policjant zatrzyma, za pokwitowaniem, prawo jazdy wydane przez państwo inne niż Rzeczpospolita Polska, w przypadku ujawnienia czynu polegającego na przewożeniu samochodem osobowym:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27518,7 +27518,7 @@
   {
     "id": "id10826",
     "t": "Kierujący pojazdem, zarejestrowanym na terytorium Rzeczypospolitej Polskiej, jest zobowiązany mieć przy sobie i okazywać do kontroli dokument:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27529,7 +27529,7 @@
   {
     "id": "id10827",
     "t": "Kierujący pojazdem, zarejestrowanym na terytorium Rzeczypospolitej Polskiej, jest zobowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27540,7 +27540,7 @@
   {
     "id": "id10828",
     "t": "Obowiązek posiadania przy sobie prawa jazdy, wydanego na terytorium RP, dotyczy:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27551,7 +27551,7 @@
   {
     "id": "id10829",
     "t": "Dokumentem stwierdzającym dopuszczenie pojazdu samochodowego do ruchu jest:",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -27562,7 +27562,7 @@
   {
     "id": "id10831",
     "t": "Kierujący pojazdem zarejestrowanym za granicą, uczestniczącym w ruchu na terytorium RP, jest obowiązany mieć przy sobie i okazywać na żądanie upoważnionego organu:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27573,7 +27573,7 @@
   {
     "id": "id10832",
     "t": "Policjant zatrzyma dowód rejestracyjny pojazdu w razie stwierdzenia, że:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27584,7 +27584,7 @@
   {
     "id": "id10833",
     "t": "Utrzymywanie tablic rejestracyjnych w należytym stanie i zapewnienie ich czytelności:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27595,7 +27595,7 @@
   {
     "id": "id10834",
     "t": "Kierujący pojazdem, zarejestrowanym na terytorium Rzeczypospolitej Polskiej,  jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27606,7 +27606,7 @@
   {
     "id": "id10835",
     "t": "Kierujący pojazdem, zarejestrowanym na terytorium RP oraz posiadający prawo jazdy wydane przez organy RP, jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27617,7 +27617,7 @@
   {
     "id": "id10836",
     "t": "Kierujący pojazdem, zarejestrowanym na terytorium RP, posiadający prawo jazdy wydane przez organy RP, jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27628,7 +27628,7 @@
   {
     "id": "id10837",
     "t": "Pojazd zarejestrowany na terytorium RP jest usuwany z drogi na koszt właściciela w przypadku:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27639,7 +27639,7 @@
   {
     "id": "id10838",
     "t": "Kierujący samochodem osobowym zarejestrowanym za granicą i uczestniczącym w ruchu na terytorium RP jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27650,7 +27650,7 @@
   {
     "id": "id10839",
     "t": "Kierujący pojazdem wykonujący jazdę testową z wykorzystaniem profesjonalnego dowodu rejestracyjnego jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27661,7 +27661,7 @@
   {
     "id": "id10840",
     "t": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm na przednim siedzeniu samochodu osobowego, który ma pięć miejsc siedzących?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -27672,7 +27672,7 @@
   {
     "id": "id10841",
     "t": "Kierujący pojazdem zarejestrowanym na terytorium RP i posiadający uprawnienia wydane przez organy RP jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "c",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27683,7 +27683,7 @@
   {
     "id": "id10842",
     "t": "Brak przy sobie wydanego w kraju prawa jazdy, podczas kierowania samochodem osobowym po drogach publicznych w Polsce:",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27694,7 +27694,7 @@
   {
     "id": "id10843",
     "t": "Kierujący pojazdem zarejestrowanym na terytorium RP i posiadający uprawnienia wydane przez organy RP jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27705,7 +27705,7 @@
   {
     "id": "id10844",
     "t": "Do czego jest uprawniony policjant podczas kontroli ruchu drogowego?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 2,
@@ -27908,7 +27908,7 @@
   {
     "id": "id10869",
     "t": "W jaki sposób przewozisz dziecko o wzroście mniejszym niż 150 cm samochodem osobowym, w którym jest pięć miejsc siedzących?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -27927,7 +27927,7 @@
   {
     "id": "id10871",
     "t": "W jaki sposób zainstalujesz w pojeździe fotelik bezpieczeństwa służący do przewozu dziecka?",
-    
+
     "right": "c",
     "cats": ["b", "c", "d", "b1", "c1", "d1"],
     "s": 2,
@@ -27938,7 +27938,7 @@
   {
     "id": "id10872",
     "t": "W jaki sposób w pojeździe zainstalujesz podtrzymujące dziecko urządzenie, które służy do jego przewozu?",
-    
+
     "right": "c",
     "cats": ["b", "c", "d", "b1", "c1", "d1"],
     "s": 2,
@@ -27957,7 +27957,7 @@
   {
     "id": "id10874",
     "t": "Jakie warunki powinien spełniać samochód osobowy, którym chcesz przewieźć dziecko, które ma mniej niż trzy lata?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -27976,7 +27976,7 @@
   {
     "id": "id10876",
     "t": "Czym powinieneś się kierować wybierając fotelik lub urządzenie przytrzymujące służące do przewozu dziecka?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -27995,7 +27995,7 @@
   {
     "id": "id10878",
     "t": "Jakie muszą być spełnione warunki podczas przewożenia dziecka na tylnym siedzeniu samochodu osobowego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -28014,7 +28014,7 @@
   {
     "id": "id10880",
     "t": "Jakie musisz spełnić warunki, gdy chcesz przewieźć dziecko na tylnym siedzeniu samochodu osobowego?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -28033,7 +28033,7 @@
   {
     "id": "id10882",
     "t": "Co musisz zrobić, żeby przewieźć trzyletnie dziecko na tylnym siedzeniu samochodu osobowego, na którym w fotelikach już siedzi dwoje dzieci i nie ma możliwości zainstalowania trzeciego fotelika?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 2,
@@ -28044,7 +28044,7 @@
   {
     "id": "id10883",
     "t": "Co musisz zrobić gdy chcesz przewieźć trzyletnie dziecko na tylnym siedzeniu samochodu osobowego, na którym w urządzeniach przytrzymujących już siedzi dwoje dzieci i nie ma możliwości zainstalowania trzeciego urządzenia?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28055,7 +28055,7 @@
   {
     "id": "id10884",
     "t": "Po spełnieniu, którego z wymienionych warunków można przewozić samochodem osobowym, poza fotelikiem bezpieczeństwa lub innym urządzeniem przytrzymującym, dziecko mające mniej niż 150 cm wzrostu?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28066,7 +28066,7 @@
   {
     "id": "id10885",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28077,7 +28077,7 @@
   {
     "id": "id10886",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
     "cats": ["b", "c", "d", "t", "b1", "c1", "d1"],
     "s": 2,
@@ -28088,7 +28088,7 @@
   {
     "id": "id10887",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28099,7 +28099,7 @@
   {
     "id": "id10888",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "a",
 
     "s": 2,
@@ -28110,7 +28110,7 @@
   {
     "id": "id10889",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
-    
+
     "right": "a",
 
     "s": 2,
@@ -28121,7 +28121,7 @@
   {
     "id": "id10890",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28132,7 +28132,7 @@
   {
     "id": "id10891",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy na terytorium Rzeczypospolitej kierujesz pojazdem, który jest zarejestrowany za granicą?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28143,7 +28143,7 @@
   {
     "id": "id10892",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28154,7 +28154,7 @@
   {
     "id": "id10893",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28165,7 +28165,7 @@
   {
     "id": "id10894",
     "t": "Jakie dokumenty masz obowiązek mieć przy sobie i okazywać na żądanie uprawnionego organu podczas kontroli drogowej?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28176,7 +28176,7 @@
   {
     "id": "id10895",
     "t": "Jaki dokument jesteś zobowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu?",
-    
+
     "right": "b",
 
     "s": 2,
@@ -28187,7 +28187,7 @@
   {
     "id": "id10896",
     "t": "Jakie obowiązki ciążą na osobie, która ma wydane w Polsce prawo jazdy?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28198,7 +28198,7 @@
   {
     "id": "id10897",
     "t": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
-    
+
     "right": "c",
     "cats": ["a", "b", "c", "d", "a1", "a2", "b1", "c1", "d1"],
     "s": 2,
@@ -28209,7 +28209,7 @@
   {
     "id": "id10898",
     "t": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28220,7 +28220,7 @@
   {
     "id": "id10899",
     "t": "Za które naruszenie przepisów ruchu drogowego policjant zatrzyma prawo jazdy?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28471,7 +28471,7 @@
   {
     "id": "id10930",
     "t": "Ile czasu jest ważne pokwitowanie zatrzymania polskiego prawa jazdy za przekroczenie prędkości o ponad 50 km/h w obszarze zabudowanym, które wydał Ci policjant?",
-    
+
     "right": "b",
     "cats": ["a", "b", "c", "d", "a1", "a2", "b1", "c1", "d1"],
     "s": 2,
@@ -28482,7 +28482,7 @@
   {
     "id": "id10931",
     "t": "Ile czasu jest ważne pokwitowanie zatrzymania przez policjanta prawa jazdy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 2,
@@ -28493,7 +28493,7 @@
   {
     "id": "id10932",
     "t": "O ile czasu starosta wydłuży okres zatrzymania prawa jazdy, jeśli zostałeś zatrzymany do kontroli, gdy prowadziłeś pojazd pomimo że wcześniej zatrzymano Ci prawo jazdy na trzy miesiące za przekroczenie prędkości o więcej niż 50 km/h w obszarze zabudowanym?",
-    
+
     "right": "c",
     "cats": ["a", "b", "c", "d", "a1", "a2", "b1", "c1", "d1"],
     "s": 2,
@@ -28544,7 +28544,7 @@
   {
     "id": "id10944",
     "t": "O ile czasu starosta wydłuży okres zatrzymania prawa jazdy, jeśli zostałeś zatrzymany do kontroli, gdy prowadziłeś pojazd, pomimo że wcześniej zatrzymano Ci prawo jazdy na trzy miesiące za przewożenie osób w liczbie przekraczającej o dwie liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -28555,7 +28555,7 @@
   {
     "id": "id10945",
     "t": "Jaką decyzję podejmie starosta, jeśli zostałeś zatrzymany do kontroli kierując pojazdem pomimo przedłużeniu okresu zatrzymania prawa jazdy do sześciu miesięcy za przekroczenie prędkości o więcej niż 50 km/h w obszarze  zabudowanym?",
-    
+
     "right": "c",
     "cats": ["a", "b", "c", "d", "a1", "a2", "b1", "c1", "d1"],
     "s": 2,
@@ -28566,7 +28566,7 @@
   {
     "id": "id10946",
     "t": "Jaką decyzję podejmie starosta, jeśli zostałeś zatrzymany do kontroli kierując pojazdem pomimo przedłużenia okresu zatrzymania prawa jazdy do sześciu miesięcy za przewożenie osób w liczbie przekraczającej o dwa liczbę miejsc określoną w dowodzie rejestracyjnym samochodu osobowego?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -28657,7 +28657,7 @@
   {
     "id": "id10958",
     "t": "Jakie musisz spełnić wymagania, żeby odzyskać uprawnienie do kierowania pojazdem, które zostało cofnięte za przekroczenie prędkości o więcej niż 50 km/h w obszarze zabudowanym?",
-    
+
     "right": "b",
     "cats": ["a", "b", "c", "d", "a1", "a2", "b1", "c1", "d1"],
     "s": 2,
@@ -28668,7 +28668,7 @@
   {
     "id": "id10960",
     "t": "Jak postąpi policjant, jeżeli podczas kontroli drogowej ujawni, że przekroczyłeś prędkość o więcej niż 50 km/h w obszarze zabudowanym, ale było to związane z ratowaniem ludzkiego życia?",
-    
+
     "right": "c",
     "cats": ["b", "c", "d", "b1", "c1", "d1"],
     "s": 2,
@@ -28679,7 +28679,7 @@
   {
     "id": "id10961",
     "t": "Jak postąpi policjant, jeżeli podczas kontroli drogowej ujawni, że przekroczyłeś prędkość o więcej niż 50 km/h w obszarze zabudowanym, ale było to związane z ratowaniem ludzkiego życia?",
-    
+
     "right": "c",
     "cats": ["b", "c", "d", "b1", "c1", "d1"],
     "s": 2,
@@ -28714,7 +28714,7 @@
   {
     "id": "id10965",
     "t": "Jak postąpi policjant, jeżeli podczas kontroli drogowej ujawni, że przewoziłeś o dwie osoby więcej niż liczba miejsc w dowodzie rejestracyjnym samochodu osobowego, ale było to związane z ratowaniem ludzkiego życia?",
-    
+
     "right": "c",
     "cats": ["b"],
     "s": 2,
@@ -28749,7 +28749,7 @@
   {
     "id": "id10969",
     "t": "Czy przewożenie na przednim siedzeniu pojazdu dziecka o wzroście co najmniej 135 cm, zabezpieczonego jedynie pasami bezpieczeństwa, jest dozwolone?",
-    
+
     "right": "b",
     "cats": ["c"],
     "s": 2,
@@ -28896,7 +28896,7 @@
   {
     "id": "id10987",
     "t": "W jakim przypadku przewożenie dziecka samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 3,5 t na tylnym siedzeniu, przytrzymywanego jedynie pasami bezpieczeństwa, jest dozwolone?",
-    
+
     "right": "a",
     "cats": ["b", "c"],
     "s": 2,
@@ -28907,7 +28907,7 @@
   {
     "id": "id10988",
     "t": "Czy można samochodem ciężarowym przewieźć dziecko o wzroście poniżej 150 cm zabezpieczone tylko pasami bezpieczeństwa?",
-    
+
     "right": "a",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -28918,7 +28918,7 @@
   {
     "id": "id10989",
     "t": "Czy wolno samochodem ciężarowym wyposażonym w pasy bezpieczeństwa przewozić dziecko do lat trzech niezabezpieczone pasami bezpieczeństwa i fotelikiem bezpieczeństwa?",
-    
+
     "right": "a",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -28929,7 +28929,7 @@
   {
     "id": "id10990",
     "t": "W którym przypadku nie ma obowiązku przewożenia dziecka o wzroście poniżej 150 cm w foteliku bezpieczeństwa lub innym urządzeniu podtrzymującym, zapewniającym bezpieczeństwo dziecka?",
-    
+
     "right": "a",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -28940,7 +28940,7 @@
   {
     "id": "id10991",
     "t": "W którym przypadku nie ma obowiązku przewożenia dziecka w foteliku bezpieczeństwa lub innym urządzeniu podtrzymującym, zapewniającym jego bezpieczeństwo?",
-    
+
     "right": "b",
     "cats": ["b", "c"],
     "s": 2,
@@ -28951,7 +28951,7 @@
   {
     "id": "id10992",
     "t": "W jakim przypadku możesz przewozić trzecie dziecko, o wzroście poniżej 135 cm, na tylnym siedzeniu samochodu osobowego lub ciężarowego, przytrzymywane jedynie pasami bezpieczeństwa?",
-    
+
     "right": "a",
     "cats": ["b", "c"],
     "s": 2,
@@ -28962,7 +28962,7 @@
   {
     "id": "id10993",
     "t": "W jakim przypadku możesz przewozić dziecko na tylnym siedzeniu samochodem osobowym lub ciężarowym o dopuszczalnej masie całkowitej do 3,5 t, przytrzymywane  jedynie pasami bezpieczeństwa?",
-    
+
     "right": "a",
     "cats": ["b", "c"],
     "s": 2,
@@ -28973,7 +28973,7 @@
   {
     "id": "id10994",
     "t": "Kiedy wolno przewozić samochodem ciężarowym, na przednim siedzeniu, dziecko mające poniżej 150 cm wzrostu, przytrzymywane jedynie za pomocą pasów bezpieczeństwa?",
-    
+
     "right": "c",
     "cats": ["b", "c"],
     "s": 2,
@@ -28984,7 +28984,7 @@
   {
     "id": "id10996",
     "t": "Jakie dokumenty ma obowiązek mieć przy sobie kierujący samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 3,5 t, zarejestrowanym w Polsce?",
-    
+
     "right": "b",
     "cats": ["c"],
     "s": 2,
@@ -28995,7 +28995,7 @@
   {
     "id": "id10997",
     "t": "Który z wymienionych dokumentów kierujący pojazdem zarejestrowanym na terytorium RP jest zobowiązany przy sobie mieć i okazywać na żądanie uprawnionego organu?",
-    
+
     "right": "c",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29006,7 +29006,7 @@
   {
     "id": "id10998",
     "t": "Który z wymienionych dokumentów musisz mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy kierujesz pojazdem uprzywilejowanym - samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 3,5 t?",
-    
+
     "right": "c",
     "cats": ["c"],
     "s": 2,
@@ -29017,7 +29017,7 @@
   {
     "id": "id10999",
     "t": "Który z wymienionych dokumentów musisz mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy wykonujesz zarobkowy transport rzeczy samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 12 t?",
-    
+
     "right": "c",
     "cats": ["c"],
     "s": 2,
@@ -29028,7 +29028,7 @@
   {
     "id": "id11000",
     "t": "Który z wymienionych dokumentów musisz mieć przy sobie i okazywać na żądanie uprawnionego organu, gdy wykonujesz zarobkowy przewóz rzeczy zarejestrowanym na terytorium RP samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 12 t?",
-    
+
     "right": "c",
     "cats": ["c"],
     "s": 2,
@@ -29039,7 +29039,7 @@
   {
     "id": "id11001",
     "t": "Który z wymienionych dokumentów kierujący pojazdem zarejestrowanym na terytorium RP musi mieć przy sobie i okazywać na żądanie uprawnionego organu?",
-    
+
     "right": "c",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -29050,7 +29050,7 @@
   {
     "id": "id11002",
     "t": "Który z wymienionych dokumentów musi posiadać przy sobie kierujący samochodem ciężarowym zarejestrowanym za granicą, a uczestniczący w ruchu drogowym na terenie Rzeczypospolitej Polskiej?",
-    
+
     "right": "c",
     "cats": ["c"],
     "s": 2,
@@ -29061,7 +29061,7 @@
   {
     "id": "id11003",
     "t": "Czy inspektor transportu drogowego podczas kontrolowania pojazdu, który wykonuje transport drogowy, ma prawo weryfikować dane o pojeździe w Centralnej Ewidencji Pojazdów?",
-    
+
     "right": "a",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -29072,7 +29072,7 @@
   {
     "id": "id11005",
     "t": "Kto może zwrócić dowód rejestracyjny, w przypadku jego zatrzymania podczas kontroli ruchu drogowego, w związku ze stwierdzeniem, że pojazd zagraża porządkowi ruchu?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29083,7 +29083,7 @@
   {
     "id": "id11006",
     "t": "Jakie dokumenty musi przy sobie mieć i okazywać na polecenie uprawnionego kontrolującego kierujący zarejestrowanym na terytorium RP samochodem ciężarowym o dopuszczalnej masie całkowitej powyżej 12 t?",
-    
+
     "right": "a",
     "cats": ["c"],
     "s": 2,
@@ -29094,7 +29094,7 @@
   {
     "id": "id11007",
     "t": "Jak może zareagować kontrolujący, jeżeli nie będziesz miał przy sobie prawa jazdy?",
-    
+
     "right": "b",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29105,7 +29105,7 @@
   {
     "id": "id11010",
     "t": "W jaki sposób, podczas kontroli drogowej przez upoważniony organ, następuje zatrzymanie prawa jazdy wydanego w kraju?",
-    
+
     "right": "b",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29116,7 +29116,7 @@
   {
     "id": "id11012",
     "t": "W jakim przypadku starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29127,7 +29127,7 @@
   {
     "id": "id11013",
     "t": "W jakim przypadku należy uzyskać pozytywny wynik z kontrolnego sprawdzenia kwalifikacji, aby otrzymać zwrot zatrzymanego prawa jazdy?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29138,7 +29138,7 @@
   {
     "id": "id11014",
     "t": "W której z wymienionych sytuacji potwierdzenie zatrzymania prawa jazdy uprawnia do kierowania pojazdem w ciągu 7 dni?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29149,7 +29149,7 @@
   {
     "id": "id11016",
     "t": "W jakich przypadkach organ upoważniony do kontroli drogowej może zatrzymać kierującemu pojazdem prawo jazdy?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29160,7 +29160,7 @@
   {
     "id": "id11017",
     "t": "Na jak długo zostanie zatrzymane prawo jazdy kierowcy, który przekroczył prędkość o więcej niż 50 km/h na obszarze zabudowanym?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29171,7 +29171,7 @@
   {
     "id": "id11018",
     "t": "Na jak długo pokwitowanie zatrzymania prawa jazdy za przekroczenie dozwolonej prędkości na obszarze zabudowanym o więcej niż 50 km/h uprawnia do kierowania pojazdem?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29182,7 +29182,7 @@
   {
     "id": "id11019",
     "t": "Jak długo pokwitowanie zatrzymania prawa jazdy za przekroczenie dozwolonej prędkości na obszarze zabudowanym o więcej niż 50 km/h, uprawnia do kierowania pojazdem?",
-    
+
     "right": "b",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29193,7 +29193,7 @@
   {
     "id": "id11021",
     "t": "Jakie konsekwencje grożą kierującemu za przekroczenie dozwolonej prędkości o więcej niż 50 km/h na obszarze zabudowanym, który będzie kierował pojazdem silnikowym mimo decyzji o zatrzymaniu prawa jazdy?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29204,7 +29204,7 @@
   {
     "id": "id11022",
     "t": "W jakim przypadku nie zostanie zatrzymane prawo jazdy za przekroczenie dozwolonej prędkości o więcej niż 50 km/h na obszarze zabudowanym?",
-    
+
     "right": "a",
     "cats": ["b", "c", "d"],
     "s": 2,
@@ -29215,7 +29215,7 @@
   {
     "id": "id11025",
     "t": "Jakie warunki musisz spełnić, żeby po skończonym okresie zatrzymania nieprzekraczającym roku odzyskać prawo jazdy?",
-    
+
     "right": "a",
     "cats": ["a", "b", "c", "d"],
     "s": 2,
@@ -29242,7 +29242,7 @@
   {
     "id": "id11028",
     "t": "Chcesz przewieźć dziecko na przednim siedzeniu pojazdu samochodowego wyposażonego w przednią poduszkę dla pasażera, która jest aktywna. W jaki sposób możesz to zrobić?",
-    
+
     "right": "b",
     "cats": ["b", "c", "d", "b1", "c1", "d1"],
     "s": 2,
@@ -29253,7 +29253,7 @@
   {
     "id": "id11029",
     "t": "Dokumentem stwierdzającym dopuszczenie do ruchu motocykla jest:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29264,7 +29264,7 @@
   {
     "id": "id11031",
     "t": "Motocykl zarejestrowany za granicą dopuszcza się do ruchu, jeżeli odpowiada wymaganym warunkom technicznym i jest zaopatrzony w tablice rejestracyjne z numerem rejestracyjnym, składającym się z liter alfabetu łacińskiego i cyfr arabskich, a kierujący pojazdem ma przy sobie:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29275,7 +29275,7 @@
   {
     "id": "id11033",
     "t": "Zatrzymanie dowodu rejestracyjnego motocykla zarejestrowanego w Polsce, który nie został poddany badaniu technicznemu w wyznaczonym terminie, następuje poprzez:",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29286,7 +29286,7 @@
   {
     "id": "id11034",
     "t": "Gdzie można odebrać zatrzymany dowód rejestracyjny motocykla zarejestrowanego za granicą?",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29297,7 +29297,7 @@
   {
     "id": "id11035",
     "t": "Zatrzymany dowód rejestracyjny motocykla zarejestrowanego za granicą, w związku ze stwierdzeniem, że pojazd narusza wymagania ochrony środowiska, pozostawia się w jednostce Policji, Straży Granicznej albo Krajowej Administracji Skarbowej:",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29308,7 +29308,7 @@
   {
     "id": "id11037",
     "t": "Który z wymienionych dokumentów stwierdza dopuszczenie ciągnika rolniczego do ruchu drogowego?",
-    
+
     "right": "c",
     "cats": ["t"],
     "s": 1,
@@ -29327,7 +29327,7 @@
   {
     "id": "id11040",
     "t": "Ciągnik rolniczy może być używany jako składowa kolejki turystycznej, m.in. po uzyskaniu:",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 1,
@@ -29338,7 +29338,7 @@
   {
     "id": "id11041",
     "t": "Kierujący zarejestrowanym na terytorium RP ciągnikiem rolniczym z przyczepą jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "b",
     "cats": ["t"],
     "s": 1,
@@ -29349,7 +29349,7 @@
   {
     "id": "id11042",
     "t": "W jakim terminie właściciel ciągnika rolniczego jest zobowiązany odebrać decyzję o rejestracji pojazdu i dowód rejestracyjny?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -29360,7 +29360,7 @@
   {
     "id": "id11043",
     "t": "W przypadku przeniesienia na inną osobę własności zarejestrowanego ciągnika, dotychczasowy właściciel ma obowiązek przekazać nowemu właścicielowi dowód rejestracyjny oraz:",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -29371,7 +29371,7 @@
   {
     "id": "id11044",
     "t": "Zatrzymanie dowodu rejestracyjnego ciągnika rolniczego zarejestrowanego w Polsce, w przypadku stwierdzenia, że ciągnik narusza wymagania ochrony środowiska, następuje przez:",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -29382,7 +29382,7 @@
   {
     "id": "id11045",
     "t": "Kierujący ciągnikiem wyposażonym w blokadę alkoholową jest obowiązany mieć przy sobie i okazywać na żądanie uprawnionego organu:",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -29401,7 +29401,7 @@
   {
     "id": "id11047",
     "t": "Jaki dokument stwierdza posiadanie uprawnienia do kierowania ciągnikiem rolniczym?",
-    
+
     "right": "a",
     "cats": ["t"],
     "s": 1,
@@ -29428,7 +29428,7 @@
   {
     "id": "id11059",
     "t": "Dokumentem stwierdzającym posiadanie uprawnienia do kierowania motocyklem jest:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29439,7 +29439,7 @@
   {
     "id": "id11060",
     "t": "Do kierowania którym z wymienionych pojazdów uprawnia prawo jazdy kategorii A1?",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29450,7 +29450,7 @@
   {
     "id": "id11061",
     "t": "Posiadacz prawa jazdy kategorii A1 może kierować m. in.:",
-    
+
     "right": "c",
     "cats": ["a"],
     "s": 1,
@@ -29461,7 +29461,7 @@
   {
     "id": "id11062",
     "t": "Jakim pojazdem możesz kierować posiadając prawo jazdy kategorii A2?",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29472,7 +29472,7 @@
   {
     "id": "id11063",
     "t": "Wymagany minimalny wiek do kierowania motocyklem trójkołowym o mocy nieprzekraczającej 15 kW wynosi:",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29499,7 +29499,7 @@
   {
     "id": "id11068",
     "t": "Prawo jazdy kategorii AM, A1, A2, A wydaje się w zależności od orzeczenia lekarskiego:",
-    
+
     "right": "b",
     "cats": ["a"],
     "s": 1,
@@ -29518,7 +29518,7 @@
   {
     "id": "id11070",
     "t": "Osoba posiadająca prawo jazdy kategorii AM, A1, A2, A jest zobowiązana zawiadomić starostę o zniszczeniu tego dokumentu w stopniu powodującym nieczytelność w terminie:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29537,7 +29537,7 @@
   {
     "id": "id11073",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kategorii A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29548,7 +29548,7 @@
   {
     "id": "id11074",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29559,7 +29559,7 @@
   {
     "id": "id11075",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli kierujący motocyklem porusza się na obszarze zabudowanym po drodze, na której występuje ograniczenie prędkości do 40 km/h:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29578,7 +29578,7 @@
   {
     "id": "id11077",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli kierujący motocyklem w strefie ograniczonej prędkości do 30 km/h:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29589,7 +29589,7 @@
   {
     "id": "id11078",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29608,7 +29608,7 @@
   {
     "id": "id11080",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29627,7 +29627,7 @@
   {
     "id": "id11082",
     "t": "Starosta wydaje decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, nadając jej rygor natychmiastowej wykonalności, jeżeli:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29638,7 +29638,7 @@
   {
     "id": "id11083",
     "t": "Jeżeli osoba kierowała motocyklem, pomimo wydania decyzji administracyjnej o zatrzymaniu jej prawa jazdy na okres 3 miesięcy, to:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29649,7 +29649,7 @@
   {
     "id": "id11084",
     "t": "Jeżeli osoba kierowała motocyklem, pomimo wydania decyzji administracyjnej o zatrzymaniu jej prawa jazdy na okres 3 miesięcy, to:",
-    
+
     "right": "a",
     "cats": ["a"],
     "s": 1,
@@ -29660,7 +29660,7 @@
   {
     "id": "id11085",
     "t": "Jeżeli starosta wydał decyzję administracyjną o zatrzymaniu prawa jazdy kat. A na okres 3 miesięcy, to z uwagi na brak obowiązku posiadania podczas jazdy motocyklem prawa jazdy:",
-    
+
     "right": "c",
     "cats": ["a"],
     "s": 1,
@@ -30359,7 +30359,7 @@
   {
     "id": "id11194",
     "t": "Czy możesz kierować czterokołowcem lekkim po użyciu narkotyków miękkich czyli np. marihuany?",
-    
+
     "right": "n",
     "cats": ["am"],
     "s": 2
@@ -30719,7 +30719,7 @@
   {
     "id": "id11252",
     "t": "Czy jesteś zobowiązany sygnalizować postój uszkodzonego motoroweru, który zatrzymałeś na poboczu, na obszarze zabudowanym?",
-    
+
     "right": "n",
     "cats": ["am"],
     "s": 1
@@ -30727,7 +30727,7 @@
   {
     "id": "id11253",
     "t": "Czy uczestnik wypadku drogowego ma prawo oddalić się, by powiadomić o zdarzeniu służby ratownicze?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 1
@@ -30735,7 +30735,7 @@
   {
     "id": "id11254",
     "t": "Czy poszkodowany w wypadku drogowym ma prawo żądać danych personalnych sprawcy?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 1
@@ -30743,7 +30743,7 @@
   {
     "id": "id11255",
     "t": "Czy przykrywając ofiarę wypadku kocem termoizolacyjnym, ochronisz ją przed wychłodzeniem?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 1
@@ -30751,7 +30751,7 @@
   {
     "id": "id11256",
     "t": "Czy masz obowiązek usunąć z drogi motorower, gdy uczestniczysz w wypadku, w którym jest zabity lub ranny?",
-    
+
     "right": "n",
     "cats": ["am"],
     "s": 1
@@ -30767,7 +30767,7 @@
   {
     "id": "id11259",
     "t": "Czy uczestnicząc w wypadku drogowym masz obowiązek zatrzymać motorower nie powodując zagrożenia bezpieczeństwa?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 1
@@ -30775,7 +30775,7 @@
   {
     "id": "id11261",
     "t": "Czy biorąc udział w wypadku, w którym nie ma rannych, masz obowiązek wezwać Policję?",
-    
+
     "right": "n",
     "cats": ["am"],
     "s": 1
@@ -31020,7 +31020,7 @@
   {
     "id": "id11417",
     "t": "Czy kierowanie motorowerem w stanie po użyciu alkoholu lub środka działającego podobnie do alkoholu jest zawsze zabronione?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 2
@@ -31028,7 +31028,7 @@
   {
     "id": "id11418",
     "t": "Czy alkohol powoduje u kierującego motorowerem nadmierną pewność siebie prowadzącą do brawury na drodze oraz zaburza ocenę odległości i wydłuża czas reakcji?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 2
@@ -31036,7 +31036,7 @@
   {
     "id": "id11419",
     "t": "Czy spożycie alkoholu przez kierującego pogarsza zdolność do prawidłowej oceny ryzyka na drodze podczas jazdy czterokołowcem?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 2
@@ -31044,7 +31044,7 @@
   {
     "id": "id11420",
     "t": "Czy powinieneś powstrzymać się od kierowania motorowerem, jeżeli zażyłeś leki, o których nie masz wiedzy lub informacji, jaki mają wpływ na organizm i bezpieczne kierowanie pojazdami?",
-    
+
     "right": "t",
     "cats": ["am"],
     "s": 2
@@ -31096,7 +31096,7 @@
   {
     "id": "id11427",
     "t": "Czy możesz samodzielnie gasić pożar cysterny przewożącej benzynę?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31118,7 +31118,7 @@
   {
     "id": "id11429",
     "t": "Czy u poszkodowanego, który omyłkowo połknął substancję żrącą, należy wywołać wymioty?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31129,7 +31129,7 @@
   {
     "id": "id11432",
     "t": "Po jakim czasie mózg poszkodowanego, u którego doszło do zatrzymania krążenia umiera?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31195,7 +31195,7 @@
   {
     "id": "id11438",
     "t": "Jak jest maksymalna dopuszczalna wysokość pojazdu z ładunkiem?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31206,7 +31206,7 @@
   {
     "id": "id11440",
     "t": "Na rozwinięcie jakiej maksymalnej prędkości pozwala ogranicznik prędkości zamontowany w samochodzie ciężarowym o dopuszczalnej masie całkowitej przekraczającej 3,5 t?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31217,7 +31217,7 @@
   {
     "id": "id11441",
     "t": "aka jest maksymalna długość zespołu pojazdów złożonego z samochodu ciężarowego i przyczepy?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31228,7 +31228,7 @@
   {
     "id": "id11442",
     "t": "W ile gaśnic masz obowiązek wyposażyć samochód ciężarowy, którym przewozisz osoby poza kabiną kierowcy?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31239,7 +31239,7 @@
   {
     "id": "id11443",
     "t": "Czy masz prawo przewozić samochodem ciężarowym ładunek sypki, gdy wysokość tego pojazdu wraz z ładunkiem wynosi 4,5 m?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31250,7 +31250,7 @@
   {
     "id": "id11444",
     "t": "Przewozisz samochodem ciężarowym o szerokości 2,55 m ładunek o szerokości 3 m. Na jaką maksymalną odległość może on wystawać z jednej strony pojazdu?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31261,7 +31261,7 @@
   {
     "id": "id11445",
     "t": "Jakiej wartości nie może przekraczać nacisk pojedynczej osi nienapędowej?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31272,7 +31272,7 @@
   {
     "id": "id11447",
     "t": "Jaki odstęp masz obowiązek zachować, wyprzedzając samochodem ciężarowym inny samochód ciężarowy?",
-    
+
     "right": "a",
     "cats": ["c"],
     "s": 3,
@@ -31283,7 +31283,7 @@
   {
     "id": "id11448",
     "t": "Który z wymienionych czynników nie ma bezpośredniego wpływu na długość drogi hamowania samochodu ciężarowego?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31294,7 +31294,7 @@
   {
     "id": "id11449",
     "t": "Który czynnik masz obowiązek uwzględnić, gdy kierując samochodem ciężarowym, chcesz utrzymać właściwy odstęp od pojazdu, który jedzie przed Tobą?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31305,7 +31305,7 @@
   {
     "id": "id11450",
     "t": "Który czynnik ma największy wpływ na przyczepność opony samochodu ciężarowego do podłoża?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31316,7 +31316,7 @@
   {
     "id": "id11452",
     "t": "Jaki wpływ na skuteczność hamowania samochodu ciężarowego ma przegrzanie hamulców?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31327,7 +31327,7 @@
   {
     "id": "id11453",
     "t": "Jaki wpływ na drogę hamowania ma zbyt duże ciśnienie w ogumieniu samochodu ciężarowego?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31360,7 +31360,7 @@
   {
     "id": "id11459",
     "t": "W jakich okolicznościach włączenie tylnych świateł przeciwmgłowych w samochodzie ciężarowym służy zwiększeniu widoczności pojazdu podczas jazdy?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31371,7 +31371,7 @@
   {
     "id": "id11460",
     "t": "W którym przypadku zmiana zaplanowanej trasy przejazdu jest najbardziej wskazana?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31437,7 +31437,7 @@
   {
     "id": "id11469",
     "t": "W którym z przypadków używanie tempomatu jest najbardziej uzasadnione?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31448,7 +31448,7 @@
   {
     "id": "id11471",
     "t": "Jaką funkcję spełnia system ABS zastosowany w samochodzie ciężarowym?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31459,7 +31459,7 @@
   {
     "id": "id11472",
     "t": "Który z wymienionych sposobów hamowania samochodu ciężarowego wyposażonego w system ABS zapewnia najszybsze zatrzymanie pojazdu?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31503,7 +31503,7 @@
   {
     "id": "id11477",
     "t": "Czy masz prawo kierować samochodem ciężarowym, którego szerokość wraz z ładunkiem jest większa od dopuszczalnej?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31602,7 +31602,7 @@
   {
     "id": "id11489",
     "t": "Jak sygnalizowana jest niesprawność układu przeciwblokującego (ABS)?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31613,7 +31613,7 @@
   {
     "id": "id11490",
     "t": "Stwierdziłeś wyciek płynu z amortyzatora hydraulicznego, jakie mogą być jego skutki?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31624,7 +31624,7 @@
   {
     "id": "id11491",
     "t": "Jaki może być skutek uszkodzenia jednej z żarówek kierunkowskazów?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31635,7 +31635,7 @@
   {
     "id": "id11492",
     "t": "Ile wynosi minimalna dozwolona głębokość rzeźby bieżnika opony samochodu ciężarowego?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31646,7 +31646,7 @@
   {
     "id": "id11493",
     "t": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna temperatury cieczy chłodzącej?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31657,7 +31657,7 @@
   {
     "id": "id11494",
     "t": "Które z wymienionych działań należy podjąć, gdy w czasie jazdy zaświeci się na czerwono lampka kontrolna ciśnienia oleju w silniku?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 1,
@@ -31796,7 +31796,7 @@
   {
     "id": "id11513",
     "t": "Co należy zrobić, gdy u nieprzytomnego poszkodowanego w wypadku drogowym stwierdzisz brak oddechu?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31862,7 +31862,7 @@
   {
     "id": "id11519",
     "t": "Jakiej wartości nie może przekraczać rzeczywista masa całkowita przyczepy ciągniętej przez samochód ciężarowy o dopuszczalnej masie całkowitej przekraczającej 3,5 t?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31873,7 +31873,7 @@
   {
     "id": "id11520",
     "t": "Czy przejazd zespołu pojazdów składającego się z samochodu ciężarowego i dwóch przyczep wymaga zezwolenia?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31884,7 +31884,7 @@
   {
     "id": "id11521",
     "t": "W jaki sposób dwukrotne zwiększenie prędkości samochodu ciężarowego wpływa na długość jego drogi hamowania?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31895,7 +31895,7 @@
   {
     "id": "id11522",
     "t": "W którym z wymienionych przypadków dopuszczalne jest zasłonięcie części powierzchni przedniej szyby podczas kierowania samochodem ciężarowym?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31906,7 +31906,7 @@
   {
     "id": "id11524",
     "t": "Czy fakt, że jedziesz we mgle, ma wpływ na długość drogi hamowania?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31917,7 +31917,7 @@
   {
     "id": "id11525",
     "t": "W którym z wymienionych przypadków silny boczny wiatr ma największy wpływ na stabilność jazdy pojazdem członowym?",
-    
+
     "right": "b",
     "cats": ["c", "c1"],
     "s": 2,
@@ -31928,7 +31928,7 @@
   {
     "id": "id11526",
     "t": "Jak należy trzymać kierownicę podczas jazdy samochodem ciężarowym na wprost?",
-    
+
     "right": "c",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31939,7 +31939,7 @@
   {
     "id": "id11527",
     "t": "Która z wymienionych technik jazdy jest najlepsza przy zjeżdżaniu ze wzniesienia załadowanym samochodem ciężarowym?",
-    
+
     "right": "a",
     "cats": ["c", "c1"],
     "s": 3,
@@ -31950,7 +31950,7 @@
   {
     "id": "id11528",
     "t": "Co grozi kierowcy, który samochodem ciężarowym przewozi o trzy osoby więcej od liczby miejsc wpisanej w dowodzie rejestracyjnym pojazdu?",
-    
+
     "right": "a",
     "cats": ["b", "c"],
     "s": 2,
@@ -31961,7 +31961,7 @@
   {
     "id": "id11529",
     "t": "Pomimo braku obowiązku posiadania podczas jazdy dowodu rejestracyjnego, właściciel motocykla zarejestrowanego na terytorium RP:",
-    
+
     "right": "c",
     "cats": ["a"],
     "s": 1,
@@ -31980,7 +31980,7 @@
   {
     "id": "id12478",
     "t": "Co grozi kierowcy autobusu, z wyłączeniem autobusu publicznego transportu zbiorowego w gminach z przewidzianymi miejscami stojącymi, za przewóz więcej niż pięciu osób od liczby miejsc wpisanej w dowodzie rejestracyjnym pojazdu?",
-    
+
     "right": "a",
     "cats": ["d"],
     "s": 2,
@@ -32243,7 +32243,7 @@
   {
     "id": "id13036",
     "t": "Jaki jest wymagany minimalny odstęp pomiędzy motocyklami poruszającymi się w zorganizowanej kolumnie drogą ekspresową ?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -32276,7 +32276,7 @@
   {
     "id": "id13039",
     "t": "Jaki odstęp od poprzedzającego pojazdu powinien zachować kierujący autobusem, jadąc w tunelu o długości przekraczającej 500 m?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -32287,7 +32287,7 @@
   {
     "id": "id13040",
     "t": "Czy konstrukcja motoroweru powinna ograniczać jego prędkość jazdy?",
-    
+
     "right": "c",
     "cats": ["am"],
     "s": 3,
@@ -32397,7 +32397,7 @@
   {
     "id": "id13050",
     "t": "Z jaką maksymalną prędkością wolno poruszać się w obszarze zabudowanym, gdy czterokołowcem lekkim przewozisz pięcioletnie dziecko?",
-    
+
     "right": "b",
     "cats": ["am"],
     "s": 3,
@@ -32419,7 +32419,7 @@
   {
     "id": "id13052",
     "t": "Na jakiej drodze obowiązuje kierującego zachowanie ściśle określonego minimalnego odstępu od pojazdu poprzedzającego?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -32430,7 +32430,7 @@
   {
     "id": "id13053",
     "t": "Jakie urządzenia wspomagania kierowcy ułatwiają właściwe utrzymanie odstępu od pojazdu poprzedzającego?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 3,
@@ -32441,7 +32441,7 @@
   {
     "id": "id13054",
     "t": "Jaka jest dopuszczalna prędkość pojazdu z urządzeniem wystającym do przodu więcej niż 1,5 m od siedzenia dla kierującego?",
-    
+
     "right": "b",
     "cats": ["b"],
     "s": 3,
@@ -32452,7 +32452,7 @@
   {
     "id": "id13055",
     "t": "Do czego między innymi jest uprawniony organ zarządzający ruchem na drogach?",
-    
+
     "right": "b",
     "cats": ["d", "d1"],
     "s": 3,
@@ -32474,7 +32474,7 @@
   {
     "id": "id13057",
     "t": "Jaka jest wymagana minimalna odległość między zorganizowanymi kolumnami motocykli poruszającymi się autostradą?",
-    
+
     "right": "c",
     "cats": ["a", "a1", "a2"],
     "s": 3,
@@ -32485,7 +32485,7 @@
   {
     "id": "id13058",
     "t": "Z jaką prędkością wolno poruszać się po autostradzie kierując samochodem osobowym?",
-    
+
     "right": "a",
     "cats": ["b"],
     "s": 3,
@@ -32496,7 +32496,7 @@
   {
     "id": "id13059",
     "t": "Jaka jest maksymalna dopuszczalna prędkość autobusu na autostradzie?",
-    
+
     "right": "a",
     "cats": ["d", "d1"],
     "s": 3,
@@ -32551,7 +32551,7 @@
   {
     "id": "id13064",
     "t": "Jaka jest dopuszczalna prędkość czterokołowca na obszarze zabudowanym?",
-    
+
     "right": "a",
     "cats": ["b", "b1"],
     "s": 3,
@@ -32733,7 +32733,7 @@
   {
     "id": "id13088",
     "t": "Z jaką maksymalną dopuszczalną prędkością możesz holować inny pojazd?",
-    
+
     "right": "b",
     "cats": ["b", "b1"],
     "s": 3,

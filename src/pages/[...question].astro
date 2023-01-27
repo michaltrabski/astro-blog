@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
 import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
-import type { ApiDataItem, QuestionPageData } from "../store/questions";
+import type { ApiDataItem, QuestionPageData } from "../store/store";
 
 export async function getStaticPaths() {
   const categories = [..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")];
@@ -47,10 +47,8 @@ export async function getStaticPaths() {
       };
     }
   );
-  
 
-
-  // console log makes build long ?? 
+  // console log makes build long ??
   // arrayToGeneratePagesWithPrevNext.map((page, index) => {
   //   console.log(
   //     index,

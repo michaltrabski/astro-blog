@@ -41,13 +41,20 @@ export interface QuestionPageData extends Question {
   nextSlug: string | null;
 }
 
-
 // CATEGORIES
-export const _categories = atom<string[]>([]);
-export const changeCategories = (newCategories: string[]) => {
-  _categories.set(newCategories);
-  sessionStorageSetArrayItem(SESSION_STORAGE_KEY.CATEGORIES, newCategories);
-};
+export const _categories = atom<string[]>([
+  "a",
+  "b",
+  "c",
+  "d",
+  "t",
+  "am",
+  "a1",
+  "a2",
+  "b1",
+  "c1",
+  "d1",
+]);
 
 // CURRENT CATEGORY
 export const currentCategory = atom(getCurrentCategoryInitialValue());
@@ -69,7 +76,6 @@ export const loadQuestions = async () => {
 
     if (apiDataFromSessionStorage) {
       questions.set(mapApiData(apiDataFromSessionStorage));
-      changeCategories(["a", "a1", "a2", "am", "b", "b1", "c", "d", "t"])
       return;
     }
 
@@ -77,7 +83,6 @@ export const loadQuestions = async () => {
     const apiData: ApiDataItem[] = await fetchResponse.json();
     console.log(2, "apiData loaded from fetch request", apiData);
     questions.set(mapApiData(apiData));
-    changeCategories(["a", "a1", "a2", "am", "b", "b1", "c", "d", "t"])
     sessionStorageSetArrayItem(SESSION_STORAGE_KEY.API_DATA, apiData);
   } catch (err) {
     console.log("err michal check if you see it on netlify", err);

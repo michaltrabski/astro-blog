@@ -2,7 +2,7 @@ import {
   DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
   SESSION_STORAGE_KEY,
 } from "../settings/settings";
-import type { Question, ApiDataItem } from "../store/questions";
+import type { Question, ApiDataItem } from "../store/store";
 
 export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
   return allQuestions.map((q) => {

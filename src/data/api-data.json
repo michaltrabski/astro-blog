@@ -20,7 +20,7 @@
     "t": "Czy w przedstawionej sytuacji masz prawo kontynuować jazdę?",
     "m": "AK_D11_43org.mp4",
     "right": "n",
-    "cats": ["a", "b", "c"  ],
+    "cats": ["a", "b", "c"],
     "s": 3
   },
   {
@@ -76,5 +76,5 @@
     "right": "n",
     "cats": ["a"],
     "s": 3
-  } 
+  }
 ]

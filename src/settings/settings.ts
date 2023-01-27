@@ -5,3 +5,5 @@ export const SESSION_STORAGE_KEY = {
   API_DATA: "API_DATA",
   CATEGORIES: "CATEGORIES",
 } as const;
+
+export const LIMIT_OF_QUESTIONS_IN_API_DATA = 10;

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
-import { questions, currentCategory, changeCategory,_categories } from "../store/questions";
+import {
+  questions,
+  currentCategory,
+  changeCategory,
+  _categories,
+} from "../store/store";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
-
- 
 
 export default function QuestionsTable() {
   const $questions = useStore(questions);
@@ -24,10 +27,10 @@ export default function QuestionsTable() {
   return (
     <div>
       <h1>QuestionsTable:</h1>
- 
+
       <div>
         {categories.map((category) => (
-          <button
+          <button key={category}
             className={`btn me-2 btn-${
               category === $currentCategory ? "primary" : "secondary"
             }`}
@@ -46,25 +49,32 @@ export default function QuestionsTable() {
           <thead>
             <tr>
               {questionKeys.map((questionKey) => (
-                <th scope="col">{questionKey}</th>
+                <th key={questionKey} scope="col">{questionKey}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {questionsFilteredByCurrentCategory.map((question, index) => {
-              
               const questionValues = Object.values(question);
 
               return (
-                <tr>
+                <tr key={JSON.stringify(question)}>
                   {questionValues.map((questionValue, index) => {
-                    const questionKey = questionKeys[index]
-                     
+                    const questionKey = questionKeys[index];
 
                     if (typeof questionValue === "string") {
-
                       if (questionKey === "text") {
-                       return  <td><a href={getFullUrl(createQuestionUrl(question.id, $currentCategory))}>{questionValue}</a></td>
+                        return (
+                          <td>
+                            <a
+                              href={getFullUrl(
+                                createQuestionUrl(question.id, $currentCategory)
+                              )}
+                            >
+                              {questionValue}
+                            </a>
+                          </td>
+                        );
                       }
 
                       return <td>{questionValue}</td>;
