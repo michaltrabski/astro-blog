@@ -3,4 +3,5 @@ export const URLS = {
   GOOD_ANSWERS: "/dobre-odpowiedzi",
   BAD_ANSWERS: "/zle-odpowiedzi",
   QUESTION_1: "/id99",
+  USER_ACCONT: "/twoje-konto",
 } as const;

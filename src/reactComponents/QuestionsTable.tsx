@@ -30,7 +30,8 @@ export default function QuestionsTable() {
 
       <div>
         {categories.map((category) => (
-          <button key={category}
+          <button
+            key={category}
             className={`btn me-2 btn-${
               category === $currentCategory ? "primary" : "secondary"
             }`}
@@ -49,7 +50,9 @@ export default function QuestionsTable() {
           <thead>
             <tr>
               {questionKeys.map((questionKey) => (
-                <th key={questionKey} scope="col">{questionKey}</th>
+                <th key={questionKey} scope="col">
+                  {questionKey}
+                </th>
               ))}
             </tr>
           </thead>
