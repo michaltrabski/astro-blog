@@ -84,7 +84,18 @@ const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
 <style>
 
  
-
+body:fullscreen {
+  overflow: scroll !important;
+}
+body:-ms-fullscreen {
+  overflow: scroll !important;
+}
+body:-webkit-full-screen {
+  overflow: scroll !important;
+}
+body:-moz-full-screen {
+  overflow: scroll !important;
+}
 
   /* webkit requires explicit width, height = 100% of sceeen */
 /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
