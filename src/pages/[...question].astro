@@ -67,6 +67,9 @@ const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
 ---
 
 <Layout>
+
+  <button id="full-screen">full screen</button>
+
   <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
   <h2>Kategoria: <strong>{category}</strong>, id: {id}</h2>
   <h1>{text}</h1>
@@ -74,3 +77,27 @@ const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
   <pre>{JSON.stringify( Astro.params, null,2)}</pre>
   <pre>{JSON.stringify( Astro.props, null,2)}</pre>
 </Layout>
+
+
+<script>
+
+const fullScreenButton = document.querySelector("#full-screen");
+
+fullScreenButton?.addEventListener("click", () => {
+
+
+  // DOM element which needs to enter fullscreen mode
+const element = document.querySelector("body");
+
+element?.requestFullscreen()
+.then(function() {
+	// element has entered fullscreen mode successfully
+})
+.catch(function(error) {
+	// element could not enter fullscreen mode
+	// error message
+	console.log(error.message);
+});
+
+});
+</script>

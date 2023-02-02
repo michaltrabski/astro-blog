@@ -1,6 +1,6 @@
 import {
   DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
-  SESSION_STORAGE_KEY,
+  KEY,
 } from "../settings/settings";
 import type { Question, ApiDataItem } from "../store/store";
 
@@ -47,7 +47,7 @@ export const getFullUrl = (url: string) => {
 export const getCurrentCategoryInitialValue = () => {
   try {
     const currentCategory =
-      sessionStorage.getItem(SESSION_STORAGE_KEY.CURRENT_CATEGORY) ||
+      sessionStorage.getItem(KEY.CURRENT_CATEGORY) ||
       DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
     return currentCategory;
   } catch (err) {
@@ -57,7 +57,7 @@ export const getCurrentCategoryInitialValue = () => {
 
 export const getApiDataFromSessionStorage = () => {
   try {
-    const apiData = sessionStorage.getItem(SESSION_STORAGE_KEY.API_DATA);
+    const apiData = sessionStorage.getItem(KEY.API_DATA);
 
     if (apiData) {
       return JSON.parse(apiData) as ApiDataItem[];
@@ -69,10 +69,7 @@ export const getApiDataFromSessionStorage = () => {
   }
 };
 
-export const sessionStorageSetStringItem = (
-  key: string,
-  stringValue: string
-) => {
+export const storageSetStringItem = (key: string, stringValue: string) => {
   try {
     if (typeof stringValue === "string") {
       sessionStorage.setItem(key, stringValue);

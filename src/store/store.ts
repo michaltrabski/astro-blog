@@ -1,12 +1,12 @@
-import { atom } from "nanostores";
-import { SESSION_STORAGE_KEY } from "../settings/settings";
+import { atom, map } from 'nanostores';
+import { ALL_CATEGORIES, KEY } from "../settings/settings";
 
 import {
   getApiDataFromSessionStorage,
   getCurrentCategoryInitialValue,
   mapApiData,
   sessionStorageSetArrayItem,
-  sessionStorageSetStringItem,
+  storageSetStringItem,
 } from "../utils/utils";
 
 export interface ApiDataItem {
@@ -41,30 +41,52 @@ export interface QuestionPageData extends Question {
   nextSlug: string | null;
 }
 
+
+
+ 
+export type CartItem = {
+  id: string;
+  name: string;
+  imageSrc: string;
+  quantity: number;
+}
+
+export const cartItems = map<Record<string, CartItem | any>>({"id99": {
+  "clickedCorrectAnswer": false,
+  "clickedAnswer": "n",
+  "vote": "good"
+}});
+
+type ItemDisplayInfo = Pick<CartItem, 'id' | 'name' | 'imageSrc'>;
+export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
+  const existingEntry = cartItems.get()[id];
+  if (existingEntry) {
+    cartItems.setKey(id, {
+      ...existingEntry,
+      quantity: existingEntry.quantity + 1,
+    });
+  } else {
+    cartItems.setKey(
+      id,
+      { id, name, imageSrc, quantity: 1 }
+    );
+  }
+}
+// USER
+// export const user = atom()
+
+
+
+
 // CATEGORIES
-export const _categories = atom<string[]>([
-  "a",
-  "b",
-  "c",
-  "d",
-  "t",
-  "am",
-  "a1",
-  "a2",
-  "b1",
-  "c1",
-  "d1",
-]);
+export const _categories = atom<string[]>(ALL_CATEGORIES);
 
 // CURRENT CATEGORY
 export const currentCategory = atom(getCurrentCategoryInitialValue());
 
 export const changeCategory = (newCategory: string) => {
   currentCategory.set(newCategory);
-  sessionStorageSetStringItem(
-    SESSION_STORAGE_KEY.CURRENT_CATEGORY,
-    newCategory
-  );
+  storageSetStringItem(KEY.CURRENT_CATEGORY, newCategory);
 };
 
 // QUESTIONS
@@ -83,7 +105,7 @@ export const loadQuestions = async () => {
     const apiData: ApiDataItem[] = await fetchResponse.json();
     console.log(2, "apiData loaded from fetch request", apiData);
     questions.set(mapApiData(apiData));
-    sessionStorageSetArrayItem(SESSION_STORAGE_KEY.API_DATA, apiData);
+    sessionStorageSetArrayItem(KEY.API_DATA, apiData);
   } catch (err) {
     console.log("err michal check if you see it on netlify", err);
     questions.set([]);
