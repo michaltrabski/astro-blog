@@ -4,8 +4,24 @@ import {
 } from "../settings/settings";
 import type { Question, ApiDataItem } from "../store/store";
 
-export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
-  return allQuestions.map((q) => {
+export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
+  const _allCategories: string[] = [];
+
+  apiData.forEach((item) => {
+    _allCategories.push(...item.cats);
+  });
+
+  const allCategories = [...new Set(_allCategories)];
+
+  const allQuestions: Question[] = mapApiData(apiData);
+
+  // return mapApiData(apiData)
+
+  return { allCategories, allQuestions };
+};
+
+export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
+  return apiData.map((q) => {
     const newQuestion: Question = {
       id: q.id,
       text: q.t,
@@ -23,12 +39,12 @@ export const mapApiData = (allQuestions: ApiDataItem[]): Question[] => {
   });
 };
 
-export const createQuestionUrl = (questionId: string, category: string) => {
+export const createQuestionUrl = (question: Question, category: string) => {
   if (category === "b") {
-    return `${questionId}`;
+    return `${question.id}`;
   }
 
-  return `${category}/${questionId}`;
+  return `${category}/${question.id}`;
 };
 
 export const getFullUrl = (url: string) => {

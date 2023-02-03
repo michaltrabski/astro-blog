@@ -1,4 +1,4 @@
-import { atom, map } from 'nanostores';
+import { atom, map } from "nanostores";
 import { ALL_CATEGORIES, KEY } from "../settings/settings";
 
 import {
@@ -41,23 +41,22 @@ export interface QuestionPageData extends Question {
   nextSlug: string | null;
 }
 
-
-
- 
 export type CartItem = {
   id: string;
   name: string;
   imageSrc: string;
   quantity: number;
-}
+};
 
-export const cartItems = map<Record<string, CartItem | any>>({"id99": {
-  "clickedCorrectAnswer": false,
-  "clickedAnswer": "n",
-  "vote": "good"
-}});
+export const cartItems = map<Record<string, CartItem | any>>({
+  id99: {
+    clickedCorrectAnswer: false,
+    clickedAnswer: "n",
+    vote: "good",
+  },
+});
 
-type ItemDisplayInfo = Pick<CartItem, 'id' | 'name' | 'imageSrc'>;
+type ItemDisplayInfo = Pick<CartItem, "id" | "name" | "imageSrc">;
 export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
   const existingEntry = cartItems.get()[id];
   if (existingEntry) {
@@ -66,17 +65,11 @@ export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
       quantity: existingEntry.quantity + 1,
     });
   } else {
-    cartItems.setKey(
-      id,
-      { id, name, imageSrc, quantity: 1 }
-    );
+    cartItems.setKey(id, { id, name, imageSrc, quantity: 1 });
   }
 }
 // USER
 // export const user = atom()
-
-
-
 
 // CATEGORIES
 export const _categories = atom<string[]>(ALL_CATEGORIES);

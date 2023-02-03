@@ -1,9 +1,101 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Auth from "../reactComponents/Auth";
+import CurrentYear from "../reactComponents/CurrentYear";
 import QuestionsTable from "../reactComponents/QuestionsTable";
+import {
+  createBigObjectDataForInBuildTime,
+  createQuestionUrl,
+  getFullUrl,
+  mapApiData,
+} from "../utils/utils";
+
+import apiData from "../data/api-data";
+import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
+
+const bigData = createBigObjectDataForInBuildTime(apiData);
+const { allCategories } = bigData;
+
+const question = { id: "id99" };
 ---
 
 <Layout>
+  <!-- ROW -->
+  <div class="row mb-2">
+    <!-- LEFT SIDEBAR  -->
+    <div class="3333333333333333 col-12 col-lg-6">
+      <!-- ROW ROW  -->
+      <div class="row mb-2">
+        <div class="col">
+          <h1 class="display-3 fw-bold">
+            Testy na prawo jazdy <CurrentYear client:visible />
+          </h1>
+          <p class="lead">
+            Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na
+            prawo jazdy lub przeglądaj pytania testowe.
+          </p>
+
+          <!-- START LEARNING BUTTON  -->
+          <div class="d-grid gap-2 mb-2">
+            {
+              allCategories.map((cat) => {
+                const firstQuestionContainingCurrentCategory = mapApiData(
+                  apiData
+                ).find((q) => q.categories.includes(cat));
+
+                if (!firstQuestionContainingCurrentCategory) {
+                  return null;
+                }
+
+                return (
+                  <a
+                    href={getFullUrl(
+                      createQuestionUrl(
+                        firstQuestionContainingCurrentCategory,
+                        cat
+                      )
+                    )}
+                    class:list={[
+                      "btn btn-sm",
+                      {
+                        "btn-primary":
+                          cat === DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
+                        "btn-secondary":
+                          cat !== DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
+                      },
+                    ]}
+                    role="button"
+                  >
+                    Rozpocznij naukę testów na prawo jazdy{" "}
+                    <CurrentYear client:visible />, kategorii{" "}
+                    {cat.toUpperCase()}
+                  </a>
+                );
+              })
+            }
+          </div>
+          <div class="p-3">
+            <a href="kategorie-prawa-jazdy.html">
+              Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
+              się uczyć!
+            </a>
+          </div>
+          <p class="lead">
+            Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear
+              client:visible
+            /> roku.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR  -->
+    <div class="4444444444444444 col-12 col-lg-6 border">
+      <p>RIGHT SIDEBAR</p>
+
+      <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre>
+    </div>
+  </div>
+
   <QuestionsTable client:visible />
 </Layout>

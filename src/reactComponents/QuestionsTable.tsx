@@ -71,7 +71,7 @@ export default function QuestionsTable() {
                           <td>
                             <a
                               href={getFullUrl(
-                                createQuestionUrl(question.id, $currentCategory)
+                                createQuestionUrl(question, $currentCategory)
                               )}
                             >
                               {questionValue}

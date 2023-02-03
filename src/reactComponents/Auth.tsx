@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
-
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -11,16 +9,13 @@ import {
 } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-import {
-  cartItems,
-} from "../store/store";
+import { cartItems } from "../store/store";
 import { useStore } from "@nanostores/react";
 
 export default function Auth() {
   const $cartItems = useStore(cartItems);
 
-  console.log(111111111, "$cartItems", $cartItems)
-
+  console.log(111111111, "$cartItems", $cartItems);
 
   const [user, setUser] = useState<any | null>(null);
   const [userData, setUserData] = useState<any | null>(null);

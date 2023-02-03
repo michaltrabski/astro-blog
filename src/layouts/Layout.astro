@@ -7,9 +7,7 @@ export interface Props {
   title?: string;
 }
 
-const { title = "Domyślny tytuł strony" } = Astro.props as Props;
-
-const theme: "LIGHT" | "DARK" = "LIGHT";
+const { title = "Testy na prawo jazdy" } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -34,21 +32,20 @@ const theme: "LIGHT" | "DARK" = "LIGHT";
 
     <title>{title}</title>
   </head>
-  <body
-    class={`${
-      theme === "DARK" && "bg-dark text-light"
-    } mt-5 p-3 border-top border-primary`}
-  >
+  <body class="mt-5 p-3 border-top border-primary">
     <Header />
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <slot />
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div
+            class="col 111111111111111111 this-is-wrapper-from-layout text-center"
+          >
+            <slot />
+          </div>
         </div>
       </div>
-    </div>
-
+    </main>
     <Footer />
 
     <LoadQuestions client:load />
