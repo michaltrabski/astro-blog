@@ -16,7 +16,7 @@ import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories } = bigData;
 
-const question = { id: "id99" };
+ 
 ---
 
 <Layout>
@@ -25,7 +25,7 @@ const question = { id: "id99" };
     <!-- LEFT SIDEBAR  -->
     <div class="3333333333333333 col-12 col-lg-6">
       <!-- ROW ROW  -->
-      <div class="row mb-2">
+      <div class="row mb-2 border">
         <div class="col">
           <h1 class="display-3 fw-bold">
             Testy na prawo jazdy <CurrentYear client:visible />
@@ -74,19 +74,82 @@ const question = { id: "id99" };
               })
             }
           </div>
-          <div class="p-3">
-            <a href="kategorie-prawa-jazdy.html">
-              Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
-              się uczyć!
-            </a>
-          </div>
-          <p class="lead">
-            Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear
-              client:visible
-            /> roku.
-          </p>
         </div>
       </div>
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">
+        <p class="lead">
+        <a href="kategorie-prawa-jazdy.html">
+          Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się
+          uczyć!
+        </a></p>
+      </div>
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">
+        <p class="lead">
+          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear
+            client:visible
+          /> roku.
+        </p>
+      </div>
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">
+        
+        <div class="col">
+          <h2 class="display-5">
+            <span> Największa darmowa baza </span>
+            <span class="badge bg-warning text-dark"> 3 </span>
+            <span> wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!! </span>
+          </h2>
+          <h3>
+            <span> Dostępne kategorie to: </span>
+            <strong class="small"> {allCategories.join(", ")} </strong>
+          </h3>
+          <p>
+            <strong> Kliknij poniżej i wybierz aktualną kategorię z testów na prawo jazdy której chcesz się teraz uczyć: </strong>
+          </p>
+          <div>
+            {allCategories.map(cat => {
+
+              return <button class="btn btn-outline-secondary p-1 me-1 mb-1"  type="button">
+              <strong> {cat} </strong>
+              <br>
+              <span class="small"> 3 - pytań</span>
+            </button>
+            })}
+            
+          
+           
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">wiersz</div>
+
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">wiersz</div>
+
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">wiersz</div>
+
+
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">wiersz</div>
+
+      
+    
+    
+    
+    
     </div>
 
     <!-- RIGHT SIDEBAR  -->
