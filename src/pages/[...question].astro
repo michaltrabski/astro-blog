@@ -4,6 +4,7 @@ import apiData from "../data/api-data";
 import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/store";
 import AnswerAbc from "../reactComponents/AnswerAbc";
+import AnswerYesNo from "../reactComponents/AnswerYesNo";AnswerYesNo
 
 export async function getStaticPaths() {
   const categories = [..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")];
@@ -65,7 +66,7 @@ export async function getStaticPaths() {
 }
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
-const { id, text, category, prevSlug, nextSlug } = questionPageData;
+const { id, text, category, score, prevSlug, nextSlug } = questionPageData;
 ---
 
 <Layout>
@@ -101,14 +102,14 @@ const { id, text, category, prevSlug, nextSlug } = questionPageData;
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> pkt: 3</span>
+            <span> pkt: B</span>
           </div>
         </div>
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> kat: A</span>
+            <span> kat: {score}</span>
           </div>
         </div>
         <div class="col-6"></div>
@@ -136,15 +137,24 @@ const { id, text, category, prevSlug, nextSlug } = questionPageData;
       </div>
 
  
-      <div class="ANSWER-ABC row mb-2">
+      <div class="ANSWER-ABC row mb-3">
         <div class="col">
       <AnswerAbc client:visible question={questionPageData} />
     </div> </div>
-      <!-- ROW ROW ANSWER t/n -->
+
+    
+
+      <div class="ANSWER-YES-NO row mb-3">
+        <div class="col">
+      <AnswerYesNo client:visible question={questionPageData} />
+    </div> </div>
+
 
       <!-- ROW ROW PREVIES NEXT -->
-      <div class="row mb-2">
-        <div class="col-6 mb-2"></div>
+      <div class="row mb-3">
+        <div class="col-6 mb-2"><a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
+          poprzednie
+        </a></div>
         <div class="col-6 mb-2 text-end">
           <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
             następne

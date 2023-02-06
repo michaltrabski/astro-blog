@@ -2,15 +2,15 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import type { Question } from "../store/store";
+import type {   QuestionPageData } from "../store/store";
 
 interface AnswerAbcProps {
-  question: Question;
+  question: QuestionPageData;
 }
 
 export default function AnswerAbc(props: AnswerAbcProps) {
-  const { question } = props;
-  const { a, b, c, correctAnswer } = question;
+ 
+  const { a, b, c, correctAnswer } = props.question;
 
   const [clickedAnswerValue, setClickedAnswerValue] = useState<string | null>(
     null
