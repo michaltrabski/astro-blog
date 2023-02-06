@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
 import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/store";
+import AnswerAbc from "../reactComponents/AnswerAbc";
 
 export async function getStaticPaths() {
   const categories = [..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")];
@@ -63,11 +64,14 @@ export async function getStaticPaths() {
   return arrayToGeneratePagesWithPrevNext;
 }
 
-const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
+const questionPageData: QuestionPageData = Astro.props.questionPageData;
+const { id, text, category, prevSlug, nextSlug } = questionPageData;
 ---
 
 <Layout>
-  <button id="full-screen">full screen</button>
+  <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
+
+  <!-- <button id="full-screen">full screen</button>
   <div id="wrapper">
     <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
     <h2>Kategoria: <strong>{category}</strong>, id: {id}</h2>
@@ -75,6 +79,186 @@ const { id, text, category, prevSlug, nextSlug } = Astro.props.questionPageData;
 
     <pre>{JSON.stringify( Astro.params, null,2)}</pre>
     <pre>{JSON.stringify( Astro.props, null,2)}</pre>
+  </div> -->
+
+  <!-- ROW  -->
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <!-- HEADLINE -->
+      <div class="row">
+        <div class="col">
+          <p>
+            To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy
+            z 2023 roku.
+            <a href="#"> Zmień kategorię prawa jazdy.</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW ROW QUESTION INFO -->
+      <div class="row mb-2 text-center">
+        <div class="col-3">
+          <div
+            class="text-secondary h-100 d-flex justify-content-center align-items-center"
+          >
+            <span> pkt: 3</span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div
+            class="text-secondary h-100 d-flex justify-content-center align-items-center"
+          >
+            <span> kat: A</span>
+          </div>
+        </div>
+        <div class="col-6"></div>
+      </div>
+
+      <!-- ROW ROW MEDIA-->
+      <div class="row">
+        <div class="col">
+          <video
+            src="https://usun.dacmwwxjyw.cfolks.pl/AK_D05_06_org.mp4"
+            controls="true"
+            class="w-100 shadow border border-dark border-3"
+          >
+          </video>
+        </div>
+      </div>
+
+      <!-- ROW ROW QUESTION TEXT -->
+      <div class="row">
+        <div class="col">
+          <h1 class="display-6 text-start shadow-bottom">
+            {text}
+          </h1>
+        </div>
+      </div>
+
+ 
+      <div class="ANSWER-ABC row mb-2">
+        <div class="col">
+      <AnswerAbc client:visible question={questionPageData} />
+    </div> </div>
+      <!-- ROW ROW ANSWER t/n -->
+
+      <!-- ROW ROW PREVIES NEXT -->
+      <div class="row mb-2">
+        <div class="col-6 mb-2"></div>
+        <div class="col-6 mb-2 text-end">
+          <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
+            następne
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW ROW VOTE HEADLINE -->
+      <div class="row">
+        <div class="col">
+          <div class="small text-center">
+            <p>
+              <strong> Oceń znajomość tego pytania:</strong>
+              <br />
+              <span>(będziesz mógł przeglądać ocenione pytania)</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW ROW -->
+      <div class="row mb-2">
+        <!-- PROGRESS  -->
+        <div class="col">
+          <h2>Twoje postępy w nauce:</h2>
+          <a href="#" class="btn btn-success w-100 d-block mb-2"
+            >Dobrze odpowiedziałeś na 0 pytań.
+            <u>zobacz.</u>
+          </a>
+          <a href="#" class="btn btn-danger w-100 d-block mb-2"
+            >Średnio odpowiedziałeś na 0 pytań.
+            <u>zobacz.</u>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW ROW -->
+      <div class="row mb-2">
+        <!-- EXPLANATION -->
+        <div class="col mb-2 text-start">
+          <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
+          <div style="filter: blur(0px)">
+            <div>
+              <p>
+                Przejeżdżając obok tramwaju który zatrzymał się na przystanku
+                należy ustąpić pierwszeństwa pieszym chcącym wsiąść i wysiąść z
+                pojazdu.
+              </p>
+            </div>
+            <p></p>
+            <p>ustawa108 art3 art3ust1pktart26ust6</p>
+            <div>[object Object]</div>
+
+            <!-- <div>Źródło: </div>
+                      <div>topic [[topic]]</div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW ROW -->
+      <div class="row">
+        <div class="col">
+          <h2>Szczegóły dotyczące tego pytania testowego:</h2>
+          <div class="table-responsive">
+            <table class="table table-dark">
+              <caption
+                >Powyższa tabela przedstawia szegółowe informacje dotyczące
+                pytania z testów na prawo jazdy. Informacje są aktualne w lutym
+                2023 roku.</caption
+              >
+              <thead>
+                <tr>
+                  <th scope="col">Co?</th>
+                  <th scope="col">Info!</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Id w bazie danych ministerstwa transportu</th>
+                  <td> <span>id</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW ROW -->
+      <div class="row">
+        <div class="col">
+          <div class="mt-5 pb-5 text-start">
+            <p>
+              Pamiętaj, że jedno konkretne pytanie z
+              <strong> testów na prawo jazdy aktualnych w 2023</strong>
+              może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe
+              należy to kategorii a,a1,a2
+            </p>
+            <p>
+              Dostępne kategorie pytań z testów na prawo jazdy w lutym 2023 to
+              <strong>a,a1,a2!</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW ROW -->
+      <div class="row mb-2">
+        <!-- OTHER QUESTIONS -->
+        <div class="col">
+          <h2>Zobacz też inne pytania testowe!</h2>
+          ...
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>
 

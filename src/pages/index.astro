@@ -15,8 +15,6 @@ import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories } = bigData;
-
- 
 ---
 
 <Layout>
@@ -80,10 +78,11 @@ const { allCategories } = bigData;
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
         <p class="lead">
-        <a href="kategorie-prawa-jazdy.html">
-          Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się
-          uczyć!
-        </a></p>
+          <a href="kategorie-prawa-jazdy.html">
+            Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
+            się uczyć!
+          </a>
+        </p>
       </div>
 
       <!-- ROW ROW  -->
@@ -97,59 +96,54 @@ const { allCategories } = bigData;
 
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
-        
         <div class="col">
           <h2 class="display-5">
-            <span> Największa darmowa baza </span>
-            <span class="badge bg-warning text-dark"> 3 </span>
-            <span> wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!! </span>
+            <span> Największa darmowa baza</span>
+            <span class="badge bg-warning text-dark"> 3</span>
+            <span>
+              wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!!
+            </span>
           </h2>
           <h3>
-            <span> Dostępne kategorie to: </span>
-            <strong class="small"> {allCategories.join(", ")} </strong>
+            <span> Dostępne kategorie to:</span>
+            <strong class="small"> {allCategories.join(", ")}</strong>
           </h3>
           <p>
-            <strong> Kliknij poniżej i wybierz aktualną kategorię z testów na prawo jazdy której chcesz się teraz uczyć: </strong>
+            <strong>
+              Kliknij poniżej i wybierz aktualną kategorię z testów na prawo
+              jazdy której chcesz się teraz uczyć:
+            </strong>
           </p>
           <div>
-            {allCategories.map(cat => {
-
-              return <button class="btn btn-outline-secondary p-1 me-1 mb-1"  type="button">
-              <strong> {cat} </strong>
-              <br>
-              <span class="small"> 3 - pytań</span>
-            </button>
-            })}
-            
-          
-           
+            {
+              allCategories.map((cat) => {
+                return (
+                  <button
+                    class="btn btn-outline-secondary p-1 me-1 mb-1"
+                    type="button"
+                  >
+                    <strong> {cat} </strong>
+                    <br />
+                    <span class="small"> 3 - pytań</span>
+                  </button>
+                );
+              })
+            }
           </div>
         </div>
-
-
       </div>
 
+      <!-- ROW ROW  -->
+      <div class="row mb-2 border">wiersz</div>
 
       <!-- ROW ROW  -->
       <div class="row mb-2 border">wiersz</div>
 
-
       <!-- ROW ROW  -->
       <div class="row mb-2 border">wiersz</div>
 
-
       <!-- ROW ROW  -->
       <div class="row mb-2 border">wiersz</div>
-
-
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">wiersz</div>
-
-      
-    
-    
-    
-    
     </div>
 
     <!-- RIGHT SIDEBAR  -->
