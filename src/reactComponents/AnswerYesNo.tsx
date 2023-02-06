@@ -8,24 +8,20 @@ const possibleAnswers = [
   { letterIndex: "n", label: "Nie" },
 ];
 
- 
-
-interface AnswerYesNoProps   {
+interface AnswerYesNoProps {
   question: QuestionPageData;
 }
 
-  export default function AnswerYesNo(props:AnswerYesNoProps) {
-    const [clickedAnswerValue, setClickedAnswerValue] = useState<string | null>(
-      null
-    );
+export default function AnswerYesNo(props: AnswerYesNoProps) {
+  const [clickedAnswerValue, setClickedAnswerValue] = useState<string | null>(
+    null
+  );
 
-    const { a, b, c, correctAnswer } = props.question;
+  const { a, b, c, correctAnswer } = props.question;
 
-    if (a !== "" || b !== "" || c !== "") {
-      return null;
-    }
-
-
+  if (a !== "" || b !== "" || c !== "") {
+    return null;
+  }
 
   return (
     <div>
@@ -41,16 +37,14 @@ interface AnswerYesNoProps   {
         }
 
         return (
-    
-            <button
-              key={answer.letterIndex}
-              onClick={() => setClickedAnswerValue(answer.letterIndex)}
-              type="button"
-               className={clsx("btn me-3 btn-lg", btnColor)}
-            >
-              {answer.label}
-            </button>
-   
+          <button
+            key={answer.letterIndex}
+            onClick={() => setClickedAnswerValue(answer.letterIndex)}
+            type="button"
+            className={clsx("btn me-3 btn-lg", btnColor)}
+          >
+            {answer.label}
+          </button>
         );
       })}
     </div>

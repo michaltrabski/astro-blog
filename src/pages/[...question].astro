@@ -1,17 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
-import { createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
+import {
+  createBigObjectDataForInBuildTime,
+  createQuestionUrl,
+  getFullUrl,
+  mapApiData,
+} from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/store";
 import AnswerAbc from "../reactComponents/AnswerAbc";
-import AnswerYesNo from "../reactComponents/AnswerYesNo";AnswerYesNo
+import AnswerYesNo from "../reactComponents/AnswerYesNo";
+import Media from "../reactComponents/Media";
+
+interface ArrayToGeneratePages {
+  params: {
+    question: string;
+  };
+  props: {
+    questionPageData: QuestionPageData;
+  };
+}
 
 export async function getStaticPaths() {
-  const categories = [..."a,b,c,d,t,am,a1,a2,b1,c1,d1,z".split(",")];
+  const bigData = createBigObjectDataForInBuildTime(apiData);
+  const { allCategories } = bigData;
 
-  const arrayToGeneratePages: any[] = [];
+  const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
-  categories.forEach((category) => {
+  allCategories.forEach((category) => {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
       .filter((q) => q.categories.includes(category))
       .map((q, index) => {
@@ -28,6 +44,7 @@ export async function getStaticPaths() {
           props: { questionPageData },
         };
       });
+
     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
@@ -50,27 +67,15 @@ export async function getStaticPaths() {
     }
   );
 
-  // console log makes build long ??
-  // arrayToGeneratePagesWithPrevNext.map((page, index) => {
-  //   console.log(
-  //     index,
-  //     page.props.questionPageData.slug,
-  //     page.props.questionPageData.prevSlug,
-  //     page.props.questionPageData.nextSlug
-  //   );
-
-  //   return page;
-  // });
-
   return arrayToGeneratePagesWithPrevNext;
 }
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
-const { id, text, category, score, prevSlug, nextSlug } = questionPageData;
+const { id, text, category, score, media, isVideo, prevSlug, nextSlug } = questionPageData;
 ---
 
 <Layout>
-  <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
+  <!-- <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p> -->
 
   <!-- <button id="full-screen">full screen</button>
   <div id="wrapper">
@@ -85,47 +90,34 @@ const { id, text, category, score, prevSlug, nextSlug } = questionPageData;
   <!-- ROW  -->
   <div class="row">
     <div class="col-12 col-lg-6">
-      <!-- HEADLINE -->
-      <div class="row">
-        <div class="col">
-          <p>
-            To pytanie należy do kategorii <span>A</span> , testów na prawo jazdy
-            z 2023 roku.
-            <a href="#"> Zmień kategorię prawa jazdy.</a>
-          </p>
-        </div>
-      </div>
 
-      <!-- ROW ROW QUESTION INFO -->
-      <div class="row mb-2 text-center">
+      
+      <div class="QUESTION-INFO row mb-2 text-center">
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> pkt: B</span>
+            <span> {id} </span>
           </div>
         </div>
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> kat: {score}</span>
+            <span> kat: {category.toUpperCase()}</span>
           </div>
         </div>
-        <div class="col-6"></div>
-      </div>
-
-      <!-- ROW ROW MEDIA-->
-      <div class="row">
-        <div class="col">
-          <video
-            src="https://usun.dacmwwxjyw.cfolks.pl/AK_D05_06_org.mp4"
-            controls="true"
-            class="w-100 shadow border border-dark border-3"
+        <div class="col-3">
+          <div
+            class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-          </video>
+            <span> pkt: {score}</span>
+          </div>
         </div>
       </div>
+
+ 
+      <Media client:visible text={text} media={media} isVideo={isVideo} />
 
       <!-- ROW ROW QUESTION TEXT -->
       <div class="row">
@@ -136,29 +128,31 @@ const { id, text, category, score, prevSlug, nextSlug } = questionPageData;
         </div>
       </div>
 
- 
       <div class="ANSWER-ABC row mb-3">
         <div class="col">
-      <AnswerAbc client:visible question={questionPageData} />
-    </div> </div>
-
-    
+          <AnswerAbc client:visible question={questionPageData} />
+        </div>
+      </div>
 
       <div class="ANSWER-YES-NO row mb-3">
         <div class="col">
-      <AnswerYesNo client:visible question={questionPageData} />
-    </div> </div>
-
+          <AnswerYesNo client:visible question={questionPageData} />
+        </div>
+      </div>
 
       <!-- ROW ROW PREVIES NEXT -->
       <div class="row mb-3">
-        <div class="col-6 mb-2"><a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
-          poprzednie
-        </a></div>
+        <div class="col-6 mb-2">
+          {prevSlug &&
+          <a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
+            poprzednie
+          </a> }
+        </div>
         <div class="col-6 mb-2 text-end">
+          {nextSlug && 
           <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
             następne
-          </a>
+          </a>}
         </div>
       </div>
 
@@ -214,6 +208,15 @@ const { id, text, category, score, prevSlug, nextSlug } = questionPageData;
         </div>
       </div>
 
+      <div class="row">
+        <div class="col">
+          <p>
+            To pytanie należy do kategorii <span>{category.toUpperCase()}</span>
+            , testów na prawo jazdy z 2023 roku.
+            <a href="#"> Zmień kategorię prawa jazdy.</a>
+          </p>
+        </div>
+      </div>
       <!-- ROW ROW -->
       <div class="row">
         <div class="col">
