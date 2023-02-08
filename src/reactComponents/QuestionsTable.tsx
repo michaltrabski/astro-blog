@@ -25,7 +25,9 @@ export default function QuestionsTable() {
   );
 
   return (
-    <div>
+    <div className="row mb-2">
+
+    <div className="col">
       <h1>QuestionsTable:</h1>
 
       <div>
@@ -95,6 +97,6 @@ export default function QuestionsTable() {
           </tbody>
         </table>
       </div>
-    </div>
+    </div>  </div>
   );
 }

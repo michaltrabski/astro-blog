@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Auth from "../reactComponents/Auth";
 import CurrentYear from "../reactComponents/CurrentYear";
-import QuestionsTable from "../reactComponents/QuestionsTable";
 import {
   createBigObjectDataForInBuildTime,
   createQuestionUrl,
@@ -14,16 +12,16 @@ import apiData from "../data/api-data";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 
 const bigData = createBigObjectDataForInBuildTime(apiData);
-const { allCategories } = bigData;
+const { allCategories, allQuestions } = bigData;
 ---
 
 <Layout>
-  <!-- ROW -->
+
   <div class="row mb-2">
-    <!-- LEFT SIDEBAR  -->
-    <div class="3333333333333333 col-12 col-lg-6">
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">
+
+    <div class="col-12 col-lg-6">
+
+      <div class="row mb-2">
         <div class="col">
           <h1 class="display-3 fw-bold">
             Testy na prawo jazdy <CurrentYear client:visible />
@@ -33,7 +31,7 @@ const { allCategories } = bigData;
             prawo jazdy lub przeglądaj pytania testowe.
           </p>
 
-          <!-- START LEARNING BUTTON  -->
+    
           <div class="d-grid gap-2 mb-2">
             {
               allCategories.map((cat) => {
@@ -94,20 +92,30 @@ const { allCategories } = bigData;
         </p>
       </div>
 
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">
+    
+      <div class="row mb-2">
         <div class="col">
           <h2 class="display-5">
-            <span> Największa darmowa baza</span>
-            <span class="badge bg-warning text-dark"> 3</span>
-            <span>
+             Największa darmowa baza 
+            <span class="badge bg-warning text-dark"> {allQuestions.length} </span>
+  
               wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!!
-            </span>
-          </h2>
-          <h3>
-            <span> Dostępne kategorie to:</span>
-            <strong class="small"> {allCategories.join(", ")}</strong>
-          </h3>
+               </h2>
+                    
+               <h3>
+                <span> Dostępne kategorie to:</span>
+                <strong class="small"> {allCategories.join(", ").toUpperCase() } </strong>
+              </h3>
+        </div>
+      </div>
+
+      
+
+
+      <div class="row mb-2">
+        <div class="col">
+           
+           
           <p>
             <strong>
               Kliknij poniżej i wybierz aktualną kategorię z testów na prawo
@@ -124,7 +132,7 @@ const { allCategories } = bigData;
                   >
                     <strong> {cat} </strong>
                     <br />
-                    <span class="small"> 3 - pytań</span>
+                    <span class="small"> {allQuestions.filter(q => q.categories.includes(cat)).length} - pytań</span>
                   </button>
                 );
               })
@@ -147,12 +155,10 @@ const { allCategories } = bigData;
     </div>
 
     <!-- RIGHT SIDEBAR  -->
-    <div class="4444444444444444 col-12 col-lg-6 border">
+    <div class="col-12 col-lg-6 border">
       <p>RIGHT SIDEBAR</p>
 
       <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre>
     </div>
   </div>
-
-  <QuestionsTable client:visible />
 </Layout>
