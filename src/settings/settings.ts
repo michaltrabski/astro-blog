@@ -6,7 +6,7 @@ export const KEY = {
   CATEGORIES: "CATEGORIES",
 } as const;
 
-export const MEDIA_HOST = "https://usun.dacmwwxjyw.cfolks.pl/"
+export const MEDIA_HOST = "https://usun.dacmwwxjyw.cfolks.pl/";
 export const LIMIT_OF_QUESTIONS_IN_API_DATA = 10;
 export const ALL_CATEGORIES = [
   "a",

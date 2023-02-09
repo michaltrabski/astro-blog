@@ -71,7 +71,8 @@ export async function getStaticPaths() {
 }
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
-const { id, text, category, score, media, isVideo, prevSlug, nextSlug } = questionPageData;
+const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
+  questionPageData;
 ---
 
 <Layout>
@@ -90,14 +91,12 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } = questi
   <!-- ROW  -->
   <div class="row">
     <div class="col-12 col-lg-6">
-
-      
       <div class="QUESTION-INFO row mb-2 text-center">
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> {id} </span>
+            <span> {id}</span>
           </div>
         </div>
         <div class="col-3">
@@ -116,7 +115,6 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } = questi
         </div>
       </div>
 
- 
       <Media client:visible text={text} media={media} isVideo={isVideo} />
 
       <!-- ROW ROW QUESTION TEXT -->
@@ -143,16 +141,22 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } = questi
       <!-- ROW ROW PREVIES NEXT -->
       <div class="row mb-3">
         <div class="col-6 mb-2">
-          {prevSlug &&
-          <a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
-            poprzednie
-          </a> }
+          {
+            prevSlug && (
+              <a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
+                poprzednie
+              </a>
+            )
+          }
         </div>
         <div class="col-6 mb-2 text-end">
-          {nextSlug && 
-          <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
-            następne
-          </a>}
+          {
+            nextSlug && (
+              <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
+                następne
+              </a>
+            )
+          }
         </div>
       </div>
 

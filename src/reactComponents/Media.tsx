@@ -14,27 +14,22 @@ interface MediaProps {
 export default function Media(props: MediaProps) {
   const { text, media, isVideo } = props;
 
- 
-
- 
-
-  
-
   return (
     <div className="MEDIA row">
-    <div className="col">
+      <div className="col">
         {isVideo ? (
-      <video
-        src={MEDIA_HOST + media}
-            autoPlay={import.meta.env.MODE === "development" ?  false : true}
-        controls 
-        className="w-100 shadow border border-dark border-3"
-      >
-        <p>{text}</p>
-      </video>) : (
-        <img src={MEDIA_HOST + media} alt={text} />
-      )}
+          <video
+            src={MEDIA_HOST + media}
+            autoPlay={import.meta.env.MODE === "development" ? false : true}
+            controls
+            className="w-100 shadow border border-dark border-3"
+          >
+            <p>{text}</p>
+          </video>
+        ) : (
+          <img src={MEDIA_HOST + media} alt={text} />
+        )}
+      </div>
     </div>
-  </div>
   );
 }

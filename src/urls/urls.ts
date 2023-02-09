@@ -5,4 +5,5 @@ export const URLS = {
   QUESTION_1: "/id99",
   USER_ACCONT: "/twoje-konto",
   QUESTION_TABLE: "/tabela-pytan",
+  DRIVING_LICENSE_CATEGIRIES: "/kategorie-prawa-jazdy",
 } as const;

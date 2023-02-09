@@ -1,4 +1,5 @@
 ---
+import CurrentCategory from "../reactComponents/CurrentCategory";
 import { URLS } from "../urls/urls";
 // import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
 ---
@@ -13,7 +14,7 @@ import { URLS } from "../urls/urls";
   >
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
-        <span>Testy kat: B</span>
+        <span>Testy kat: <CurrentCategory upperCase client:visible /></span>
       </a>
       <div
         class="btn-group"
@@ -41,7 +42,7 @@ import { URLS } from "../urls/urls";
               class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
               href={URLS.QUESTION_TABLE}
             >
-            {URLS.QUESTION_TABLE}
+              {URLS.QUESTION_TABLE}
             </a>
           </li>
           <li class="nav-item">
@@ -63,7 +64,7 @@ import { URLS } from "../urls/urls";
           <li class="nav-item">
             <a
               class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href="kategorie-prawa-jazdy.html"
+              href={URLS.DRIVING_LICENSE_CATEGIRIES}
             >
               Kategorie prawa jazdy
             </a>

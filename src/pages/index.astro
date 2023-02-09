@@ -10,17 +10,15 @@ import {
 
 import apiData from "../data/api-data";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
+import { URLS } from "../urls/urls";
 
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories, allQuestions } = bigData;
 ---
 
 <Layout>
-
   <div class="row mb-2">
-
     <div class="col-12 col-lg-6">
-
       <div class="row mb-2">
         <div class="col">
           <h1 class="display-3 fw-bold">
@@ -31,7 +29,6 @@ const { allCategories, allQuestions } = bigData;
             prawo jazdy lub przeglądaj pytania testowe.
           </p>
 
-    
           <div class="d-grid gap-2 mb-2">
             {
               allCategories.map((cat) => {
@@ -76,7 +73,7 @@ const { allCategories, allQuestions } = bigData;
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
         <p class="lead">
-          <a href="kategorie-prawa-jazdy.html">
+          <a href={URLS.DRIVING_LICENSE_CATEGIRIES}>
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
             się uczyć!
           </a>
@@ -92,30 +89,28 @@ const { allCategories, allQuestions } = bigData;
         </p>
       </div>
 
-    
       <div class="row mb-2">
         <div class="col">
           <h2 class="display-5">
-             Największa darmowa baza 
-            <span class="badge bg-warning text-dark"> {allQuestions.length} </span>
-  
-              wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!!
-               </h2>
-                    
-               <h3>
-                <span> Dostępne kategorie to:</span>
-                <strong class="small"> {allCategories.join(", ").toUpperCase() } </strong>
-              </h3>
+            Największa darmowa baza
+            <span class="badge bg-warning text-dark">
+              {allQuestions.length}
+            </span>
+
+            wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!!
+          </h2>
+
+          <h3>
+            <span> Dostępne kategorie to:</span>
+            <strong class="small">
+              {allCategories.join(", ").toUpperCase()}
+            </strong>
+          </h3>
         </div>
       </div>
 
-      
-
-
       <div class="row mb-2">
         <div class="col">
-           
-           
           <p>
             <strong>
               Kliknij poniżej i wybierz aktualną kategorię z testów na prawo
@@ -132,7 +127,14 @@ const { allCategories, allQuestions } = bigData;
                   >
                     <strong> {cat} </strong>
                     <br />
-                    <span class="small"> {allQuestions.filter(q => q.categories.includes(cat)).length} - pytań</span>
+                    <span class="small">
+                      {" "}
+                      {
+                        allQuestions.filter((q) => q.categories.includes(cat))
+                          .length
+                      }{" "}
+                      - pytań
+                    </span>
                   </button>
                 );
               })

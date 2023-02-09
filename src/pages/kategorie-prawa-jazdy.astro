@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CategoriesButtons from "../reactComponents/CategoriesButtons";
+import CurrentCategory from "../reactComponents/CurrentCategory";
+---
+
+<Layout title="Złe odpowiedzi">
+  <div class="row">
+    <div class="col">
+      <h1>Kategorie prawa jazdy</h1>
+    </div>
+  </div>
+
+  <CategoriesButtons client:visible />
+
+  <div class="row">
+    <div class="col">
+      <h2>
+        Aktualnie ustawiona kategoria prawa jazdy do nauki to <CurrentCategory
+          client:visible
+        />
+      </h2>
+    </div>
+  </div>
+</Layout>
