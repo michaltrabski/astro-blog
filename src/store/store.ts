@@ -11,7 +11,6 @@ import {
   sessionStorageSetObj,
 } from "../utils/utils";
 
-
 export interface QuestionReceivedFromEndpoint {
   id: string;
   t: string;
@@ -24,17 +23,16 @@ export interface QuestionReceivedFromEndpoint {
   s: number;
 }
 
-
 export interface DataReceivedFromEndpoint {
-  allQuestions:QuestionReceivedFromEndpoint[];
+  allQuestions: QuestionReceivedFromEndpoint[];
   allQuestionsCount: number;
-  allCategories: string[]
+  allCategories: string[];
 }
 
 export interface DataReceivedFromSessionStorage {
   allQuestions: Question[];
   allQuestionsCount: number;
-  allCategories: string[]
+  allCategories: string[];
 }
 
 export interface ApiDataItem {
@@ -112,14 +110,14 @@ export const changeCategory = (newCategory: string) => {
   storageSetStringItem(KEY.CURRENT_CATEGORY, newCategory);
 };
 
-
-
- 
-
 export const getDataFromEndpoint = async () => {
   try {
     const dataReceivedFromSessionStorage = getDataFromSessionStorage();
-    console.log(2, "dataReceivedFromSessionStorage===", dataReceivedFromSessionStorage);
+    console.log(
+      2,
+      "dataReceivedFromSessionStorage===",
+      dataReceivedFromSessionStorage
+    );
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
@@ -128,25 +126,22 @@ export const getDataFromEndpoint = async () => {
     }
 
     const fetchResponse = await fetch("../api-data.json");
-    const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
+    const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
+      await fetchResponse.json();
     console.log(3, "dataReceivedFromEndpoint===", dataReceivedFromEndpoint);
 
-    const dataToStoreSessionStorage : DataReceivedFromSessionStorage = {
+    const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
       allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions),
       allQuestionsCount: dataReceivedFromEndpoint.allQuestionsCount,
-      allCategories: dataReceivedFromEndpoint.allCategories
-    }
+      allCategories: dataReceivedFromEndpoint.allCategories,
+    };
 
     _questions.set(dataToStoreSessionStorage.allQuestions);
     _categories.set(dataToStoreSessionStorage.allCategories);
 
-
-
-    sessionStorageSetObj(KEY.READY_TO_USE_DATA, dataToStoreSessionStorage)
+    sessionStorageSetObj(KEY.READY_TO_USE_DATA, dataToStoreSessionStorage);
   } catch (err) {
     console.log("err michal check if you see it on netlify", err);
     _questions.set([]);
   }
 };
-
- 

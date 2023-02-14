@@ -11,10 +11,10 @@ import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import CategoriesButtons from "./CategoriesButtons";
 
 export default function QuestionsTable() {
-  const $questions = useStore(_questions);
+  const questions = useStore(_questions);
   const currentCategory = useStore(_currentCategory);
 
-  const questionsFilteredByCurrentCategory = $questions.filter((question) =>
+  const questionsFilteredByCurrentCategory = questions.filter((question) =>
     question.categories.includes(currentCategory)
   );
 

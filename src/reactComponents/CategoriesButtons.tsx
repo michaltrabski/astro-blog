@@ -14,7 +14,10 @@ export default function CategoriesButtons() {
         {categories.map((category) => (
           <button
             key={category}
-            className={clsx("btn me-2", `btn-${category === curentCategory ? "primary": "secondary"}`)}
+            className={clsx(
+              "btn me-2",
+              `btn-${category === curentCategory ? "primary" : "secondary"}`
+            )}
             onClick={() => changeCategory(category)}
           >
             {category}

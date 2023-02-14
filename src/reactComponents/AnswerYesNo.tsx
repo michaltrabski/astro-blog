@@ -23,30 +23,44 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
     return null;
   }
 
+  const alertType =
+    clickedAnswerValue === correctAnswer ? "alert-success" : "alert-danger";
+
   return (
     <div>
-      {possibleAnswers.map((answer) => {
-        let btnColor = "btn-danger";
+      <div className="mb-3">
+        {possibleAnswers.map((answer) => {
+          let btnColor = "btn-secondary";
 
-        if (answer.letterIndex === correctAnswer) {
-          btnColor = "btn-success";
-        }
+          if (clickedAnswerValue && answer.letterIndex === correctAnswer) {
+            btnColor = "btn-success";
+          }
 
-        if (!clickedAnswerValue) {
-          btnColor = "btn-secondary";
-        }
+          if (
+            clickedAnswerValue !== correctAnswer &&
+            answer.letterIndex === clickedAnswerValue
+          ) {
+            btnColor = "btn-danger";
+          }
 
-        return (
-          <button
-            key={answer.letterIndex}
-            onClick={() => setClickedAnswerValue(answer.letterIndex)}
-            type="button"
-            className={clsx("btn me-3 btn-lg", btnColor)}
-          >
-            {answer.label}
-          </button>
-        );
-      })}
+          return (
+            <button
+              key={answer.letterIndex}
+              onClick={() => setClickedAnswerValue(answer.letterIndex)}
+              type="button"
+              className={clsx("btn me-3 btn-lg", btnColor)}
+            >
+              {answer.label}
+            </button>
+          );
+        })}
+      </div>
+      {clickedAnswerValue && (
+        <div className={clsx("alert", alertType)} role="alert">
+{clickedAnswerValue === correctAnswer && `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
+{clickedAnswerValue !== correctAnswer &&  `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
+        </div>
+      )}
     </div>
   );
 }

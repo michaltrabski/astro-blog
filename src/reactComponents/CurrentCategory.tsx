@@ -14,8 +14,6 @@ export default function CurrentCategory(props: CurrentCategoryProps) {
   const currentCategoryUpperCase = currentCategory.toUpperCase();
 
   return (
-    <span>
-      {props.upperCase ? currentCategoryUpperCase : currentCategory}
-    </span>
+    <span>{props.upperCase ? currentCategoryUpperCase : currentCategory}</span>
   );
 }

@@ -2,8 +2,11 @@ import {
   DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
   KEY,
 } from "../settings/settings";
-import type { Question, ApiDataItem, DataReceivedFromSessionStorage } from "../store/store";
-
+import type {
+  Question,
+  ApiDataItem,
+  DataReceivedFromSessionStorage,
+} from "../store/store";
 
 export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const _allCategories: string[] = [];
@@ -15,7 +18,7 @@ export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const allCategories = [...new Set(_allCategories)].sort();
 
   return allCategories;
-}
+};
 
 export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
   const _allCategories: string[] = [];
@@ -24,7 +27,7 @@ export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
     _allCategories.push(...item.cats);
   });
 
-  const allCategories = getAllCategoriesFromData(apiData)
+  const allCategories = getAllCategoriesFromData(apiData);
 
   const allQuestions: Question[] = mapApiData(apiData);
 
@@ -73,7 +76,10 @@ export const getFullUrl = (url: string) => {
   return domain + "/" + url;
 };
 
-export const getInitialValue = (key: KEY, initialValue: string | number | string[]) => {
+export const getInitialValue = (
+  key: KEY,
+  initialValue: string | number | string[]
+) => {
   try {
     const valueFromSessionStorage = sessionStorage.getItem(key);
 
@@ -81,7 +87,7 @@ export const getInitialValue = (key: KEY, initialValue: string | number | string
       return initialValue;
     }
 
-if (typeof initialValue === "string" || typeof initialValue === "number") {
+    if (typeof initialValue === "string" || typeof initialValue === "number") {
       return valueFromSessionStorage;
     }
 
@@ -94,7 +100,6 @@ if (typeof initialValue === "string" || typeof initialValue === "number") {
     return initialValue;
   }
 };
-
 
 export const getCurrentCategoryInitialValue = () => {
   try {
@@ -109,16 +114,18 @@ export const getCurrentCategoryInitialValue = () => {
 
 export const getDataFromSessionStorage = () => {
   try {
-
-    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(KEY.READY_TO_USE_DATA);
+    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(
+      KEY.READY_TO_USE_DATA
+    );
 
     if (!dataReceivedFromSessionStorageAsString) {
       return null;
     }
 
-    const dataReceivedFromSessionStorage:DataReceivedFromSessionStorage = JSON.parse(dataReceivedFromSessionStorageAsString);
- 
-    return dataReceivedFromSessionStorage
+    const dataReceivedFromSessionStorage: DataReceivedFromSessionStorage =
+      JSON.parse(dataReceivedFromSessionStorageAsString);
+
+    return dataReceivedFromSessionStorage;
   } catch (err) {
     return null;
   }
@@ -144,11 +151,12 @@ export const sessionStorageSetArrayItem = (key: string, arr: any[]) => {
   }
 };
 
-export const sessionStorageSetObj = (key: string, obj: {[key: string]: any}) => {
+export const sessionStorageSetObj = (
+  key: string,
+  obj: { [key: string]: any }
+) => {
   try {
- 
-      sessionStorage.setItem(key, JSON.stringify(obj));
- 
+    sessionStorage.setItem(key, JSON.stringify(obj));
   } catch (err) {
     console.log("err", err);
   }

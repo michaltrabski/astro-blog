@@ -25,19 +25,24 @@ export default function AnswerAbc(props: AnswerAbcProps) {
     { letterIndex: "c", label: c },
   ];
 
-  return (
-    <div className="d-grid gap-2 d-block">
+  const alertType =
+  clickedAnswerValue === correctAnswer ? "alert-success" : "alert-danger";
+
+  return (<div>    <div className="d-grid gap-2 d-block mb-3">
       {/* <pre>{JSON.stringify( clickedAnswerValue, null,2)}</pre> */}
 
       {possibleAnswers.map((answer) => {
-        let btnColor = "btn-danger";
+        let btnColor = "btn-secondary";
 
-        if (answer.letterIndex === correctAnswer) {
+        if (clickedAnswerValue && answer.letterIndex === correctAnswer) {
           btnColor = "btn-success";
         }
 
-        if (!clickedAnswerValue) {
-          btnColor = "btn-secondary";
+        if (
+          clickedAnswerValue !== correctAnswer &&
+          answer.letterIndex === clickedAnswerValue
+        ) {
+          btnColor = "btn-danger";
         }
 
         return (
@@ -58,5 +63,11 @@ export default function AnswerAbc(props: AnswerAbcProps) {
         );
       })}
     </div>
+          {clickedAnswerValue && (
+            <div className={clsx("alert", alertType)} role="alert">
+    {clickedAnswerValue === correctAnswer && `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
+    {clickedAnswerValue !== correctAnswer &&  `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
+            </div>
+          )}    </div>
   );
 }
