@@ -2,11 +2,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { changeCategory, currentCategory, _categories } from "../store/store";
+import { changeCategory, _currentCategory, _categories } from "../store/store";
 
 export default function CategoriesButtons() {
   const categories = useStore(_categories);
-  const curntCategory = useStore(currentCategory);
+  const curentCategory = useStore(_currentCategory);
 
   return (
     <div className="row">
@@ -14,10 +14,7 @@ export default function CategoriesButtons() {
         {categories.map((category) => (
           <button
             key={category}
-            className={clsx("btn me-2", {
-              "btn-primary": category === curntCategory,
-              "btn-secondary": category !== curntCategory,
-            })}
+            className={clsx("btn me-2", `btn-${category === curentCategory ? "primary": "secondary"}`)}
             onClick={() => changeCategory(category)}
           >
             {category}

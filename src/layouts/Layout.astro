@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
+import GetDataFromendpointComponent from "../reactComponents/GetDataFromendpointComponent.jsx";
 
 export interface Props {
   title?: string;
@@ -48,6 +48,6 @@ const { title = "Testy na prawo jazdy" } = Astro.props as Props;
     </main>
     <Footer />
 
-    <LoadQuestions client:load />
+    <GetDataFromendpointComponent client:load />
   </body>
 </html>

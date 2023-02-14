@@ -1,11 +1,11 @@
 ---
 import CurrentCategory from "../reactComponents/CurrentCategory";
 import { URLS } from "../urls/urls";
-// import LoadQuestions from "../reactComponents/LoadQuestions.jsx";
+ 
 ---
 
 <header>
-  <!-- <LoadQuestions client:visible /> -->
+ 
 
   <!-- NAVBAR  -->
   <nav
@@ -43,6 +43,14 @@ import { URLS } from "../urls/urls";
               href={URLS.QUESTION_TABLE}
             >
               {URLS.QUESTION_TABLE}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+              href="/api-data.json"
+            >
+            /api-data
             </a>
           </li>
           <li class="nav-item">

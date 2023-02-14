@@ -58,7 +58,7 @@
     "t": "Czy na jezdni oznaczonej tym znakiem wolno Ci zawrócić?",
     "m": "IMG_4251orgbm.jpg",
     "right": "n",
-    "cats": ["t"],
+    "cats": ["t", "q"],
     "s": 1
   },
   {
@@ -76,5 +76,29 @@
     "right": "n",
     "cats": ["a"],
     "s": 3
+  },
+  {
+    "id": "id475",
+    "t": "Czy w tej sytuacji wolno Ci skręcić w prawo bez zatrzymania się przed sygnalizatorem?",
+    "m": "0118D14MM_a_org.jpg",
+    "right": "n",
+    "cats": ["a"],
+    "s": 3
+  },
+  {
+    "id": "id4qwe75",
+    "t": "Czy w tej sytuacji wolno Ci skręcić w prawo bez zatrzymania się przed sygnalizatorem?",
+    "m": "0118D14MM_a_org.jpg",
+    "right": "n",
+    "cats": ["we","ooo"],
+    "s": 1500009
+  },
+  {
+    "id": "id474325",
+    "t": "Czy w tej sytuacji wolno Ci skręcić w prawo bez zatrzymania się przed sygnalizatorem?",
+    "m": "0118D14MM_a_org.jpg",
+    "right": "n",
+    "cats": ["hhh"],
+    "s": 99
   }
 ]

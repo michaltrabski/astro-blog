@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
 import {
-  questions,
-  currentCategory,
+  _questions,
+  _currentCategory,
   changeCategory,
   _categories,
 } from "../store/store";
@@ -11,11 +11,11 @@ import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import CategoriesButtons from "./CategoriesButtons";
 
 export default function QuestionsTable() {
-  const $questions = useStore(questions);
-  const $currentCategory = useStore(currentCategory);
+  const $questions = useStore(_questions);
+  const currentCategory = useStore(_currentCategory);
 
   const questionsFilteredByCurrentCategory = $questions.filter((question) =>
-    question.categories.includes($currentCategory)
+    question.categories.includes(currentCategory)
   );
 
   const questionKeys = Object.keys(
@@ -60,7 +60,7 @@ export default function QuestionsTable() {
                             <td>
                               <a
                                 href={getFullUrl(
-                                  createQuestionUrl(question, $currentCategory)
+                                  createQuestionUrl(question, currentCategory)
                                 )}
                               >
                                 {questionValue}

@@ -2,12 +2,40 @@ import { atom, map } from "nanostores";
 import { ALL_CATEGORIES, KEY } from "../settings/settings";
 
 import {
-  getApiDataFromSessionStorage,
+  getDataFromSessionStorage,
   getCurrentCategoryInitialValue,
+  getInitialValue,
   mapApiData,
   sessionStorageSetArrayItem,
   storageSetStringItem,
+  sessionStorageSetObj,
 } from "../utils/utils";
+
+
+export interface QuestionReceivedFromEndpoint {
+  id: string;
+  t: string;
+  m: string;
+  a?: string;
+  b?: string;
+  c?: string;
+  right: string;
+  cats: string[];
+  s: number;
+}
+
+
+export interface DataReceivedFromEndpoint {
+  allQuestions:QuestionReceivedFromEndpoint[];
+  allQuestionsCount: number;
+  allCategories: string[]
+}
+
+export interface DataReceivedFromSessionStorage {
+  allQuestions: Question[];
+  allQuestionsCount: number;
+  allCategories: string[]
+}
 
 export interface ApiDataItem {
   id: string;
@@ -71,40 +99,54 @@ export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
 // USER
 // export const user = atom()
 
-// CATEGORIES
-export const _categories = atom<string[]>(ALL_CATEGORIES);
+export const _questions = atom<Question[]>([]);
+export const _categories = atom<string[]>([]);
+export const _currentCategory = atom(getCurrentCategoryInitialValue());
 
-// CURRENT CATEGORY
-export const currentCategory = atom(getCurrentCategoryInitialValue());
+// const _addCategories = (newCategories: string[]) => {
+//   _categories.set([..._categories.get(), ...newCategories]);
+// };
 
 export const changeCategory = (newCategory: string) => {
-  currentCategory.set(newCategory);
+  _currentCategory.set(newCategory);
   storageSetStringItem(KEY.CURRENT_CATEGORY, newCategory);
 };
 
-// QUESTIONS
-export const questions = atom<Question[]>([]);
 
-export const loadQuestions = async () => {
+
+ 
+
+export const getDataFromEndpoint = async () => {
   try {
-    const apiDataFromSessionStorage = getApiDataFromSessionStorage();
+    const dataReceivedFromSessionStorage = getDataFromSessionStorage();
+    console.log(2, "dataReceivedFromSessionStorage===", dataReceivedFromSessionStorage);
 
-    if (apiDataFromSessionStorage) {
-      questions.set(mapApiData(apiDataFromSessionStorage));
+    if (dataReceivedFromSessionStorage) {
+      _questions.set(dataReceivedFromSessionStorage.allQuestions);
+      _categories.set(dataReceivedFromSessionStorage.allCategories);
       return;
     }
 
     const fetchResponse = await fetch("../api-data.json");
-    const apiData: ApiDataItem[] = await fetchResponse.json();
-    console.log(2, "apiData loaded from fetch request", apiData);
-    questions.set(mapApiData(apiData));
-    sessionStorageSetArrayItem(KEY.API_DATA, apiData);
+    const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
+    console.log(3, "dataReceivedFromEndpoint===", dataReceivedFromEndpoint);
+
+    const dataToStoreSessionStorage : DataReceivedFromSessionStorage = {
+      allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions),
+      allQuestionsCount: dataReceivedFromEndpoint.allQuestionsCount,
+      allCategories: dataReceivedFromEndpoint.allCategories
+    }
+
+    _questions.set(dataToStoreSessionStorage.allQuestions);
+    _categories.set(dataToStoreSessionStorage.allCategories);
+
+
+
+    sessionStorageSetObj(KEY.READY_TO_USE_DATA, dataToStoreSessionStorage)
   } catch (err) {
     console.log("err michal check if you see it on netlify", err);
-    questions.set([]);
+    _questions.set([]);
   }
 };
 
-export const addQuestions = (newQuestions: Question[]) => {
-  questions.set([...questions.get(), ...newQuestions]);
-};
+ 
