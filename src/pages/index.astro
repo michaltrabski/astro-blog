@@ -11,6 +11,7 @@ import {
 import apiData from "../data/api-data";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 import { URLS } from "../urls/urls";
+import StartLearningButtons from "../reactComponents/StartLearningButtons";
 
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories, allQuestions } = bigData;
@@ -29,46 +30,11 @@ const { allCategories, allQuestions } = bigData;
             prawo jazdy lub przeglądaj pytania testowe.
           </p>
 
-          <div class="d-grid gap-2 mb-2">
-            {
-              allCategories.map((cat) => {
-                const firstQuestionContainingCurrentCategory = mapApiData(
-                  apiData
-                ).find((q) => q.categories.includes(cat));
-
-                if (!firstQuestionContainingCurrentCategory) {
-                  return null;
-                }
-
-                return (
-                  <a
-                    href={getFullUrl(
-                      createQuestionUrl(
-                        firstQuestionContainingCurrentCategory,
-                        cat
-                      )
-                    )}
-                    class:list={[
-                      "btn btn-sm",
-                      {
-                        "btn-primary":
-                          cat === DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
-                        "btn-secondary":
-                          cat !== DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
-                      },
-                    ]}
-                    role="button"
-                  >
-                    Rozpocznij naukę testów na prawo jazdy{" "}
-                    <CurrentYear client:visible />, kategorii{" "}
-                    {cat.toUpperCase()}
-                  </a>
-                );
-              })
-            }
-          </div>
+          
         </div>
       </div>
+
+      <StartLearningButtons client:visible categories={["a","d","x"]} />
 
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
