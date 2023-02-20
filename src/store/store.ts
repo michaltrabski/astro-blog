@@ -35,6 +35,10 @@ export interface DataReceivedFromSessionStorage {
   allCategories: string[];
 }
 
+
+
+
+
 export interface ApiDataItem {
   id: string;
   t: string;
@@ -98,7 +102,7 @@ export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
 // export const user = atom()
 
 export const _questions = atom<Question[]>([]);
-export const _categories = atom<string[]>([]);
+export const _allCategories = atom<string[]>([]);
 export const _currentCategory = atom(getCurrentCategoryInitialValue());
 
 // const _addCategories = (newCategories: string[]) => {
@@ -121,7 +125,7 @@ export const getDataFromEndpoint = async () => {
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
-      _categories.set(dataReceivedFromSessionStorage.allCategories);
+      _allCategories.set(dataReceivedFromSessionStorage.allCategories);
       return;
     }
 
@@ -137,7 +141,7 @@ export const getDataFromEndpoint = async () => {
     };
 
     _questions.set(dataToStoreSessionStorage.allQuestions);
-    _categories.set(dataToStoreSessionStorage.allCategories);
+    _allCategories.set(dataToStoreSessionStorage.allCategories);
 
     sessionStorageSetObj(KEY.READY_TO_USE_DATA, dataToStoreSessionStorage);
   } catch (err) {

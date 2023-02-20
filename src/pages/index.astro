@@ -29,12 +29,10 @@ const { allCategories, allQuestions } = bigData;
             Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na
             prawo jazdy lub przeglądaj pytania testowe.
           </p>
-
-          
         </div>
       </div>
 
-      <StartLearningButtons client:visible categories={["a","d","x"]} />
+      <StartLearningButtons client:visible allCategories={allCategories} />
 
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
@@ -58,16 +56,18 @@ const { allCategories, allQuestions } = bigData;
       <div class="row mb-2">
         <div class="col">
           <h2 class="display-5">
-            Największa darmowa baza
+            <span>Największa darmowa baza </span> 
+            
             <span class="badge bg-warning text-dark">
-              {allQuestions.length}
+      {allQuestions.length} 
             </span>
 
-            wszystkich pytań testowych na prawo jazdy wszystkich kategorii !!!
+            <span> wszystkich pytań testowych na prawo jazdy wszystkich kategorii!!!</span>
+            
           </h2>
 
           <h3>
-            <span> Dostępne kategorie to:</span>
+            <span>Dostępne kategorie to: </span>
             <strong class="small">
               {allCategories.join(", ").toUpperCase()}
             </strong>
@@ -126,7 +126,7 @@ const { allCategories, allQuestions } = bigData;
     <div class="col-12 col-lg-6 border">
       <p>RIGHT SIDEBAR</p>
 
-      <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre>
+      <!-- <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre> -->
     </div>
   </div>
 </Layout>

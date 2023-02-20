@@ -27,7 +27,8 @@ export async function getStaticPaths() {
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
-  allCategories.forEach((category) => {
+  // allCategories.forEach((category) => {
+    ["b"].forEach((category) => {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
       .filter((q) => q.categories.includes(category))
       .map((q, index) => {

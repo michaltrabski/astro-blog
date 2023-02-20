@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { getDataFromEndpoint } from "../store/store";
 
-export default function GetDataFromendpointComponent() {
+export default function GetDataFromEndpointComponent() {
   useEffect(() => {
-    console.log(1, "GetDataFromendpointComponent mounted");
+    console.log(1, "GetDataFromEndpointComponent mounted");
     getDataFromEndpoint();
   }, []);
 

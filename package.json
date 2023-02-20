@@ -8,10 +8,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "f": "prettier -w ."
+    "f": "prettier -w .",
+    "generate-api": "node ./src/data/generate-data.ts"
   },
   "devDependencies": {
     "@astrojs/react": "^1.0.0",
+    "@types/convert-excel-to-json": "^1.7.1",
     "astro": "^2.0.9",
     "prettier": "^2.8.1",
     "prettier-plugin-astro": "^0.7.0",
@@ -26,6 +28,7 @@
     "clsx": "^1.2.1",
     "convert-excel-to-json": "^1.7.0",
     "firebase": "^9.16.0",
+    "fs-extra": "^11.1.0",
     "nanostores": "^0.7.1",
     "xlsx": "^0.18.5"
   }

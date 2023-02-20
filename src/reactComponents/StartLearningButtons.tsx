@@ -2,26 +2,26 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { changeCategory, _currentCategory, _categories } from "../store/store";
+import { changeCategory, _currentCategory, _allCategories } from "../store/store";
 import CurrentYear from "./CurrentYear";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
 interface StartLearningButtonsProps {
-    categories: string[];
+    allCategories: string[];
 }
 
 export default function StartLearningButtons( props: StartLearningButtonsProps) {
-  const categoriesFromStore = useStore(_categories);
+  const allCategoriesFromStore = useStore(_allCategories);
   const curentCategory = useStore(_currentCategory);
 
-  const categories = categoriesFromStore.length > 0 ? categoriesFromStore : props.categories;
+  const allCategories = allCategoriesFromStore.length > 0 ? allCategoriesFromStore : props.allCategories;
 
   return (
     <div className="row">
       <div className="col">
       <div className="d-grid gap-2 mb-2">
             {
-              categories.map((cat) => {
+              allCategories.map((category) => {
                 // const firstQuestionContainingCurrentCategory = mapApiData(
                 //   apiData
                 // ).find((q) => q.categories.includes(cat));
@@ -30,7 +30,7 @@ export default function StartLearningButtons( props: StartLearningButtonsProps) 
                 //   return null;
                 // }
 
-                const btnColor = cat === curentCategory ? "btn-primary" : "btn-secondary";
+                const btnColor = category === curentCategory ? "btn-primary" : "btn-secondary";
 
                 return (
                   <a
@@ -41,13 +41,13 @@ export default function StartLearningButtons( props: StartLearningButtonsProps) 
                     //   )
                     // )}
                     href="#"
-                    key={cat}
+                    key={category}
                     className={clsx("btn btn-sm",btnColor)}
                     role="button"
                   >
                     Rozpocznij naukę testów na prawo jazdy{" "}
                     <CurrentYear  />, kategorii{" "}
-                    {cat.toUpperCase()}
+                    {category.toUpperCase()}
                   </a>
                 );
               })

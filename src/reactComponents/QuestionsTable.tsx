@@ -5,7 +5,7 @@ import {
   _questions,
   _currentCategory,
   changeCategory,
-  _categories,
+  _allCategories,
 } from "../store/store";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import CategoriesButtons from "./CategoriesButtons";
@@ -46,7 +46,7 @@ export default function QuestionsTable() {
               </tr>
             </thead>
             <tbody>
-              {questionsFilteredByCurrentCategory.map((question, index) => {
+              {questionsFilteredByCurrentCategory.map((question, rowIndex) => {
                 const questionValues = Object.values(question);
 
                 return (
@@ -55,6 +55,14 @@ export default function QuestionsTable() {
                       const questionKey = questionKeys[index];
 
                       if (typeof questionValue === "string") {
+                        if (questionKey === "id") {
+                          return (
+                            <td>
+                          <strong>{rowIndex+1})</strong>. {questionValue}                            </td>
+                          );
+                        }
+
+
                         if (questionKey === "text") {
                           return (
                             <td>
