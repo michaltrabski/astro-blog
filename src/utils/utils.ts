@@ -45,7 +45,7 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
       a: q.a || "",
       b: q.b || "",
       c: q.c || "",
-      correctAnswer: q.right,
+      correctAnswer: q.r,
       categories: q.cats,
       score: q.s,
       isVideo: q.m ? q.m.endsWith(".mp4") : false,

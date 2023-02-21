@@ -1,5 +1,5 @@
 import { atom, map } from "nanostores";
-import { ALL_CATEGORIES, KEY } from "../settings/settings";
+import {  KEY } from "../settings/settings";
 
 import {
   getDataFromSessionStorage,
@@ -14,11 +14,11 @@ import {
 export interface QuestionReceivedFromEndpoint {
   id: string;
   t: string;
-  m: string;
+  m?: string;
   a?: string;
   b?: string;
   c?: string;
-  right: string;
+  r: string;
   cats: string[];
   s: number;
 }
@@ -35,18 +35,14 @@ export interface DataReceivedFromSessionStorage {
   allCategories: string[];
 }
 
-
-
-
-
 export interface ApiDataItem {
   id: string;
   t: string;
-  m: string;
+  m?: string;
   a?: string;
   b?: string;
   c?: string;
-  right: string;
+  r: string;
   cats: string[];
   s: number;
 }
@@ -117,11 +113,7 @@ export const changeCategory = (newCategory: string) => {
 export const getDataFromEndpoint = async () => {
   try {
     const dataReceivedFromSessionStorage = getDataFromSessionStorage();
-    console.log(
-      2,
-      "dataReceivedFromSessionStorage===",
-      dataReceivedFromSessionStorage
-    );
+    console.log(2, "dataReceivedFromSessionStorage===", dataReceivedFromSessionStorage);
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
@@ -130,12 +122,11 @@ export const getDataFromEndpoint = async () => {
     }
 
     const fetchResponse = await fetch("../api-data.json");
-    const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
-      await fetchResponse.json();
+    const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
     console.log(3, "dataReceivedFromEndpoint===", dataReceivedFromEndpoint);
 
     const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
-      allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions),
+      allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions.sort((a, b) => 0.5 - Math.random())),
       allQuestionsCount: dataReceivedFromEndpoint.allQuestionsCount,
       allCategories: dataReceivedFromEndpoint.allCategories,
     };

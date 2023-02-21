@@ -22,12 +22,12 @@ export default function Media(props: MediaProps) {
             src={MEDIA_HOST + media}
             autoPlay={import.meta.env.MODE === "development" ? false : true}
             controls
-            className="w-100 shadow border border-dark border-3"
+            className="w-100 shadow border border-dark"
           >
             <p>{text}</p>
           </video>
         ) : (
-          <img src={MEDIA_HOST + media} alt={text} />
+          <img className="w-100 shadow border border-dark img-fluid" src={MEDIA_HOST + media} alt={text} />
         )}
       </div>
     </div>
