@@ -9,7 +9,7 @@ export default function CategoriesButtons() {
   const curentCategory = useStore(_currentCategory);
 
   return (
-    <div className="row">
+    <div className="row mb-3">
       <div className="col">
         {categories.map((category) => (
           <button

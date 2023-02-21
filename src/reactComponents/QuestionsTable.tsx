@@ -10,10 +10,15 @@ export default function QuestionsTable() {
   const currentCategory = useStore(_currentCategory);
 
   const [limit, setLimit] = useState(10);
+  const [searchValue, setSearchValue] = useState("");
 
   const questionsFilteredByCurrentCategory = questions.filter((question) =>
     question.categories.includes(currentCategory)
   );
+
+  const questionsFilteredByCurrentCategoryAndSearchValue = questionsFilteredByCurrentCategory
+  .filter((question) => JSON.stringify(question).toLowerCase().includes(searchValue.toLowerCase()))
+ 
 
   const questionKeys = Object.keys(
     questionsFilteredByCurrentCategory.length > 0 ? questionsFilteredByCurrentCategory[0] : []
@@ -31,10 +36,22 @@ export default function QuestionsTable() {
 
         <form className="form-floating">
           <div className="form-floating mb-3">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label htmlFor="floatingInput">Email address</label>
+            <input
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              type="text"
+              className="form-control"
+              id="floating-search-input"
+              placeholder="Wpisz szukaną frazę"
+            />
+            <label htmlFor="floating-search-input">Wpisz szukaną frazę</label>
           </div>
         </form>
+ 
+ {searchValue !== "" && 
+ 
+        <p className="text-start">Znaleziono: <strong>{questionsFilteredByCurrentCategoryAndSearchValue.length}</strong> pytań testowych.</p>
+ }
 
         <div className="table-responsive">
           <table className="table table-sm">
@@ -48,43 +65,58 @@ export default function QuestionsTable() {
               </tr>
             </thead>
             <tbody>
-              {questionsFilteredByCurrentCategory.slice(0, limit).map((question, rowIndex) => {
-                const questionValues = Object.values(question);
+              {questionsFilteredByCurrentCategoryAndSearchValue.slice(0, limit)
+                .map((question, rowIndex) => {
+                  const questionValues = Object.values(question);
 
-                return (
-                  <tr key={JSON.stringify(question)}>
-                    {questionValues.map((questionValue, index) => {
-                      const questionKey = questionKeys[index];
+                  return (
+                    <tr key={JSON.stringify(question)}>
+                      {questionValues.map((questionValue, index) => {
+                        const questionKey = questionKeys[index];
 
-                      if (typeof questionValue === "string") {
-                        if (questionKey === "id") {
-                          return (
-                            <td>
-                              <strong>{rowIndex + 1})</strong>. {questionValue}{" "}
-                            </td>
-                          );
+                        if (typeof questionValue === "string") {
+                          if (questionKey === "id") {
+                            return (
+                              <td>
+                                <strong>{rowIndex + 1})</strong>. {questionValue}{" "}
+                              </td>
+                            );
+                          }
+
+                          if (questionKey === "text") {
+                            return (
+                              <td>
+                                {searchValue !== "" ? (
+                                  <a
+                                    href={getFullUrl(createQuestionUrl(question, currentCategory))}
+                                    dangerouslySetInnerHTML={{
+                                      __html: question.text
+                                        .toLowerCase()
+                                        .replace(
+                                          searchValue.toLowerCase(),
+                                          `<strong class="bg-warning">${searchValue}</strong>`
+                                        ),
+                                    }}
+                                  ></a>
+                                ) : (
+                                  <a href={getFullUrl(createQuestionUrl(question, currentCategory))}>{questionValue}</a>
+                                )}
+                              </td>
+                            );
+                          }
+
+                          return <td>{questionValue}</td>;
                         }
 
-                        if (questionKey === "text") {
-                          return (
-                            <td>
-                              <a href={getFullUrl(createQuestionUrl(question, currentCategory))}>{questionValue}</a>
-                            </td>
-                          );
+                        if (Array.isArray(questionValue)) {
+                          return <td>{questionValue.join(",")}</td>;
                         }
 
-                        return <td>{questionValue}</td>;
-                      }
-
-                      if (Array.isArray(questionValue)) {
-                        return <td>{questionValue.join(",")}</td>;
-                      }
-
-                      return <td>{JSON.stringify(questionValue)}</td>;
-                    })}
-                  </tr>
-                );
-              })}
+                        return <td>{JSON.stringify(questionValue)}</td>;
+                      })}
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
