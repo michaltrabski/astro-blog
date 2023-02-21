@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
 import type { QuestionPageData } from "../store/store";
-import { MEDIA_HOST } from "../settings/settings";
+import {   MEDIA_HOST, MEDIA_SIZE_MEDIUM } from "../settings/settings";
 
 interface MediaProps {
   text: string;
@@ -14,12 +14,14 @@ interface MediaProps {
 export default function Media(props: MediaProps) {
   const { text, media, isVideo } = props;
 
+  const mediaUrl = MEDIA_HOST + MEDIA_SIZE_MEDIUM  + media
+
   return (
     <div className="MEDIA row">
       <div className="col">
         {isVideo ? (
           <video
-            src={MEDIA_HOST + media}
+            src={mediaUrl}
             autoPlay={import.meta.env.MODE === "development" ? false : true}
             controls
             className="w-100 shadow border border-dark"
@@ -27,7 +29,7 @@ export default function Media(props: MediaProps) {
             <p>{text}</p>
           </video>
         ) : (
-          <img className="w-100 shadow border border-dark img-fluid" src={MEDIA_HOST + media} alt={text} />
+          <img className="w-100 shadow border border-dark img-fluid" src={mediaUrl} alt={text} />
         )}
       </div>
     </div>
