@@ -77,6 +77,9 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 ---
 
 <Layout>
+<div class="body">
+  <button id="full-screen">full screen</button>
+
   <!-- <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p> -->
 
   <!-- <button id="full-screen">full screen</button>
@@ -278,38 +281,59 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
       </div>
     </div>
   </div>
+</div>
 </Layout>
 
-<style>
+<style is:global>
+
+
+/* :not(:root):-webkit-full-screen::backdrop,
+  :not(:root):-moz-full-screen::backdrop,
+  :not(:root):-ms-fullscreen::backdrop
+  :not(:root):fullscreen::backdrop,
+  ::backdrop,
+  body {
+    position: fixed;
+    inset: 0px;
+    background:  white !important;
+    background-color: white !important;
+} */
+
+
+
   /* webkit requires explicit width, height = 100% of sceeen */
   /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
-  #wrapper:-webkit-full-screen {
+
+
+
+
+   .body:-webkit-full-screen {
     overflow: scroll !important;
 
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: white !important;
     margin: 0;
   }
 
-  #wrapper:-moz-full-screen {
+  .body:-moz-full-screen {
     overflow: scroll !important;
 
-    background-color: white;
+    background-color: white !important;
     margin: 0;
   }
 
-  #wrapper:-ms-fullscreen {
+  .body:-ms-fullscreen {
     overflow: scroll !important;
 
-    background-color: white;
+    background-color: white !important;
     margin: 0;
   }
 
   /* W3C proposal that will eventually come in all browsers */
-  #wrapper:fullscreen {
+  .body:fullscreen {
     overflow: scroll !important;
-    background-color: white;
+    background-color: white !important;
     margin: 0;
   }
 </style>
@@ -319,7 +343,9 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 
   fullScreenButton?.addEventListener("click", () => {
     // DOM element which needs to enter fullscreen mode
-    const element = document.querySelector("#wrapper");
+    const element = document.querySelector(".body");
+
+    console.log("go full screen")
 
     element
       ?.requestFullscreen()
