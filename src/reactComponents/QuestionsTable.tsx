@@ -51,7 +51,7 @@ export default function QuestionsTable() {
 
         {searchValue !== "" && (
           <p className="text-start">
-            Znaleziono: <strong>{questionsFilteredByCurrentCategoryAndSearchValue.length}</strong> pytań testowych.
+            Znaleziono: <strong>{questionsFilteredByCurrentCategoryAndSearchValue.length}</strong> pytań testowych, należących do kategorii <strong>{currentCategory.toUpperCase()}</strong>.
           </p>
         )}
 
@@ -107,10 +107,7 @@ export default function QuestionsTable() {
                         }
 
                         if (questionKey === "media") {
-                          
-                          return <Media text={questionValue} media={questionValue} showControls={false} />
-
-                       
+                          return <Media media={questionValue} showControls={false} stopAutoPlay />;
                         }
 
                         return <td>{questionValue}</td>;

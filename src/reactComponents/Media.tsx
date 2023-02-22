@@ -3,24 +3,30 @@ import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
 import type { QuestionPageData } from "../store/store";
-import { MEDIA_HOST, MEDIA_SIZE_MEDIUM } from "../settings/settings";
+import { MEDIA_HOST, MEDIA_SIZE_LARGE, MEDIA_SIZE_MEDIUM, MEDIA_SIZE_SMALL } from "../settings/settings";
 
 interface MediaProps {
-  text: string;
   media: string;
+  text?: string;
   showControls?: boolean;
+  stopAutoPlay?: boolean;
+  size?: "small" | "medium" | "large";
 }
 
 export default function Media(props: MediaProps) {
-  const { text, media , showControls = true} = props;
+  const { text, media , showControls = true, stopAutoPlay, size = "small"} = props;
 
-  const isVideo = media.endsWith(".mp4");
-
+  
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-
+  
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const imageRef = React.useRef<HTMLImageElement | null>(null);
+  
+const mediaSize = size === "small" ? MEDIA_SIZE_SMALL : size === "medium" ? MEDIA_SIZE_MEDIUM : size === "large" ? MEDIA_SIZE_LARGE : MEDIA_SIZE_SMALL;
+
+  const mediaUrl = MEDIA_HOST + mediaSize + media;
+  const isVideo = media.endsWith(".mp4");
 
   useEffect(() => {
     if (videoRef.current) {
@@ -34,7 +40,9 @@ export default function Media(props: MediaProps) {
     }
   }, [videoRef]);
 
-  const mediaUrl = MEDIA_HOST + MEDIA_SIZE_MEDIUM + media;
+
+
+ 
 
   return (
     <div className="MEDIA row">
@@ -46,7 +54,7 @@ export default function Media(props: MediaProps) {
           <video
             ref={videoRef}
             src={mediaUrl}
-            autoPlay={import.meta.env.MODE === "development" ? false : true}
+            autoPlay={!stopAutoPlay || import.meta.env.MODE === "development" ? false : true }
             controls={showControls}
             className="w-100 shadow border border-dark"
             style={{ minWidth: "102px" }}
