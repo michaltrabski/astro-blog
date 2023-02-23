@@ -46,7 +46,7 @@ export default function Media(props: MediaProps) {
   return (
     <div className="MEDIA row">
       <div className="col">
-        <p className="small position-absolute text-light bg-dark ">
+        <p className="small position-absolute text-light">
           {width}x{height}
         </p>
         {isVideo ? (

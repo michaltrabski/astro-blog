@@ -77,8 +77,8 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 ---
 
 <Layout>
-<div class="body">
-  <button id="full-screen">full screen</button>
+<div class="full-screen-wrapper">
+ 
 
   <!-- <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p> -->
 
@@ -115,6 +115,14 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
             <span> pkt: {score}</span>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div
+            class="text-secondary h-100 d-flex justify-content-center align-items-center"
+          >
+            <span class="click-to-go-full-screen">full-screen</span>
           </div>
         </div>
       </div>
@@ -193,12 +201,11 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         </div>
       </div>
 
-      <!-- ROW ROW -->
-      <div class="row mb-2">
-        <!-- EXPLANATION -->
-        <div class="col mb-2 text-start">
+ 
+      <div class="row mb-3">
+         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
-          <div style="filter: blur(0px)">
+ 
             <div>
               <p>
                 Przejeżdżając obok tramwaju który zatrzymał się na przystanku
@@ -210,9 +217,8 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
             <p>ustawa108 art3 art3ust1pktart26ust6</p>
             <div>[object Object]</div>
 
-            <!-- <div>Źródło: </div>
-                      <div>topic [[topic]]</div> -->
-          </div>
+ 
+      
         </div>
       </div>
 
@@ -225,8 +231,9 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
           </p>
         </div>
       </div>
-      <!-- ROW ROW -->
-      <div class="row">
+
+ 
+      <!-- <div class="row">
         <div class="col">
           <h2>Szczegóły dotyczące tego pytania testowego:</h2>
           <div class="table-responsive">
@@ -251,7 +258,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- ROW ROW -->
       <div class="row">
@@ -287,75 +294,91 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 <style is:global>
 
 
-/* :not(:root):-webkit-full-screen::backdrop,
-  :not(:root):-moz-full-screen::backdrop,
-  :not(:root):-ms-fullscreen::backdrop
-  :not(:root):fullscreen::backdrop,
-  ::backdrop,
-  body {
-    position: fixed;
-    inset: 0px;
-    background:  white !important;
-    background-color: white !important;
-} */
-
-
-
   /* webkit requires explicit width, height = 100% of sceeen */
   /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
 
-
-
-
-   .body:-webkit-full-screen {
+  .full-screen-wrapper:-webkit-full-screen {
     overflow: scroll !important;
-
+    background-color: white !important;
+    margin: 0;
     width: 100%;
     height: 100%;
-    background-color: white !important;
-    margin: 0;
+    border: 3px solid red;
+    padding: 0.5rem;
   }
 
-  .body:-moz-full-screen {
-    overflow: scroll !important;
-
-    background-color: white !important;
-    margin: 0;
-  }
-
-  .body:-ms-fullscreen {
-    overflow: scroll !important;
-
-    background-color: white !important;
-    margin: 0;
-  }
-
-  /* W3C proposal that will eventually come in all browsers */
-  .body:fullscreen {
+  .full-screen-wrapper:-moz-full-screen {
     overflow: scroll !important;
     background-color: white !important;
     margin: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+    padding: 0.5rem;
   }
+
+ .full-screen-wrapper:-ms-fullscreen {
+    overflow: scroll !important;
+    background-color: white !important;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+    padding: 0.5rem;
+  }
+
+  .full-screen-wrapper:fullscreen {
+    overflow: scroll !important;
+    background-color: white !important;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+    padding: 0.5rem;
+  }
+ 
 </style>
 
 <script>
-  const fullScreenButton = document.querySelector("#full-screen");
+  const fullScreenButtons = document.querySelectorAll(".click-to-go-full-screen") as NodeListOf<HTMLElement>;
 
-  fullScreenButton?.addEventListener("click", () => {
-    // DOM element which needs to enter fullscreen mode
-    const element = document.querySelector(".body");
+  fullScreenButtons.forEach((fullScreenButton) => {
+    fullScreenButton.addEventListener("click", () => {
+      // DOM element which needs to enter fullscreen mode
+      const element = document.querySelector(".full-screen-wrapper");
 
-    console.log("go full screen")
+      console.log("go full screen")
 
-    element
-      ?.requestFullscreen()
-      .then(function () {
-        // element has entered fullscreen mode successfully
-      })
-      .catch(function (error) {
-        // element could not enter fullscreen mode
-        // error message
-        console.log(error.message);
-      });
+      element
+        ?.requestFullscreen()
+        .then(function () {
+          // element has entered fullscreen mode successfully
+        })
+        .catch(function (error) {
+          // element could not enter fullscreen mode
+          // error message
+          console.log(error.message);
+        });
+    });
   });
+
+
+
+  // fullScreenButton?.addEventListener("click", () => {
+  //   // DOM element which needs to enter fullscreen mode
+  //   const element = document.querySelector(".full-screen-wrapper");
+
+  //   console.log("go full screen")
+
+  //   element
+  //     ?.requestFullscreen()
+  //     .then(function () {
+  //       // element has entered fullscreen mode successfully
+  //     })
+  //     .catch(function (error) {
+  //       // element could not enter fullscreen mode
+  //       // error message
+  //       console.log(error.message);
+  //     });
+  // });
 </script>
