@@ -26,48 +26,53 @@ export default function AnswerAbc(props: AnswerAbcProps) {
   ];
 
   const alertType =
-  clickedAnswerValue === correctAnswer ? "alert-success" : "alert-danger";
+    clickedAnswerValue === correctAnswer ? "alert-success" : "alert-danger";
 
-  return (<div>    <div className="d-grid gap-2 d-block mb-3">
-      {/* <pre>{JSON.stringify( clickedAnswerValue, null,2)}</pre> */}
+  return (
+    <div className="row mb-3">
+      <div className="col">
+        <div className="d-grid gap-2 d-block mb-3">
+          {possibleAnswers.map((answer) => {
+            let btnColor = "btn-secondary";
 
-      {possibleAnswers.map((answer) => {
-        let btnColor = "btn-secondary";
+            if (clickedAnswerValue && answer.letterIndex === correctAnswer) {
+              btnColor = "btn-success";
+            }
 
-        if (clickedAnswerValue && answer.letterIndex === correctAnswer) {
-          btnColor = "btn-success";
-        }
+            if (
+              clickedAnswerValue !== correctAnswer &&
+              answer.letterIndex === clickedAnswerValue
+            ) {
+              btnColor = "btn-danger";
+            }
 
-        if (
-          clickedAnswerValue !== correctAnswer &&
-          answer.letterIndex === clickedAnswerValue
-        ) {
-          btnColor = "btn-danger";
-        }
-
-        return (
-          <Fragment key={answer.letterIndex}>
-            <button
-              key={answer.letterIndex}
-              onClick={() => {
-                console.log(answer.letterIndex, answer);
-                setClickedAnswerValue(answer.letterIndex);
-              }}
-              type="button"
-              className={clsx("btn text-start", btnColor)}
-            >
-              <strong>{answer.letterIndex.toUpperCase()}) </strong>{" "}
-              {answer.label}
-            </button>
-          </Fragment>
-        );
-      })}
+            return (
+              <Fragment key={answer.letterIndex}>
+                <button
+                  key={answer.letterIndex}
+                  onClick={() => {
+                    console.log(answer.letterIndex, answer);
+                    setClickedAnswerValue(answer.letterIndex);
+                  }}
+                  type="button"
+                  className={clsx("btn text-start", btnColor)}
+                >
+                  <strong>{answer.letterIndex.toUpperCase()}) </strong>{" "}
+                  {answer.label}
+                </button>
+              </Fragment>
+            );
+          })}
+        </div>
+        {clickedAnswerValue && (
+          <div className={clsx("alert", alertType)} role="alert">
+            {clickedAnswerValue === correctAnswer &&
+              `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
+            {clickedAnswerValue !== correctAnswer &&
+              `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
+          </div>
+        )}{" "}
+      </div>
     </div>
-          {clickedAnswerValue && (
-            <div className={clsx("alert", alertType)} role="alert">
-    {clickedAnswerValue === correctAnswer && `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
-    {clickedAnswerValue !== correctAnswer &&  `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
-            </div>
-          )}    </div>
   );
 }

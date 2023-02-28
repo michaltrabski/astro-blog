@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { MEDIA_HOST, MEDIA_SIZE_LARGE, MEDIA_SIZE_MEDIUM, MEDIA_SIZE_SMALL } from "../settings/settings";
+import {
+  MEDIA_HOST,
+  MEDIA_SIZE_LARGE,
+  MEDIA_SIZE_MEDIUM,
+  MEDIA_SIZE_SMALL,
+} from "../settings/settings";
 
 interface MediaProps {
   media: string;
@@ -11,7 +16,13 @@ interface MediaProps {
 }
 
 export default function Media(props: MediaProps) {
-  const { text, media, showControls = true, stopAutoPlay, size = "small" } = props;
+  const {
+    text,
+    media,
+    showControls = true,
+    stopAutoPlay,
+    size = "small",
+  } = props;
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -28,7 +39,10 @@ export default function Media(props: MediaProps) {
       ? MEDIA_SIZE_LARGE
       : MEDIA_SIZE_SMALL;
 
-  const mediaUrl =   media ===  "placeholder.png"  ? "/placeholder.png" :MEDIA_HOST + mediaSize + media;
+  const mediaUrl =
+    media === "placeholder.png"
+      ? "/placeholder.png"
+      : MEDIA_HOST + mediaSize + media;
   const isVideo = media.endsWith(".mp4");
 
   useEffect(() => {
@@ -55,7 +69,13 @@ export default function Media(props: MediaProps) {
             style={{ minWidth: "102px" }}
             ref={videoRef}
             src={mediaUrl}
-            autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
+            autoPlay={
+              import.meta.env.MODE === "development"
+                ? false
+                : stopAutoPlay
+                ? false
+                : true
+            }
             controls={showControls}
           >
             <p>{text || media}</p>
@@ -68,7 +88,7 @@ export default function Media(props: MediaProps) {
             src={mediaUrl}
             alt={text || media}
           />
-                  )}
+        )}
       </div>
     </div>
   );

@@ -2,7 +2,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { changeCategory, _currentCategory, _allCategories } from "../store/store";
+import {
+  changeCategory,
+  _currentCategory,
+  _allCategories,
+} from "../store/store";
 
 export default function CategoriesButtons() {
   const categories = useStore(_allCategories);

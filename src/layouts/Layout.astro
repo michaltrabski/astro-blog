@@ -34,21 +34,21 @@ const { title = "Testy na prawo jazdy" } = Astro.props as Props;
   </head>
   <body class="mt-5 pt-3 border-top border-primary">
     <div class="full-screen-wrapper">
-    <Header />
+      <Header />
 
-    <main>
-      <div class="container-fluid">
-        <div class="row">
-          <div
-            class="col 111111111111111111 this-is-wrapper-from-layout text-center"
-          >
-            <slot />
+      <main>
+        <div class="container-fluid">
+          <div class="row">
+            <div
+              class="col 111111111111111111 this-is-wrapper-from-layout text-center"
+            >
+              <slot />
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    <Footer />
-  </div>
+      </main>
+      <Footer />
+    </div>
     <GetDataFromendpointComponent client:load />
   </body>
 </html>

@@ -1,14 +1,18 @@
-const fs = require('fs-extra')
+const fs = require("fs-extra");
 const path = require("path");
 const excelToJson = require("convert-excel-to-json");
 
 const LIMIT = 100999999;
 
-const EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV = "Baza_pytań_na_egzamin_na_prawo_jazdy_22_02_2022r.xlsx";
+const EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV =
+  "Baza_pytań_na_egzamin_na_prawo_jazdy_22_02_2022r.xlsx";
 const EXCEL_SHEET_NAME_WITH_QUESTIONS_DATA_FROM_GOV = "Treść pytania";
 
 const excelContent = excelToJson({
-  sourceFile: path.resolve(__dirname, EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV),
+  sourceFile: path.resolve(
+    __dirname,
+    EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV
+  ),
   columnToKey: { "*": "{{columnHeader}}" },
   header: {
     // Is the number of rows that will be skipped and will not be present at our result object. Counting from top to bottom
@@ -16,7 +20,8 @@ const excelContent = excelToJson({
   },
 });
 
-const allQuestions = excelContent[EXCEL_SHEET_NAME_WITH_QUESTIONS_DATA_FROM_GOV];
+const allQuestions =
+  excelContent[EXCEL_SHEET_NAME_WITH_QUESTIONS_DATA_FROM_GOV];
 
 // {
 //   "id": "id99",
@@ -53,6 +58,13 @@ const objToBePlacedInApiEndpoint = allQuestions.map((question) => {
   return newQuestion;
 });
 
-fs.writeJsonSync(path.resolve(__dirname, 'api-data.json'), objToBePlacedInApiEndpoint.slice(0, LIMIT))
+fs.writeJsonSync(
+  path.resolve(__dirname, "api-data.json"),
+  objToBePlacedInApiEndpoint.slice(0, LIMIT)
+);
 
-console.log("Generating data...", allQuestions[0], objToBePlacedInApiEndpoint.slice(0, 1));
+console.log(
+  "Generating data...",
+  allQuestions[0],
+  objToBePlacedInApiEndpoint.slice(0, 1)
+);

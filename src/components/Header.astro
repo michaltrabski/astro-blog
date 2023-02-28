@@ -11,7 +11,7 @@ import { URLS } from "../urls/urls";
   >
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
-        <span>poznaj-<span class="text-danger">testy</span>.pl</span>        
+        <span>poznaj-<span class="text-danger">testy</span>.pl</span>
       </a>
       <div
         class="btn-group"
@@ -22,7 +22,9 @@ import { URLS } from "../urls/urls";
         <a href={URLS.BAD_ANSWERS} class="btn btn-danger btn-sm">0</a>
       </div>
       <div>
-        <span class="text-light">Kat: <CurrentCategory upperCase client:visible /></span>
+        <span class="text-light"
+          >Kat: <CurrentCategory upperCase client:visible /></span
+        >
       </div>
       <button
         class="navbar-toggler"
@@ -35,7 +37,11 @@ import { URLS } from "../urls/urls";
       >
         <span class="navbar-toggler-icon"> </span>
       </button>
-      <div style={{flexGrow: 0}} class="collapse navbar-collapse" id="navbarNav">
+      <div
+        style={{ flexGrow: 0 }}
+        class="collapse navbar-collapse"
+        id="navbarNav"
+      >
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a

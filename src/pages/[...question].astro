@@ -11,6 +11,7 @@ import type { ApiDataItem, QuestionPageData } from "../store/store";
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
+import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 
 interface ArrayToGeneratePages {
   params: {
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
   // allCategories.forEach((category) => {
-    ["b"].forEach((category) => {
+  ["b"].forEach((category) => {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
       .filter((q) => q.categories.includes(category))
       .map((q, index) => {
@@ -77,22 +78,6 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 ---
 
 <Layout>
-<div class="full-screen-wrapper1">
- 
-
-  <!-- <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p> -->
-
-  <!-- <button id="full-screen">full screen</button>
-  <div id="wrapper">
-    <p><a href={prevSlug}>poprzednie</a> | <a href={nextSlug}>następne</a></p>
-    <h2>Kategoria: <strong>{category}</strong>, id: {id}</h2>
-    <h1>{text}</h1>
-
-    <pre>{JSON.stringify( Astro.params, null,2)}</pre>
-    <pre>{JSON.stringify( Astro.props, null,2)}</pre>
-  </div> -->
-
-  <!-- ROW  -->
   <div class="row">
     <div class="col-12 col-lg-6">
       <div class="QUESTION-INFO row mb-2 text-center">
@@ -123,15 +108,25 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
             <span class="click-to-go-full-screen">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrows-fullscreen"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"
+                ></path>
               </svg>
             </span>
           </div>
         </div>
       </div>
 
-      <Media client:visible text={text} media={media} size="large"  />
+      <Media client:visible text={text} media={media} size="large" />
 
       <!-- ROW ROW QUESTION TEXT -->
       <div class="row">
@@ -142,39 +137,11 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         </div>
       </div>
 
-      <div class="ANSWER-ABC row mb-3">
-        <div class="col">
-          <AnswerAbc client:visible question={questionPageData} />
-        </div>
-      </div>
+      <AnswerAbc client:visible question={questionPageData} />
 
-      <div class="ANSWER-YES-NO row mb-3">
-        <div class="col">
-          <AnswerYesNo client:visible question={questionPageData} />
-        </div>
-      </div>
+      <AnswerYesNo client:visible question={questionPageData} />
 
-      <!-- ROW ROW PREVIES NEXT -->
-      <div class="row mb-3">
-        <div class="col-6 mb-2">
-          {
-            prevSlug && (
-              <a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
-                poprzednie
-              </a>
-            )
-          }
-        </div>
-        <div class="col-6 mb-2 text-end">
-          {
-            nextSlug && (
-              <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
-                następne
-              </a>
-            )
-          }
-        </div>
-      </div>
+      <PrevNextQuestion question={questionPageData} />
 
       <!-- ROW ROW VOTE HEADLINE -->
       <div class="row">
@@ -205,24 +172,20 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         </div>
       </div>
 
- 
       <div class="row mb-3">
-         <div class="col text-start">
+        <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
- 
-            <div>
-              <p>
-                Przejeżdżając obok tramwaju który zatrzymał się na przystanku
-                należy ustąpić pierwszeństwa pieszym chcącym wsiąść i wysiąść z
-                pojazdu.
-              </p>
-            </div>
-            <p></p>
-            <p>ustawa108 art3 art3ust1pktart26ust6</p>
-            <div>[object Object]</div>
 
- 
-      
+          <div>
+            <p>
+              Przejeżdżając obok tramwaju który zatrzymał się na przystanku
+              należy ustąpić pierwszeństwa pieszym chcącym wsiąść i wysiąść z
+              pojazdu.
+            </p>
+          </div>
+          <p></p>
+          <p>ustawa108 art3 art3ust1pktart26ust6</p>
+          <div>[object Object]</div>
         </div>
       </div>
 
@@ -236,7 +199,6 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         </div>
       </div>
 
- 
       <!-- <div class="row">
         <div class="col">
           <h2>Szczegóły dotyczące tego pytania testowego:</h2>
@@ -292,12 +254,9 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
       </div>
     </div>
   </div>
-</div>
 </Layout>
 
 <style is:global>
-
-
   /* webkit requires explicit width, height = 100% of sceeen */
   /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
 
@@ -308,7 +267,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
     width: 100%;
     height: 100%;
     padding: 0.5rem;
-    padding-top: 4rem;    
+    padding-top: 4rem;
   }
 
   .full-screen-wrapper:-moz-full-screen {
@@ -321,7 +280,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
     padding-top: 4rem;
   }
 
- .full-screen-wrapper:-ms-fullscreen {
+  .full-screen-wrapper:-ms-fullscreen {
     overflow: scroll !important;
     background-color: white !important;
     margin: 0;
@@ -340,18 +299,19 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
     padding: 0.5rem;
     padding-top: 4rem;
   }
- 
 </style>
 
 <script>
-  const fullScreenButtons = document.querySelectorAll(".click-to-go-full-screen") as NodeListOf<HTMLElement>;
+  const fullScreenButtons = document.querySelectorAll(
+    ".click-to-go-full-screen"
+  ) as NodeListOf<HTMLElement>;
 
   fullScreenButtons.forEach((fullScreenButton) => {
     fullScreenButton.addEventListener("click", () => {
       // DOM element which needs to enter fullscreen mode
       const element = document.querySelector(".full-screen-wrapper");
 
-      console.log("go full screen")
+      console.log("go full screen");
 
       element
         ?.requestFullscreen()
@@ -365,8 +325,6 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         });
     });
   });
-
-
 
   // fullScreenButton?.addEventListener("click", () => {
   //   // DOM element which needs to enter fullscreen mode

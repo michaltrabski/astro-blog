@@ -1,5 +1,5 @@
 import { atom, map } from "nanostores";
-import {  KEY } from "../settings/settings";
+import { KEY } from "../settings/settings";
 
 import {
   getDataFromSessionStorage,
@@ -63,8 +63,8 @@ export interface Question {
 export interface QuestionPageData extends Question {
   slug: string;
   category: string;
-  prevSlug: string | null;
-  nextSlug: string | null;
+  prevSlug: string;
+  nextSlug: string;
 }
 
 export type CartItem = {
@@ -113,7 +113,11 @@ export const changeCategory = (newCategory: string) => {
 export const getDataFromEndpoint = async () => {
   try {
     const dataReceivedFromSessionStorage = getDataFromSessionStorage();
-    console.log(2, "dataReceivedFromSessionStorage===", dataReceivedFromSessionStorage);
+    console.log(
+      2,
+      "dataReceivedFromSessionStorage===",
+      dataReceivedFromSessionStorage
+    );
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
@@ -122,11 +126,16 @@ export const getDataFromEndpoint = async () => {
     }
 
     const fetchResponse = await fetch("../api-data.json");
-    const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
+    const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
+      await fetchResponse.json();
     console.log(3, "dataReceivedFromEndpoint===", dataReceivedFromEndpoint);
 
     const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
-      allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions.sort((a, b) => 0.5 - Math.random())),
+      allQuestions: mapApiData(
+        dataReceivedFromEndpoint.allQuestions.sort(
+          (a, b) => 0.5 - Math.random()
+        )
+      ),
       allQuestionsCount: dataReceivedFromEndpoint.allQuestionsCount,
       allCategories: dataReceivedFromEndpoint.allCategories,
     };
