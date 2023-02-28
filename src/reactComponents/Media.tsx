@@ -28,7 +28,7 @@ export default function Media(props: MediaProps) {
       ? MEDIA_SIZE_LARGE
       : MEDIA_SIZE_SMALL;
 
-  const mediaUrl = MEDIA_HOST + mediaSize + media;
+  const mediaUrl =   media ===  "placeholder.png"  ? "/placeholder.png" :MEDIA_HOST + mediaSize + media;
   const isVideo = media.endsWith(".mp4");
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function Media(props: MediaProps) {
             src={mediaUrl}
             alt={text || media}
           />
-        )}
+                  )}
       </div>
     </div>
   );

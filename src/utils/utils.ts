@@ -41,7 +41,7 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
     const newQuestion: Question = {
       id: q.id,
       text: q.t,
-      media: q.m || "empty.png",
+      media: q.m || "placeholder.png",
       a: q.a || "",
       b: q.b || "",
       c: q.c || "",
