@@ -64,7 +64,7 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
               `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
           </div>
         )}
-      </div> 
+      </div>
     </div>
   );
 }

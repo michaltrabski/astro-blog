@@ -3,6 +3,8 @@ import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
 import type { QuestionPageData } from "../store/store";
+import  { _questions  } from "../store/store";
+import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
 interface PrevNextQuestionProps {
   question: QuestionPageData;
@@ -11,11 +13,31 @@ interface PrevNextQuestionProps {
 export default function PrevNextQuestion(props: PrevNextQuestionProps) {
   const { prevSlug, nextSlug } = props.question;
 
+  const questions = useStore(_questions);
+
   const [newPrevSlug, setPrevSlug] = useState(prevSlug);
   const [newNextSlug, setNextSlug] = useState(nextSlug);
+  // const [_newNextSlug, setNewNextSlug] = useState(nextSlug);
 
-  return (
+  useEffect(() => {
+
+    
+    // get random number beetwen 0 and questions.length
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    console.log("questions", randomIndex, questions, questions[0],)
+    
+    if (questions.length > 0) {
+      setNextSlug(getFullUrl(createQuestionUrl(questions[randomIndex], "b")) ) // chack if questions inclues category current
+    }
+    
+  }, [questions]);
+
+
+  return (<div>
+    <p>newNextSlug ==={newNextSlug}</p>
+   
     <div className="row mb-3">
+ 
       <div className="col-6 mb-2">
         {newPrevSlug && (
           <a
@@ -39,6 +61,6 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
           </a>
         )}
       </div>
-    </div>
+    </div></div>
   );
 }

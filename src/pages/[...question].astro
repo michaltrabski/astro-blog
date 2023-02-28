@@ -37,8 +37,8 @@ export async function getStaticPaths() {
           ...q,
           slug: createQuestionUrl(q, category),
           category,
-          prevSlug: null,
-          nextSlug: null,
+          prevSlug: "#",
+          nextSlug: "#",
         };
 
         return {
@@ -85,21 +85,21 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> {id}</span>
+            <span>{id}</span>
           </div>
         </div>
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> kat: {category.toUpperCase()}</span>
+            <span>kat: {category.toUpperCase()}</span>
           </div>
         </div>
         <div class="col-3">
           <div
             class="text-secondary h-100 d-flex justify-content-center align-items-center"
           >
-            <span> pkt: {score}</span>
+            <span>pkt: {score}</span>
           </div>
         </div>
 
@@ -141,7 +141,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 
       <AnswerYesNo client:visible question={questionPageData} />
 
-      <PrevNextQuestion question={questionPageData} />
+      <PrevNextQuestion client:visible question={questionPageData} />
 
       <!-- ROW ROW VOTE HEADLINE -->
       <div class="row">
