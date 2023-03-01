@@ -12,6 +12,7 @@ import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
 import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
+import Mp3 from "../reactComponents/Mp3";
 
 interface ArrayToGeneratePages {
   params: {
@@ -128,10 +129,13 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 
       <Media client:visible text={text} media={media} size="large" />
 
+
+      
       <!-- ROW ROW QUESTION TEXT -->
       <div class="row">
         <div class="col">
           <h1 class="display-6 text-start shadow-bottom">
+            <Mp3 client:visible src="/mp3.mp3" />
             {text}
           </h1>
         </div>
