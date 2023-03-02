@@ -65,6 +65,7 @@ export interface QuestionPageData extends Question {
   category: string;
   prevSlug: string;
   nextSlug: string;
+  explanations: string[]
 }
 
 export type CartItem = {

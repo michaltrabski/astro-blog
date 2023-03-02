@@ -1,12 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
-import {
-  createBigObjectDataForInBuildTime,
-  createQuestionUrl,
-  getFullUrl,
-  mapApiData,
-} from "../utils/utils";
+import masterQuestionsJson from "../data/masterQuestions.json";
+import { createBigObjectDataForInBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/store";
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
@@ -25,6 +21,10 @@ interface ArrayToGeneratePages {
 
 export async function getStaticPaths() {
   const bigData = createBigObjectDataForInBuildTime(apiData);
+  const explanations = masterQuestionsJson.allQuestions;
+
+  console.log(11111111111, "explanations.length", explanations.length);
+
   const { allCategories } = bigData;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
@@ -34,12 +34,15 @@ export async function getStaticPaths() {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
       .filter((q) => q.categories.includes(category))
       .map((q, index) => {
+        const expl = explanations.find((e) => e.id === q.id)?.expl || [];
+
         const questionPageData: QuestionPageData = {
           ...q,
           slug: createQuestionUrl(q, category),
           category,
           prevSlug: "#",
           nextSlug: "#",
+          explanations: typeof expl === "string" ? [expl] : expl,
         };
 
         return {
@@ -51,31 +54,28 @@ export async function getStaticPaths() {
     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
-  const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map(
-    (page, index) => {
-      const prevPage = arrayToGeneratePages[index - 1];
-      const nextPage = arrayToGeneratePages[index + 1];
+  const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map((page, index) => {
+    const prevPage = arrayToGeneratePages[index - 1];
+    const nextPage = arrayToGeneratePages[index + 1];
 
-      return {
-        ...page,
-        props: {
-          ...page.props,
-          questionPageData: {
-            ...page.props.questionPageData,
-            prevSlug: prevPage ? getFullUrl(prevPage.params.question) : null,
-            nextSlug: nextPage ? getFullUrl(nextPage.params.question) : null,
-          },
+    return {
+      ...page,
+      props: {
+        ...page.props,
+        questionPageData: {
+          ...page.props.questionPageData,
+          prevSlug: prevPage ? getFullUrl(prevPage.params.question) : null,
+          nextSlug: nextPage ? getFullUrl(nextPage.params.question) : null,
         },
-      };
-    }
-  );
+      },
+    };
+  });
 
   return arrayToGeneratePagesWithPrevNext;
 }
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
-const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
-  questionPageData;
+const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanations } = questionPageData;
 ---
 
 <Layout>
@@ -83,31 +83,23 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
     <div class="col-12 col-lg-6">
       <div class="QUESTION-INFO row mb-2 text-center">
         <div class="col-3">
-          <div
-            class="text-secondary h-100 d-flex justify-content-center align-items-center"
-          >
+          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
             <span>{id}</span>
           </div>
         </div>
         <div class="col-3">
-          <div
-            class="text-secondary h-100 d-flex justify-content-center align-items-center"
-          >
+          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
             <span>kat: {category.toUpperCase()}</span>
           </div>
         </div>
         <div class="col-3">
-          <div
-            class="text-secondary h-100 d-flex justify-content-center align-items-center"
-          >
+          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
             <span>pkt: {score}</span>
           </div>
         </div>
 
         <div class="col-3">
-          <div
-            class="text-secondary h-100 d-flex justify-content-center align-items-center"
-          >
+          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
             <span class="click-to-go-full-screen">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,8 +121,6 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 
       <Media client:visible text={text} media={media} size="large" />
 
-
-      
       <!-- ROW ROW QUESTION TEXT -->
       <div class="row">
         <div class="col">
@@ -180,6 +170,14 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
 
+          <div>{explanations.map(explanation => <p>{explanation}</p>)}</div>
+        </div>
+      </div>
+
+      <!-- <div class="row mb-3">
+        <div class="col text-start">
+          <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
+
           <div>
             <p>
               Przejeżdżając obok tramwaju który zatrzymał się na przystanku
@@ -191,7 +189,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
           <p>ustawa108 art3 art3ust1pktart26ust6</p>
           <div>[object Object]</div>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col">
@@ -237,8 +235,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
             <p>
               Pamiętaj, że jedno konkretne pytanie z
               <strong> testów na prawo jazdy aktualnych w 2023</strong>
-              może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe
-              należy to kategorii a,a1,a2
+              może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii a,a1,a2
             </p>
             <p>
               Dostępne kategorie pytań z testów na prawo jazdy w lutym 2023 to
@@ -306,9 +303,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug } =
 </style>
 
 <script>
-  const fullScreenButtons = document.querySelectorAll(
-    ".click-to-go-full-screen"
-  ) as NodeListOf<HTMLElement>;
+  const fullScreenButtons = document.querySelectorAll(".click-to-go-full-screen") as NodeListOf<HTMLElement>;
 
   fullScreenButtons.forEach((fullScreenButton) => {
     fullScreenButton.addEventListener("click", () => {
