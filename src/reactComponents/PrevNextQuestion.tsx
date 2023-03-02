@@ -27,7 +27,7 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
       do {
         limit++;
         randomIndex = Math.floor(Math.random() * questions.length);
-      } while (!questions[randomIndex].categories.includes(currentCategory) && limit < 10);
+      } while (!questions[randomIndex].categories.includes(currentCategory) && limit < 100);
 
       setNextSlug(getFullUrl(createQuestionUrl(questions[randomIndex], currentCategory)));
     }
