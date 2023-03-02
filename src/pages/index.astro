@@ -1,12 +1,8 @@
 ---
+import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import CurrentYear from "../reactComponents/CurrentYear";
-import {
-  createBigObjectDataForInBuildTime,
-  createQuestionUrl,
-  getFullUrl,
-  mapApiData,
-} from "../utils/utils";
+import { createBigObjectDataForInBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import apiData from "../data/api-data";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
@@ -17,7 +13,16 @@ import { map } from "nanostores";
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories, allQuestions } = bigData;
 
-const posts = postsFromOldWordpress.postsFromOldWordpress;
+interface WordpressPost {
+  slug: string;
+  date: string;
+  title: string;
+  html: string;
+}
+const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
+  0,
+  50
+) as WordpressPost[];
 ---
 
 <Layout>
@@ -29,20 +34,19 @@ const posts = postsFromOldWordpress.postsFromOldWordpress;
             Testy na prawo jazdy <CurrentYear client:visible />
           </h1>
           <p class="lead">
-            Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na
-            prawo jazdy lub przeglądaj pytania testowe.
+            Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na prawo jazdy lub przeglądaj pytania
+            testowe.
           </p>
         </div>
       </div>
 
-      <StartLearningButtons client:visible allCategories={allCategories} allQuestions={allQuestions}/>
+      <StartLearningButtons client:visible allCategories={allCategories} allQuestions={allQuestions} />
 
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
         <p class="lead">
           <a href={URLS.DRIVING_LICENSE_CATEGIRIES}>
-            Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
-            się uczyć!
+            Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
           </a>
         </p>
       </div>
@@ -50,9 +54,7 @@ const posts = postsFromOldWordpress.postsFromOldWordpress;
       <!-- ROW ROW  -->
       <div class="row mb-2 border">
         <p class="lead">
-          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear
-            client:visible
-          /> roku.
+          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:visible /> roku.
         </p>
       </div>
 
@@ -65,13 +67,10 @@ const posts = postsFromOldWordpress.postsFromOldWordpress;
               {allQuestions.length}
             </span>
 
-            <span>
-              wszystkich pytań testowych na prawo jazdy wszystkich kategorii!!!</span
-            >
+            <span> wszystkich pytań testowych na prawo jazdy wszystkich kategorii!!!</span>
           </h2>
 
           <h3>Posiadamy w naszej bazie pytania wszystkich kategorii!</h3>
-          
 
           <p class="lead">
             <span>Dostępne kategorie to:</span>
@@ -86,28 +85,17 @@ const posts = postsFromOldWordpress.postsFromOldWordpress;
         <div class="col">
           <p>
             <strong>
-              Kliknij poniżej i wybierz aktualną kategorię z testów na prawo
-              jazdy której chcesz się teraz uczyć:
+              Kliknij poniżej i wybierz aktualną kategorię z testów na prawo jazdy której chcesz się teraz uczyć:
             </strong>
           </p>
           <div>
             {
               allCategories.map((cat) => {
                 return (
-                  <button
-                    class="btn btn-outline-secondary p-1 me-1 mb-1"
-                    type="button"
-                  >
+                  <button class="btn btn-outline-secondary p-1 me-1 mb-1" type="button">
                     <strong> {cat} </strong>
                     <br />
-                    <span class="small">
-                      {" "}
-                      {
-                        allQuestions.filter((q) => q.categories.includes(cat))
-                          .length
-                      }{" "}
-                      - pytań
-                    </span>
+                    <span class="small"> {allQuestions.filter((q) => q.categories.includes(cat)).length} - pytań</span>
                   </button>
                 );
               })
@@ -119,10 +107,15 @@ const posts = postsFromOldWordpress.postsFromOldWordpress;
       <!-- ROW ROW  -->
       <div class="row mb-3">
         <h2>Blog i artykuły:</h2>
-        {posts.slice(0,30).map((post, index) => <p>{index}). <a href={post.slug}>{post.title}</a></p>)}
+        {
+          posts.map((post, index) => (
+            <p>
+              {index + 1}. <a href={post.slug}>{post.title}</a>
+            </p>
+          ))
+        }
       </div>
 
-    
       <!-- <div class="row mb-2 border">wiersz</div>
 
      
