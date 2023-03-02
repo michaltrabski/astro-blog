@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
+ 
+
+export async function getStaticPaths() {
+  const posts = postsFromOldWordpress.postsFromOldWordpress;
+
+  return posts.map((post) => ({
+    params: {
+      wordpress: post.slug,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title}>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <section class="page-content text-start">
+        <h1>{post.title}</h1>
+        <p>{post.slug}</p>
+        <p>{post.date}</p>
+        <div set:html={post.html} />
+      </section>
+    </div>
+  </div>
+</Layout>

@@ -7,14 +7,17 @@ import {
   getFullUrl,
   mapApiData,
 } from "../utils/utils";
-
+import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import apiData from "../data/api-data";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
+import { map } from "nanostores";
 
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories, allQuestions } = bigData;
+
+const posts = postsFromOldWordpress.postsFromOldWordpress;
 ---
 
 <Layout>
@@ -67,12 +70,15 @@ const { allCategories, allQuestions } = bigData;
             >
           </h2>
 
-          <h3>
+          <h3>Posiadamy w naszej bazie pytania wszystkich kategorii!</h3>
+          
+
+          <p class="lead">
             <span>Dostępne kategorie to:</span>
             <strong class="small">
               {allCategories.join(", ").toUpperCase()}
             </strong>
-          </h3>
+          </p>
         </div>
       </div>
 
@@ -111,16 +117,19 @@ const { allCategories, allQuestions } = bigData;
       </div>
 
       <!-- ROW ROW  -->
+      <div class="row mb-3">
+        <h2>Blog i artykuły:</h2>
+        {posts.slice(0,30).map((post, index) => <p>{index}). <a href={post.slug}>{post.title}</a></p>)}
+      </div>
+
+    
+      <!-- <div class="row mb-2 border">wiersz</div>
+
+     
       <div class="row mb-2 border">wiersz</div>
 
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">wiersz</div>
-
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">wiersz</div>
-
-      <!-- ROW ROW  -->
-      <div class="row mb-2 border">wiersz</div>
+  
+      <div class="row mb-2 border">wiersz</div> -->
     </div>
 
     <!-- RIGHT SIDEBAR  -->
