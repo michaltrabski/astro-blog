@@ -13,12 +13,13 @@ import { map } from "nanostores";
 const bigData = createBigObjectDataForInBuildTime(apiData);
 const { allCategories, allQuestions } = bigData;
 
-interface WordpressPost {
+export interface WordpressPost {
   slug: string;
   date: string;
   title: string;
   html: string;
 }
+
 const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
   0,
   50
