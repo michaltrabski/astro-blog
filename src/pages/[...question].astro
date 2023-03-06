@@ -131,9 +131,9 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
         </div>
       </div>
 
-      <AnswerAbc client:visible question={questionPageData} />
+      <AnswerAbc client:load question={questionPageData} />
 
-      <AnswerYesNo client:visible question={questionPageData} />
+      <AnswerYesNo client:load question={questionPageData} />
 
       <PrevNextQuestion client:visible question={questionPageData} />
 
