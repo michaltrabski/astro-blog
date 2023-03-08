@@ -60,11 +60,11 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
                 )}
        
                 key={category}
-                className={clsx("btn btn-sm", btnColor)}
+                className={clsx("btn btn-lg", btnColor)}
                 role="button"
               >
            Rozpocznij naukę testów na prawo jazdy <CurrentYear />,
-                kategorii {category.toUpperCase()}               
+        {" "}  <strong>kategorii {category.toUpperCase()}</strong>                 
               </a>
             );
           })}

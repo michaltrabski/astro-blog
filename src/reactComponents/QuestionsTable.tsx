@@ -140,7 +140,7 @@ export default function QuestionsTable() {
                             return (
                               <Media
                                 media={questionValue}
-                                showControls={false}
+                                showControls={true}
                                startVideoAutomaticaly={false}
                               />
                             );

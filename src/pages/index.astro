@@ -44,17 +44,17 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
       <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
 
       <!-- ROW ROW  -->
-      <div class="row mb-3 border">
-        <p class="lead">
-          <a href={URLS.DRIVING_LICENSE_CATEGIRIES}>
+      <div class="row mb-3">
+        <p>
+          <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
           </a>
         </p>
       </div>
 
       <!-- ROW ROW  -->
-      <div class="row mb-3 border">
-        <p class="lead">
+      <div class="row mb-3">
+        <p>
           Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:load /> roku.
         </p>
       </div>
@@ -108,15 +108,16 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
       <!-- ROW ROW  -->
       <div class="row mb-3">
         <h2>Blog i artykuły:</h2>
+        <div class="text-start"> 
         {
           posts.map((post, index) => (
             <p>
-              {index + 1}. <a href={post.slug}>{post.title}</a>
+              {index + 1}. <a href={post.slug} class="text-decoration-none">{post.title}</a>
             </p>
           ))
         }
       </div>
-
+    </div>
       <!-- <div class="row mb-3 border">wiersz</div>
 
      

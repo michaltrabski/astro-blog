@@ -34,8 +34,7 @@ export default function Media(props: MediaProps) {
 
   const playVideo = () => {
     if (videoRef.current) {
-      // play video from the biginning
-      videoRef.current.currentTime = 0;
+       videoRef.current.currentTime = 0;
       videoRef.current.play();
     }
   };
@@ -56,20 +55,12 @@ export default function Media(props: MediaProps) {
             controls={showControls}
             onClick={() => {
               console.log("click");
-              playVideo();
+              // playVideo();
             }}
           >
             <p>{text || media}</p>
           </video>
-          <br />
-          <video
-            style={{ width: "300px" }}
-            src={mediaUrl}
-                controls 
-             
-          >
-         
-          </video>
+        
           </>
         ) : (
           <img
@@ -78,8 +69,7 @@ export default function Media(props: MediaProps) {
             alt={text || media}
           />
         )}
-
-        <p>{isVideo ? "video": "image"}</p>
+     
       </div>
     </div>
   );
