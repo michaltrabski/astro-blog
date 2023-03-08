@@ -6,18 +6,17 @@ interface MediaProps {
   media: string;
   text?: string;
   showControls?: boolean;
-  stopAutoPlay?: boolean;
+  startVideoAutomaticaly?: boolean;
   size?: "small" | "medium" | "large";
 }
 
 export default function Media(props: MediaProps) {
-  const { text, media, showControls = true, stopAutoPlay, size = "small" } = props;
+  const { text, media, showControls = false, startVideoAutomaticaly = true, size = "small" } = props;
 
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+ 
 
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
-  const imageRef = React.useRef<HTMLImageElement | null>(null);
+ 
 
   const mediaSize =
     size === "small"
@@ -31,17 +30,7 @@ export default function Media(props: MediaProps) {
   const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + mediaSize + media;
   const isVideo = media.endsWith(".mp4");
 
-  useEffect(() => {
-    if (videoRef.current) {
-      setWidth(+videoRef.current.getBoundingClientRect().width.toFixed(2));
-      setHeight(+videoRef.current.getBoundingClientRect().height.toFixed(2));
-    }
-
-    if (imageRef.current) {
-      setWidth(+imageRef.current.getBoundingClientRect().width.toFixed(2));
-      setHeight(+imageRef.current.getBoundingClientRect().height.toFixed(2));
-    }
-  }, [videoRef]);
+ 
 
   const playVideo = () => {
     if (videoRef.current) {
@@ -60,10 +49,11 @@ export default function Media(props: MediaProps) {
         {isVideo ? (
           <video
             className="w-100 shadow border border-dark"
-            style={{ minWidth: "102px" }}
+            // style={{ minWidth: "102px" }}
             ref={videoRef}
             src={mediaUrl}
-            autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
+            // autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
+            autoPlay={startVideoAutomaticaly}
             controls={showControls}
             onClick={() => {
               console.log("click");
@@ -75,8 +65,7 @@ export default function Media(props: MediaProps) {
         ) : (
           <img
             className="w-100 shadow border border-dark img-fluid"
-            style={{ minWidth: "102px" }}
-            ref={imageRef}
+            // style={{ minWidth: "102px" }}
             src={mediaUrl}
             alt={text || media}
           />

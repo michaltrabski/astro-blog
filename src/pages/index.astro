@@ -27,12 +27,12 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
 ---
 
 <Layout>
-  <div class="row mb-2">
+  <div class="row mb-3">
     <div class="col-12 col-lg-6">
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col">
           <h1 class="display-3 fw-bold">
-            Testy na prawo jazdy <CurrentYear client:visible />
+            Testy na prawo jazdy <CurrentYear client:load />
           </h1>
           <p class="lead">
             Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na prawo jazdy lub przeglądaj pytania
@@ -41,10 +41,10 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
         </div>
       </div>
 
-      <StartLearningButtons client:visible allCategories={allCategories} allQuestions={allQuestions} />
+      <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
 
       <!-- ROW ROW  -->
-      <div class="row mb-2 border">
+      <div class="row mb-3 border">
         <p class="lead">
           <a href={URLS.DRIVING_LICENSE_CATEGIRIES}>
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
@@ -53,13 +53,13 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
       </div>
 
       <!-- ROW ROW  -->
-      <div class="row mb-2 border">
+      <div class="row mb-3 border">
         <p class="lead">
-          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:visible /> roku.
+          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:load /> roku.
         </p>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col">
           <h2 class="display-5">
             <span>Największa darmowa baza</span>
@@ -82,7 +82,7 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row mb-3">
         <div class="col">
           <p>
             <strong>
@@ -117,13 +117,13 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
         }
       </div>
 
-      <!-- <div class="row mb-2 border">wiersz</div>
+      <!-- <div class="row mb-3 border">wiersz</div>
 
      
-      <div class="row mb-2 border">wiersz</div>
+      <div class="row mb-3 border">wiersz</div>
 
   
-      <div class="row mb-2 border">wiersz</div> -->
+      <div class="row mb-3 border">wiersz</div> -->
     </div>
 
     <!-- RIGHT SIDEBAR  -->

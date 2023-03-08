@@ -119,14 +119,14 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
         </div>
       </div>
 
-      <Media client:visible text={text} media={media} size="large" showControls={false}/>
+      <Media client:load text={text} media={media} size="large" showControls={false}/>
 
       <!-- ROW ROW QUESTION TEXT -->
       <div class="row">
         <div class="col">
           <h1 class="display-6 text-start shadow-bottom">
-            <Mp3 client:visible src="/mp3.mp3" />
             {text}
+            <Mp3 client:load src="/mp3.mp3" />
           </h1>
         </div>
       </div>
@@ -135,7 +135,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
 
       <AnswerYesNo client:load question={questionPageData} />
 
-      <PrevNextQuestion client:visible question={questionPageData} />
+      <PrevNextQuestion client:load question={questionPageData} />
 
       <!-- ROW ROW VOTE HEADLINE -->
       <div class="row">

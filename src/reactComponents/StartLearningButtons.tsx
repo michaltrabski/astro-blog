@@ -32,10 +32,12 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
       ? allQuestionsFromStore
       : props.allQuestions;
 
+     
+
   return (
-    <div className="row">
+    <div className="row mb-3">
       <div className="col">
-        <div className="d-grid gap-2 mb-2">
+        <div className="d-grid gap-3">
           {allCategories.map((category) => {
             
             let randomIndex = 0;
@@ -46,7 +48,7 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
             } while (!allQuestions[randomIndex].categories.includes(category) && limit < 100);
 
             const btnColor =
-              category === curentCategory ? "btn-primary" : "btn-secondary";
+              category === curentCategory ? "btn-primary" : "d-none";
 
             return (
               <a
@@ -61,7 +63,7 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
                 className={clsx("btn btn-sm", btnColor)}
                 role="button"
               >
-                Rozpocznij naukę testów na prawo jazdy <CurrentYear />,
+           Rozpocznij naukę testów na prawo jazdy <CurrentYear />,
                 kategorii {category.toUpperCase()}               
               </a>
             );
