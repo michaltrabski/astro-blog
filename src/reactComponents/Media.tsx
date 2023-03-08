@@ -46,10 +46,9 @@ export default function Media(props: MediaProps) {
         {/* <p className="small position-absolute text-light">
           {width}x{height}
         </p> */}
-        {isVideo ? (
+        {isVideo ? (<>
           <video
             className="w-100 shadow border border-dark"
-            // style={{ minWidth: "102px" }}
             ref={videoRef}
             src={mediaUrl}
             // autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
@@ -62,14 +61,25 @@ export default function Media(props: MediaProps) {
           >
             <p>{text || media}</p>
           </video>
+          <br />
+          <video
+            style={{ width: "300px" }}
+            src={mediaUrl}
+                controls 
+             
+          >
+         
+          </video>
+          </>
         ) : (
           <img
             className="w-100 shadow border border-dark img-fluid"
-            // style={{ minWidth: "102px" }}
             src={mediaUrl}
             alt={text || media}
           />
         )}
+
+        <p>{isVideo ? "video": "image"}</p>
       </div>
     </div>
   );
