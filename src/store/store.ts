@@ -4,9 +4,7 @@ import { KEY } from "../settings/settings";
 import {
   getDataFromSessionStorage,
   getCurrentCategoryInitialValue,
-  getInitialValue,
   mapApiData,
-  sessionStorageSetArrayItem,
   storageSetStringItem,
   sessionStorageSetObj,
 } from "../utils/utils";
@@ -68,43 +66,76 @@ export interface QuestionPageData extends Question {
   explanations: string[]
 }
 
-export type CartItem = {
+
+
+// export const _mp3Files = atom<string[]>([]);
+
+// export const _addMp3File = (mp3File: string) => {
+//   _mp3Files.set([..._mp3Files.get(), mp3File]);
+// };
+
+// type ItemDisplayInfo = Pick<Mp3Item, 'id' | 'slug' | 'state'>;
+
+export type Mp3Item = {
   id: string;
-  name: string;
-  imageSrc: string;
-  quantity: number;
+  slug: string;
+  action: "" | "play" | "pause";
+  state: "" | "playing" | "paused";
 };
 
-export const cartItems = map<Record<string, CartItem | any>>({
-  id99: {
-    clickedCorrectAnswer: false,
-    clickedAnswer: "n",
-    vote: "good",
-  },
-});
+// michal
+export const _mp3Items = map<Record<string, Mp3Item>>({});
 
-type ItemDisplayInfo = Pick<CartItem, "id" | "name" | "imageSrc">;
-export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
-  const existingEntry = cartItems.get()[id];
+export function _addMp3Item(cartItem: Mp3Item) {
+  const { id, slug, state } = cartItem;
+
+  const existingEntry = _mp3Items.get()[id];
+
   if (existingEntry) {
-    cartItems.setKey(id, {
+    _mp3Items.setKey(id, {
       ...existingEntry,
-      quantity: existingEntry.quantity + 1,
-    });
+      // quantity: existingEntry.quantity + 1,
+    })
   } else {
-    cartItems.setKey(id, { id, name, imageSrc, quantity: 1 });
+    _mp3Items.setKey(
+      id,
+      { id, slug, action: "", state }
+    );
   }
 }
-// USER
-// export const user = atom()
+
+export function _playMp3Item(id: Mp3Item['id']) {
+  const selectedItem = _mp3Items.get()[id];
+
+ // Pause all items
+  Object.entries(_mp3Items.get()).forEach(([key, item]) => {
+    if (key !== id) {
+      _mp3Items.setKey(key, {
+        ...item,
+        action: "pause",
+      })
+    }
+  })
+
+  // Play selected item
+  if (selectedItem) {
+    _mp3Items.setKey(id, {
+      ...selectedItem,
+      action: "play",
+    })
+  }
+}
+
+
+
+
+
 
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);
 export const _currentCategory = atom(getCurrentCategoryInitialValue());
 
-// const _addCategories = (newCategories: string[]) => {
-//   _categories.set([..._categories.get(), ...newCategories]);
-// };
+
 
 export const changeCategory = (newCategory: string) => {
   _currentCategory.set(newCategory);

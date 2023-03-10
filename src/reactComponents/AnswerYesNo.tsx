@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
-import type { QuestionPageData } from "../store/store";
+import { QuestionPageData, _playMp3Item } from "../store/store";
+import { _addMp3Item } from "../store/store";
 
 const possibleAnswers = [
   { letterIndex: "t", label: "Tak" },
@@ -23,29 +24,14 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
 
   const alertType = clickedAnswerValue === correctAnswer ? "alert-success" : "alert-danger";
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
+  // michal
   useEffect(() => {
-    // const audio = audioRefObj.current;
-    // if (audio) {
-    //   audio.addEventListener("ended", () => {
-    //     console.log("ended");
-    //   });
-    // }
-
-    console.log(1, audioRef);
+    _addMp3Item({ id: "t", slug: "t.mp3", action: "", state: "" });
+    _addMp3Item({ id: "n", slug: "n.mp3", action: "", state: "" });
   }, []);
-
-  const play = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.play();
-    }
-  };
 
   return (
     <>
-      <audio className="d-none" controls src={`/${correctAnswer}.mp3`} ref={audioRef} />
       <div className="row mb-3">
         <div className="col">
           <div className="mb-3">
@@ -65,7 +51,7 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
                   key={answer.letterIndex}
                   onClick={() => {
                     setClickedAnswerValue(answer.letterIndex);
-                    play();
+                    _playMp3Item(correctAnswer);
                   }}
                   type="button"
                   className={clsx("btn me-3 btn-lg", btnColor)}

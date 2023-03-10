@@ -9,11 +9,11 @@ import {
 } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-import { cartItems } from "../store/store";
+import { _mp3Items } from "../store/store";
 import { useStore } from "@nanostores/react";
 
 export default function Auth() {
-  const $cartItems = useStore(cartItems);
+  const $cartItems = useStore(_mp3Items);
 
   console.log(111111111, "$cartItems", $cartItems);
 
