@@ -31,9 +31,7 @@ export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
 
   const allQuestions: Question[] = mapApiData(apiData);
 
-  // return mapApiData(apiData)
-
-  return { allCategories, allQuestions };
+  return { allCategories, allQuestions: allQuestions.slice(0,200) };
 };
 
 export const mapApiData = (apiData: ApiDataItem[]): Question[] => {

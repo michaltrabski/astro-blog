@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
 import { _mp3Items, _addMp3Item, _playMp3Item } from "../store/store";
+import { MEDIA_HOST, MP3_DIR, MP3_EXTENSION } from "../settings/settings";
 
 interface File {
   name: string;
@@ -23,8 +24,7 @@ export default function Mp3Player() {
 
           return (
             <div key={id}>
-              <p>{file.slug}</p>
-              <SingleMp3 id={file.id} slug={file.slug} />
+               <SingleMp3 id={file.id} slug={file.id} />
             </div>
           );
         })}
@@ -105,11 +105,14 @@ const SingleMp3 = (props: SingleMp3Props) => {
   }, []);
 
   return (
+     <div>
+      <p>{MEDIA_HOST + MP3_DIR + slug + MP3_EXTENSION}</p>
+     
     <div style={{ maxWidth: "500px" }} className="d-flex justify-content-between align-items-center">
-      <audio ref={audioRef} controls src={`/mp3/${slug}`} />
+      <audio ref={audioRef} controls src={MEDIA_HOST + MP3_DIR + slug + MP3_EXTENSION} />
       <i className="bi bi-play-circle" onClick={() => _playMp3Item(id)}></i>
       <i className="bi bi-pause-circle"></i>
       <i className="bi bi-stop-circle"></i>
-    </div>
+    </div></div>
   );
 };

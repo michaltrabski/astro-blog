@@ -13,20 +13,19 @@ interface QuestionTextProps {
 
 export default function QuestionText(props: QuestionTextProps) {
   const { text } = props.question;
-
-  const slugText = slugify(text, {
-    replacement: "-", // replace spaces with replacement character, defaults to `-`
-    remove: /[*+~,.()'"!:@?;]/g, // remove characters that match regex, defaults to `undefined`
-    lower: true, // convert to lower case, defaults to `false`
-    strict: false, // strip special characters except replacement, defaults to `false`
-    locale: "vi", // language code of the locale to use
-    trim: true, // trim leading and trailing replacement chars, defaults to `true`
-  });
-
+ 
+    const slugText = slugify(text, {
+      replacement: "-", // replace spaces with replacement character, defaults to `-`
+      remove: /[*+~,.()/'"!:@?;]/g, // remove characters that match regex, defaults to `undefined`
+      lower: true, // convert to lower case, defaults to `false`
+      strict: false, // strip special characters except replacement, defaults to `false`
+      locale: "vi", // language code of the locale to use
+      trim: true, // trim leading and trailing replacement chars, defaults to `true`
+    });
 
   // michal 
   useEffect(() => {
-    _addMp3Item({ id: slugText,   slug: slugText + ".mp3", action: "", state:"",  });
+    _addMp3Item({ id: slugText,  action: "", state:"",  });
   }, []);
 
   return (
@@ -34,8 +33,9 @@ export default function QuestionText(props: QuestionTextProps) {
       <div className="col">
         <h1 className="display-6 text-start shadow-bottom">
           {text}
-
-        <span className="text-primary" style={{cursor: "pointer"}} onClick={() => _playMp3Item(slugText)}>PLAY</span>   
+          <button className="btn btn-light" onClick={() => _playMp3Item(slugText)}>
+            <span className="bi bi-play-circle"></span>
+          </button>
         </h1>
       </div>
     </div>

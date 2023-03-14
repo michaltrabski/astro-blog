@@ -1,8 +1,11 @@
 export const MEDIA_HOST =
-  "https://dacmwwxjyw.cfolks.pl/files/obrazki-do-testow/";
+  "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
 export const MEDIA_SIZE_SMALL = "size-100/";
 export const MEDIA_SIZE_MEDIUM = "size-320/";
 export const MEDIA_SIZE_LARGE = "size-720/";
+
+export const MP3_DIR = "mp3/";
+export const MP3_EXTENSION = ".mp3";
 
 export const DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE = "b";
 

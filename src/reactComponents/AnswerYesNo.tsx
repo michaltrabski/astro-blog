@@ -26,8 +26,10 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
 
   // michal
   useEffect(() => {
-    _addMp3Item({ id: "t", slug: "t.mp3", action: "", state: "" });
-    _addMp3Item({ id: "n", slug: "n.mp3", action: "", state: "" });
+    _addMp3Item({ id: "tak",  action: "", state: "" });
+    _addMp3Item({ id: "nie",  action: "", state: "" });
+    _addMp3Item({ id: "t",  action: "", state: "" });
+    _addMp3Item({ id: "n",  action: "", state: "" });
   }, []);
 
   return (
@@ -51,12 +53,13 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
                   key={answer.letterIndex}
                   onClick={() => {
                     setClickedAnswerValue(answer.letterIndex);
-                    _playMp3Item(correctAnswer);
+                    // _playMp3Item(correctAnswer ? "tak" : "nie");
+                    _playMp3Item(correctAnswer === "t" ? "t" : "n");
                   }}
                   type="button"
                   className={clsx("btn me-3 btn-lg", btnColor)}
                 >
-                  {answer.label}
+                  {answer.label} 
                 </button>
               );
             })}
