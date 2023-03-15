@@ -13,10 +13,8 @@ interface MediaProps {
 export default function Media(props: MediaProps) {
   const { text, media, showControls = false, startVideoAutomaticaly = true, size = "small" } = props;
 
- 
-
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
- 
+  const pngRef = React.useRef<HTMLImageElement | null>(null);
 
   const mediaSize =
     size === "small"
@@ -30,11 +28,27 @@ export default function Media(props: MediaProps) {
   const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + mediaSize + media;
   const isVideo = media.endsWith(".mp4");
 
- 
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     videoRef.current.addEventListener("error", () => {
+  //       console.log("video error", mediaUrl);
+  //     });
+  //   }
+
+  //   console.log("video", videoRef.current);
+
+  //   if (pngRef.current) {
+  //     pngRef.current.addEventListener("error", () => {
+  //       console.log("png error", mediaUrl);
+  //     });
+  //   }
+
+  //   console.log("png", pngRef.current);
+  // }, [videoRef.current, pngRef.current]);
 
   const playVideo = () => {
     if (videoRef.current) {
-       videoRef.current.currentTime = 0;
+      videoRef.current.currentTime = 0;
       videoRef.current.play();
     }
   };
@@ -45,31 +59,29 @@ export default function Media(props: MediaProps) {
         {/* <p className="small position-absolute text-light">
           {width}x{height}
         </p> */}
-        {isVideo ? (<>
-          <video
-            className="w-100 shadow border border-dark"
-            ref={videoRef}
-            src={mediaUrl}
-            // autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
-            autoPlay={startVideoAutomaticaly}
-            controls={showControls}
-            onClick={() => {
-              console.log("click");
-              // playVideo();
-            }}
-          >
-            <p>{text || media}</p>
-          </video>
-        
+        {isVideo ? (
+          <>
+            <video
+              className="w-100 shadow border border-dark"
+              ref={videoRef}
+              src={mediaUrl}
+              // autoPlay={import.meta.env.MODE === "development" ? false : stopAutoPlay ? false : true}
+              autoPlay={startVideoAutomaticaly}
+              controls={showControls}
+              onClick={() => {
+                console.log("click");
+                // playVideo();
+              }}
+            >
+              <p>{text || media}</p>
+            </video>
           </>
-        ) : (
-          <img
-            className="w-100 shadow border border-dark img-fluid"
-            src={mediaUrl}
-            alt={text || media}
-          />
+        ) : ( 
+          <img className="w-100 shadow border border-dark img-fluid"
+          ref={pngRef}
+          onError={() => alert("error")}
+          src={mediaUrl} alt={text || media} /> 
         )}
-     
       </div>
     </div>
   );

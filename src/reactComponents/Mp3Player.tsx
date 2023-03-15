@@ -46,7 +46,6 @@ const SingleMp3 = (props: SingleMp3Props) => {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // play audio from beegining
   const play = () => {
     const audio = audioRef.current;
     if (audio) {
@@ -62,7 +61,7 @@ const SingleMp3 = (props: SingleMp3Props) => {
     if (mp3ItemsMap[id].action === "play") play();
   }, [mp3ItemsMap]);
 
-  const errorCallback = () => console.log("error");
+  const errorCallback = () => {} // console.log("error");
   const canplayCallback = () => {
     if (_mp3Items.get()[id].canplay === false) {
       _updateMp3ItemCanPlay(id, true);

@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
-import {
-  _questions,
-  _currentCategory,
-  changeCategory,
-  _allCategories,
-} from "../store/store";
+import { _questions, _currentCategory, changeCategory, _allCategories } from "../store/store";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import CategoriesButtons from "./CategoriesButtons";
 import Media from "./Media";
@@ -22,16 +17,19 @@ export default function QuestionsTable() {
     question.categories.includes(currentCategory)
   );
 
-  const questionsFilteredByCurrentCategoryAndSearchValue =
-    questionsFilteredByCurrentCategory.filter((question) =>
-      JSON.stringify(question).toLowerCase().includes(searchValue.toLowerCase())
-    );
+  const questionsFilteredByCurrentCategoryAndSearchValue = questionsFilteredByCurrentCategory.filter((question) =>
+    JSON.stringify(question).toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   const questionKeys = Object.keys(
-    questionsFilteredByCurrentCategory.length > 0
-      ? questionsFilteredByCurrentCategory[0]
-      : []
+    questionsFilteredByCurrentCategory.length > 0 ? questionsFilteredByCurrentCategory[0] : []
   );
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    console.log("searchValue", searchValue);
+  }
 
   return (
     <div className="row mb-2">
@@ -43,7 +41,7 @@ export default function QuestionsTable() {
         {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre> */}
         {/* <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
 
-        <form className="form-floating">
+        <form className="form-floating" onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
             <input
               value={searchValue}
@@ -59,12 +57,8 @@ export default function QuestionsTable() {
 
         {searchValue !== "" && (
           <p className="text-start">
-            Znaleziono:{" "}
-            <strong>
-              {questionsFilteredByCurrentCategoryAndSearchValue.length}
-            </strong>{" "}
-            pytań testowych, należących do kategorii{" "}
-            <strong>{currentCategory.toUpperCase()}</strong>.
+            Znaleziono: <strong>{questionsFilteredByCurrentCategoryAndSearchValue.length}</strong> pytań testowych,
+            należących do kategorii <strong>{currentCategory.toUpperCase()}</strong>.
           </p>
         )}
 
@@ -80,84 +74,65 @@ export default function QuestionsTable() {
               </tr>
             </thead>
             <tbody>
-              {questionsFilteredByCurrentCategoryAndSearchValue
-                .slice(0, limit)
-                .map((question, rowIndex) => {
-                  const questionValues = Object.values(question);
+              {questionsFilteredByCurrentCategoryAndSearchValue.slice(0, limit).map((question, rowIndex) => {
+                const questionValues = Object.values(question);
 
-                  return (
-                    <tr key={JSON.stringify(question)}>
-                      {questionValues.map((questionValue, index) => {
-                        const questionKey = questionKeys[index];
+                return (
+                  <tr key={JSON.stringify(question)}>
+                    {questionValues.map((questionValue, index) => {
+                      const questionKey = questionKeys[index];
 
-                        if (typeof questionValue === "string") {
-                          if (questionKey === "id") {
-                            return (
-                              <td>
-                                <strong>{rowIndex + 1})</strong>.{" "}
-                                {questionValue}{" "}
-                              </td>
-                            );
-                          }
-
-                          if (questionKey === "text") {
-                            return (
-                              <td>
-                                {searchValue !== "" ? (
-                                  <a
-                                    href={getFullUrl(
-                                      createQuestionUrl(
-                                        question,
-                                        currentCategory
-                                      )
-                                    )}
-                                    dangerouslySetInnerHTML={{
-                                      __html: question.text
-                                        .toLowerCase()
-                                        .replace(
-                                          searchValue.toLowerCase(),
-                                          `<strong class="bg-warning">${searchValue}</strong>`
-                                        ),
-                                    }}
-                                  ></a>
-                                ) : (
-                                  <a
-                                    href={getFullUrl(
-                                      createQuestionUrl(
-                                        question,
-                                        currentCategory
-                                      )
-                                    )}
-                                  >
-                                    {questionValue}
-                                  </a>
-                                )}
-                              </td>
-                            );
-                          }
-
-                          if (questionKey === "media") {
-                            return (
-                              <Media
-                                media={questionValue}
-                                showControls={true}
-                               startVideoAutomaticaly={false}
-                              />
-                            );
-                          }
-
-                          return <td>{questionValue}</td>;
+                      if (typeof questionValue === "string") {
+                        if (questionKey === "id") {
+                          return (
+                            <td>
+                              <strong>{rowIndex + 1})</strong>. {questionValue}{" "}
+                            </td>
+                          );
                         }
 
-                        if (Array.isArray(questionValue)) {
-                          return <td>{questionValue.join(",")}</td>;
+                        if (questionKey === "text") {
+                          return (
+                            <td>
+                              {searchValue !== "" ? (
+                                <a
+                                  href={getFullUrl(createQuestionUrl(question, currentCategory))}
+                                  dangerouslySetInnerHTML={{
+                                    __html: question.text
+                                      .toLowerCase()
+                                      .replace(
+                                        searchValue.toLowerCase(),
+                                        `<strong class="bg-warning">${searchValue}</strong>`
+                                      ),
+                                  }}
+                                ></a>
+                              ) : (
+                                <a href={getFullUrl(createQuestionUrl(question, currentCategory))}>{questionValue}</a>
+                              )}
+                            </td>
+                          );
                         }
 
-                        return <td>{JSON.stringify(questionValue)}</td>;
-                      })}
-                    </tr>
-                  );
-                })}
+                        if (questionKey === "media") {
+                          return (
+                            <div style={{ width: "300px" }}>
+                              <Media media={questionValue} showControls={true} startVideoAutomaticaly={false} /> 
+                            </div>
+                          );
+                        }
+
+                        return <td>{questionValue}</td>;
+                      }
+
+                      if (Array.isArray(questionValue)) {
+                        return <td>{questionValue.join(",")}</td>;
+                      }
+
+                      return <td>{JSON.stringify(questionValue)}</td>;
+                    })}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
