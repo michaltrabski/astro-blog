@@ -25,7 +25,7 @@ export default function QuestionText(props: QuestionTextProps) {
 
   // michal 
   useEffect(() => {
-    _addMp3Item({ id: slugText,  action: "", state:"",  });
+    _addMp3Item({ id: slugText  });
   }, []);
 
   return (

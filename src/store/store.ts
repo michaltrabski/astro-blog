@@ -76,15 +76,16 @@ export interface QuestionPageData extends Question {
 
 export type Mp3Item = {
   id: string;
-  action: "" | "play" | "pause";
-  state: "" | "playing" | "paused";
+  canplay?: boolean;
+  action?: "" | "play" | "pause";
+  state?: "" | "playing" | "paused" | "error" | "ended" ;
 };
 
 // michal
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 
 export function _addMp3Item(cartItem: Mp3Item) {
-  const { id, action, state } = cartItem;
+  const { id, canplay = false, action = "", state="" } = cartItem;
 
   const existingEntry = _mp3Items.get()[id];
 
@@ -94,7 +95,7 @@ export function _addMp3Item(cartItem: Mp3Item) {
       // quantity: existingEntry.quantity + 1,
     });
   } else {
-    _mp3Items.setKey(id, { id, action, state });
+    _mp3Items.setKey(id, { id, canplay, action, state });
   }
 }
 
@@ -119,6 +120,32 @@ export function _playMp3Item(id: Mp3Item["id"]) {
     });
   }
 }
+
+export function _updateMp3ItemState(id: Mp3Item["id"], state: Mp3Item["state"]) {
+  const selectedItem = _mp3Items.get()[id];
+
+  if (selectedItem) {
+    _mp3Items.setKey(id, {
+      ...selectedItem,
+      state,
+    });
+  }
+}
+
+export function _updateMp3ItemCanPlay(id: Mp3Item["id"], canplay: Mp3Item["canplay"]) {
+  const selectedItem = _mp3Items.get()[id];
+
+  if (selectedItem) {
+    _mp3Items.setKey(id, {
+      ...selectedItem,
+      canplay,
+    });
+  }
+}
+
+
+
+
 
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);

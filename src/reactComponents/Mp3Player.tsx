@@ -1,49 +1,42 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { _mp3Items, _addMp3Item, _playMp3Item } from "../store/store";
+import { _mp3Items, _addMp3Item, _playMp3Item, Mp3Item, _updateMp3ItemState, _updateMp3ItemCanPlay } from "../store/store";
 import { MEDIA_HOST, MP3_DIR, MP3_EXTENSION } from "../settings/settings";
-
-interface File {
-  name: string;
-  slug: string;
-  state: null | "playing" | "paused" | "stopped";
-}
 
 export default function Mp3Player() {
   const mp3Items = useStore(_mp3Items);
+  const mp3ItemsArray = Object.entries(mp3Items);
 
   return (
-    <div>
+    <div className="border border-3 border-danger rounded shadow p-1">
       <p>MP3 FILES:</p>
       <div>
-        {Object.entries(mp3Items).map((item) => {
+        {mp3ItemsArray.map((item) => {
           const id = item[0];
-          const file = item[1];
+          const mp3Item = item[1];
 
           return (
             <div key={id}>
-               <SingleMp3 id={file.id} slug={file.id} />
+              <SingleMp3 mp3Item={mp3Item} />
             </div>
           );
         })}
       </div>
-
-      {/* <pre>{JSON.stringify(mp3Items, null, 2)}</pre> */}
     </div>
   );
 }
 
 interface SingleMp3Props {
-  id: string;
-  slug: string;
+  mp3Item: Mp3Item;
 }
 
 const SingleMp3 = (props: SingleMp3Props) => {
-  const mp3Items = useStore(_mp3Items);
+  const { id, canplay,  state, action } = props.mp3Item;
 
-  const { id, slug } = props;
+  const mp3ItemsMap = useStore(_mp3Items);
+ 
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -59,60 +52,72 @@ const SingleMp3 = (props: SingleMp3Props) => {
   const pause = () => audioRef?.current?.pause();
 
   useEffect(() => {
-    if (mp3Items[id].action === "pause") {
-      console.log("item to pause is", mp3Items[id]);
+    if (mp3ItemsMap[id].action === "pause") {
+      // console.log("item to pause is", mp3ItemsMap[id]);
       pause();
     }
 
-    if (mp3Items[id].action === "play") {
-      console.log("item to play is", mp3Items[id]);
+    if (mp3ItemsMap[id].action === "play") {
+      // console.log("item to play is", mp3ItemsMap[id]);
       play();
     }
-  }, [mp3Items]);
+  }, [mp3ItemsMap]);
+
+
+
+
+
+  const errorCallback = () => console.log("error");
+  const canplayCallback = () => {
+     if (_mp3Items.get()[id].canplay === false) {
+      _updateMp3ItemCanPlay(id, true);
+    }
+  };
+  const playCallback = () => console.log("play");
+  const pauseCallback = () => console.log("pause");
+  const endedCallback = () => console.log("ended");
+
 
   // detect if file is playing
   useEffect(() => {
     const audio = audioRef.current;
+    // console.log("id === ", id)
+
+
     if (audio) {
-      audio.addEventListener("play", () => {
-        console.log("play");
-      });
-
-      audio.addEventListener("pause", () => {
-        console.log("pause");
-      });
-
-      audio.addEventListener("ended", () => {
-        console.log("ended");
-      });
+      audio.addEventListener("error", errorCallback);
+      audio.addEventListener("canplay", canplayCallback);
+      audio.addEventListener("play", playCallback);
+      audio.addEventListener("pause", pauseCallback);
+      audio.addEventListener("ended", endedCallback);
     }
 
     return () => {
       if (audio) {
-        audio.removeEventListener("play", () => {
-          console.log("play");
-        });
-
-        audio.removeEventListener("pause", () => {
-          console.log("pause");
-        });
-
-        audio.removeEventListener("ended", () => {
-          console.log("ended");
-        });
+        audio.removeEventListener("error", errorCallback);
+        audio.removeEventListener("canplay", canplayCallback);
+        audio.removeEventListener("play", playCallback);
+        audio.removeEventListener("pause", pauseCallback);
+        audio.removeEventListener("ended", endedCallback);
       }
-    }
+    };
   }, []);
 
   return (
-     <div>
-      <p>{MEDIA_HOST + MP3_DIR + slug + MP3_EXTENSION}</p>
-     
-    <div style={{ maxWidth: "500px" }} className="d-flex justify-content-between align-items-center">
-      <audio ref={audioRef} controls src={MEDIA_HOST + MP3_DIR + slug + MP3_EXTENSION} />
-      <i className="bi bi-play-circle" onClick={() => _playMp3Item(id)}></i>
-      <i className="bi bi-pause-circle"></i>
-      <i className="bi bi-stop-circle"></i>
-    </div></div>
+    <div>
+      <p>{MEDIA_HOST + MP3_DIR + id + MP3_EXTENSION}</p>
+
+      {/* <pre>{JSON.stringify(mp3ItemsArray,null,2)}</pre> */}
+
+      <div className="d-flex justify-content-between align-items-center">
+        <audio ref={audioRef} controls src={MEDIA_HOST + MP3_DIR + id + MP3_EXTENSION} />
+        <i className="bi bi-play-circle" onClick={() => _playMp3Item(id)}></i>
+        <i className="bi bi-pause-circle"></i>
+        <i className="bi bi-stop-circle"></i>
+        <span>canplay = {JSON.stringify(canplay)}</span>
+        <span>state = {state}</span>
+        <span>action = {action}</span>
+      </div>
+    </div>
   );
 };
