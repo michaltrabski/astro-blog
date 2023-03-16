@@ -1,17 +1,9 @@
 import slugify from "slugify";
-import {
-  DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
-  KEY,
-} from "../settings/settings";
-import type {
-  Question,
-  ApiDataItem,
-  DataReceivedFromSessionStorage,
-} from "../store/store";
+import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, KEY } from "../settings/settings";
+import type { Question, ApiDataItem, DataReceivedFromSessionStorage } from "../store/store";
 
 export const createQuestionUrl = (question: Question, category: string) => {
-  
-  const slug = `${getSlug(question.text)}-id-pytania-${question.id.replace("id", "")}`;
+  const slug = `${getSlug(question.text.slice(0, 160))}-id-pytania-${question.id.replace("id", "")}`;
 
   if (category === "b") {
     return `${slug}`;
@@ -22,9 +14,7 @@ export const createQuestionUrl = (question: Question, category: string) => {
 
 export const getFullUrl = (url: string) => {
   const domain =
-    import.meta.env.MODE === "development"
-      ? "http://127.0.0.1:3000"
-      : "https://poznaj-testy-astro.netlify.app";
+    import.meta.env.MODE === "development" ? "http://127.0.0.1:3000" : "https://poznaj-testy-astro.netlify.app";
 
   return domain + "/" + url;
 };
@@ -39,7 +29,6 @@ export const getSlug = (text: string) => {
     trim: true, // trim leading and trailing replacement chars, defaults to `true`
   });
 };
-
 
 export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const _allCategories: string[] = [];
@@ -64,7 +53,7 @@ export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
 
   const allQuestions: Question[] = mapApiData(apiData);
 
-  return { allCategories, allQuestions  };
+  return { allCategories, allQuestions };
 };
 
 export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
@@ -86,12 +75,7 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
   });
 };
 
-
-
-export const getInitialValue = (
-  key: KEY,
-  initialValue: string | number | string[]
-) => {
+export const getInitialValue = (key: KEY, initialValue: string | number | string[]) => {
   try {
     const valueFromSessionStorage = sessionStorage.getItem(key);
 
@@ -115,9 +99,7 @@ export const getInitialValue = (
 
 export const getCurrentCategoryInitialValue = () => {
   try {
-    const currentCategory =
-      sessionStorage.getItem(KEY.CURRENT_CATEGORY) ||
-      DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    const currentCategory = sessionStorage.getItem(KEY.CURRENT_CATEGORY) || DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
     return currentCategory;
   } catch (err) {
     return DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
@@ -126,16 +108,15 @@ export const getCurrentCategoryInitialValue = () => {
 
 export const getDataFromSessionStorage = () => {
   try {
-    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(
-      KEY.READY_TO_USE_DATA
-    );
+    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(KEY.READY_TO_USE_DATA);
 
     if (!dataReceivedFromSessionStorageAsString) {
       return null;
     }
 
-    const dataReceivedFromSessionStorage: DataReceivedFromSessionStorage =
-      JSON.parse(dataReceivedFromSessionStorageAsString);
+    const dataReceivedFromSessionStorage: DataReceivedFromSessionStorage = JSON.parse(
+      dataReceivedFromSessionStorageAsString
+    );
 
     return dataReceivedFromSessionStorage;
   } catch (err) {
@@ -163,10 +144,7 @@ export const sessionStorageSetArrayItem = (key: string, arr: any[]) => {
   }
 };
 
-export const sessionStorageSetObj = (
-  key: string,
-  obj: { [key: string]: any }
-) => {
+export const sessionStorageSetObj = (key: string, obj: { [key: string]: any }) => {
   try {
     sessionStorage.setItem(key, JSON.stringify(obj));
   } catch (err) {
