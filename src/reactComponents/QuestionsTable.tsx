@@ -5,6 +5,7 @@ import { _questions, _currentCategory, changeCategory, _allCategories } from "..
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import CategoriesButtons from "./CategoriesButtons";
 import Media from "./Media";
+import CurrentYear from "./CurrentYear";
 
 export default function QuestionsTable() {
   const questions = useStore(_questions);
@@ -34,7 +35,9 @@ export default function QuestionsTable() {
   return (
     <div className="row mb-2">
       <div className="col">
-        <h1>QuestionsTable:</h1>
+        <h1>Wszystkie pytania z testów na prawo jazdy <CurrentYear /></h1>
+
+        <p>Aktualnie wybrana kategoria do nauki to: (kliknij poniższy przycisk by zmienić kategorię)</p>
 
         <CategoriesButtons />
 

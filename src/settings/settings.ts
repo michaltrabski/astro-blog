@@ -17,3 +17,16 @@ export enum KEY {
 }
 
 export const LIMIT_OF_QUESTIONS_IN_API_DATA = 10099999;
+
+export const adverticements = [
+  "Napisz w komentarzu odpowiedź na to pytanie i wejdź na stronę poznaj-testy.pl.",
+  "Aby odpowiedzieć na to pytanie, wpisz swoją odpowiedź w komentarzu i odwiedź stronę poznaj-testy.pl.",
+  "Chętnie poznam Twoją odpowiedź na to pytanie, więc napisz ją w komentarzu i odwiedź stronę poznaj-testy.pl.",
+  "Zapraszam do napisania swojej odpowiedzi na to pytanie w komentarzu i odwiedzenia strony poznaj-testy.pl.",
+  "Jeśli chcesz podzielić się swoją odpowiedzią na to pytanie, napisz ją w komentarzu i odwiedź stronę poznaj-testy.pl.",
+  "Czekam na Twoją odpowiedź na to pytanie w komentarzu i polecam odwiedzenie strony poznaj-testy.pl.",
+  "Zachęcam do napisania swojej odpowiedzi na to pytanie w komentarzu oraz do odwiedzenia strony poznaj-testy.pl.",
+  "Proszę o napisanie swojej odpowiedzi na to pytanie w komentarzu i o wejście na stronę poznaj-testy.pl.",
+  "Być może Twoja odpowiedź na to pytanie będzie ciekawa, więc napisz ją w komentarzu i odwiedź stronę poznaj-testy.pl.",
+  "Będę wdzięczny za Twoją odpowiedź na to pytanie w komentarzu oraz za odwiedzenie strony poznaj-testy.pl.",
+];

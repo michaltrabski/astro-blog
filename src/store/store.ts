@@ -63,7 +63,8 @@ export interface QuestionPageData extends Question {
   category: string;
   prevSlug: string;
   nextSlug: string;
-  explanations: string[];
+  expls: string[];
+  lows: any[]
 }
 
 // export const _mp3Files = atom<string[]>([]);
@@ -159,7 +160,7 @@ export const changeCategory = (newCategory: string) => {
 export const getDataFromEndpoint = async () => {
   try {
     const dataReceivedFromSessionStorage = getDataFromSessionStorage();
-    console.log(2, "dataReceivedFromSessionStorage===", dataReceivedFromSessionStorage);
+ 
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
@@ -169,7 +170,7 @@ export const getDataFromEndpoint = async () => {
 
     const fetchResponse = await fetch("../api-data.json");
     const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
-    console.log(3, "dataReceivedFromEndpoint===", dataReceivedFromEndpoint);
+ 
 
     const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
       allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions.sort((a, b) => 0.5 - Math.random())),

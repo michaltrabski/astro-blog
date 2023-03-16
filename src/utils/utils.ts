@@ -1,3 +1,4 @@
+import slugify from "slugify";
 import {
   DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
   KEY,
@@ -7,6 +8,38 @@ import type {
   ApiDataItem,
   DataReceivedFromSessionStorage,
 } from "../store/store";
+
+export const createQuestionUrl = (question: Question, category: string) => {
+  
+  const slug = `${getSlug(question.text)}-id-pytania-${question.id.replace("id", "")}`;
+
+  if (category === "b") {
+    return `${slug}`;
+  }
+
+  return `${category}/${slug}`;
+};
+
+export const getFullUrl = (url: string) => {
+  const domain =
+    import.meta.env.MODE === "development"
+      ? "http://127.0.0.1:3000"
+      : "https://poznaj-testy-astro.netlify.app";
+
+  return domain + "/" + url;
+};
+
+export const getSlug = (text: string) => {
+  return slugify(text, {
+    replacement: "-", // replace spaces with replacement character, defaults to `-`
+    remove: /[*+~,.()/'"!:@?;]/g, // remove characters that match regex, defaults to `undefined`
+    lower: true, // convert to lower case, defaults to `false`
+    strict: false, // strip special characters except replacement, defaults to `false`
+    locale: "pl", // language code of the locale to use
+    trim: true, // trim leading and trailing replacement chars, defaults to `true`
+  });
+};
+
 
 export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const _allCategories: string[] = [];
@@ -53,26 +86,7 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
   });
 };
 
-export const createQuestionUrl = (question: Question, category: string) => {
-  if (category === "b") {
-    return `${question.id}`;
-  }
 
-  return `${category}/${question.id}`;
-};
-
-export const getFullUrl = (url: string) => {
-  // import.meta.env.MODE
-  // import.meta.env.PROD
-  // import.meta.env.DEV
-
-  const domain =
-    import.meta.env.MODE === "development"
-      ? "http://127.0.0.1:3000"
-      : "https://poznaj-testy-astro.netlify.app";
-
-  return domain + "/" + url;
-};
 
 export const getInitialValue = (
   key: KEY,

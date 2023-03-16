@@ -1,4 +1,5 @@
 ---
+import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
 import masterQuestionsJson from "../data/masterQuestions.json";
@@ -8,8 +9,8 @@ import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
 import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
-import Mp3 from "../reactComponents/Mp3";
 import QuestionText from "../reactComponents/QuestionText";
+import { URLS } from "../urls/urls";
 
 interface ArrayToGeneratePages {
   params: {
@@ -24,8 +25,6 @@ export async function getStaticPaths() {
   const bigData = createBigObjectDataForInBuildTime(apiData);
   const explanations = masterQuestionsJson.allQuestions;
 
-  console.log(11111111111, "explanations.length", explanations.length);
-
   const { allCategories } = bigData;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
@@ -33,9 +32,10 @@ export async function getStaticPaths() {
   // allCategories.forEach((category) => {
   ["b"].forEach((category) => {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
-      .filter(q => q.categories.includes(category))
-      .map(q => {
-        const expl = explanations.find((e) => e.id === q.id)?.expl || [];
+      .filter((q) => q.categories.includes(category))
+      .map((q) => {
+        const expls = explanations.find((e) => e.id === q.id)?.expl || [];
+        const lows = explanations.find((e) => e.id === q.id)?.low || [];
 
         const questionPageData: QuestionPageData = {
           ...q,
@@ -43,12 +43,13 @@ export async function getStaticPaths() {
           category,
           prevSlug: "#",
           nextSlug: "#",
-          explanations: typeof expl === "string" ? [expl] : expl,
+          expls: typeof expls === "string" ? [expls] : expls,
+          lows,
         };
 
         return {
           params: { question: createQuestionUrl(q, category) },
-          props: { questionPageData },
+          props: { questionPageData, allCategories },
         };
       });
 
@@ -76,7 +77,8 @@ export async function getStaticPaths() {
 }
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
-const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanations } = questionPageData;
+const allCategories = Astro.props.allCategories;
+const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lows } = questionPageData;
 ---
 
 <Layout>
@@ -101,14 +103,12 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
 
         <div class="col-3">
           <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-            <span class="click-to-go-full-screen">
-              x
-            </span>
+            <span class="click-to-go-full-screen"></span>
           </div>
         </div>
       </div>
 
-      <Media client:load text={text} media={media} size="large" showControls={true}/>
+      <Media client:load text={text} media={media} size="large" showControls={true} />
 
       <QuestionText client:load question={questionPageData} />
 
@@ -118,23 +118,19 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
 
       <PrevNextQuestion client:load question={questionPageData} />
 
-      <!-- ROW ROW VOTE HEADLINE -->
-      <div class="row">
+      <p><a href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`} target="_blank" rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a></p>
+
+      <!-- <div class="row mb-3">
         <div class="col">
           <div class="small text-center">
-            <p>
-              <strong> Oceń znajomość tego pytania:</strong>
-              <br />
-              <span>(będziesz mógł przeglądać ocenione pytania)</span>
-            </p>
+            <p class="mb-0"><strong> Oceń znajomość tego pytania:</strong></p>
+            <p>(będziesz mógł przeglądać ocenione pytania)</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <!-- ROW ROW -->
-      <div class="row mb-2">
-        <!-- PROGRESS  -->
-        <div class="col">
+      <!-- <div class="row mb-3">
+         <div class="col">
           <h2>Twoje postępy w nauce:</h2>
           <a href="#" class="btn btn-success w-100 d-block mb-2"
             >Dobrze odpowiedziałeś na 0 pytań.
@@ -145,17 +141,29 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
             <u>zobacz.</u>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <div class="row mb-3">
         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
 
-          <div>{explanations.map(explanation => <p>{explanation}</p>)}</div>
-        </div>
-      </div>
+          <!-- expls  -->
+          <div>
+            <p class="small">expls.length === {expls.length}</p>
+            <div>{expls.map((expl) => <p>{expl}</p>)}</div>
+          </div>
 
-      <!-- <div class="row mb-3">
+          <!-- lows  -->
+          <div>
+            <p class="small">lows.length === {lows.length}</p>
+            <!-- <div>{lows.map((low) => <p>{low}</p>)}</div> -->
+
+            <pre>{JSON.stringify(lows,null,2)}</pre>
+          </div>
+        </div>
+
+      
+        <!-- <div class="row mb-3">
         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
 
@@ -172,17 +180,23 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
         </div>
       </div> -->
 
-      <div class="row">
-        <div class="col">
-          <p>
-            To pytanie należy do kategorii <span>{category.toUpperCase()}</span>
-            , testów na prawo jazdy z 2023 roku.
-            <a href="#"> Zmień kategorię prawa jazdy.</a>
-          </p>
+        <div class="row">
+          <div class="col">
+            <p>
+              To pytanie należy do kategorii <strong>{category.toUpperCase()},</strong>
+           testów na prawo jazdy z <CurrentYear /> roku.
+      </p>
+                <p>
+                  <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
+                    Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
+                  </a>
+                </p>
+            
+           
+          </div>
         </div>
-      </div>
 
-      <!-- <div class="row">
+        <!-- <div class="row">
         <div class="col">
           <h2>Szczegóły dotyczące tego pytania testowego:</h2>
           <div class="table-responsive">
@@ -209,118 +223,109 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, explanati
         </div>
       </div> -->
 
-      <!-- ROW ROW -->
-      <div class="row">
-        <div class="col">
-          <div class="mt-5 pb-5 text-start">
-            <p>
-              Pamiętaj, że jedno konkretne pytanie z
-              <strong> testów na prawo jazdy aktualnych w 2023</strong>
-              może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii a,a1,a2
-            </p>
-            <p>
-              Dostępne kategorie pytań z testów na prawo jazdy w lutym 2023 to
-              <strong>a,a1,a2!</strong>
-            </p>
+        <!-- ROW ROW -->
+        <div class="row">
+          <div class="col">
+            <div class="mt-5 pb-5 text-start">
+              <p>
+                Pamiętaj, że jedno konkretne pytanie z
+                <strong> testów na prawo jazdy aktualnych w <CurrentYear client:load /></strong>
+                może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii {questionPageData.categories.join(", ").toUpperCase()}
+              </p>
+              <p>
+                Wszystkie dostępne kategorie pytań z testów na prawo jazdy w lutym <CurrentYear client:load /> to
+                <strong>{allCategories.join(", ").toUpperCase()}</strong>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- ROW ROW -->
-      <div class="row mb-2">
-        <!-- OTHER QUESTIONS -->
+        <!-- <div class="row mb-3">
         <div class="col">
           <h2>Zobacz też inne pytania testowe!</h2>
           ...
         </div>
+      </div> -->
       </div>
     </div>
   </div>
-</Layout>
 
-<style is:global>
-  /* webkit requires explicit width, height = 100% of sceeen */
-  /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
+  <style is:global>
+    /* webkit requires explicit width, height = 100% of sceeen */
+    /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
 
-  .full-screen-wrapper:-webkit-full-screen {
-    overflow: scroll !important;
-    background-color: white !important;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.5rem;
-    padding-top: 4rem;
-  }
+    .full-screen-wrapper:-webkit-full-screen {
+      overflow: scroll !important;
+      background-color: white !important;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      padding-top: 4rem;
+    }
 
-  .full-screen-wrapper:-moz-full-screen {
-    overflow: scroll !important;
-    background-color: white !important;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.5rem;
-    padding-top: 4rem;
-  }
+    .full-screen-wrapper:-moz-full-screen {
+      overflow: scroll !important;
+      background-color: white !important;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      padding-top: 4rem;
+    }
 
-  .full-screen-wrapper:-ms-fullscreen {
-    overflow: scroll !important;
-    background-color: white !important;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.5rem;
-    padding-top: 4rem;
-  }
+    .full-screen-wrapper:-ms-fullscreen {
+      overflow: scroll !important;
+      background-color: white !important;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      padding-top: 4rem;
+    }
 
-  .full-screen-wrapper:fullscreen {
-    overflow: scroll !important;
-    background-color: white !important;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.5rem;
-    padding-top: 4rem;
-  }
-</style>
+    .full-screen-wrapper:fullscreen {
+      overflow: scroll !important;
+      background-color: white !important;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      padding-top: 4rem;
+    }
 
-<script>
-  const fullScreenButtons = document.querySelectorAll(".click-to-go-full-screen") as NodeListOf<HTMLElement>;
+    .blinking {
+      animation: blink 1s infinite;
+    }
 
-  fullScreenButtons.forEach((fullScreenButton) => {
-    fullScreenButton.addEventListener("click", () => {
-      // DOM element which needs to enter fullscreen mode
-      const element = document.querySelector(".full-screen-wrapper");
+    @keyframes blink {
+      50% {
+        opacity: 0.1;
+      }
+    }
+  </style>
 
-      console.log("go full screen");
+  <script>
+    const fullScreenButtons = document.querySelectorAll(".click-to-go-full-screen") as NodeListOf<HTMLElement>;
 
-      element
-        ?.requestFullscreen()
-        .then(function () {
-          // element has entered fullscreen mode successfully
-        })
-        .catch(function (error) {
-          // element could not enter fullscreen mode
-          // error message
-          console.log(error.message);
-        });
+    fullScreenButtons.forEach((fullScreenButton) => {
+      fullScreenButton.addEventListener("click", () => {
+        // DOM element which needs to enter fullscreen mode
+        const element = document.querySelector(".full-screen-wrapper");
+
+        console.log("go full screen");
+
+        element
+          ?.requestFullscreen()
+          .then(function () {
+            // element has entered fullscreen mode successfully
+          })
+          .catch(function (error) {
+            // element could not enter fullscreen mode
+            // error message
+            console.log(error.message);
+          });
+      });
     });
-  });
-
-  // fullScreenButton?.addEventListener("click", () => {
-  //   // DOM element which needs to enter fullscreen mode
-  //   const element = document.querySelector(".full-screen-wrapper");
-
-  //   console.log("go full screen")
-
-  //   element
-  //     ?.requestFullscreen()
-  //     .then(function () {
-  //       // element has entered fullscreen mode successfully
-  //     })
-  //     .catch(function (error) {
-  //       // element could not enter fullscreen mode
-  //       // error message
-  //       console.log(error.message);
-  //     });
-  // });
-</script>
+  </script>
+</Layout>

@@ -6,14 +6,18 @@ import { _currentCategory } from "../store/store";
 
 interface CurrentCategoryProps {
   upperCase?: boolean;
+  bold?: boolean;
 }
 
 export default function CurrentCategory(props: CurrentCategoryProps) {
+  const { upperCase = false, bold= false } = props;
   const currentCategory = useStore(_currentCategory);
 
   const currentCategoryUpperCase = currentCategory.toUpperCase();
 
-  return (
-    <span>{props.upperCase ? currentCategoryUpperCase : currentCategory}</span>
-  );
+  const boldText = <strong>{upperCase ? currentCategoryUpperCase : currentCategory}</strong>
+
+  const normalText = <span>{upperCase ? currentCategoryUpperCase : currentCategory}</span>
+
+  return ( <>{bold ? boldText : normalText}</>)
 }
