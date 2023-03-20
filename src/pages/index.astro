@@ -2,28 +2,17 @@
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import CurrentYear from "../reactComponents/CurrentYear";
-import { createBigObjectDataForInBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
-import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
+import { createBigObjectDataForBuildTime } from "../utils/utils";
+// import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import apiData from "../data/api-data";
-import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
+// import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
 import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
 import { map } from "nanostores";
+import type { WordpressPost } from "../types/types";
 
-const bigData = createBigObjectDataForInBuildTime(apiData);
-const { allCategories, allQuestions } = bigData;
-
-export interface WordpressPost {
-  slug: string;
-  date: string;
-  title: string;
-  html: string;
-}
-
-const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
-  0,
-  50
-) as WordpressPost[];
+const bigData = createBigObjectDataForBuildTime(apiData);
+const { allCategories, allQuestions, postsFromOldWordpresOrdered } = bigData;
 ---
 
 <Layout>
@@ -43,7 +32,6 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
 
       <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
 
- 
       <div class="row mb-3">
         <p>
           <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
@@ -105,19 +93,21 @@ const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], [
         </div>
       </div>
 
-      <!-- ROW ROW  -->
       <div class="row mb-3">
         <h2>Blog i artykuły:</h2>
-        <div class="text-start"> 
-        {
-          posts.map((post, index) => (
-            <p>
-              {index + 1}. <a href={post.slug} class="text-decoration-none">{post.title}</a>
-            </p>
-          ))
-        }
+        <div class="text-start">
+          {
+            postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
+              <p>
+                {index + 1}.{" "}
+                <a href={post.slug} class="text-decoration-none">
+                  {post.title}
+                </a>
+              </p>
+            ))
+          }
+        </div>
       </div>
-    </div>
       <!-- <div class="row mb-3 border">wiersz</div>
 
      

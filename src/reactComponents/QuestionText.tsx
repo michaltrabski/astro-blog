@@ -41,10 +41,9 @@ export default function QuestionText(props: QuestionTextProps) {
 
           {text}
 
-          <button className="btn btn-light" onClick={() => _playMp3Item(getSlug(adverticementRef.current))}>
-            {/* blinking class is available = .blinking  */}
-            <span className="bi bi-play-circle"></span>
-          </button>
+          {/* <button className="btn btn-light" onClick={() => _playMp3Item(getSlug(adverticementRef.current))}>
+             <span className="bi bi-play-circle"></span>
+          </button> */}
         </h1>
       </div>
     </div>

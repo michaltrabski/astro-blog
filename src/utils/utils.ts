@@ -1,6 +1,50 @@
+import _ from "lodash";
 import slugify from "slugify";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, KEY } from "../settings/settings";
 import type { Question, ApiDataItem, DataReceivedFromSessionStorage } from "../store/store";
+import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
+import type { WordpressPost } from "../types/types";
+
+export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
+
+
+  const _allCategories: string[] = [];
+
+  apiData.forEach((item) => {
+    _allCategories.push(...item.cats);
+  });
+
+  const allCategories = getAllCategoriesFromData(apiData);
+
+  const allQuestions: Question[] = mapApiData(apiData);
+
+  const limit = 999960;
+  const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
+  const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
+    0,
+    limit
+  );
+
+  // const postsFromOldWordpresOrderedFiltered = postsFromOldWordpresOrdered.filter((post) => {
+
+  //   const { slug } = post;
+  //   const question = allQuestions.find((q) => createQuestionUrl(q, "b") === slug);
+
+  //   if (!question) {
+  //     return false;
+  //   }
+
+  //   // console.log("slug", slug);
+  //   // console.log("slug1", createQuestionUrl(question, "b"));
+    
+  //   return slug === createQuestionUrl(question, "b") ? false : true;
+  // });
+
+  // console.log("postsFromOldWordpresOrderedFiltered",postsFromOldWordpresOrdered.length, postsFromOldWordpresOrderedFiltered.length);
+
+
+  return { allCategories, allQuestions, postsFromOldWordpresOrdered };
+};
 
 export const createQuestionUrl = (question: Question, category: string) => {
   const slug = `${getSlug(question.text.slice(0, 160))}-id-pytania-${question.id.replace("id", "")}`;
@@ -40,20 +84,6 @@ export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const allCategories = [...new Set(_allCategories)].sort();
 
   return allCategories;
-};
-
-export const createBigObjectDataForInBuildTime = (apiData: ApiDataItem[]) => {
-  const _allCategories: string[] = [];
-
-  apiData.forEach((item) => {
-    _allCategories.push(...item.cats);
-  });
-
-  const allCategories = getAllCategoriesFromData(apiData);
-
-  const allQuestions: Question[] = mapApiData(apiData);
-
-  return { allCategories, allQuestions };
 };
 
 export const mapApiData = (apiData: ApiDataItem[]): Question[] => {

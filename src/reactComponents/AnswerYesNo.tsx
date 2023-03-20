@@ -53,8 +53,7 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
                   key={answer.letterIndex}
                   onClick={() => {
                     setClickedAnswerValue(answer.letterIndex);
-                    // _playMp3Item(correctAnswer ? "tak" : "nie");
-                    _playMp3Item(correctAnswer === "t" ? "t" : "n");
+                    // _playMp3Item(correctAnswer === "t" ? "t" : "n"); // this is to play the mp3 file
                   }}
                   type="button"
                   className={clsx("btn me-3 btn-lg", btnColor)}

@@ -3,7 +3,7 @@ import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
 import apiData from "../data/api-data";
 import masterQuestionsJson from "../data/masterQuestions.json";
-import { createBigObjectDataForInBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
+import { createBigObjectDataForBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
 import type { ApiDataItem, QuestionPageData } from "../store/store";
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
@@ -22,7 +22,7 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const bigData = createBigObjectDataForInBuildTime(apiData);
+  const bigData = createBigObjectDataForBuildTime(apiData);
   const explanations = masterQuestionsJson.allQuestions;
 
   const { allCategories } = bigData;
@@ -118,8 +118,7 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lo
 
       <PrevNextQuestion client:load question={questionPageData} />
 
-      <p><a href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`} target="_blank" rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a></p>
-
+      
       <!-- <div class="row mb-3">
         <div class="col">
           <div class="small text-center">
@@ -162,7 +161,8 @@ const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lo
           </div>
         </div>
 
-      
+        <p><a href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`} target="_blank" rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a></p>
+
         <!-- <div class="row mb-3">
         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>

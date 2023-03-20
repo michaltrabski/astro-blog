@@ -3,24 +3,27 @@ import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "./index.astro";
- 
+import { createBigObjectDataForBuildTime } from "../utils/utils";
+import apiData from "../data/api-data";
+import QuestionsTable from "../reactComponents/QuestionsTable";
 
 export async function getStaticPaths() {
+  const bigData = createBigObjectDataForBuildTime(apiData);
+  const { postsFromOldWordpresOrdered } = bigData;
 
-  const posts = _.orderBy(postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
-  0,
-  40
-) as WordpressPost[];
+  // IMPORTANT
+  // IMPORTANT
+  // IMPORTANT
+  // IMPORTANT
+  // This is generated first before QuestionsTable, because I want questions to override ols posts with same slug
+  // IMPORTANT
+  // IMPORTANT
+  // IMPORTANT
+  // IMPORTANT
 
-
- 
-
-  return posts.slice(
-  0,
-  40
-).map((post) => ({
+  return postsFromOldWordpresOrdered.map((post) => ({
     params: {
-      wordpress: post.slug,
+      generate_first_oldwordpresspost: post.slug,
     },
     props: { post },
   }));
