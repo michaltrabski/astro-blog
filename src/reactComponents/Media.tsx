@@ -13,6 +13,8 @@ interface MediaProps {
 export default function Media(props: MediaProps) {
   const { text, media, showControls = false, startVideoAutomaticaly = true, size = "small" } = props;
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const pngRef = React.useRef<HTMLImageElement | null>(null);
 
@@ -25,7 +27,7 @@ export default function Media(props: MediaProps) {
       ? MEDIA_SIZE_LARGE
       : MEDIA_SIZE_SMALL;
 
-  const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + mediaSize + media;
+  const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + mediaSize + "" + media;
   const isVideo = media.endsWith(".mp4");
 
   // useEffect(() => {
@@ -56,6 +58,7 @@ export default function Media(props: MediaProps) {
   return (
     <div className="MEDIA row">
       <div className="col">
+        <div className={`${isLoaded ? "border border-success": ""}`}>
         {/* <p className="small position-absolute text-light">
           {width}x{height}
         </p> */}
@@ -72,16 +75,27 @@ export default function Media(props: MediaProps) {
                 console.log("click");
                 // playVideo();
               }}
+              onLoad={() => {
+                console.log("Video loaded:", mediaUrl);
+                setIsLoaded(true);
+              }}
             >
               <p>{text || media}</p>
             </video>
           </>
-        ) : ( 
-          <img className="w-100 shadow border border-dark img-fluid"
-          ref={pngRef}
-          onError={() => alert("error")}
-          src={mediaUrl} alt={text || media} /> 
+        ) : (
+          <img
+            className="w-100 shadow border border-dark img-fluid"
+            ref={pngRef}
+            src={mediaUrl}
+            alt={text || media}
+            onLoad={() => {
+              console.log("media loaded: ", mediaUrl);
+              setIsLoaded(true);
+            }}
+          />
         )}
+      </div>
       </div>
     </div>
   );

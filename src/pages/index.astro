@@ -13,9 +13,11 @@ import type { WordpressPost } from "../types/types";
 
 const bigData = createBigObjectDataForBuildTime(apiData);
 const { allCategories, allQuestions, postsFromOldWordpresOrdered } = bigData;
+
+const currentYear = new Date().getFullYear();
 ---
 
-<Layout>
+<Layout title={`Darmowe testy na prawo jazdy ${currentYear}, wszystkie kategorie prawa jazdy: A,B,C,D`}>
   <div class="row mb-3">
     <div class="col-12 col-lg-6">
       <div class="row mb-3">

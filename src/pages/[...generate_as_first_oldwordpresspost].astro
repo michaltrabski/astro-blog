@@ -23,16 +23,17 @@ export async function getStaticPaths() {
 
   return postsFromOldWordpresOrdered.map((post) => ({
     params: {
-      generate_first_oldwordpresspost: post.slug,
+      generate_as_first_oldwordpresspost: post.slug,
     },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
-<Layout title={post.title}>
+<Layout title={`${post.title} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
       <section class="page-content text-start">

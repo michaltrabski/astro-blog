@@ -79,9 +79,13 @@ export async function getStaticPaths() {
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
 const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lows } = questionPageData;
+
+const currentYear = new Date().getFullYear();
+
+
 ---
 
-<Layout>
+<Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
       <div class="QUESTION-INFO row mb-2 text-center">
