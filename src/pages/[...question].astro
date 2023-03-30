@@ -30,7 +30,7 @@ export async function getStaticPaths() {
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
   // allCategories.forEach((category) => {
-  ["b"].forEach((category) => {
+  ["a", "b"].forEach((category) => {
     const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
       .filter((q) => q.categories.includes(category))
       .map((q) => {
@@ -81,8 +81,6 @@ const allCategories = Astro.props.allCategories;
 const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lows } = questionPageData;
 
 const currentYear = new Date().getFullYear();
-
-
 ---
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
@@ -122,7 +120,6 @@ const currentYear = new Date().getFullYear();
 
       <PrevNextQuestion client:load question={questionPageData} />
 
-      
       <!-- <div class="row mb-3">
         <div class="col">
           <div class="small text-center">
@@ -150,22 +147,35 @@ const currentYear = new Date().getFullYear();
         <div class="col text-start">
           <h2>Wyjaśnienie pytania z testów na prawo jazdy:</h2>
 
-          <!-- expls  -->
           <div>
-            <p class="small">expls.length === {expls.length}</p>
+            <!-- <p class="small">expls.length === {expls.length}</p> -->
             <div>{expls.map((expl) => <p>{expl}</p>)}</div>
           </div>
 
-          <!-- lows  -->
           <div>
-            <p class="small">lows.length === {lows.length}</p>
-            <!-- <div>{lows.map((low) => <p>{low}</p>)}</div> -->
+            <!-- <p class="small">lows.length === {lows.length}</p> -->
 
-            <pre>{JSON.stringify(lows,null,2)}</pre>
+            {
+              lows.map((article) => {
+                return (
+                  <div class="container my-3">
+                    <p>{article.title}</p>
+                    {article.artContent.map((content: any) => (
+                      <div class="my-4">
+                        
+                        <p><span class="fw-bold">{content.title}</span> <span>{content.text}</span></p>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })
+            }
+
+            <!-- <pre>{JSON.stringify(lows,null,2)}</pre> -->
           </div>
         </div>
 
-        <p><a href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`} target="_blank" rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a></p>
+        
 
         <!-- <div class="row mb-3">
         <div class="col text-start">
@@ -188,15 +198,13 @@ const currentYear = new Date().getFullYear();
           <div class="col">
             <p>
               To pytanie należy do kategorii <strong>{category.toUpperCase()},</strong>
-           testów na prawo jazdy z <CurrentYear /> roku.
-      </p>
-                <p>
-                  <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
-                    Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
-                  </a>
-                </p>
-            
-           
+              testów na prawo jazdy z <CurrentYear /> roku.
+            </p>
+            <p>
+              <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
+                Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
+              </a>
+            </p>
           </div>
         </div>
 
@@ -234,7 +242,9 @@ const currentYear = new Date().getFullYear();
               <p>
                 Pamiętaj, że jedno konkretne pytanie z
                 <strong> testów na prawo jazdy aktualnych w <CurrentYear client:load /></strong>
-                może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii {questionPageData.categories.join(", ").toUpperCase()}
+                może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii {
+                  questionPageData.categories.join(", ").toUpperCase()
+                }
               </p>
               <p>
                 Wszystkie dostępne kategorie pytań z testów na prawo jazdy w lutym <CurrentYear client:load /> to
@@ -250,6 +260,14 @@ const currentYear = new Date().getFullYear();
           ...
         </div>
       </div> -->
+
+      <p>
+        <a
+          href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}
+          target="_blank"
+          rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a
+        >
+      </p>
       </div>
     </div>
   </div>

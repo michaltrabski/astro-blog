@@ -6,4 +6,5 @@ export const URLS = {
   USER_ACCONT: "/twoje-konto",
   QUESTION_TABLE: "/pytania-z-testow-na-prawo-jazdy",
   DRIVING_LICENSE_CATEGIRIES: "/kategorie-prawa-jazdy",
+  PRICING: "/cennik",
 } as const;

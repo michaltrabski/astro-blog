@@ -10,6 +10,7 @@ import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
 import { map } from "nanostores";
 import type { WordpressPost } from "../types/types";
+import CategoriesButtons from "../reactComponents/CategoriesButtons";
 
 const bigData = createBigObjectDataForBuildTime(apiData);
 const { allCategories, allQuestions, postsFromOldWordpresOrdered } = bigData;
@@ -79,6 +80,9 @@ const currentYear = new Date().getFullYear();
               Kliknij poniżej i wybierz aktualną kategorię z testów na prawo jazdy której chcesz się teraz uczyć:
             </strong>
           </p>
+
+          <CategoriesButtons client:load />
+
           <div>
             {
               allCategories.map((cat) => {
@@ -110,18 +114,11 @@ const currentYear = new Date().getFullYear();
           }
         </div>
       </div>
-      <!-- <div class="row mb-3 border">wiersz</div>
-
-     
-      <div class="row mb-3 border">wiersz</div>
-
-  
-      <div class="row mb-3 border">wiersz</div> -->
     </div>
 
     <!-- RIGHT SIDEBAR  -->
-    <div class="col-12 col-lg-6 border">
-      <p>RIGHT SIDEBAR</p>
+    <div class="col-12 col-lg-6">
+      <!-- <p>RIGHT SIDEBAR</p> -->
 
       <!-- <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre> -->
     </div>

@@ -1,6 +1,6 @@
 import _ from "lodash";
 import slugify from "slugify";
-import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, KEY } from "../settings/settings";
+import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, DEPLOY_URL, KEY, LOCALHOST } from "../settings/settings";
 import type { Question, ApiDataItem, DataReceivedFromSessionStorage } from "../store/store";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
@@ -33,14 +33,15 @@ export const createQuestionUrl = (question: Question, category: string) => {
     return `${slug}`;
   }
 
-  return `${category}/${slug}`;
+  return `kat-${category}/${slug}`;
 };
 
 export const getFullUrl = (url: string) => {
   const domain =
-    import.meta.env.MODE === "development" ? "http://127.0.0.1:3000" : "https://poznaj-testy-astro.netlify.app";
+    import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
 
   return domain + "/" + url;
+  // return "/" + url;
 };
 
 export const getSlug = (text: string) => {

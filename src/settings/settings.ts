@@ -1,3 +1,8 @@
+export const LOCALHOST = "http://127.0.0.1:3000";
+export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
+
+
+
 export const MEDIA_HOST =
   "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
 export const MEDIA_SIZE_SMALL = "size-100/";

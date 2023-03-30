@@ -64,7 +64,7 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
                 role="button"
               >
            Rozpocznij naukę testów na prawo jazdy <CurrentYear />,
-        {" "}  <strong>kategorii {category.toUpperCase()}</strong>                 
+        {" "}  <strong>kategorii: {category.toUpperCase()}</strong>                 
               </a>
             );
           })}
