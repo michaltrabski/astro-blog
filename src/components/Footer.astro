@@ -1,21 +1,70 @@
 ---
 import CurrentYear from "../reactComponents/CurrentYear";
+import { URLS } from "../urls/urls";
 ---
 
 <footer class="bg-dark text-light text-center p-3">
   <div class="row">
     <div class="col-md-4">
-      <p><a href="#">dodaj pytanie testowe</a></p><p>
-        <a href="#">Przepisy ruchu drogowego</a>
+      {
+        [
+          { label: "Regulamin", href: URLS.TERMS_AND_CONDITIONS },
+          { label: "Polityka prywatności", href: URLS.PRIVACY_POLICY },
+          { label: "Kontakt", href: URLS.CONTACT },
+        ].map(({ label, href }) => (
+          <p>
+            <a href={href} class="text-decoration-none">
+              {label}
+            </a>
+          </p>
+        ))
+      }
+
+      <p>
+        <a href="#" class="clear-session-storage text-decoration-none">Wyczyść dane sesji</a>
       </p>
-    </div><div class="col-md-4">
-      <h4>Polecane strony</h4><p>
-        <a href="#">Ustawy i rozporządzenia, polskie akty prawne.</a>
-      </p>
-    </div><div class="col-md-4">
-      <p><a href="#">Regulamin</a></p><p><a href="#">Polityka prywatności</a></p><p>
-        <a href="#">Kontakt</a>
-      </p>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Polecane strony</h4>
+
+      {
+        [
+          { label: "Regulamin", href: URLS.TERMS_AND_CONDITIONS },
+          { label: "Polityka prywatności", href: URLS.PRIVACY_POLICY },
+          { label: "Kontakt", href: URLS.CONTACT },
+        ].map(({ label, href }) => (
+          <p>
+            <a href={href} class="text-decoration-none">
+              {label}
+            </a>
+          </p>
+        ))
+      }
+    </div>
+
+    <div class="col-md-4">
+      {
+        [
+          { label: "Regulamin", href: URLS.TERMS_AND_CONDITIONS },
+          { label: "Polityka prywatności", href: URLS.PRIVACY_POLICY },
+          { label: "Kontakt", href: URLS.CONTACT },
+        ].map(({ label, href }) => (
+          <p>
+            <a href={href} class="text-decoration-none">
+              {label}
+            </a>
+          </p>
+        ))
+      }
     </div>
   </div><p><span>© Testy na prawo jazdy <CurrentYear client:load /></span></p>
 </footer>
+
+<script>
+  const clearButton = document.querySelector(".clear-session-storage");
+  clearButton?.addEventListener("click", (e) => {
+    e.preventDefault();
+    sessionStorage.clear();
+  });
+</script>

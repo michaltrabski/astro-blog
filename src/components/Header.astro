@@ -5,19 +5,12 @@ import { URLS } from "../urls/urls";
 
 <header>
   <!-- NAVBAR  -->
-  <nav
-    id="navbar"
-    class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg fixed-top border-bottom border-dark"
-  >
+  <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg fixed-top border-bottom border-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
         <span>poznaj-<span class="text-danger">testy</span>.pl</span>
       </a>
-      <div
-        class="btn-group"
-        role="group"
-        aria-label="Testy prawo jazdy"
-      >
+      <div class="btn-group" role="group" aria-label="Testy prawo jazdy">
         <a href={URLS.GOOD_ANSWERS} class="btn btn-success btn-sm">0</a>
         <a href={URLS.BAD_ANSWERS} class="btn btn-danger btn-sm">0</a>
       </div>
@@ -37,60 +30,26 @@ import { URLS } from "../urls/urls";
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        style={{ flexGrow: 0 }}
-        class="collapse navbar-collapse"
-        id="navbarNav"
-      >
+      <div style={{ flexGrow: 0 }} class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href={URLS.QUESTION_TABLE}
-            >
-              Pytania testowe
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href={URLS.PRICING}
-            >
-              Cennik
-            </a>
-          </li>
-          <!-- <li class="nav-item">
-            <a
-              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href="blog.html"
-            >
-              Blog
-            </a>
-          </li> -->
-          <li class="nav-item">
-            <a
-              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href={URLS.DRIVING_LICENSE_CATEGIRIES}
-            >
-              Kategorie prawa jazdy
-            </a>
-          </li>
-          <!-- <li class="nav-item mb-2 mb-md-0">
-            <a
-              class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href="logowanie.html"
-            >
-              Logowanie
-            </a>
-          </li> -->
-          <li class="nav-item mb-2 mb-md-0">
-            <a
-              class="clear-session-storage nav-link text-center h-100 d-flex align-items-center justify-content-center"
-              href="#"
-            >
-              CLEAR
-            </a>
-          </li>
+          {
+            [
+              { label: "Pytania testowe", href: URLS.QUESTION_TABLE },
+              { label: "Cennik", href: URLS.PRICING },
+              // { label: "Blog", href: URLS.BLOG },
+              { label: "Szkolenia", href: URLS.COURSES },
+              { label: "Kategorie prawa jazdy", href: URLS.DRIVING_LICENSE_CATEGIRIES },
+              { label: "Cennik", href: URLS.PRICING },
+              { label: "Kontakt", href: URLS.CONTACT },
+            ].map(({ label, href }) => (
+              <li class="nav-item">
+                <a class="nav-link text-center h-100 d-flex align-items-center justify-content-center" href={href}>
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+
           <!-- <form class="m-0">
             <a class="btn btn-secondary w-100" href={URLS.USER_ACCONT}
               >Twoje konto</a
@@ -101,11 +60,3 @@ import { URLS } from "../urls/urls";
     </div>
   </nav>
 </header>
-
-<script>
-  const clearButton = document.querySelector(".clear-session-storage");
-  clearButton?.addEventListener("click", (e) => {
-    e.preventDefault();
-    sessionStorage.clear();
-  });
-</script>

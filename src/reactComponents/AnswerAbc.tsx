@@ -67,11 +67,11 @@ export default function AnswerAbc(props: AnswerAbcProps) {
         {clickedAnswerValue && (
           <div className={clsx("alert", alertType)} role="alert">
             {clickedAnswerValue === correctAnswer &&
-              `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
+              `Gratulacje! Odpowiedź ${clickedAnswerValue.toUpperCase()} jest poprawna.`}
             {clickedAnswerValue !== correctAnswer &&
-              `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
+              `Niestety, odpowiedź ${clickedAnswerValue.toUpperCase()} jest niepoprawna.`}
           </div>
-        )}{" "}
+        )} 
       </div>
     </div>
   );

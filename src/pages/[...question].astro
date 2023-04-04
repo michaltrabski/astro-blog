@@ -10,6 +10,7 @@ import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
 import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import QuestionText from "../reactComponents/QuestionText";
+import QuestionTable from "../reactComponents/QuestionTable";
 import { URLS } from "../urls/urls";
 
 interface ArrayToGeneratePages {
@@ -207,6 +208,12 @@ const currentYear = new Date().getFullYear();
             </p>
           </div>
         </div>
+
+        <div class="row mb-3">
+          <div class="col">
+        <QuestionTable client:load question={questionPageData} />
+      </div>
+    </div>
 
         <!-- <div class="row">
         <div class="col">

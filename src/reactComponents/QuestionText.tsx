@@ -26,24 +26,22 @@ export default function QuestionText(props: QuestionTextProps) {
 
   useEffect(() => {
     _addMp3Item({ id: slugText });
-    _addMp3Item({ id: getSlug(adverticementRef.current) });
+    // _addMp3Item({ id: getSlug(adverticementRef.current) });
   }, []);
 
   return (
     <div className="row mb-3">
       <div className="col">
         <h1 className="display-6 text-start shadow-bottom">
+          
+
+          {text}
+
           {canplay && (
             <button className="btn btn-light pr-2" onClick={() => _playMp3Item(slugText)}>
               <span className="bi bi-play-circle"></span>
             </button>
           )}
-
-          {text}
-
-          {/* <button className="btn btn-light" onClick={() => _playMp3Item(getSlug(adverticementRef.current))}>
-             <span className="bi bi-play-circle"></span>
-          </button> */}
         </h1>
       </div>
     </div>

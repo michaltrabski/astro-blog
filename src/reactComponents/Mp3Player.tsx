@@ -17,7 +17,7 @@ export default function Mp3Player() {
   const mp3ItemsArray = Object.entries(mp3Items);
 
   return (
-    <div className="border border-3 border-danger rounded shadow p-1">
+    <div className="d-none border border-3 border-danger rounded shadow p-1">
       <p>MP3 FILES:</p>
       <div>
         {mp3ItemsArray.map((item) => {

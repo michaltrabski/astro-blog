@@ -41,8 +41,9 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
         <div className="col-6 mb-2">
           {newPrevSlug && (
             <a href={newPrevSlug} className="btn btn-primary btn-lg btn-block w-100">
-              {/* {newPrevSlug} <br /> */}
-              poprzednie
+              <i className="bi bi-arrow-left-short"></i>
+
+              <span> Poprzednie</span>
             </a>
           )}
         </div>
@@ -50,8 +51,10 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
         <div className="col-6 mb-2 text-end">
           {newNextSlug && (
             <a href={newNextSlug} className="btn btn-primary btn-lg btn-block w-100">
-              {/* {newNextSlug} <br /> */}
-              następne
+              <span>Następne </span>
+      
+              <i className="bi bi-arrow-right-short"></i>
+    
             </a>
           )}
         </div>

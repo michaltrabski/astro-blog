@@ -64,11 +64,13 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
             })}
           </div>
           {clickedAnswerValue && (
-            <div className={clsx("alert", alertType)} role="alert">
-              {clickedAnswerValue === correctAnswer && `Gratulacje! Odpowiedź ${clickedAnswerValue} jest poprawna.`}
-              {clickedAnswerValue !== correctAnswer && `Niestety, odpowiedź ${clickedAnswerValue} jest niepoprawna.`}
-            </div>
-          )}
+          <div className={clsx("alert", alertType)} role="alert">
+            {clickedAnswerValue === correctAnswer &&
+              `Gratulacje! Odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE" } jest poprawna.`}
+            {clickedAnswerValue !== correctAnswer &&
+              `Niestety, odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE" } jest niepoprawna.`}
+          </div>
+        )} 
         </div>
       </div>
     </>
