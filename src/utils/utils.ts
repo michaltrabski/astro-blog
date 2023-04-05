@@ -36,12 +36,14 @@ export const createQuestionUrl = (question: Question, category: string) => {
   return `kat-${category}/${slug}`;
 };
 
-export const getFullUrl = (url: string) => {
-  const domain =
-    import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
+export const getFullUrl = (url = "") => {
+  const domain = import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
+
+  if (!url) {
+    return domain;
+  }
 
   return domain + "/" + url;
-  // return "/" + url;
 };
 
 export const getSlug = (text: string) => {

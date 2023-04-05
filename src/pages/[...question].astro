@@ -88,28 +88,16 @@ const currentYear = new Date().getFullYear();
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <div class="mb-2 text-center">
-        <div class="col-3">
-          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-            <span>{id}</span>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-            <span>kat: {category.toUpperCase()}</span>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-            <span>pkt: {score}</span>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-            <span class="click-to-go-full-screen"></span>
-          </div>
-        </div>
+      <div class="row mb-2">
+        {
+          [{ label: id }, { label: `kat: ${category.toUpperCase()}` }, { label: `pkt: ${score}` }].map(({ label }) => (
+            <div class="col-3">
+              <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
+                <span>{label}</span>
+              </div>
+            </div>
+          ))
+        }
       </div>
 
       <Media client:load text={text} media={media} size="large" showControls={true} />
@@ -164,7 +152,7 @@ const currentYear = new Date().getFullYear();
                     <p>{article.title}</p>
                     {article.artContent.map((content: any) => (
                       <div class="my-4">
-                        <p> 
+                        <p>
                           <span class="fw-bold">{content.title}</span> <span>{content.text}</span>
                         </p>
                       </div>
@@ -280,8 +268,6 @@ const currentYear = new Date().getFullYear();
 
     <!-- RIGHT SIDEBAR  -->
     <div class="col-12 col-lg-6 border">
-      <p>RIGHT SIDEBAR</p>
-
       <GivenAnswers client:load />
     </div>
   </div>

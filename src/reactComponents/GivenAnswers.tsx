@@ -1,18 +1,26 @@
 import { useStore } from "@nanostores/react";
+import { useState } from "react";
 
-import { _givenAnswers, _addAnswer, _wrongGivenAnswersCount, _correctGivenAnswersCount } from "../store/store";
+import { _givenAnswers, _addAnswer } from "../store/store";
 
 export default function GivenAnswers() {
   const givenAnswers = useStore(_givenAnswers);
-  const correctGivenAnswersCount = useStore(_correctGivenAnswersCount);
-  const wrongGivenAnswersCount = useStore(_wrongGivenAnswersCount);
+  const [show, setShow] = useState(false);
 
   return (
-    <div style={{ overflow: "auto", width: "300px" }}>
-      <p>_correctGivenAnswersCount= {correctGivenAnswersCount}</p>
-      <p>_wrongGivenAnswersCount= {wrongGivenAnswersCount}</p>
+    <div className="p-3">
 
-      <pre className="text-start">givenAnswers={JSON.stringify(givenAnswers, null, 2)}</pre>
-    </div>
+      <button
+        className="btn btn-primary w-100"
+        onClick={() => {
+          setShow(!show);
+        }}
+      >
+        {show ? "Ukryj" : "Pokaż"} Json odpowiedzi
+      </button>
+      {show &&
+      <pre className="text-start">{JSON.stringify(givenAnswers, null, 2)}</pre>
+      }
+      </div>
   );
 }
