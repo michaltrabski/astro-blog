@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
-import { QuestionPageData, _playMp3Item } from "../store/store";
-import { _addMp3Item } from "../store/store";
+import { _addMp3Item, _addAnswer, _playMp3Item } from "../store/store";
+import type { AnswerN, AnswerT, QuestionPageData } from "../store/types";
 
-const possibleAnswers = [
+const possibleAnswers: { letterIndex: AnswerT | AnswerN; label: string }[] = [
   { letterIndex: "t", label: "Tak" },
   { letterIndex: "n", label: "Nie" },
 ];
@@ -26,15 +26,15 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
 
   // michal
   useEffect(() => {
-    _addMp3Item({ id: "tak",  action: "", state: "" });
-    _addMp3Item({ id: "nie",  action: "", state: "" });
-    _addMp3Item({ id: "t",  action: "", state: "" });
-    _addMp3Item({ id: "n",  action: "", state: "" });
+    _addMp3Item({ id: "tak", action: "", state: "" });
+    _addMp3Item({ id: "nie", action: "", state: "" });
+    _addMp3Item({ id: "t", action: "", state: "" });
+    _addMp3Item({ id: "n", action: "", state: "" });
   }, []);
 
   return (
     <>
-      <div className="row mb-3">
+      <div className="row mb-3 text-center">
         <div className="col">
           <div className="mb-3">
             {possibleAnswers.map((answer) => {
@@ -53,24 +53,29 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
                   key={answer.letterIndex}
                   onClick={() => {
                     setClickedAnswerValue(answer.letterIndex);
-                    // _playMp3Item(correctAnswer === "t" ? "t" : "n"); // this is to play the mp3 file
+
+                    const questionId = props.question.id;
+                    const clickedAnswer = answer.letterIndex;
+                    const correctAnswerIs = correctAnswer;
+
+                    _addAnswer(questionId, { questionId, clickedAnswer, correctAnswerIs });
                   }}
                   type="button"
                   className={clsx("btn me-3 btn-lg", btnColor)}
                 >
-                  {answer.label} 
+                  {answer.label}
                 </button>
               );
             })}
           </div>
           {clickedAnswerValue && (
-          <div className={clsx("alert", alertType)} role="alert">
-            {clickedAnswerValue === correctAnswer &&
-              `Gratulacje! Odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE" } jest poprawna.`}
-            {clickedAnswerValue !== correctAnswer &&
-              `Niestety, odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE" } jest niepoprawna.`}
-          </div>
-        )} 
+            <div className={clsx("alert", alertType)} role="alert">
+              {clickedAnswerValue === correctAnswer &&
+                `Gratulacje! Odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE"} jest poprawna.`}
+              {clickedAnswerValue !== correctAnswer &&
+                `Niestety, odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE"} jest niepoprawna.`}
+            </div>
+          )}
         </div>
       </div>
     </>

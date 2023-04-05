@@ -1,18 +1,26 @@
 ---
 import CurrentCategory from "../reactComponents/CurrentCategory";
+import GivenAnswersCount, { GIVEN_ANSWER_CORRECT, GIVEN_ANSWER_WRONG } from "../reactComponents/GivenAnswersCount";
 import { URLS } from "../urls/urls";
 ---
 
 <header>
-  <!-- NAVBAR  -->
   <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg fixed-top border-bottom border-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
         <span>poznaj-<span class="text-danger">testy</span>.pl</span>
       </a>
       <div class="btn-group" role="group" aria-label="Testy prawo jazdy">
-        <a href={URLS.GOOD_ANSWERS} class="btn btn-success btn-sm">0</a>
-        <a href={URLS.BAD_ANSWERS} class="btn btn-danger btn-sm">0</a>
+        {
+          [
+            { href: URLS.GOOD_ANSWERS, css: "btn-success", which: GIVEN_ANSWER_CORRECT as typeof GIVEN_ANSWER_CORRECT },
+            { href: URLS.BAD_ANSWERS, css: "btn-danger", which: GIVEN_ANSWER_WRONG as typeof GIVEN_ANSWER_WRONG },
+          ].map(({ href, css, which }) => (
+            <a href={href} class={`btn btn-sm ${css}`}>
+              <GivenAnswersCount client:load which={which} />
+            </a>
+          ))
+        }
       </div>
       <div>
         <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-light text-decoration-none"

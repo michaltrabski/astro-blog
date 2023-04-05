@@ -1,4 +1,4 @@
-import { atom, map } from "nanostores";
+import { atom, map , Store} from "nanostores";
 import { KEY } from "../settings/settings";
 
 import {
@@ -8,85 +8,58 @@ import {
   storageSetStringItem,
   sessionStorageSetObj,
 } from "../utils/utils";
+import type {
+  DataReceivedFromEndpoint,
+  DataReceivedFromSessionStorage,
+  GivenAnswer,
+  Mp3Item,
+  Question,
+  QuestionId,
+} from "./types";
 
-export interface QuestionReceivedFromEndpoint {
-  id: string;
-  t: string;
-  m?: string;
-  a?: string;
-  b?: string;
-  c?: string;
-  r: string;
-  cats: string[];
-  s: number;
-}
-
-export interface DataReceivedFromEndpoint {
-  allQuestions: QuestionReceivedFromEndpoint[];
-  allQuestionsCount: number;
-  allCategories: string[];
-}
-
-export interface DataReceivedFromSessionStorage {
-  allQuestions: Question[];
-  allQuestionsCount: number;
-  allCategories: string[];
-}
-
-export interface ApiDataItem {
-  id: string;
-  t: string;
-  m?: string;
-  a?: string;
-  b?: string;
-  c?: string;
-  r: string;
-  cats: string[];
-  s: number;
-}
-
-export interface Question {
-  id: string;
-  text: string;
-  media: string;
-  a: string;
-  b: string;
-  c: string;
-  correctAnswer: string;
-  categories: string[];
-  score: number;
-  isVideo: boolean;
-}
-
-export interface QuestionPageData extends Question {
-  slug: string;
-  category: string;
-  prevSlug: string;
-  nextSlug: string;
-  expls: string[];
-  lows: any[]
-}
-
-// export const _mp3Files = atom<string[]>([]);
-
-// export const _addMp3File = (mp3File: string) => {
-//   _mp3Files.set([..._mp3Files.get(), mp3File]);
-// };
-
-// type ItemDisplayInfo = Pick<Mp3Item, 'id' | 'slug' | 'state'>;
-
-export type Mp3Item = {
-  id: string;
-  canplay?: boolean;
-  action?: "" | "play" | "pause";
-  state?: "" | "playing" | "paused" | "error" | "ended" ;
-};
-
-// michal
 export const _mp3Items = map<Record<string, Mp3Item>>({});
+export const _questions = atom<Question[]>([]);
+export const _allCategories = atom<string[]>([]);
+export const _currentCategory = atom(getCurrentCategoryInitialValue());
+export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAnswers());
+export const _correctGivenAnswersCount = atom(0);
+export const _wrongGivenAnswersCount = atom(0);
+
+export function _recalculateGivenAnswersCount() {
+  const givenAnswers = _givenAnswers.get();
+  const correctGivenAnswersCount = Object.values(givenAnswers).filter((answer) => answer.clickedAnswer === answer.correctAnswerIs).length;
+  const wrongGivenAnswersCount = Object.values(givenAnswers).filter((answer) => answer.clickedAnswer !== answer.correctAnswerIs).length;
+
+  _correctGivenAnswersCount.set(correctGivenAnswersCount);
+  _wrongGivenAnswersCount.set(wrongGivenAnswersCount);
+}
+
+function initialGivenAnswers() {
+  try {
+    const givenAnswersAsString = sessionStorage.getItem("_givenAnswers") || "{}";
+    const givenAnswers = JSON.parse(givenAnswersAsString);
+    return givenAnswers;
+  } catch (err) {
+    return {};
+  }
+}
+
+
+export function _addAnswer(questionId: QuestionId, answer: GivenAnswer) {
+  const existingEntry = _givenAnswers.get()[questionId];
+
+  if (existingEntry) {
+    _givenAnswers.setKey(questionId, answer);
+  } else {
+    _givenAnswers.setKey(questionId, answer);
+  }
+
+  _recalculateGivenAnswersCount();
+  sessionStorage.setItem("_givenAnswers", JSON.stringify(_givenAnswers.get()));
+}
 
 export function _addMp3Item(cartItem: Mp3Item) {
-  const { id, canplay = false, action = "", state="" } = cartItem;
+  const { id, canplay = false, action = "", state = "" } = cartItem;
 
   const existingEntry = _mp3Items.get()[id];
 
@@ -144,14 +117,6 @@ export function _updateMp3ItemCanPlay(id: Mp3Item["id"], canplay: Mp3Item["canpl
   }
 }
 
-
-
-
-
-export const _questions = atom<Question[]>([]);
-export const _allCategories = atom<string[]>([]);
-export const _currentCategory = atom(getCurrentCategoryInitialValue());
-
 export const changeCategory = (newCategory: string) => {
   _currentCategory.set(newCategory);
   storageSetStringItem(KEY.CURRENT_CATEGORY, newCategory);
@@ -160,7 +125,6 @@ export const changeCategory = (newCategory: string) => {
 export const getDataFromEndpoint = async () => {
   try {
     const dataReceivedFromSessionStorage = getDataFromSessionStorage();
- 
 
     if (dataReceivedFromSessionStorage) {
       _questions.set(dataReceivedFromSessionStorage.allQuestions);
@@ -170,7 +134,6 @@ export const getDataFromEndpoint = async () => {
 
     const fetchResponse = await fetch("../api-data.json");
     const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
- 
 
     const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
       allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions.sort((a, b) => 0.5 - Math.random())),

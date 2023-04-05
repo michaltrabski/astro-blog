@@ -74,7 +74,7 @@ export default function QuestionTable(props: QuestionTableProps) {
         </table>
       </div>
 
-      <pre>{JSON.stringify(question, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(question, null, 2)}</pre> */}
     </div>
   );
 }

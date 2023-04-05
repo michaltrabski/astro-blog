@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
-import clsx from "clsx";
 
-import type { QuestionPageData } from "../store/store";
 import { _questions, _currentCategory } from "../store/store";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
+import type { QuestionPageData } from "../store/types";
 
 interface PrevNextQuestionProps {
   question: QuestionPageData;
@@ -18,7 +17,6 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
 
   const [newPrevSlug, setPrevSlug] = useState(prevSlug);
   const [newNextSlug, setNextSlug] = useState(nextSlug);
- 
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -34,30 +32,25 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
   }, [questions]);
 
   return (
-    <div>
-      {/* <p>newNextSlug ==={newNextSlug}</p> */}
+    <div className="row mb-3">
+      <div className="col-6 mb-2">
+        {newPrevSlug && (
+          <a href={newPrevSlug} style={{ whiteSpace: "nowrap" }} className="btn btn-primary btn-lg btn-block w-100">
+            <i className="bi bi-arrow-left-short"></i>
 
-      <div className="row mb-3">
-        <div className="col-6 mb-2">
-          {newPrevSlug && (
-            <a href={newPrevSlug} className="btn btn-primary btn-lg btn-block w-100">
-              <i className="bi bi-arrow-left-short"></i>
+            <span> Poprzednie</span>
+          </a>
+        )}
+      </div>
 
-              <span> Poprzednie</span>
-            </a>
-          )}
-        </div>
+      <div className="col-6 mb-2 text-end">
+        {newNextSlug && (
+          <a href={newNextSlug} style={{ whiteSpace: "nowrap" }} className="btn btn-primary btn-lg btn-block w-100">
+            <span>Następne </span>
 
-        <div className="col-6 mb-2 text-end">
-          {newNextSlug && (
-            <a href={newNextSlug} className="btn btn-primary btn-lg btn-block w-100">
-              <span>Następne </span>
-      
-              <i className="bi bi-arrow-right-short"></i>
-    
-            </a>
-          )}
-        </div>
+            <i className="bi bi-arrow-right-short"></i>
+          </a>
+        )}
       </div>
     </div>
   );
