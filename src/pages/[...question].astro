@@ -90,7 +90,12 @@ const currentYear = new Date().getFullYear();
     <div class="col-12 col-lg-6">
       <div class="row mb-2">
         {
-          [{ label: id }, { label: `kat: ${category.toUpperCase()}` }, { label: `pkt: ${score}` }].map(({ label }) => (
+          [
+            { label: id },
+            { label: `kat: ${category.toUpperCase()}` },
+            { label: `pkt: ${score}` },
+            { label: <span style={{cursor: "pointer"}}>zgłoś błąd<i class="bi bi-flag"></i></span>  },
+          ].map(({ label }) => (
             <div class="col-3">
               <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
                 <span>{label}</span>
@@ -99,6 +104,8 @@ const currentYear = new Date().getFullYear();
           ))
         }
       </div>
+
+      
 
       <Media client:load text={text} media={media} size="large" showControls={true} />
 

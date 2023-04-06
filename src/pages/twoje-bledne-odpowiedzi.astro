@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import UserAnswers from "../reactComponents/UserAnswers";
+const title = "Lista pytań, na które udzieliłeś złej odpowiedzi.";
+---
+
+<Layout title={title}>
+  <h1>{title}</h1>
+ 
+
+  <!-- <canvas id="myChart" /> -->
+
+  <UserAnswers client:load  whatQuestionsToShow="show-answers-that-user-clicked-wrong-answer"/>
+  
+
+</Layout>
+
+<!-- <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script is:inline>
+  const data = {
+    labels: ["Correct", "Incorrect"],
+    datasets: [
+      {
+        label: "Answers",
+        data: [20, 49],
+        backgroundColor: ["green", "red"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  };
+
+  const ctx = document.getElementById("myChart");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data,
+    options,
+  });
+
+ 
+</script> -->

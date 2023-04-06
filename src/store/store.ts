@@ -36,7 +36,7 @@ export function _recalculateGivenAnswersCount() {
 
 function initialGivenAnswers() {
   try {
-    const givenAnswersAsString = sessionStorage.getItem("_givenAnswers") || "{}";
+    const givenAnswersAsString = localStorage.getItem("_givenAnswers") || "{}";
     const givenAnswers = JSON.parse(givenAnswersAsString);
     return givenAnswers;
   } catch (err) {
@@ -55,7 +55,7 @@ export function _addAnswer(questionId: QuestionId, answer: GivenAnswer) {
   }
 
   _recalculateGivenAnswersCount();
-  sessionStorage.setItem("_givenAnswers", JSON.stringify(_givenAnswers.get()));
+  localStorage.setItem("_givenAnswers", JSON.stringify(_givenAnswers.get()));
 }
 
 export function _addMp3Item(cartItem: Mp3Item) {

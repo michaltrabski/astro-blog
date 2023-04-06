@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
-import { _questions, _currentCategory } from "../store/store";
+import { _questions, _currentCategory, _givenAnswers } from "../store/store";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 import type { QuestionPageData } from "../store/types";
 
@@ -14,6 +14,8 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
 
   const questions = useStore(_questions);
   const currentCategory = useStore(_currentCategory);
+  const givenAnswers = useStore(_givenAnswers);
+ 
 
   const [newPrevSlug, setPrevSlug] = useState(prevSlug);
   const [newNextSlug, setNextSlug] = useState(nextSlug);
@@ -21,15 +23,26 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
   useEffect(() => {
     if (questions.length > 0) {
       let randomIndex = 0;
-      let limit = 0;
+      let randomQuestionSupportCurrentCategory = false;
+      let isQuestionInGivenAnswers = false;
+      let counter = 0;
+
       do {
-        limit++;
+        counter++;
         randomIndex = Math.floor(Math.random() * questions.length);
-      } while (!questions[randomIndex].categories.includes(currentCategory) && limit < 100);
+        const randomQuestion = questions[randomIndex];
+
+        randomQuestionSupportCurrentCategory = randomQuestion.categories.includes(currentCategory);
+        isQuestionInGivenAnswers = !!givenAnswers[randomQuestion.id]
+        
+        console.log(counter, randomQuestionSupportCurrentCategory,isQuestionInGivenAnswers,givenAnswers,givenAnswers[randomQuestion.id]);
+    
+        
+      } while (counter < 100 && !randomQuestionSupportCurrentCategory && !isQuestionInGivenAnswers);
 
       setNextSlug(getFullUrl(createQuestionUrl(questions[randomIndex], currentCategory)));
     }
-  }, [questions]);
+  }, [questions, givenAnswers]);
 
   return (
     <div className="row mb-3">
@@ -42,7 +55,7 @@ export default function PrevNextQuestion(props: PrevNextQuestionProps) {
           </a>
         )}
       </div>
-
+ 
       <div className="col-6 mb-2 text-end">
         {newNextSlug && (
           <a href={newNextSlug} style={{ whiteSpace: "nowrap" }} className="btn btn-primary btn-lg btn-block w-100">

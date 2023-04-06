@@ -36,10 +36,10 @@ export const createQuestionUrl = (question: Question, category: string) => {
   return `kat-${category}/${slug}`;
 };
 
-export const getFullUrl = (url = "") => {
+export const getFullUrl = (url: string) => {
   const domain = import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
 
-  if (!url) {
+  if (!url || url === "/") {
     return domain;
   }
 

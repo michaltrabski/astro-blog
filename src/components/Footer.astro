@@ -47,7 +47,7 @@ import { URLS } from "../urls/urls";
       {
         [
           { label: "Regulamin", href: URLS.TERMS_AND_CONDITIONS },
-          { label: "Polityka prywatnościsssssssss", href: URLS.PRIVACY_POLICY },
+          { label: "Polityka prywatności", href: URLS.PRIVACY_POLICY },
           { label: "Kontakt", href: URLS.CONTACT },
         ].map(({ label, href }) => (
           <p>
@@ -59,7 +59,85 @@ import { URLS } from "../urls/urls";
       }
     </div>
   </div><p><span>© Testy na prawo jazdy <CurrentYear client:load /></span></p>
+
+
+
+  
+
 </footer>
+
+
+
+
+<footer class="bg-dark text-light py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: info@example.com<br>Phone: (123) 456-7890</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<footer class="bg-dark text-light py-3 shadow-lg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: info@example.com<br>Phone: (123) 456-7890</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-linkedin"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a></li>
+         </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  footer:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  }
+  .bg-dark {
+    background-color: #343a40;
+  }
+  .bg-dark:hover {
+    background-color: #2c3036;
+  }
+  .text-light {
+    color: #fff;
+  }
+  .list-inline-item:hover a {
+    color: #ffc107;
+  }
+</style>
+
 
 <script>
   const clearButton = document.querySelector(".clear-session-storage");
