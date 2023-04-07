@@ -87,6 +87,7 @@ export default function Media(props: MediaProps) {
         </p> */}
         {/* style={{ width: "calc(100% + 4rem)", transform: "translateX(-1rem)" }} */}
         <div >
+          <p className="small"><a href={mediaUrl}>{mediaUrl}</a></p>
         <div  style={{ overflow: "hidden",border: "0px solid red",scale: "1" }}>
         <div  style={{ border: "0px solid green", scale: "1" }}>
           {isVideo ? (

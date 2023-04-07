@@ -29,7 +29,7 @@ export interface QuestionReceivedFromEndpoint {
     a?: string;
     b?: string;
     c?: string;
-    r: string;
+    r: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
     cats: string[];
     s: number;
   }

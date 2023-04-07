@@ -1,16 +1,16 @@
 import _ from "lodash";
 import slugify from "slugify";
 import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, DEPLOY_URL, KEY, LOCALHOST } from "../settings/settings";
-import type { Question, ApiDataItem, DataReceivedFromSessionStorage } from "../store/store";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
+import type { ApiDataItem, DataReceivedFromSessionStorage, Question } from "../store/types";
 
 export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
-  const limit = 999960;
+  const postsFromOldWordpressLimit = 5;
   const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
   const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
     0,
-    limit
+    postsFromOldWordpressLimit
   );
 
   const _allCategories: string[] = [];

@@ -39,8 +39,8 @@ const { title } = Astro.props as Props;
 
     <title>{title}</title>
   </head>
-  <body class="mt-5 pt-3 border-top border-primary">
-    <div class="full-screen-wrapper">
+  <body>
+    
       <Header />
 
       <main>
@@ -52,10 +52,12 @@ const { title } = Astro.props as Props;
           </div>
         </div>
       </main>
+
+      <Mp3Player client:load />
+      
       <Footer />
-    </div>
+    
     <GetDataFromendpointComponent client:load />
-    <Mp3Player client:load />
     <RecalculateGivenAnswersCount client:load />
   </body>
 </html>
