@@ -88,22 +88,7 @@ const currentYear = new Date().getFullYear();
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <div class="row mb-2">
-        {
-          [
-            // { label: id },
-            { label: `kat: ${category.toUpperCase()}` },
-            { label: `pkt: ${score}` },
-            // { label: <span style={{cursor: "pointer"}}>zgłoś błąd<i class="bi bi-flag"></i></span>  },
-          ].map(({ label }) => (
-            <div class="col-3">
-              <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-                <span>{label}</span>
-              </div>
-            </div>
-          ))
-        }
-      </div>
+
 
       
 
@@ -116,6 +101,23 @@ const currentYear = new Date().getFullYear();
       <AnswerYesNo client:load question={questionPageData} />
 
       <PrevNextQuestion client:load question={questionPageData} />
+
+      <div class="row mb-3">
+        {
+          [
+            // { label: id },
+            { colSize: 3, label: `kat: ${category.toUpperCase()}` },
+            { colSize: 3, label: `pkt: ${score}` },
+            { colSize: 6, label: <span style={{cursor: "pointer"}}>zgłoś błąd<i class="bi bi-flag"></i></span>  },
+          ].map(({ label , colSize}) => (
+            <div class={`col-${colSize}`}>
+              <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
+                <span>{label}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
 
       <!-- <div class="row mb-3">
         <div class="col">

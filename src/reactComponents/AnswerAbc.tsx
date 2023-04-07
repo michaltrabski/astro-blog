@@ -28,7 +28,7 @@ export default function AnswerAbc(props: AnswerAbcProps) {
   return (
     <div className="row mb-3">
       <div className="col">
-        <div className="d-grid gap-2 d-block mb-3">
+        <div className="d-grid gap-2 d-block">
           {possibleAnswers.map((answer) => {
             let btnColor = "btn-secondary";
 
@@ -64,13 +64,20 @@ export default function AnswerAbc(props: AnswerAbcProps) {
             );
           })}
         </div>
-        {clickedAnswerValue && (
+        {/* {clickedAnswerValue && (
           <div className={clsx("alert", alertType)} role="alert">
             {clickedAnswerValue === correctAnswer &&
               `Gratulacje! Odpowiedź ${clickedAnswerValue.toUpperCase()} jest poprawna.`}
             {clickedAnswerValue !== correctAnswer &&
               `Niestety, odpowiedź ${clickedAnswerValue.toUpperCase()} jest niepoprawna.`}
           </div>
+        )} */}
+        {clickedAnswerValue && (
+          <div>
+            <p>
+            {clickedAnswerValue === correctAnswer && <strong className="text-success">Dobrze</strong>}
+            {clickedAnswerValue !== correctAnswer && <strong className="text-danger">Źle</strong>}
+            </p> </div>
         )}
       </div>
     </div>

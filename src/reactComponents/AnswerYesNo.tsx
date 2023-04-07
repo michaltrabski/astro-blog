@@ -36,7 +36,7 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
     <>
       <div className="row mb-3 text-center">
         <div className="col">
-          <div className="mb-3">
+          <div className="mb-0">
             {possibleAnswers.map((answer) => {
               let btnColor = "btn-secondary";
 
@@ -61,21 +61,29 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
                     _addAnswer(questionId, { questionId, clickedAnswer, correctAnswerIs });
                   }}
                   type="button"
-                  className={clsx("btn me-3 btn-lg", btnColor)}
+                  className={clsx("btn mx-1 btn-lg", btnColor)}
                 >
                   {answer.label}
                 </button>
               );
             })}
           </div>
-          {clickedAnswerValue && (
+          {/* {clickedAnswerValue && (
             <div className={clsx("alert", alertType)} role="alert">
               {clickedAnswerValue === correctAnswer &&
                 `Gratulacje! Odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE"} jest poprawna.`}
               {clickedAnswerValue !== correctAnswer &&
                 `Niestety, odpowiedź ${clickedAnswerValue === "t" ? "TAK" : "NIE"} jest niepoprawna.`}
             </div>
-          )}
+          )} */}
+           {clickedAnswerValue && (
+          <div>
+            <p>
+              {clickedAnswerValue === correctAnswer && <strong className="text-success">Dobrze</strong>}
+              {clickedAnswerValue !== correctAnswer && <strong className="text-danger">Źle</strong>}
+            </p>
+          </div>
+        )}
         </div>
       </div>
     </>

@@ -16,7 +16,7 @@ export default function Media(props: MediaProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
   const [hideControlsOnceWhenItStartsPlaying, setHideControlsOnceWhenItStartsPlaying] = useState(false);
-  const [showPlayIcon, setShowPlayIcon] = useState(false);
+  const [showPlayIcon, setShowPlayIcon] = useState(true);
 
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const pngRef = React.useRef<HTMLImageElement | null>(null);
@@ -58,6 +58,8 @@ export default function Media(props: MediaProps) {
   useEffect(() => {
     const video = videoRef.current;
 
+    clickOnVideo();
+
     video?.addEventListener("play", playCallback);
     video?.addEventListener("pause", pauseCallback);
     video?.addEventListener("ended", endedCallback);
@@ -69,14 +71,19 @@ export default function Media(props: MediaProps) {
     };
   }, []);
 
-  const playVideo = () => {
+  async function clickOnVideo() {
     const video = videoRef.current;
 
-    if (video) {
-      video.currentTime = 0;
-      video.play();
+    if (!video) {
+      return;
     }
-  };
+
+    if (video.paused) {
+      await video.play();
+    } else {
+      video.pause();
+    }
+  }
 
   return (
     <div className="MEDIA row">
@@ -85,38 +92,37 @@ export default function Media(props: MediaProps) {
           isPlaying: {isPlaying ? "true" : "false"} <br />
           isEnded: {isEnded ? "true" : "false"} <br />
         </p> */}
-        {/* style={{ width: "calc(100% + 4rem)", transform: "translateX(-1rem)" }} */}
-        <div >
-          <p className="small"><a href={mediaUrl}>{mediaUrl}</a></p>
-        <div  style={{ overflow: "hidden",border: "0px solid red",scale: "1" }}>
-        <div  style={{ border: "0px solid green", scale: "1" }}>
-          {isVideo ? (
-            <div className="position-relative" onClick={() => playVideo()}>
-              <video
-                className="w-100 shadow border-dark"
-                ref={videoRef}
-                src={mediaUrl}
-                autoPlay={startVideoAutomaticaly}
-                controls={showControls && !hideControlsOnceWhenItStartsPlaying}
-              >
-                <p>{text || media}</p>
-              </video>
-              <div className={`position-absolute ${showPlayIcon || "d-none"}`} style={{ top: "50%", left: "50%" }}>
-                <div style={{ transform: "translate(-50%,-50%)" }}>
-                  <i style={{ fontSize: "2rem", cursor: "pointer" }} className="larger bi bi-play-circle"></i>
+
+        <div style={{ overflow: "hidden" }}>
+          <div style={{ scale: "1.0" }}>
+            {isVideo ? (
+              <div className="position-relative" onClick={clickOnVideo}>
+                <video
+                  className="w-100 shadow border-dark"
+                  ref={videoRef}
+                  src={mediaUrl}
+                  // autoPlay={startVideoAutomaticaly}
+                  // controls={showControls && !hideControlsOnceWhenItStartsPlaying}
+                >
+                  <p>{text || media}</p>
+                </video>
+                <div className={`position-absolute ${showPlayIcon || "d-none"}`} style={{ top: "50%", left: "50%" }}>
+                  <div style={{ transform: "translate(-50%,-50%)" }}>
+                    <i style={{ fontSize: "2rem", cursor: "pointer" }} className="larger bi bi-play-circle"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <img
-              className="w-100 shadow border border-dark img-fluid"
-              ref={pngRef}
-              src={mediaUrl}
-              alt={text || media}
-            />
-          )}
+            ) : (
+              <img
+                className="w-100 shadow border border-dark img-fluid"
+                ref={pngRef}
+                src={mediaUrl}
+                alt={text || media}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>  </div></div>
+    </div>
   );
 }
