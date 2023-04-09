@@ -45,7 +45,6 @@ export default function AnswerAbc(props: AnswerAbcProps) {
                 <button
                   key={answer.letterIndex}
                   onClick={() => {
-           
                     setClickedAnswerValue(answer.letterIndex);
 
                     const questionId = props.question.id;
@@ -53,7 +52,6 @@ export default function AnswerAbc(props: AnswerAbcProps) {
                     const correctAnswerIs = correctAnswer;
 
                     _addAnswer(questionId, { questionId, clickedAnswer, correctAnswerIs });
-                
                   }}
                   type="button"
                   className={clsx("btn text-start", btnColor)}
@@ -75,9 +73,10 @@ export default function AnswerAbc(props: AnswerAbcProps) {
         {clickedAnswerValue && (
           <div>
             <p>
-            {clickedAnswerValue === correctAnswer && <strong className="text-success">Dobrze</strong>}
-            {clickedAnswerValue !== correctAnswer && <strong className="text-danger">Źle</strong>}
-            </p> </div>
+              {clickedAnswerValue === correctAnswer && <strong className="text-success">Dobrze</strong>}
+              {clickedAnswerValue !== correctAnswer && <strong className="text-danger">Źle</strong>}
+            </p>
+          </div>
         )}
       </div>
     </div>

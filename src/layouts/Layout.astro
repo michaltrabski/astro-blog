@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import GetDataFromendpointComponent from "../reactComponents/GetDataFromendpointComponent.jsx";
 import Mp3Player from "../reactComponents/Mp3Player";
 import RecalculateGivenAnswersCount from "../reactComponents/RecalculateGivenAnswersCount";
+import Customization from "../reactComponents/Customization";
 
 export interface Props {
   title: string;
@@ -52,6 +53,8 @@ const { title } = Astro.props as Props;
           </div>
         </div>
       </main>
+
+      <Customization client:load />
 
       <Mp3Player client:load />
       
