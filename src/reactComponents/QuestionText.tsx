@@ -1,17 +1,16 @@
-import React, { Component, Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
-import clsx from "clsx";
 
 import { _isStoreReady, _mp3Items, _playMp3Item } from "../store/store";
 import { _addMp3Item } from "../store/store";
-import slugify from "slugify";
-import Mp3 from "./Mp3";
+
 import { getSlug } from "../utils/utils";
 import { adverticements } from "../settings/settings";
 import type { QuestionPageData } from "../store/types";
 
-import SwipeableViews from "react-swipeable-views";
-import ErrorBoundary from "./ErrorBoundary";
+// import SwipeableViews from "react-swipeable-views";
+
+// import ErrorBoundary from "./ErrorBoundary";
 
 interface QuestionTextProps {
   question: QuestionPageData;
@@ -19,8 +18,6 @@ interface QuestionTextProps {
 
 export default function QuestionText(props: QuestionTextProps) {
   const { text } = props.question;
-
- 
 
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
 
@@ -38,8 +35,8 @@ export default function QuestionText(props: QuestionTextProps) {
   return (
     <div className="row mb-3">
       <div className="col">
-        <ErrorBoundary>
-          <SwipeableViews
+        {/* <ErrorBoundary> */}
+        {/* <SwipeableViews
             enableMouseEvents
             index={1}
             onChangeIndex={(index: number, indexLatest: number, meta: any) => {
@@ -51,26 +48,26 @@ export default function QuestionText(props: QuestionTextProps) {
                 console.log("go to previous question", index, indexLatest, meta);
               }
             }}
-          >
-            <div>
+          > */}
+        {/* <div>
               <p>poprzednie pytanie</p>
-            </div>
+            </div> */}
 
-            <h1 className="display-6 text-start shadow-bottom">
-              {text}
+        <h1 className="display-6 text-start shadow-bottom">
+          {text}
 
-              {canplay && (
-                <button className="btn btn-light pr-2" onClick={() => _playMp3Item(slugText)}>
-                  <span className="bi bi-play-circle"></span>
-                </button>
-              )}
-            </h1>
+          {canplay && (
+            <button className="btn btn-light pr-2" onClick={() => _playMp3Item(slugText)}>
+              <span className="bi bi-play-circle"></span>
+            </button>
+          )}
+        </h1>
 
-            <div>
+        {/* <div>
               <p>Kolejne pytanie</p>
-            </div>
-          </SwipeableViews>
-        </ErrorBoundary>
+            </div> */}
+        {/* </SwipeableViews> */}
+        {/* </ErrorBoundary> */}
       </div>
     </div>
   );

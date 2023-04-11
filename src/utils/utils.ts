@@ -8,7 +8,7 @@ import type { ApiDataItem, DataReceivedFromSessionStorage, Question } from "../s
 export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
   // LIMITS FOR DEVELOPMENT
   const postsFromOldWordpressLimit = 5;
-  const allQuestionsLimit = 99;
+  const allQuestionsLimit = 88899;
 
   const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
   const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
