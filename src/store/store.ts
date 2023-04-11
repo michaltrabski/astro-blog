@@ -1,4 +1,4 @@
-import { atom, map , Store} from "nanostores";
+import { atom, map, Store } from "nanostores";
 import { KEY } from "../settings/settings";
 
 import {
@@ -8,9 +8,14 @@ import {
   storageSetStringItem,
   sessionStorageSetObj,
 } from "../utils/utils";
-import type { DataReceivedFromEndpoint, DataReceivedFromSessionStorage, GivenAnswer, Mp3Item, Question, QuestionId } from "./types";
- 
-
+import type {
+  DataReceivedFromEndpoint,
+  DataReceivedFromSessionStorage,
+  GivenAnswer,
+  Mp3Item,
+  Question,
+  QuestionId,
+} from "./types";
 
 export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
@@ -29,8 +34,12 @@ export function _changeThemeName(themeName: string) {
 
 export function _recalculateGivenAnswersCount() {
   const givenAnswers = _givenAnswers.get();
-  const correctGivenAnswersCount = Object.values(givenAnswers).filter((answer) => answer.clickedAnswer === answer.correctAnswerIs).length;
-  const wrongGivenAnswersCount = Object.values(givenAnswers).filter((answer) => answer.clickedAnswer !== answer.correctAnswerIs).length;
+  const correctGivenAnswersCount = Object.values(givenAnswers).filter(
+    (answer) => answer.clickedAnswer === answer.correctAnswerIs
+  ).length;
+  const wrongGivenAnswersCount = Object.values(givenAnswers).filter(
+    (answer) => answer.clickedAnswer !== answer.correctAnswerIs
+  ).length;
 
   _correctGivenAnswersCount.set(correctGivenAnswersCount);
   _wrongGivenAnswersCount.set(wrongGivenAnswersCount);
@@ -45,7 +54,6 @@ function initialGivenAnswers() {
     return {};
   }
 }
-
 
 export function _addAnswer(questionId: QuestionId, answer: GivenAnswer) {
   const existingEntry = _givenAnswers.get()[questionId];

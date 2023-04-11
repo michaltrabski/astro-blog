@@ -6,13 +6,10 @@ import type { WordpressPost } from "../types/types";
 import type { ApiDataItem, DataReceivedFromSessionStorage, Question } from "../store/types";
 
 export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
-  // LIMITS FOR DEVELOPMENT 
+  // LIMITS FOR DEVELOPMENT
   const postsFromOldWordpressLimit = 5;
-  const allQuestionsLimit = 100;
- 
-  
-  
-  
+  const allQuestionsLimit = 99999;
+
   const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
   const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
     0,

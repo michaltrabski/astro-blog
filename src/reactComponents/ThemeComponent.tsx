@@ -5,7 +5,7 @@ import { _themeName } from "../store/store";
 const ThemeComponent = () => {
   const themeName = useStore(_themeName);
 
-  console.log(2, "themeName", themeName,themeName === "ciemny");
+  console.log(2, "themeName", themeName, themeName === "ciemny");
 
   if (themeName === "ciemny") {
     return <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.css" />;
