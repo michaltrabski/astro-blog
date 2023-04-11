@@ -81,4 +81,5 @@ export interface GivenAnswer {
   correctAnswerIs: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
 }
 
-export type ThemeColor = "default" | "darkly";
+ 
+ 

@@ -1,16 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { useState } from "react";
 import { useStore } from "@nanostores/react";
-import clsx from "clsx";
-
-import { changeCategory, _currentCategory, _allCategories, _questions  } from "../store/store";
-import CurrentYear from "./CurrentYear";
-import { createQuestionUrl, getFullUrl } from "../utils/utils";
+import { _changeThemeName, _themeName } from "../store/store";
 
 export default function Customization() {
-  const allCategoriesFromStore = useStore(_allCategories);
-  const allQuestionsFromStore = useStore(_questions);
+  const themeName = useStore(_themeName);
 
-  const curentCategory = useStore(_currentCategory);
+  const [showCustomizationPanel, setShowCustomizationPanel] = useState(true);
 
   // const allCategories =
   //   allCategoriesFromStore.length > 0
@@ -20,8 +15,6 @@ export default function Customization() {
   // const allQuestions =  allQuestionsFromStore.length > 0
   //     ? allQuestionsFromStore
   //     : props.allQuestions;
-
-  const [showCustomizationPanel, setShowCustomizationPanel] = useState(false);
 
   return (
     <div
@@ -50,14 +43,27 @@ export default function Customization() {
       <div>
         <h2>Ustawienia strony:</h2>
         <p>
-          <strong>Kolor</strong>
+          <strong>1. Wybierz kolor</strong>
         </p>
 
-        {[1, 2, 3].map((color, index) => (
-          <div className="d-inline">
-            <i style={{ color: "red" }} className={`bi bi-${index + 1}-circle`}></i>
-          </div>
-        ))}
+        {["jasny", "ciemny"].map((newThemeName, index) => {
+          let colorValue = "white";
+
+          if (newThemeName === "ciemny") colorValue = "#222";
+
+          return (
+            <div key={newThemeName} className="d-flex">
+              <button
+                className="btn btn-lg m-3"
+                style={{ backgroundColor: colorValue }}
+                onClick={() => _changeThemeName(newThemeName)}
+              >                
+              </button>
+              {newThemeName}
+            </div>
+          );
+        })}
+
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui animi nesciunt molestiae sequi deleniti, quasi
           totam at nam magni illo fugit harum obcaecati quisquam? Nisi nobis odit, pariatur officiis corrupti quae culpa

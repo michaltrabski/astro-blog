@@ -8,19 +8,11 @@ import {
   storageSetStringItem,
   sessionStorageSetObj,
 } from "../utils/utils";
-import type {
-  DataReceivedFromEndpoint,
-  DataReceivedFromSessionStorage,
-  GivenAnswer,
-  Mp3Item,
-  Question,
-  QuestionId,
-  ThemeColor,
-} from "./types";
+import type { DataReceivedFromEndpoint, DataReceivedFromSessionStorage, GivenAnswer, Mp3Item, Question, QuestionId } from "./types";
+ 
 
 
-
-export const _themeColor = atom<ThemeColor>("darkly");
+export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);
@@ -28,6 +20,11 @@ export const _currentCategory = atom(getCurrentCategoryInitialValue());
 export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAnswers());
 export const _correctGivenAnswersCount = atom(0);
 export const _wrongGivenAnswersCount = atom(0);
+
+export function _changeThemeName(themeName: string) {
+  _themeName.set(themeName);
+  localStorage.setItem("_themeName", themeName);
+}
 
 export function _recalculateGivenAnswersCount() {
   const givenAnswers = _givenAnswers.get();
