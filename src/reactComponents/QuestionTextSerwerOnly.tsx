@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { _isStoreReady, _mp3Items, _playMp3Item, _questions } from "../store/store";
-import { _addMp3Item } from "../store/store";
+import { _isStoreReady, _setStoreReady } from "../store/store";
+ 
 
 import type { QuestionPageData } from "../store/types";
 
@@ -18,13 +18,17 @@ export default function QuestionTextSerwerOnly(props: QuestionTextSerwerOnlyProp
 
   console.log("isStoreReady", isStoreReady);
 
+  useEffect(() => {
+    _setStoreReady();
+  }, []);
+
   return (
     <>
       {!isStoreReady && (
         <div className="row mb-3">
           <div className="col">
             <h1 className="display-6 text-start shadow-bottom">
-              {text} {isStoreReady ? "store ready" : "store not ready"}
+              {text}
             </h1>
           </div>
         </div>

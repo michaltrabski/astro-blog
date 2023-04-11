@@ -17,7 +17,7 @@ import type {
   QuestionId,
 } from "./types";
 
-export const _isStoreReady = atom(true);
+export const _isStoreReady = atom(false);
 export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
@@ -26,6 +26,10 @@ export const _currentCategory = atom(getCurrentCategoryInitialValue());
 export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAnswers());
 export const _correctGivenAnswersCount = atom(0);
 export const _wrongGivenAnswersCount = atom(0);
+
+export function _setStoreReady() {
+  _isStoreReady.set(true);
+}
 
 export function _changeThemeName(themeName: string) {
   _themeName.set(themeName);

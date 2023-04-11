@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { _mp3Items, _playMp3Item } from "../store/store";
+import { _isStoreReady, _mp3Items, _playMp3Item } from "../store/store";
 import { _addMp3Item } from "../store/store";
 import slugify from "slugify";
 import Mp3 from "./Mp3";
@@ -36,6 +36,8 @@ interface QuestionTextProps {
 export default function QuestionText(props: QuestionTextProps) {
   const { text } = props.question;
 
+  const isStoreReady = useStore(_isStoreReady);
+
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
 
   const slugText = getSlug(text);
@@ -50,7 +52,7 @@ export default function QuestionText(props: QuestionTextProps) {
   }, []);
 
   return (
-    <div className="row mb-3">
+    <div className={`row mb-3 ${isStoreReady ? null : "d-none" }`}  >
       <div className="col">
         <SwipeableViews
           enableMouseEvents
