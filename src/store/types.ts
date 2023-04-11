@@ -73,10 +73,12 @@ export type AnswerN = "n";
   };
 
 
-
+ 
 
 export interface GivenAnswer {
   questionId: QuestionId;
   clickedAnswer: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
   correctAnswerIs: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
 }
+
+export type ThemeColor = "default" | "darkly";

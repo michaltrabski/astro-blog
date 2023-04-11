@@ -5,16 +5,19 @@ import GetDataFromendpointComponent from "../reactComponents/GetDataFromendpoint
 import Mp3Player from "../reactComponents/Mp3Player";
 import RecalculateGivenAnswersCount from "../reactComponents/RecalculateGivenAnswersCount";
 import Customization from "../reactComponents/Customization";
+import ThemeComponent from "../reactComponents/ThemeComponent";
 
 export interface Props {
   title: string;
 }
 
 const { title } = Astro.props as Props;
+
+ 
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,6 +29,9 @@ const { title } = Astro.props as Props;
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+
+
+    <ThemeComponent client:load />
 
     <!-- <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.css"> -->
     <!-- <link rel="stylesheet" href="https://bootswatch.com/5/superhero/bootstrap.css" /> -->

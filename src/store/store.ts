@@ -15,8 +15,12 @@ import type {
   Mp3Item,
   Question,
   QuestionId,
+  ThemeColor,
 } from "./types";
 
+
+
+export const _themeColor = atom<ThemeColor>("darkly");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);

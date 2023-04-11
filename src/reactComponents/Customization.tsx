@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { changeCategory, _currentCategory, _allCategories, _questions, Question } from "../store/store";
+import { changeCategory, _currentCategory, _allCategories, _questions  } from "../store/store";
 import CurrentYear from "./CurrentYear";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
 
@@ -21,11 +21,10 @@ export default function Customization() {
   //     ? allQuestionsFromStore
   //     : props.allQuestions;
 
-  const [showCustomizationPanel, setShowCustomizationPanel] = useState(true);
+  const [showCustomizationPanel, setShowCustomizationPanel] = useState(false);
 
   return (
     <div
-      
       className="position-absolute bg-light border border-warning border-5 rounded-3 p-3 shadow-lg"
       style={{
         minHeight: "100vh",
@@ -35,20 +34,30 @@ export default function Customization() {
         transitionDuration: "0.2s",
       }}
     >
-      <div 
-      onClick={() => setShowCustomizationPanel(!showCustomizationPanel)}
-      className="position-fixed" style={{ left: showCustomizationPanel ? "0.5rem" : "-1rem", top: "70%" }}>
+      <div
+        onClick={() => setShowCustomizationPanel(!showCustomizationPanel)}
+        className="position-fixed"
+        style={{
+          left: showCustomizationPanel ? "0.5rem" : "-0.8rem",
+          opacity: showCustomizationPanel ? "1" : "0.8",
+          bottom: "100px",
+        }}
+      >
         <button className="btn btn-primary btn-sm">
           <i className={`bi bi-${showCustomizationPanel ? "x-lg" : "sliders2"}`}></i>
         </button>
       </div>
       <div>
         <h2>Ustawienia strony:</h2>
-        <p><strong>Kolor</strong></p>
+        <p>
+          <strong>Kolor</strong>
+        </p>
 
-        {[1,2,3].map((color, index) => <div className="d-inline">
-          <i style={{color: "red"}} className={`bi bi-${index+1}-circle`}></i>
-        </div>)}
+        {[1, 2, 3].map((color, index) => (
+          <div className="d-inline">
+            <i style={{ color: "red" }} className={`bi bi-${index + 1}-circle`}></i>
+          </div>
+        ))}
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui animi nesciunt molestiae sequi deleniti, quasi
           totam at nam magni illo fugit harum obcaecati quisquam? Nisi nobis odit, pariatur officiis corrupti quae culpa
