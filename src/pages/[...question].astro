@@ -12,6 +12,7 @@ import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import QuestionText from "../reactComponents/QuestionText";
 import QuestionTable from "../reactComponents/QuestionTable";
 import GivenAnswers from "../reactComponents/GivenAnswers";
+import QuestionTextSerwerOnly from "../reactComponents/QuestionTextSerwerOnly";
 import { URLS } from "../urls/urls";
 
 interface ArrayToGeneratePages {
@@ -83,23 +84,24 @@ const allCategories = Astro.props.allCategories;
 const { text, category, score, media, expls, lows } = questionPageData;
 
 const currentYear = new Date().getFullYear();
-const isSerwerSide = typeof document === undefined;
+ 
 ---
+
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
  
-      {isSerwerSide ? <h1>isSerwerSide tak - {questionPageData.text}</h1> : <h1>isSerwerSide nie</h1>}
-
-
-      <pre>
-        <code>{JSON.stringify(isSerwerSide, null, 2)}</code>
-      </pre>
-
-
+      
+     
+ 
+      <QuestionTextSerwerOnly client:load question={questionPageData}/>
+    
+    
       <QuestionText client:only="react" question={questionPageData} />
+ 
+      
 
       <AnswerAbc client:load question={questionPageData} />
 
@@ -294,3 +296,10 @@ const isSerwerSide = typeof document === undefined;
     </div>
   </div>
 </Layout>
+
+
+<script>
+  const h1 = document.querySelector("h1#h1");
+
+  h1?.remove();
+</script>

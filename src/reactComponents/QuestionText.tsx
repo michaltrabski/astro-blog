@@ -8,7 +8,6 @@ import slugify from "slugify";
 import Mp3 from "./Mp3";
 import { getSlug } from "../utils/utils";
 import { adverticements } from "../settings/settings";
-import { useSwipeable } from "react-swipeable";
 import type { QuestionPageData } from "../store/types";
 
 import SwipeableViews from "react-swipeable-views";

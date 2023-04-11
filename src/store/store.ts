@@ -17,6 +17,7 @@ import type {
   QuestionId,
 } from "./types";
 
+export const _isStoreReady = atom(true);
 export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
