@@ -84,24 +84,16 @@ const allCategories = Astro.props.allCategories;
 const { text, category, score, media, expls, lows } = questionPageData;
 
 const currentYear = new Date().getFullYear();
- 
 ---
-
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
- 
-      
-     
- 
-      <QuestionTextSerwerOnly client:load question={questionPageData}/>
-    
-    
-      <QuestionText client:only="react" question={questionPageData} />
- 
-      
+
+      <!-- <QuestionTextSerwerOnly client:load question={questionPageData} /> -->
+
+      <QuestionText client:load question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
 
@@ -296,7 +288,6 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </Layout>
-
 
 <script>
   const h1 = document.querySelector("h1#h1");
