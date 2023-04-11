@@ -80,9 +80,10 @@ export async function getStaticPaths() {
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
-const { id, text, category, score, media, isVideo, prevSlug, nextSlug, expls, lows } = questionPageData;
+const { text, category, score, media, expls, lows } = questionPageData;
 
 const currentYear = new Date().getFullYear();
+const isSerwerSide = typeof window === undefined;
 ---
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
@@ -90,7 +91,13 @@ const currentYear = new Date().getFullYear();
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
 
-      <QuestionText client:only question={questionPageData} />
+      <pre>
+        <code>{JSON.stringify(isSerwerSide, null, 2)}</code>
+      </pre>
+
+      {isSerwerSide  && <h1>{questionPageData.text}</h1>}
+
+      <QuestionText client:only="react" question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
 

@@ -53,7 +53,8 @@ export default function QuestionText(props: QuestionTextProps) {
   return (
     <div className="row mb-3">
       <div className="col">
-        
+
+           
         <SwipeableViews
           
           enableMouseEvents
