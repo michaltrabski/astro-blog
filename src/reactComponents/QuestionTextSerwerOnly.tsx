@@ -16,20 +16,19 @@ export default function QuestionTextSerwerOnly(props: QuestionTextSerwerOnlyProp
 
   const isStoreReady = useStore(_isStoreReady);
 
- 
-
- 
+  console.log("isStoreReady", isStoreReady);
 
   return (
-    <div className="row mb-3">
-      <div className="col">
-   
-   <p>{isStoreReady ? "store ready" : "store not ready"}</p>
-          <h1 className="display-6 text-start shadow-bottom">
-           {text} {isStoreReady ? "store ready" : "store not ready"}
-          </h1>
-   
-      </div>
-    </div>
+    <>
+      {!isStoreReady && (
+        <div className="row mb-3">
+          <div className="col">
+            <h1 className="display-6 text-start shadow-bottom">
+              {text} {isStoreReady ? "store ready" : "store not ready"}
+            </h1>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
