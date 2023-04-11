@@ -90,12 +90,8 @@ const isSerwerSide = typeof window === undefined;
   <div class="row">
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
-
-      <pre>
-        <code>{JSON.stringify(isSerwerSide, null, 2)}</code>
-      </pre>
-
-      {isSerwerSide  && <h1>{questionPageData.text}</h1>}
+ 
+      {isSerwerSide ? <h1>isSerwerSide tak - {questionPageData.text}</h1> : <h1>isSerwerSide nie</h1>}
 
       <QuestionText client:only="react" question={questionPageData} />
 
