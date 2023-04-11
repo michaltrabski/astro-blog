@@ -32,6 +32,8 @@
     "fs-extra": "^11.1.0",
     "lodash": "^4.17.21",
     "nanostores": "^0.7.1",
+    "react-swipeable": "^7.0.0",
+    "react-swipeable-views": "^0.14.0",
     "slugify": "^1.6.5",
     "xlsx": "^0.18.5"
   }

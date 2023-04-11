@@ -31,12 +31,12 @@ export default function Customization() {
         onClick={() => setShowCustomizationPanel(!showCustomizationPanel)}
         className="position-absolute"
         style={{
-          right: showCustomizationPanel ? "0.5rem" : "-2rem",
+          top: "5rem",
+          right: showCustomizationPanel ? "0.5rem" : "-2.0rem",
           opacity: showCustomizationPanel ? "1" : "0.8",
-          top: "6rem",
         }}
       >
-        <button className="btn btn-primary btn-sm">
+        <button className="btn btn-primary btn-sm p-1">
           <i className={`bi bi-${showCustomizationPanel ? "x-lg" : "sliders2"}`}></i>
         </button>
       </div>
