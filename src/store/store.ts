@@ -24,6 +24,7 @@ export const _wrongGivenAnswersCount = atom(0);
 export function _changeThemeName(themeName: string) {
   _themeName.set(themeName);
   localStorage.setItem("_themeName", themeName);
+  location.reload();
 }
 
 export function _recalculateGivenAnswersCount() {
