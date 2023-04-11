@@ -90,7 +90,7 @@ const currentYear = new Date().getFullYear();
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
 
-      <QuestionText client:load question={questionPageData} />
+      <QuestionText client:only question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
 
