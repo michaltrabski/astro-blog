@@ -83,7 +83,7 @@ const allCategories = Astro.props.allCategories;
 const { text, category, score, media, expls, lows } = questionPageData;
 
 const currentYear = new Date().getFullYear();
-const isSerwerSide = typeof window === undefined;
+const isSerwerSide = typeof document === undefined;
 ---
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
@@ -92,6 +92,12 @@ const isSerwerSide = typeof window === undefined;
       <Media client:load text={text} media={media} size="large" showControls={true} />
  
       {isSerwerSide ? <h1>isSerwerSide tak - {questionPageData.text}</h1> : <h1>isSerwerSide nie</h1>}
+
+
+      <pre>
+        <code>{JSON.stringify(isSerwerSide, null, 2)}</code>
+      </pre>
+
 
       <QuestionText client:only="react" question={questionPageData} />
 

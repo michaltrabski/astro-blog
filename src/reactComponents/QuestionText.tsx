@@ -53,14 +53,9 @@ export default function QuestionText(props: QuestionTextProps) {
   return (
     <div className="row mb-3">
       <div className="col">
-
-           
         <SwipeableViews
-          
           enableMouseEvents
           index={1}
-          // onSwitching={(index: any, type: any) => console.log("onSwitching", index, type)}
-          onTransitionEnd={() => console.log("onTransitionEnd")}
           onChangeIndex={(index: number, indexLatest: number, meta: any) => {
             if (index === 2 && indexLatest === 1) {
               console.log("go to next question", index, indexLatest, meta);
