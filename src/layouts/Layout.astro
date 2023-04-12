@@ -5,7 +5,7 @@ import GetDataFromendpointComponent from "../reactComponents/GetDataFromendpoint
 import Mp3Player from "../reactComponents/Mp3Player";
 import RecalculateGivenAnswersCount from "../reactComponents/RecalculateGivenAnswersCount";
 import Customization from "../reactComponents/Customization";
-import ThemeComponent from "../reactComponents/ThemeComponent";
+import Features from "../reactComponents/Features";
 
 export interface Props {
   title: string;
@@ -80,5 +80,6 @@ const { title } = Astro.props as Props;
 
     <GetDataFromendpointComponent client:load />
     <RecalculateGivenAnswersCount client:load />
+
   </body>
 </html>

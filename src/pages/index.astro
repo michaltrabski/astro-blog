@@ -8,6 +8,7 @@ import StartLearningButtons from "../reactComponents/StartLearningButtons";
 import { map } from "nanostores";
 import type { WordpressPost } from "../types/types";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
+import Features from "../reactComponents/Features";
 
 const { allCategories, allQuestions, postsFromOldWordpresOrdered } = createBigObjectDataFromApiDataForBuildTime();
 
@@ -96,18 +97,26 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="row mb-3">
-        <h2>Blog i artykuły:</h2>
-        <div class="text-start">
-          {
-            postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
-              <p>
-                {index + 1}.{" "}
-                <a href={post.slug} class="text-decoration-none">
-                  {post.title}
-                </a>
-              </p>
-            ))
-          }
+        <div class="col">
+          <Features client:load />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <h2>Blog i artykuły:</h2>
+          <div class="text-start">
+            {
+              postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
+                <p>
+                  {index + 1}.{" "}
+                  <a href={post.slug} class="text-decoration-none">
+                    {post.title}
+                  </a>
+                </p>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>

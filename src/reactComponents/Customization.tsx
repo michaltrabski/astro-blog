@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
 import { _changeThemeName, _themeName } from "../store/store";
+import Features from "./Features";
 
 export default function Customization() {
   const themeName = useStore(_themeName);
@@ -32,14 +33,15 @@ export default function Customization() {
         className="position-absolute"
         style={{
           top: "5rem",
-          right: showCustomizationPanel ? "0.5rem" : "-2.0rem",
+          right: showCustomizationPanel ? "0.5rem" : "-2.7rem",
           opacity: showCustomizationPanel ? "1" : "0.8",
         }}
       >
-        <button className="btn btn-primary btn-sm p-1">
+        <button className="btn btn-primary btn-lg">
           <i className={`bi bi-${showCustomizationPanel ? "x-lg" : "sliders2"}`}></i>
         </button>
       </div>
+
       <div>
         <h2>Ustawienia strony:</h2>
         <p>
@@ -53,21 +55,20 @@ export default function Customization() {
           if (newThemeName === "niebieski") colorValue = "#137ea7";
 
           return (
-            <div key={newThemeName} className="d-flex">
+           
               <button
-                className="btn btn-lg m-3"
+              key={newThemeName}
+                className="btn btn-lg m-3 shadow"
                 style={{ backgroundColor: colorValue }}
                 onClick={() => _changeThemeName(newThemeName)}
-              >                
-              </button>
-              {newThemeName}
-            </div>
+              >
+                <span className="text-light">{newThemeName}</span></button>
+                  
           );
         })}
-
-       
-       
       </div>
+
+      <Features />
     </div>
   );
 }

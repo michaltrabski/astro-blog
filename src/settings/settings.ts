@@ -5,7 +5,7 @@ export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 export const limitedCategories = [ "b"];
 export const showLimitedCategories = true;
 export const postsFromOldWordpressLimit = 5;
-export const allQuestionsLimit = 555;
+export const allQuestionsLimit = 999888;
 
 export const MEDIA_HOST = "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
 export const MEDIA_SIZE_SMALL = "size-100/";
@@ -37,4 +37,13 @@ export const adverticements = [
   "Proszę o napisanie swojej odpowiedzi na to pytanie w komentarzu i o wejście na stronę poznaj-testy.pl.",
   "Być może Twoja odpowiedź na to pytanie będzie ciekawa, więc napisz ją w komentarzu i odwiedź stronę poznaj-testy.pl.",
   "Będę wdzięczny za Twoją odpowiedź na to pytanie w komentarzu oraz za odwiedzenie strony poznaj-testy.pl.",
+];
+
+export const features = [
+  "Ustaw ciemne lub jasne kolory by wygodniej czytać w nocy.",
+  "Oceń czy znasz pytanie dobrze, średnio czy słabo - potem możesz je przeglądać.",
+  "Zapisuj swoje ulubione pytania i sprawdź je później.",
+ 
+"Przeglądaj pytania, na które udzieliłeś błędnej odpowiedzi.",
+"Ucz się pytań, których jeszcze nigdy nie widziałeś."
 ];
