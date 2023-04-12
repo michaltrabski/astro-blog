@@ -2,15 +2,10 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import {
-  changeCategory,
-  _currentCategory,
-  _allCategories,
-  _questions,
-  Question
-} from "../store/store";
+import { _currentCategory, _allCategories, _questions } from "../store/store";
 import CurrentYear from "./CurrentYear";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
+import type { Question } from "../store/types";
 
 interface StartLearningButtonsProps {
   allCategories: string[];
@@ -23,23 +18,15 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
 
   const curentCategory = useStore(_currentCategory);
 
-  const allCategories =
-    allCategoriesFromStore.length > 0
-      ? allCategoriesFromStore
-      : props.allCategories;
+  const allCategories = allCategoriesFromStore.length > 0 ? allCategoriesFromStore : props.allCategories;
 
-  const allQuestions =  allQuestionsFromStore.length > 0
-      ? allQuestionsFromStore
-      : props.allQuestions;
-
-     
+  const allQuestions = allQuestionsFromStore.length > 0 ? allQuestionsFromStore : props.allQuestions;
 
   return (
     <div className="row mb-3">
       <div className="col">
         <div className="d-grid gap-3">
           {allCategories.map((category) => {
-            
             let randomIndex = 0;
             let limit = 0;
             do {
@@ -47,24 +34,17 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
               randomIndex = Math.floor(Math.random() * allQuestions.length);
             } while (!allQuestions[randomIndex].categories.includes(category) && limit < 100);
 
-            const btnColor =
-              category === curentCategory ? "btn-primary" : "d-none";
+            const btnColor = category === curentCategory ? "btn-primary" : "d-none";
 
             return (
               <a
-                href={getFullUrl(
-                  createQuestionUrl(
-                    allQuestions[randomIndex],
-                    category
-                  )
-                )}
-       
+                href={getFullUrl(createQuestionUrl(allQuestions[randomIndex], category))}
                 key={category}
                 className={clsx("btn btn-lg", btnColor)}
                 role="button"
               >
-           Rozpocznij naukę testów na prawo jazdy <CurrentYear />,
-        {" "}  <strong>kategorii: {category.toUpperCase()}</strong>                 
+                Rozpocznij naukę testów na prawo jazdy <CurrentYear />,{" "}
+                <strong>kategorii: {category.toUpperCase()}</strong>
               </a>
             );
           })}

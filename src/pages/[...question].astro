@@ -1,10 +1,10 @@
 ---
 import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
-import apiData from "../data/api-data";
+ 
 import masterQuestionsJson from "../data/masterQuestions.json";
-import { createBigObjectDataForBuildTime, createQuestionUrl, getFullUrl, mapApiData } from "../utils/utils";
-import type { ApiDataItem, QuestionPageData } from "../store/types";
+import { createBigObjectDataFromApiDataForBuildTime, createQuestionUrl, getFullUrl  } from "../utils/utils";
+ 
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
@@ -14,6 +14,7 @@ import QuestionTable from "../reactComponents/QuestionTable";
 import GivenAnswers from "../reactComponents/GivenAnswers";
 import QuestionTextSerwerOnly from "../reactComponents/QuestionTextSerwerOnly";
 import { URLS } from "../urls/urls";
+import type { QuestionPageData } from "../store/types";
 
 interface ArrayToGeneratePages {
   params: {
@@ -25,16 +26,15 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const bigData = createBigObjectDataForBuildTime(apiData);
+  const { allCategories, allQuestions } = createBigObjectDataFromApiDataForBuildTime( );
   const explanations = masterQuestionsJson.allQuestions;
 
-  const { allCategories } = bigData;
+
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
-  // allCategories.forEach((category) => {
-  ["b"].forEach((category) => {
-    const arrayToGeneratePagesPerCategory = mapApiData(apiData as ApiDataItem[])
+  allCategories.forEach((category) => {
+    const arrayToGeneratePagesPerCategory = allQuestions
       .filter((q) => q.categories.includes(category))
       .map((q) => {
         const expls = explanations.find((e) => e.id === q.id)?.expl || [];
@@ -59,6 +59,9 @@ export async function getStaticPaths() {
     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
+
+
+
   const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map((page, index) => {
     const prevPage = arrayToGeneratePages[index - 1];
     const nextPage = arrayToGeneratePages[index + 1];
@@ -76,8 +79,17 @@ export async function getStaticPaths() {
     };
   });
 
+    console.log(1111111,"allCategories", allCategories.length);
+console.log(2222222, "allQuestions", allQuestions.length); 
+console.log(3333333, "explanations", explanations.length);
+console.log(4444444, "arrayToGeneratePages", arrayToGeneratePages.length);
+console.log(5555555, "arrayToGeneratePagesWithPrevNext", arrayToGeneratePagesWithPrevNext.length);
+
   return arrayToGeneratePagesWithPrevNext;
 }
+
+
+
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;

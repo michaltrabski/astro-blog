@@ -1,14 +1,15 @@
+import _apiData from "../data/api-data";
+
 import _ from "lodash";
 import slugify from "slugify";
-import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, DEPLOY_URL, KEY, LOCALHOST } from "../settings/settings";
+import { allQuestionsLimit, DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, DEPLOY_URL, KEY, limitedCategories, LOCALHOST, postsFromOldWordpressLimit, showLimitedCategories } from "../settings/settings";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
 import type { ApiDataItem, DataReceivedFromSessionStorage, Question } from "../store/types";
 
-export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
-  // LIMITS FOR DEVELOPMENT
-  const postsFromOldWordpressLimit = 5;
-  const allQuestionsLimit = 88899;
+
+export const createBigObjectDataFromApiDataForBuildTime = () => {
+const apiData = _apiData as ApiDataItem[];
 
   const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
   const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
@@ -26,7 +27,11 @@ export const createBigObjectDataForBuildTime = (apiData: ApiDataItem[]) => {
 
   const allQuestions: Question[] = mapApiData(apiData).slice(0, allQuestionsLimit);
 
-  return { allCategories, allQuestions, postsFromOldWordpresOrdered };
+  return {
+    allCategories: showLimitedCategories ? limitedCategories : allCategories,
+    allQuestions,
+    postsFromOldWordpresOrdered,
+  };
 };
 
 export const createQuestionUrl = (question: Question, category: string) => {

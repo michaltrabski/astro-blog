@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useStore } from "@nanostores/react";
 
 import { _isStoreReady, _mp3Items, _playMp3Item } from "../store/store";
@@ -8,7 +8,7 @@ import { getSlug } from "../utils/utils";
 import { adverticements } from "../settings/settings";
 import type { QuestionPageData } from "../store/types";
 
-// import SwipeableViews from "react-swipeable-views";
+import SwipeableViews from "react-swipeable-views";
 
 // import ErrorBoundary from "./ErrorBoundary";
 
@@ -21,6 +21,8 @@ export default function QuestionText(props: QuestionTextProps) {
 
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
 
+const [showSlider , setShowSlider] = useState(false);
+
   const slugText = getSlug(text);
 
   const canplay = _mp3Items.get()[slugText]?.canplay;
@@ -28,6 +30,10 @@ export default function QuestionText(props: QuestionTextProps) {
   const adverticementRef = useRef(adverticements[Math.floor(Math.random() * adverticements.length)]);
 
   useEffect(() => {
+
+    setTimeout(() => {
+      setShowSlider(true);
+    }, 2222);
     _addMp3Item({ id: slugText });
     // _addMp3Item({ id: getSlug(adverticementRef.current) });
   }, []);
@@ -35,6 +41,8 @@ export default function QuestionText(props: QuestionTextProps) {
   return (
     <div className="row mb-3">
       <div className="col">
+
+        {showSlider ? <SwipeableViews><h1>p1</h1><h1>p2</h1><h1>p3</h1></SwipeableViews> : "nie ma slidera"}
         {/* <ErrorBoundary> */}
         {/* <SwipeableViews
             enableMouseEvents

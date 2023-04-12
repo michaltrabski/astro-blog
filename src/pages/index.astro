@@ -2,18 +2,14 @@
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import CurrentYear from "../reactComponents/CurrentYear";
-import { createBigObjectDataForBuildTime } from "../utils/utils";
-// import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
-import apiData from "../data/api-data";
-// import { DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE } from "../settings/settings";
+import { createBigObjectDataFromApiDataForBuildTime } from "../utils/utils";
 import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
 import { map } from "nanostores";
 import type { WordpressPost } from "../types/types";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 
-const bigData = createBigObjectDataForBuildTime(apiData);
-const { allCategories, allQuestions, postsFromOldWordpresOrdered } = bigData;
+const { allCategories, allQuestions, postsFromOldWordpresOrdered } = createBigObjectDataFromApiDataForBuildTime();
 
 const currentYear = new Date().getFullYear();
 ---

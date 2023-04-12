@@ -1,10 +1,13 @@
 export const LOCALHOST = "http://127.0.0.1:3000";
 export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 
+// LIMITS FOR DEVELOPMENT
+export const limitedCategories = ["a", "b"];
+export const showLimitedCategories = true;
+export const postsFromOldWordpressLimit = 5;
+export const allQuestionsLimit = 66;
 
-
-export const MEDIA_HOST =
-  "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
+export const MEDIA_HOST = "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
 export const MEDIA_SIZE_SMALL = "size-100/";
 export const MEDIA_SIZE_MEDIUM = "size-320/";
 export const MEDIA_SIZE_LARGE = "size-720/";
