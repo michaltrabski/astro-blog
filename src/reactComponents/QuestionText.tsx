@@ -21,7 +21,7 @@ export default function QuestionText(props: QuestionTextProps) {
 
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
 
-const [showSlider , setShowSlider] = useState(false);
+  const [showSlider, setShowSlider] = useState(false);
 
   const slugText = getSlug(text);
 
@@ -30,10 +30,7 @@ const [showSlider , setShowSlider] = useState(false);
   const adverticementRef = useRef(adverticements[Math.floor(Math.random() * adverticements.length)]);
 
   useEffect(() => {
-
-    setTimeout(() => {
-      setShowSlider(true);
-    }, 2222);
+    setShowSlider(true);
     _addMp3Item({ id: slugText });
     // _addMp3Item({ id: getSlug(adverticementRef.current) });
   }, []);
@@ -41,10 +38,8 @@ const [showSlider , setShowSlider] = useState(false);
   return (
     <div className="row mb-3">
       <div className="col">
-
-        {showSlider ? <SwipeableViews><h1>p1</h1><h1>p2</h1><h1>p3</h1></SwipeableViews> : "nie ma slidera"}
-        {/* <ErrorBoundary> */}
-        {/* <SwipeableViews
+        {showSlider ? (
+          <SwipeableViews
             enableMouseEvents
             index={1}
             onChangeIndex={(index: number, indexLatest: number, meta: any) => {
@@ -56,26 +51,28 @@ const [showSlider , setShowSlider] = useState(false);
                 console.log("go to previous question", index, indexLatest, meta);
               }
             }}
-          > */}
-        {/* <div>
+          >
+            <div>
               <p>poprzednie pytanie</p>
-            </div> */}
+            </div>
 
-        <h1 className="display-6 text-start shadow-bottom">
-          {text}
+            <h1 className="display-6 text-start shadow-bottom">
+              {text}
 
-          {canplay && (
-            <button className="btn btn-light pr-2" onClick={() => _playMp3Item(slugText)}>
-              <span className="bi bi-play-circle"></span>
-            </button>
-          )}
-        </h1>
+              {canplay && (
+                <button className="btn btn-light pr-2" onClick={() => _playMp3Item(slugText)}>
+                  <span className="bi bi-play-circle"></span>
+                </button>
+              )}
+            </h1>
 
-        {/* <div>
+            <div>
               <p>Kolejne pytanie</p>
-            </div> */}
-        {/* </SwipeableViews> */}
-        {/* </ErrorBoundary> */}
+            </div>
+          </SwipeableViews>
+        ) : (
+          <h1 className="display-6 text-start shadow-bottom">{text}</h1>
+        )}
       </div>
     </div>
   );
