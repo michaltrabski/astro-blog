@@ -34,7 +34,7 @@ export default function Customization() {
         style={{
           top: "5rem",
           right: showCustomizationPanel ? "0.5rem" : "-2.7rem",
-          opacity: showCustomizationPanel ? "1" : "0.8",
+          opacity: showCustomizationPanel ? "1" : "0.7",
         }}
       >
         <button className="btn btn-primary btn-lg">
@@ -55,15 +55,14 @@ export default function Customization() {
           if (newThemeName === "niebieski") colorValue = "#137ea7";
 
           return (
-           
-              <button
+            <button
               key={newThemeName}
-                className="btn btn-lg m-3 shadow"
-                style={{ backgroundColor: colorValue }}
-                onClick={() => _changeThemeName(newThemeName)}
-              >
-                <span className="text-light">{newThemeName}</span></button>
-                  
+              className="btn btn-lg m-3 shadow"
+              style={{ backgroundColor: colorValue }}
+              onClick={() => _changeThemeName(newThemeName)}
+            >
+              <span className="text-light">{newThemeName}</span>
+            </button>
           );
         })}
       </div>

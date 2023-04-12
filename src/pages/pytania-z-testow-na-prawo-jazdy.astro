@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import QuestionsTable from "../reactComponents/QuestionsTable";
+import H1 from "../reactComponents/H1";
+
+
+const title = "Tabela z pytaniami z testów na prawo jazdy";
 ---
 
-<Layout>
+<Layout title={title}>
   <QuestionsTable client:load />
 </Layout>

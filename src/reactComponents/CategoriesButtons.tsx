@@ -1,22 +1,23 @@
-import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
-import { changeCategory, _currentCategory, _allCategories } from "../store/store";
+import { changeCategory, _currentCategory } from "../store/store";
+import { createBigObjectDataFromApiDataForBuildTime } from "../utils/utils";
 
 export default function CategoriesButtons() {
-  const categories = useStore(_allCategories);
   const curentCategory = useStore(_currentCategory);
+
+  const { allCategories } = createBigObjectDataFromApiDataForBuildTime();
 
   return (
     <>
-      {categories.map((category) => (
+      {allCategories.map((category) => (
         <button
           key={category}
           className={clsx("btn me-2", `btn-${category === curentCategory ? "primary" : "secondary"}`)}
           onClick={() => changeCategory(category)}
         >
-          {category}
+          {category.toUpperCase()}
         </button>
       ))}
     </>
