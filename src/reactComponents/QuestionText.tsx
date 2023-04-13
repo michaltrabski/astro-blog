@@ -53,7 +53,7 @@ export default function QuestionText(props: QuestionTextProps) {
               }
             }}
           >
-            <div className="h-100 d-flex justify-content-between align-items-center">
+            <div className="pe-3 h-100 d-flex justify-content-between align-items-center">
               <p className="h-100 d-flex align-items-center align-sefl-center small">
                 Nastąpi automatyczne przekierowanie do poprzedniego pytania.
               </p>
@@ -79,7 +79,7 @@ export default function QuestionText(props: QuestionTextProps) {
               )}
             </h1>
 
-            <div className="h-100 d-flex justify-content-between align-items-center">
+            <div className="ps-3 h-100 d-flex justify-content-between align-items-center">
               <a href={nextSlug} className="h-100 d-flex align-items-center btn btn-primary btn-lg align-sefl-center">
                 <i className="bi bi-arrow-right-short"></i>
               </a>

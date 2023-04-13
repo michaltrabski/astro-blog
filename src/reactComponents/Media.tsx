@@ -87,7 +87,7 @@ export default function Media(props: MediaProps) {
 
   return (
     <div className="MEDIA row">
-      <div className="col p-0">
+      <div className="col p-0 p-lg-3">
         {/* <p className="small position-absolute text-light bg-dark">
           isPlaying: {isPlaying ? "true" : "false"} <br />
           isEnded: {isEnded ? "true" : "false"} <br />
@@ -98,7 +98,7 @@ export default function Media(props: MediaProps) {
             {isVideo ? (
               <div className="position-relative" onClick={clickOnVideo}>
                 <video
-                  className="w-100 shadow border-dark"
+                  className="w-100 shadow border border-dark"
                   ref={videoRef}
                   src={mediaUrl}
                   // autoPlay={startVideoAutomaticaly}

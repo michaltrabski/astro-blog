@@ -10,3 +10,9 @@ todo:
 3. blog
 5. zapisywanie 1 odpowiedzi poprawnej na liście błędów
 6. losowanie pytania na on swip
+
+
+funkcje do zrobienia
+1. egzamin
+2. powiększenie obrazu po kliknięciu
+

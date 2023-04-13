@@ -31,6 +31,7 @@ const apiData = _apiData as ApiDataItem[];
     allCategories: showLimitedCategories ? limitedCategories : allCategories,
     allQuestions,
     postsFromOldWordpresOrdered,
+    postsFromOldWordpresOrdered50: postsFromOldWordpresOrdered.slice(0, 50),
   };
 };
 

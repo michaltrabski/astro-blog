@@ -6,6 +6,7 @@ import Mp3Player from "../reactComponents/Mp3Player";
 import RecalculateGivenAnswersCount from "../reactComponents/RecalculateGivenAnswersCount";
 import Customization from "../reactComponents/Customization";
 import Features from "../reactComponents/Features";
+import MyDrawer from "../reactComponents/MyDrawer";
 
 export interface Props {
   title: string;
@@ -17,6 +18,18 @@ const { title } = Astro.props as Props;
 <!DOCTYPE html>
 <html lang="pl-PL">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-B271WN0NSR"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-B271WN0NSR");
+    </script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,8 +73,7 @@ const { title } = Astro.props as Props;
     </script>
 
     <style is:global>
-      
-       p {
+      p {
         font-size: 1.25rem;
         font-weight: 300;
       }
@@ -80,7 +92,8 @@ const { title } = Astro.props as Props;
       </div>
     </main>
 
-    <Customization client:load />
+    <!-- <Customization client:load /> -->
+    <MyDrawer client:load />
 
     <Mp3Player client:load />
 

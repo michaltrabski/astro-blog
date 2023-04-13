@@ -12,7 +12,7 @@ import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import QuestionText from "../reactComponents/QuestionText";
 import QuestionTable from "../reactComponents/QuestionTable";
 import GivenAnswers from "../reactComponents/GivenAnswers";
-import QuestionTextSerwerOnly from "../reactComponents/QuestionTextSerwerOnly";
+import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 import { URLS } from "../urls/urls";
 import type { QuestionPageData } from "../store/types";
 
@@ -97,9 +97,7 @@ const currentYear = new Date().getFullYear();
   <div class="row">
     <div class="col-12 col-lg-6">
       <Media client:load text={text} media={media} size="large" showControls={true} />
-
-      <!-- <QuestionTextSerwerOnly client:load question={questionPageData} /> -->
-
+ 
       <QuestionText client:load question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
@@ -290,7 +288,29 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- RIGHT SIDEBAR  -->
-    <div class="col-12 col-lg-6 border">
+    <div class="col-12 col-lg-6">
+
+      <div class="row pb-3">
+        <div class="col">
+          <h2>Blog i artykuły:</h2>
+
+          <PostsFromOldWordpress />
+          <!-- <div class="text-start">
+            {
+              postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
+                <p>
+                  {index + 1}.{" "}
+                  <a href={post.slug} class="text-decoration-none">
+                    {post.title}
+                  </a>
+                </p>
+              ))
+            }
+          </div> -->
+        </div>
+      </div>
+
+
       <GivenAnswers client:load />
     </div>
   </div>

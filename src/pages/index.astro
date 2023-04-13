@@ -9,16 +9,17 @@ import { map } from "nanostores";
 import type { WordpressPost } from "../types/types";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
+import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 
-const { allCategories, allQuestions, postsFromOldWordpresOrdered } = createBigObjectDataFromApiDataForBuildTime();
+const { allCategories, allQuestions  } = createBigObjectDataFromApiDataForBuildTime();
 
 const currentYear = new Date().getFullYear();
 ---
 
 <Layout title={`Darmowe testy na prawo jazdy ${currentYear}, wszystkie kategorie prawa jazdy: A,B,C,D`}>
-  <div class="row pb-3  ">
-    <div class="col-12 col-lg-6">
-      <div class="row pb-3  ">
+  <div class="row pb-3">
+    <div class="LEFT MAIN col-12 col-lg-6">
+      <div class="row pb-3">
         <div class="col">
           <h1 class="display-3 fw-bold">
             Testy na prawo jazdy <CurrentYear client:load />
@@ -32,7 +33,7 @@ const currentYear = new Date().getFullYear();
 
       <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
 
-      <div class="row pb-3  ">
+      <div class="row pb-3">
         <p>
           <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
@@ -41,7 +42,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- ROW ROW  -->
-      <div class="row pb-3  ">
+      <div class="row pb-3">
         <p>
           Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:load /> roku.
         </p>
@@ -101,181 +102,17 @@ const currentYear = new Date().getFullYear();
           <Features client:load />
         </div>
       </div>
+    </div>
 
+    <div class="RIGHT SIDEBAR col-12 col-lg-6">
       <div class="row pb-3">
         <div class="col">
           <h2>Blog i artykuły:</h2>
-          <div class="text-start">
-            {
-              postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
-                <p>
-                  {index + 1}.{" "}
-                  <a href={post.slug} class="text-decoration-none">
-                    {post.title}
-                  </a>
-                </p>
-              ))
-            }
-          </div>
+
+          <PostsFromOldWordpress client:load />
+ 
         </div>
       </div>
-    </div>
-
-    <!-- RIGHT SIDEBAR  -->
-    <div class="col-12 col-lg-6">
-      <!-- <p>RIGHT SIDEBAR</p> -->
-
-      <!-- {
-        [
-          "AliceBlue",
-          "AntiqueWhite",
-          "Aqua",
-          "Aquamarine",
-          "Azure",
-          "Beige",
-          "Bisque",
-          "Black",
-          "BlanchedAlmond",
-          "Blue",
-          "BlueViolet",
-          "Brown",
-          "BurlyWood",
-          "CadetBlue",
-          "Chartreuse",
-          "Chocolate",
-          "Coral",
-          "CornflowerBlue",
-          "Cornsilk",
-          "Crimson",
-          "Cyan",
-          "DarkBlue",
-          "DarkCyan",
-          "DarkGoldenRod",
-          "DarkGray",
-          "DarkGrey",
-          "DarkGreen",
-          "DarkKhaki",
-          "DarkMagenta",
-          "DarkOliveGreen",
-          "DarkOrange",
-          "DarkOrchid",
-          "DarkRed",
-          "DarkSalmon",
-          "DarkSeaGreen",
-          "DarkSlateBlue",
-          "DarkSlateGray",
-          "DarkSlateGrey",
-          "DarkTurquoise",
-          "DarkViolet",
-          "DeepPink",
-          "DeepSkyBlue",
-          "DimGray",
-          "DimGrey",
-          "DodgerBlue",
-          "FireBrick",
-          "FloralWhite",
-          "ForestGreen",
-          "Fuchsia",
-          "Gainsboro",
-          "GhostWhite",
-          "Gold",
-          "GoldenRod",
-          "Gray",
-          "Grey",
-          "Green",
-          "GreenYellow",
-          "HoneyDew",
-          "HotPink",
-          "IndianRed",
-          "Indigo",
-          "Ivory",
-          "Khaki",
-          "Lavender",
-          "LavenderBlush",
-          "LawnGreen",
-          "LemonChiffon",
-          "LightBlue",
-          "LightCoral",
-          "LightCyan",
-          "LightGoldenRodYellow",
-          "LightGray",
-          "LightGrey",
-          "LightGreen",
-          "LightPink",
-          "LightSalmon",
-          "LightSeaGreen",
-          "LightSkyBlue",
-          "LightSlateGray",
-          "LightSlateGrey",
-          "LightSteelBlue",
-          "LightYellow",
-          "Lime",
-          "LimeGreen",
-          "Linen",
-          "Magenta",
-          "Maroon",
-          "MediumAquaMarine",
-          "MediumBlue",
-          "MediumOrchid",
-          "MediumPurple",
-          "MediumSeaGreen",
-          "MediumSlateBlue",
-          "MediumSpringGreen",
-          "MediumTurquoise",
-          "MediumVioletRed",
-          "MidnightBlue",
-          "MintCream",
-          "MistyRose",
-          "Moccasin",
-          "NavajoWhite",
-          "Navy",
-          "OldLace",
-          "Olive",
-          "OliveDrab",
-          "Orange",
-          "OrangeRed",
-          "Orchid",
-          "PaleGoldenRod",
-          "PaleGreen",
-          "PaleTurquoise",
-          "PaleVioletRed",
-          "PapayaWhip",
-          "PeachPuff",
-          "Peru",
-          "Pink",
-          "Plum",
-          "PowderBlue",
-          "Purple",
-          "RebeccaPurple",
-          "Red",
-          "RosyBrown",
-          "RoyalBlue",
-          "SaddleBrown",
-          "Salmon",
-          "SandyBrown",
-          "SeaGreen",
-          "SeaShell",
-          "Sienna",
-          "Silver",
-          "SkyBlue",
-          "SlateBlue",
-          "SlateGrey",
-          "Snow",
-          "SpringGreen",
-          "SteelBlue",
-          "Tan",
-          "Teal",
-          "Thistle",
-          "Tomato",
-          "Turquoise",
-          "Violet",
-          "Wheat",
-          "White",
-          "WhiteSmoke",
-          "Yellow",
-          "YellowGreen",
-        ].map((color, i ) => <div style={{backgroundColor: color}} class="m-3">{i+1} {color}</div>)
-      } -->
 
       <!-- <pre class="text-start">{JSON.stringify(bigData, null,2)}</pre> -->
     </div>
