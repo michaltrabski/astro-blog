@@ -73,9 +73,13 @@ export default function QuestionText(props: QuestionTextProps) {
               {text}
 
               {canplay && (
-                <button className="btn btn-light pr-2" onClick={() => _playMp3Item(questionTextAsSlug)}>
-                  <span className="bi bi-play-circle"></span>
-                </button>
+                  <span style={{cursor: "pointer"}} className="bi ps-1 small bi-play-circle"
+                  onClick={() => _playMp3Item(questionTextAsSlug)}
+                  ></span>
+           
+                // <button className="btn btn-light pr-2" onClick={() => _playMp3Item(questionTextAsSlug)}>
+                //   <span className="bi bi-play-circle"></span>
+                // </button>
               )}
             </h1>
 
