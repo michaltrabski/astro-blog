@@ -2,21 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import CurrentCategory from "../reactComponents/CurrentCategory";
+import H1 from "../reactComponents/H1";
+
+const title = "Kategorie prawa jazdy";
 ---
 
 <Layout title="Złe odpowiedzi">
-  <div class="row">
-    <div class="col">
-      <h1>Kategorie prawa jazdy</h1>
-    </div>
-  </div>
+  <H1>{title}</H1>
 
   <CategoriesButtons client:load />
 
   <div class="row mb-3">
     <div class="col">
       <h2>
-        Aktualnie ustawiona kategoria prawa jazdy do nauki to kategoria: <CurrentCategory client:load upperCase bold/>
+        Aktualnie ustawiona kategoria prawa jazdy do nauki to kategoria: <CurrentCategory client:load upperCase bold />
       </h2>
 
       <p>
@@ -48,7 +47,7 @@ import CurrentCategory from "../reactComponents/CurrentCategory";
       <p>
         Nie zwlekaj więc i wybierz kategorię prawa jazdy, którą chcesz się nauczyć. Nasza platforma pomoże Ci osiągnąć
         Twoje cele, zwiększyć swoją wiedzę i umiejętności, a przede wszystkim – zdać egzamin na prawo jazdy!
-      </p> 
+      </p>
     </div>
   </div>
 </Layout>

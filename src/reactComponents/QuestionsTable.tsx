@@ -29,34 +29,50 @@ export default function QuestionsTable() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log("searchValue", searchValue);
+    setSearchValue("");
+
+    // simulate that something is happening for better user experience
+    setTimeout(() => {
+      setSearchValue(searchValue);
+    }, 222);
   }
 
   return (
-    <div className="row mb-2">
+    <div className="row pb-3">
       <div className="col">
-        <h1>Wszystkie pytania z testów na prawo jazdy <CurrentYear /></h1>
+        <p>
+          <strong>
+            Wszystkie pytania z testów na prawo jazdy <CurrentYear />
+          </strong>
+        </p>
 
         <p>Aktualnie wybrana kategoria do nauki to: (kliknij poniższy przycisk by zmienić kategorię)</p>
 
         <CategoriesButtons />
 
-        {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre> */}
-        {/* <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
+        <form onSubmit={handleSubmit} className="pb-3 row gy-1 gx-1 align-items-center">
+          <div className="col-9">
+            <div className="form-floating ">
+              <input
+                type="text"
+                id="wpisz-szukana-fraze"
+                className="form-control"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                placeholder="Wpisz szukaną frazę"
+              />
+              <label htmlFor="wpisz-szukana-fraze">Wpisz szukaną frazę</label>
+            </div>
+          </div>
 
-        <form className="form-floating" onSubmit={handleSubmit}>
-          <div className="form-floating mb-3">
-            <input
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              type="text"
-              className="form-control"
-              id="floating-search-input"
-              placeholder="Wpisz szukaną frazę"
-            />
-            <label htmlFor="floating-search-input">Wpisz szukaną frazę</label>
+          <div className="col-3">
+            <button type="submit" className="btn btn-primary btn-lg w-100">
+              Szukaj
+            </button>
           </div>
         </form>
+        {/* <pre>{JSON.stringify(questionKeys, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify($questions[0], null, 2)}</pre> */}
 
         {searchValue !== "" && (
           <p className="text-start">
@@ -119,7 +135,7 @@ export default function QuestionsTable() {
                         if (questionKey === "media") {
                           return (
                             <div style={{ width: "300px" }}>
-                              <Media media={questionValue} showControls={true} startVideoAutomaticaly={false} /> 
+                              <Media media={questionValue} showControls={true} startVideoAutomaticaly={false} />
                             </div>
                           );
                         }

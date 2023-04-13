@@ -62,7 +62,14 @@ export default function QuestionText(props: QuestionTextProps) {
               </a>
             </div>
 
-            <h1 className="display-6 text-start shadow-bottom">
+            <h1
+              style={{
+                fontSize: "calc(1.3rem + 1.5vw)",
+                fontWeight: "400",
+                lineHeight: "1.2",
+              }}
+              className="text-start shadow-bottom"
+            >
               {text}
 
               {canplay && (
@@ -82,7 +89,16 @@ export default function QuestionText(props: QuestionTextProps) {
             </div>
           </SwipeableViews>
         ) : (
-          <h1 className="display-6 text-start shadow-bottom">{text}</h1>
+          <h1
+            style={{
+              fontSize: "calc(1.3rem + 1.5vw)",
+              fontWeight: "400",
+              lineHeight: "1.2",
+            }}
+            className="text-start shadow-bottom"
+          >
+            {text}
+          </h1>
         )}
       </div>
     </div>

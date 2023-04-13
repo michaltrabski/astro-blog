@@ -10,6 +10,7 @@ import { URLS } from "../urls/urls";
       <p>
         <a href="#" class="clear-session-storage text-decoration-none">Wyczyść dane sesji</a>
       </p>
+      <p class="screen-resolution"></p>
     </div>
 
     <div class="col-md-4">
@@ -50,9 +51,19 @@ import { URLS } from "../urls/urls";
 </style>
 
 <script>
-  const clearButton = document.querySelector(".clear-session-storage");
-  clearButton?.addEventListener("click", (e) => {
-    e.preventDefault();
-    sessionStorage.clear();
+  const clearButtons = document.querySelectorAll(".clear-session-storage");
+  clearButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.clear();
+    });
+  });
+
+  const screenResolutions = document.querySelectorAll(".screen-resolution");
+  const width = window.screen.width;
+  const height = window.screen.height;
+
+  screenResolutions.forEach((screenResolution) => {
+    screenResolution.innerHTML = `${width}x${height}`;
   });
 </script>

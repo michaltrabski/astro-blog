@@ -16,9 +16,9 @@ const currentYear = new Date().getFullYear();
 ---
 
 <Layout title={`Darmowe testy na prawo jazdy ${currentYear}, wszystkie kategorie prawa jazdy: A,B,C,D`}>
-  <div class="row mb-3">
+  <div class="row pb-3  ">
     <div class="col-12 col-lg-6">
-      <div class="row mb-3">
+      <div class="row pb-3  ">
         <div class="col">
           <h1 class="display-3 fw-bold">
             Testy na prawo jazdy <CurrentYear client:load />
@@ -32,7 +32,7 @@ const currentYear = new Date().getFullYear();
 
       <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
 
-      <div class="row mb-3">
+      <div class="row pb-3  ">
         <p>
           <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
@@ -41,13 +41,13 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- ROW ROW  -->
-      <div class="row mb-3">
+      <div class="row pb-3  ">
         <p>
           Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:load /> roku.
         </p>
       </div>
 
-      <div class="row mb-3">
+      <div class="row pb-3">
         <div class="col">
           <h2 class="display-5">
             <span>Największa darmowa baza</span>
@@ -70,7 +70,7 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row pb-3">
         <div class="col">
           <p>
             <strong>
@@ -96,13 +96,13 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row pb-3">
         <div class="col">
           <Features client:load />
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row pb-3">
         <div class="col">
           <h2>Blog i artykuły:</h2>
           <div class="text-start">

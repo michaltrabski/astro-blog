@@ -10,7 +10,7 @@ export default function CategoriesButtons() {
   const { allCategories } = createBigObjectDataFromApiDataForBuildTime();
 
   return (
-    <>
+    <div className="pb-3">
       {allCategories.map((category) => (
         <button
           key={category}
@@ -20,6 +20,6 @@ export default function CategoriesButtons() {
           {category.toUpperCase()}
         </button>
       ))}
-    </>
+    </div>
   );
 }
