@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
-import { MEDIA_HOST, MEDIA_SIZE_LARGE } from "../settings/settings";
+import { MEDIA_HOST, MEDIA_SIZE  } from "../settings/settings";
 import { _questions, _currentCategory, _allCategories, _givenAnswers } from "../store/store";
 import type { Question } from "../store/types";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
@@ -67,7 +67,7 @@ export default function UserAnswers(props: UserAnswersProps) {
       <div className="text-start">
         {questionsToShow.slice(0, limit).map((question, index) => {
           const mediaUrl =
-            question.media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE_LARGE + question.media;
+            question.media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE["medium"] + question.media;
           const isVideo = question.media.endsWith(".mp4");
 
           const givenAnswerToThisQuestion = givenAnswers[question.id];

@@ -8,9 +8,12 @@ export const postsFromOldWordpressLimit = 123456;
 export const allQuestionsLimit = 123456;
 
 export const MEDIA_HOST = "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
-export const MEDIA_SIZE_SMALL = "size-100/";
-export const MEDIA_SIZE_MEDIUM = "size-320/";
-export const MEDIA_SIZE_LARGE = "size-720/";
+ 
+export const MEDIA_SIZE = {
+  small: "size-100/",
+  medium: "size-320/",
+  large: "size-720/",
+} as const;
 
 export const MP3_DIR = "mp3/";
 export const MP3_EXTENSION = ".mp3";

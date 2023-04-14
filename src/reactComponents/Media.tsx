@@ -1,57 +1,33 @@
 import React, { useEffect, useState } from "react";
 
-import { MEDIA_HOST, MEDIA_SIZE_LARGE, MEDIA_SIZE_MEDIUM, MEDIA_SIZE_SMALL } from "../settings/settings";
+import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
 
 interface MediaProps {
   media: string;
   text?: string;
-  showControls?: boolean;
-  startVideoAutomaticaly?: boolean;
   size?: "small" | "medium" | "large";
 }
 
 export default function Media(props: MediaProps) {
-  const { text, media, showControls = false, startVideoAutomaticaly = true, size = "small" } = props;
+  const { text, media, size = "small" } = props;
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isEnded, setIsEnded] = useState(false);
-  const [hideControlsOnceWhenItStartsPlaying, setHideControlsOnceWhenItStartsPlaying] = useState(false);
   const [showPlayIcon, setShowPlayIcon] = useState(true);
 
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const pngRef = React.useRef<HTMLImageElement | null>(null);
 
-  const mediaSize =
-    size === "small"
-      ? MEDIA_SIZE_SMALL
-      : size === "medium"
-      ? MEDIA_SIZE_MEDIUM
-      : size === "large"
-      ? MEDIA_SIZE_LARGE
-      : MEDIA_SIZE_SMALL;
-
-  const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + mediaSize + "" + media;
+  const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE[size] + media;
   const isVideo = media.endsWith(".mp4");
 
   function playCallback() {
-    console.log("video is playing", mediaUrl);
-    setIsPlaying(true);
-    setIsEnded(false);
-    setHideControlsOnceWhenItStartsPlaying(true);
     setShowPlayIcon(false);
   }
 
   function pauseCallback() {
-    console.log("video is paused", mediaUrl);
-    setIsPlaying(false);
     setShowPlayIcon(true);
   }
 
   function endedCallback() {
-    console.log("video ended", mediaUrl);
-    setIsPlaying(false);
-    setIsEnded(true);
-    setHideControlsOnceWhenItStartsPlaying(true);
     setShowPlayIcon(true);
   }
 
@@ -97,13 +73,7 @@ export default function Media(props: MediaProps) {
           <div style={{ scale: "1.0" }}>
             {isVideo ? (
               <div className="position-relative" onClick={clickOnVideo}>
-                <video
-                  className="w-100 shadow border border-dark"
-                  ref={videoRef}
-                  src={mediaUrl}
-                  // autoPlay={startVideoAutomaticaly}
-                  // controls={showControls && !hideControlsOnceWhenItStartsPlaying}
-                >
+                <video className="w-100 shadow border border-dark" ref={videoRef} src={mediaUrl}>
                   <p>{text || media}</p>
                 </video>
                 <div className={`position-absolute ${showPlayIcon || "d-none"}`} style={{ top: "50%", left: "50%" }}>
