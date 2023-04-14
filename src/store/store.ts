@@ -17,7 +17,8 @@ import type {
   QuestionId,
 } from "./types";
 
-export const _isStoreReady = atom(false);
+export const _nextQuestionUrl = atom<string | null>(null);
+export const _prevQuestionUrl = atom<string | null>(null);
 export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
@@ -27,9 +28,13 @@ export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAn
 export const _correctGivenAnswersCount = atom(0);
 export const _wrongGivenAnswersCount = atom(0);
 
-export function _setStoreReady() {
-  _isStoreReady.set(true);
-}
+export const _changeNextQuestionUrl = (url: string) => {
+  _nextQuestionUrl.set(url);
+};
+
+export const _changePrevQuestionUrl = (url: string) => {
+  _prevQuestionUrl.set(url);
+};
 
 export function _changeThemeName(themeName: string) {
   _themeName.set(themeName);
@@ -39,12 +44,19 @@ export function _changeThemeName(themeName: string) {
 
 export function _recalculateGivenAnswersCount() {
   const givenAnswers = _givenAnswers.get();
-  const correctGivenAnswersCount = Object.values(givenAnswers).filter(
-    (answer) => answer.clickedAnswer === answer.correctAnswerIs
-  ).length;
-  const wrongGivenAnswersCount = Object.values(givenAnswers).filter(
-    (answer) => answer.clickedAnswer !== answer.correctAnswerIs
-  ).length;
+  const givenAnswersArray = Object.values(givenAnswers);
+
+  let correctGivenAnswersCount = 0;
+  let wrongGivenAnswersCount = 0;
+
+  givenAnswersArray.forEach((answer) => {
+    if (answer.clickedAnswer === answer.correctAnswerIs) {
+      correctGivenAnswersCount++;
+    }
+    if (answer.clickedAnswer !== answer.correctAnswerIs) {
+      wrongGivenAnswersCount++;
+    }
+  });
 
   _correctGivenAnswersCount.set(correctGivenAnswersCount);
   _wrongGivenAnswersCount.set(wrongGivenAnswersCount);

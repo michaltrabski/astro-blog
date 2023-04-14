@@ -2,14 +2,74 @@ import _apiData from "../data/api-data";
 
 import _ from "lodash";
 import slugify from "slugify";
-import { allQuestionsLimit, DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE, DEPLOY_URL, KEY, limitedCategories, LOCALHOST, postsFromOldWordpressLimit, showLimitedCategories } from "../settings/settings";
+import {
+  allQuestionsLimit,
+  DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
+  DEPLOY_URL,
+  KEY,
+  limitedCategories,
+  LOCALHOST,
+  postsFromOldWordpressLimit,
+  showLimitedCategories,
+} from "../settings/settings";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
-import type { ApiDataItem, DataReceivedFromSessionStorage, Question } from "../store/types";
+import type { ApiDataItem, DataReceivedFromSessionStorage, GivenAnswer, Question } from "../store/types";
+import { _changeNextQuestionUrl, _changePrevQuestionUrl } from "../store/store";
+import { isUnitless } from "@mui/material/styles/cssUtils";
 
+export function randomPrevNextQuestion(
+  questions: Question[],
+  givenAnswers: Record<string, GivenAnswer>,
+  currentCategory: string
+): Promise<{ nextQuestion: Question; prevQuestion: Question } | null> {
+  return new Promise((resolve) => {
+    if (questions.length === 0) {
+      resolve(null);
+      return null;
+    }
+
+    let randomIndex = 0;
+    let randomQuestionSupportCurrentCategory = false;
+    let isQuestionInGivenAnswers = false;
+    let counter = 0;
+
+    // let sss = 0;
+    // do {
+    //   sss++;
+    // } while (sss < 3 * 1000 * 1000* 1000)
+
+    // console.log(sss);
+
+    do {
+      counter++;
+      randomIndex = Math.floor(Math.random() * questions.length);
+      const randomQuestion = questions[randomIndex];
+
+      randomQuestionSupportCurrentCategory = randomQuestion.categories.includes(currentCategory);
+      isQuestionInGivenAnswers = !!givenAnswers[randomQuestion.id];
+
+      console.log(
+        counter,
+        randomQuestionSupportCurrentCategory,
+        isQuestionInGivenAnswers,
+        givenAnswers,
+        givenAnswers[randomQuestion.id]
+      );
+    } while (counter < 100 && !randomQuestionSupportCurrentCategory && !isQuestionInGivenAnswers);
+
+    const nextQuestion = questions[randomIndex];
+    const prevQuestion = nextQuestion;
+
+    _changeNextQuestionUrl(getFullUrl(createQuestionUrl(nextQuestion, currentCategory)));
+    _changePrevQuestionUrl(getFullUrl(createQuestionUrl(prevQuestion, currentCategory)));
+
+    resolve({ nextQuestion, prevQuestion });
+  });
+}
 
 export const createBigObjectDataFromApiDataForBuildTime = () => {
-const apiData = _apiData as ApiDataItem[];
+  const apiData = _apiData as ApiDataItem[];
 
   const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
   const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(

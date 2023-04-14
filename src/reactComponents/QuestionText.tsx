@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import SwipeableViews from "react-swipeable-views";
 
-import { _isStoreReady, _mp3Items, _playMp3Item } from "../store/store";
+import { _mp3Items, _nextQuestionUrl, _playMp3Item, _prevQuestionUrl } from "../store/store";
 import { _addMp3Item } from "../store/store";
 import { getSlug } from "../utils/utils";
 import type { QuestionPageData } from "../store/types";
@@ -12,9 +12,14 @@ interface QuestionTextProps {
 }
 
 export default function QuestionText(props: QuestionTextProps) {
-  const { text, prevSlug, nextSlug } = props.question;
+  const { text, prevSlug: prevSlugFromProps, nextSlug: nextSlugFromProps } = props.question;
 
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
+  const prevQuestionUrl = useStore(_prevQuestionUrl);
+  const nextQuestionUrl = useStore(_nextQuestionUrl);
+
+  const prevSlug = prevQuestionUrl || prevSlugFromProps;
+  const nextSlug = nextQuestionUrl || nextSlugFromProps;
 
   const [showSlider, setShowSlider] = useState(false);
 
@@ -73,10 +78,12 @@ export default function QuestionText(props: QuestionTextProps) {
               {text}
 
               {canplay && (
-                  <span style={{cursor: "pointer"}} className="bi ps-1 small bi-play-circle"
+                <span
+                  style={{ cursor: "pointer" }}
+                  className="bi ps-1 small bi-play-circle"
                   onClick={() => _playMp3Item(questionTextAsSlug)}
-                  ></span>
-           
+                ></span>
+
                 // <button className="btn btn-light pr-2" onClick={() => _playMp3Item(questionTextAsSlug)}>
                 //   <span className="bi bi-play-circle"></span>
                 // </button>
