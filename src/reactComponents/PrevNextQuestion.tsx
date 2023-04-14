@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 
 import { _questions, _currentCategory, _givenAnswers, _nextQuestionUrl, _prevQuestionUrl } from "../store/store";
-import { createQuestionUrl, getFullUrl, randomPrevNextQuestion } from "../utils/utils";
+import {  randomPrevNextQuestion } from "../utils/utils";
 import type { Question, QuestionPageData } from "../store/types";
 
 interface PrevNextQuestionProps {
