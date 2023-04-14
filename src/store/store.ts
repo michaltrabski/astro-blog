@@ -73,12 +73,19 @@ function initialGivenAnswers() {
 }
 
 export function _addAnswer(questionId: QuestionId, answer: GivenAnswer) {
-  const existingEntry = _givenAnswers.get()[questionId];
+  const existingGivenAnswer = _givenAnswers.get()[questionId];
 
-  if (existingEntry) {
-    _givenAnswers.setKey(questionId, answer);
+  if (existingGivenAnswer) {
+    _givenAnswers.setKey(questionId, {
+      ...existingGivenAnswer,
+      ...answer,
+    });
   } else {
-    _givenAnswers.setKey(questionId, answer);
+    _givenAnswers.setKey(questionId, {
+      ...answer,
+      firstGivenAnswer: answer.clickedAnswer,
+      firstGivenAnswerTimestamp: Date.now(),
+    });
   }
 
   _recalculateGivenAnswersCount();

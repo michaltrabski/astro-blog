@@ -28,6 +28,7 @@
     "astro": "^2.2.1",
     "clsx": "^1.2.1",
     "convert-excel-to-json": "^1.7.0",
+    "dayjs": "^1.11.7",
     "firebase": "^9.16.0",
     "fs-extra": "^11.1.0",
     "lodash": "^4.17.21",

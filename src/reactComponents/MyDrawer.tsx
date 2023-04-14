@@ -1,5 +1,5 @@
-import { Fragment, KeyboardEvent, MouseEvent, useState } from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import { Fragment, KeyboardEvent, MouseEvent, useEffect, useState } from "react";
+import Drawer from "@mui/material/Drawer";
 
 import Customization from "./Customization";
 
@@ -13,9 +13,15 @@ export default function MyDrawer() {
     right: false,
   });
 
+  // this prevent button from showing before js is loaded and respond to click
+  const [isButtoReady, setIsButtonReady] = useState(false);
+
+  useEffect(() => {
+    setIsButtonReady(true);
+  }, []);
+
   const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
-      event &&
       event.type === "keydown" &&
       ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
     ) {
@@ -31,7 +37,8 @@ export default function MyDrawer() {
         style={{
           top: "8rem",
           right: "0",
-          opacity: "0.7",
+          opacity: isButtoReady ? "0.7": "0",
+          transition: "opacity 0.5s ease-in-out",
         }}
         className="position-absolute btn btn-primary btn-lg"
         onClick={toggleDrawer("left", true)}
@@ -42,14 +49,9 @@ export default function MyDrawer() {
       {(["left", "right", "top", "bottom"] as const).map((anchor) => (
         <Fragment key={anchor}>
           {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onOpen={toggleDrawer(anchor, true)}
-            onClose={toggleDrawer(anchor, false)}
-          >
+          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             <Customization />
-          </SwipeableDrawer>
+          </Drawer>
         </Fragment>
       ))}
     </div>

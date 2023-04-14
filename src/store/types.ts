@@ -22,6 +22,8 @@ export interface QuestionReceivedFromEndpoint {
     allCategories: string[];
   }
   
+  export type PossibleAnswers = AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
+  
   export interface ApiDataItem {
     id: string;
     t: string;
@@ -29,7 +31,7 @@ export interface QuestionReceivedFromEndpoint {
     a?: string;
     b?: string;
     c?: string;
-    r: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
+    r: PossibleAnswers;
     cats: string[];
     s: number;
   }
@@ -50,7 +52,7 @@ export type AnswerN = "n";
     a: string;
     b: string;
     c: string;
-    correctAnswer: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
+    correctAnswer: PossibleAnswers;
     categories: string[];
     score: number;
     isVideo: boolean;
@@ -77,8 +79,10 @@ export type AnswerN = "n";
 
 export interface GivenAnswer {
   questionId: QuestionId;
-  clickedAnswer: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
-  correctAnswerIs: AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
+  clickedAnswer: PossibleAnswers;
+  correctAnswerIs: PossibleAnswers;
+  firstGivenAnswer?: PossibleAnswers;
+  firstGivenAnswerTimestamp?: number;
 }
 
  

@@ -1,10 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
-import { MEDIA_HOST, MEDIA_SIZE_SMALL } from "../settings/settings";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
+import { MEDIA_HOST, MEDIA_SIZE_LARGE } from "../settings/settings";
 import { _questions, _currentCategory, _allCategories, _givenAnswers } from "../store/store";
 import type { Question } from "../store/types";
 import { createQuestionUrl, getFullUrl } from "../utils/utils";
+
+dayjs.extend(relativeTime);
 
 interface UserAnswersProps {
   whatQuestionsToShow: "show-answers-that-user-clicked-wrong-answer" | "show-answers-that-user-clicked-correct-answer";
@@ -62,8 +66,14 @@ export default function UserAnswers(props: UserAnswersProps) {
 
       <div className="text-start">
         {questionsToShow.slice(0, limit).map((question, index) => {
-          const mediaUrl = question.media === "placeholder.png" ? "/placeholder.png" :  MEDIA_HOST + MEDIA_SIZE_SMALL + question.media;
+          const mediaUrl =
+            question.media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE_LARGE + question.media;
           const isVideo = question.media.endsWith(".mp4");
+
+          const givenAnswerToThisQuestion = givenAnswers[question.id];
+          const firstGivenAnswerTimestamp = givenAnswerToThisQuestion?.firstGivenAnswerTimestamp;
+
+          const timeFromNow = firstGivenAnswerTimestamp ? dayjs(firstGivenAnswerTimestamp).fromNow(true) : null;
 
           return (
             <div key={question.id}>
@@ -71,21 +81,20 @@ export default function UserAnswers(props: UserAnswersProps) {
                 <div className="row g-0">
                   <div className="col-12">
                     <div className="card-body">
-                      <p className="cart-title">
-                        <strong>{index + 1}. </strong>
-                      </p>
-                
                       <div>
                         {isVideo ? (
-                          <video src={mediaUrl}></video>
+                          <video className="w-100" src={mediaUrl} controls></video>
                         ) : (
-                          <img src={mediaUrl} className="img-fluid" alt={question.text} />
+                          <img className="w-100 img-fluid" src={mediaUrl} alt={question.text} />
                         )}
                       </div>
 
-                      <p className="card-text">{question.text}</p>
                       <p className="card-text">
-                        <small className="text-muted">Błędnej odpowiedzi udzieliłeś 7 dni temu.</small>
+                        <strong>{index + 1}. </strong>
+                        {question.text}
+                      </p>
+                      <p className="card-text">
+                        <small className="text-muted">Błędnej odpowiedzi udzieliłeś ({timeFromNow || "?"}) temu.</small>
                       </p>
                       <div>
                         <a
@@ -103,10 +112,14 @@ export default function UserAnswers(props: UserAnswersProps) {
           );
         })}
 
-        <div className="pb-3">  
-          <button className="btn btn-lg btn-primary w-100"
-            onClick={() => setLimit(limit => limit + 10)}
-          >Pokaż więcej</button>
+        <div className="pb-3">
+          {limit >= count ? (
+            <p className="text-center">To już wszystkie {count} pytań.</p>
+          ) : (
+            <button className="btn btn-lg btn-primary w-100" onClick={() => setLimit((limit) => limit + 10)}>
+              Pokaż więcej
+            </button>
+          )}
         </div>
       </div>
 
