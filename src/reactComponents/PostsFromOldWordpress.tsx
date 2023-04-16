@@ -1,4 +1,4 @@
-import { createBigObjectDataFromApiDataForBuildTime } from "../utils/utils";
+import { createBigObjectDataFromApiDataForBuildTime, getFullUrl } from "../utils/utils";
 
 export default function PostsFromOldWordpress() {
   const { postsFromOldWordpresOrdered50 } = createBigObjectDataFromApiDataForBuildTime();
@@ -8,7 +8,7 @@ export default function PostsFromOldWordpress() {
       {postsFromOldWordpresOrdered50.map((post, index) => (
         <p>
           {index + 1}.{" "}
-          <a href={post.slug} className="text-decoration-none">
+          <a href={getFullUrl(post.slug)} className="text-decoration-none">
             {post.title}
           </a>
         </p>
