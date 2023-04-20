@@ -1,6 +1,12 @@
 ---
 import CurrentYear from "../reactComponents/CurrentYear";
 import { URLS } from "../urls/urls";
+
+export interface FooterProps {
+  title: string;
+}
+
+const { title } = Astro.props as FooterProps;
 ---
 
 <footer class="bg-dark text-light text-center p-3">
@@ -11,6 +17,7 @@ import { URLS } from "../urls/urls";
         <a href="#" class="clear-session-storage text-decoration-none">Wyczyść dane sesji</a>
       </p>
       <p class="screen-resolution"></p>
+     
     </div>
 
     <div class="col-md-4">
@@ -41,7 +48,9 @@ import { URLS } from "../urls/urls";
         <li class="list-inline-item"><a href="#"><i class="bi bi-youtube"></i></a></li>
       </ul>
     </div>
-  </div><p><span>© Testy na prawo jazdy <CurrentYear client:load /></span></p>
+  </div>
+  <p>Tytuł strony: {title}</p>
+  <p>© Testy na prawo jazdy <CurrentYear client:load /></p>
 </footer>
 
 <style>

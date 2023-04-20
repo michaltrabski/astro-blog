@@ -1,10 +1,10 @@
 ---
 import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
- 
+
 import masterQuestionsJson from "../data/masterQuestions.json";
-import { createBigObjectDataFromApiDataForBuildTime, createQuestionUrl, getFullUrl  } from "../utils/utils";
- 
+import { createBigObjectDataFromApiDataForBuildTime, createQuestionUrl, getFullUrl } from "../utils/utils";
+
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
 import Media from "../reactComponents/Media";
@@ -13,6 +13,7 @@ import QuestionText from "../reactComponents/QuestionText";
 import QuestionTable from "../reactComponents/QuestionTable";
 import GivenAnswers from "../reactComponents/GivenAnswers";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
+import Modal from "../reactComponents/Modal";
 import { URLS } from "../urls/urls";
 import type { QuestionPageData } from "../store/types";
 
@@ -26,10 +27,8 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const { allCategories, allQuestions } = createBigObjectDataFromApiDataForBuildTime( );
+  const { allCategories, allQuestions } = createBigObjectDataFromApiDataForBuildTime();
   const explanations = masterQuestionsJson.allQuestions;
-
-
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
 
@@ -59,9 +58,6 @@ export async function getStaticPaths() {
     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
-
-
-
   const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map((page, index) => {
     const prevPage = arrayToGeneratePages[index - 1];
     const nextPage = arrayToGeneratePages[index + 1];
@@ -79,12 +75,8 @@ export async function getStaticPaths() {
     };
   });
 
- 
   return arrayToGeneratePagesWithPrevNext;
 }
-
-
-
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
@@ -96,8 +88,8 @@ const currentYear = new Date().getFullYear();
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <Media client:load text={text} media={media} size="large" showControls={true} />
- 
+      <Media client:load text={text} media={media} size="large" />
+
       <QuestionText client:load question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
@@ -115,10 +107,7 @@ const currentYear = new Date().getFullYear();
             {
               colSize: 6,
               label: (
-                <span style={{ cursor: "pointer" }}>
-                  zgłoś błąd
-                  <i class="bi bi-flag" />
-                </span>
+                <Modal client:load openModalText="zgłoś błąd" openModalIcon="bi bi-flag" modalTitle="zgłoś błąd" />
               ),
             },
           ].map(({ label, colSize }) => (
@@ -289,7 +278,6 @@ const currentYear = new Date().getFullYear();
 
     <!-- RIGHT SIDEBAR  -->
     <div class="col-12 col-lg-6">
-
       <div class="row pb-3">
         <div class="col">
           <h2>Blog i artykuły:</h2>
@@ -309,7 +297,6 @@ const currentYear = new Date().getFullYear();
           </div> -->
         </div>
       </div>
-
 
       <GivenAnswers client:load />
     </div>

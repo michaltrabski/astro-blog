@@ -16,7 +16,31 @@ import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
 import type { ApiDataItem, DataReceivedFromSessionStorage, GivenAnswer, Question } from "../store/types";
 import { _changeNextQuestionUrl, _changePrevQuestionUrl } from "../store/store";
-import { isUnitless } from "@mui/material/styles/cssUtils";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+export async function signIn(auth: any) {
+
+  return signInWithEmailAndPassword(auth, "michal.trabski+4@gmail.com", "123123")
+
+  //   .then((userCredential: any) => {
+  //     // Signed in
+
+  //     console.log(111111111111111111, "userCredential", userCredential);
+
+  //     const user = userCredential.user;
+  //     const uid = user?.uid;
+
+  //     return uid;
+  //   })
+  //   .catch((error: any) => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+
+  //     return errorMessage;
+  //   });
+
+  // return null;
+}
 
 export function randomPrevNextQuestion(
   questions: Question[],

@@ -40,7 +40,7 @@ export default function MyDrawer() {
           opacity: isButtoReady ? "0.7": "0",
           transition: "opacity 0.5s ease-in-out",
         }}
-        className="position-absolute btn btn-primary btn-lg"
+        className="position-absolute btn btn-primary btn-lg rounded-end-0 pe-1"
         onClick={toggleDrawer("left", true)}
       >
         <i className={`bi bi-${state.right ? "x-lg" : "sliders2"}`}></i>

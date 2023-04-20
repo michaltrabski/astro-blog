@@ -72,18 +72,23 @@ function initialGivenAnswers() {
   }
 }
 
-export function _addAnswer(questionId: QuestionId, answer: GivenAnswer) {
+export function _addAnswer(questionId: QuestionId, newGivenAnswer: GivenAnswer) {
   const existingGivenAnswer = _givenAnswers.get()[questionId];
+
+  const answerWithExtraData: GivenAnswer = {
+    ...newGivenAnswer,
+    timestamp: Date.now(),
+  };
 
   if (existingGivenAnswer) {
     _givenAnswers.setKey(questionId, {
       ...existingGivenAnswer,
-      ...answer,
+      ...answerWithExtraData,
     });
   } else {
     _givenAnswers.setKey(questionId, {
-      ...answer,
-      firstGivenAnswer: answer.clickedAnswer,
+      ...answerWithExtraData,
+      firstGivenAnswer: newGivenAnswer.clickedAnswer,
       firstGivenAnswerTimestamp: Date.now(),
     });
   }
