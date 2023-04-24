@@ -1,5 +1,6 @@
 export const LOCALHOST = "http://127.0.0.1:3000";
-export const DEPLOY_URL = "https://poznaj-testy.pl";
+// export const DEPLOY_URL = "https://poznaj-testy.pl";
+export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 
 // LIMITS FOR DEVELOPMENT
 export const limitedCategories = ["b"]; // ["a", "b", "c"];
