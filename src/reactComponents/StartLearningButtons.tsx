@@ -18,9 +18,15 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
 
   const curentCategory = useStore(_currentCategory);
 
-  const allCategories = allCategoriesFromStore.length > 0 ? allCategoriesFromStore : props.allCategories;
+  const allCategories =
+    allCategoriesFromStore.length > 0
+      ? allCategoriesFromStore
+      : props.allCategories;
 
-  const allQuestions = allQuestionsFromStore.length > 0 ? allQuestionsFromStore : props.allQuestions;
+  const allQuestions =
+    allQuestionsFromStore.length > 0
+      ? allQuestionsFromStore
+      : props.allQuestions;
 
   return (
     <div className="row mb-3">
@@ -32,13 +38,19 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
             do {
               limit++;
               randomIndex = Math.floor(Math.random() * allQuestions.length);
-            } while (!allQuestions[randomIndex].categories.includes(category) && limit < 100);
+            } while (
+              !allQuestions[randomIndex].categories.includes(category) &&
+              limit < 100
+            );
 
-            const btnColor = category === curentCategory ? "btn-primary" : "d-none";
+            const btnColor =
+              category === curentCategory ? "btn-primary" : "d-none";
 
             return (
               <a
-                href={getFullUrl(createQuestionUrl(allQuestions[randomIndex], category))}
+                href={getFullUrl(
+                  createQuestionUrl(allQuestions[randomIndex], category)
+                )}
                 key={category}
                 className={clsx("btn btn-lg", btnColor)}
                 role="button"

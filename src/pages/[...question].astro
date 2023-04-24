@@ -3,7 +3,11 @@ import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
 
 import masterQuestionsJson from "../data/masterQuestions.json";
-import { createBigObjectDataFromApiDataForBuildTime, createQuestionUrl, getFullUrl } from "../utils/utils";
+import {
+  createBigObjectDataFromApiDataForBuildTime,
+  createQuestionUrl,
+  getFullUrl,
+} from "../utils/utils";
 
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
@@ -28,7 +32,8 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const { allCategories, allQuestions } = createBigObjectDataFromApiDataForBuildTime();
+  const { allCategories, allQuestions } =
+    createBigObjectDataFromApiDataForBuildTime();
   const explanations = masterQuestionsJson.allQuestions;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
@@ -59,22 +64,24 @@ export async function getStaticPaths() {
     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
   });
 
-  const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map((page, index) => {
-    const prevPage = arrayToGeneratePages[index - 1];
-    const nextPage = arrayToGeneratePages[index + 1];
+  const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map(
+    (page, index) => {
+      const prevPage = arrayToGeneratePages[index - 1];
+      const nextPage = arrayToGeneratePages[index + 1];
 
-    return {
-      ...page,
-      props: {
-        ...page.props,
-        questionPageData: {
-          ...page.props.questionPageData,
-          prevSlug: prevPage ? getFullUrl(prevPage.params.question) : null,
-          nextSlug: nextPage ? getFullUrl(nextPage.params.question) : null,
+      return {
+        ...page,
+        props: {
+          ...page.props,
+          questionPageData: {
+            ...page.props.questionPageData,
+            prevSlug: prevPage ? getFullUrl(prevPage.params.question) : null,
+            nextSlug: nextPage ? getFullUrl(nextPage.params.question) : null,
+          },
         },
-      },
-    };
-  });
+      };
+    }
+  );
 
   return arrayToGeneratePagesWithPrevNext;
 }
@@ -83,7 +90,10 @@ const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
 const { text, category, score, media, expls, lows } = questionPageData;
 
-const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE.large + media;
+const mediaUrl =
+  media === "placeholder.png"
+    ? "/placeholder.png"
+    : MEDIA_HOST + MEDIA_SIZE.large + media;
 const isVideo = mediaUrl.includes(".mp4");
 
 const currentYear = new Date().getFullYear();
@@ -97,23 +107,44 @@ const currentYear = new Date().getFullYear();
         <div class="col p-0 p-lg-3">
           {
             isVideo ? (
-              <div class="position-relative">
-      
-                <video class="w-100 shadow border border-dark" src={mediaUrl} controls autoplay>
+              <div class="__video-wrapper position-relative">
+                <video
+                  style={{ cursor: "pointer" }}
+                  class="w-100 shadow border border-dark"
+                  src={mediaUrl}
+                  controls
+                  autoplay
+                >
                   <p>{text || media}</p>
                 </video>
+                <div
+                  class="position-absolute"
+                  style={{ top: "50%", left: "50%" }}
+                >
+                  <div
+                    class="__video-wrapper--play-icon"
+                    style={{ transform: "translate(-50%,-50%)" }}
+                  >
+                    <i
+                      style={{ fontSize: "2rem", cursor: "pointer" }}
+                      class="larger bi bi-play-circle"
+                    />
+                  </div>
+                </div>
               </div>
             ) : (
-            <div class="position-relative">
-              <img class="w-100 shadow border border-dark img-fluid" src={mediaUrl} alt={text || mediaUrl} />
-            </div>  
-              )
+              <div class="position-relative">
+                <img
+                  class="w-100 shadow border border-dark img-fluid"
+                  src={mediaUrl}
+                  alt={text || mediaUrl}
+                />
+              </div>
+            )
           }
         </div>
       </div>
       <!-- MEDIA END -->
-
- 
 
       <!-- <Media client:load text={text} media={media} size="large" /> -->
 
@@ -134,7 +165,12 @@ const currentYear = new Date().getFullYear();
             {
               colSize: 6,
               label: (
-                <Modal client:load openModalText="zgłoś błąd" openModalIcon="bi bi-flag" modalTitle="zgłoś błąd" />
+                <Modal
+                  client:load
+                  openModalText="zgłoś błąd"
+                  openModalIcon="bi bi-flag"
+                  modalTitle="zgłoś błąd"
+                />
               ),
             },
           ].map(({ label, colSize }) => (
@@ -190,7 +226,8 @@ const currentYear = new Date().getFullYear();
                     {article.artContent.map((content: any) => (
                       <div class="my-4">
                         <p>
-                          <span class="fw-bold">{content.title}</span> <span>{content.text}</span>
+                          <span class="fw-bold">{content.title}</span>{" "}
+                          <span>{content.text}</span>
                         </p>
                       </div>
                     ))}
@@ -223,12 +260,18 @@ const currentYear = new Date().getFullYear();
         <div class="row">
           <div class="col">
             <p>
-              To pytanie należy do kategorii <strong>{category.toUpperCase()},</strong>
+              To pytanie należy do kategorii <strong
+                >{category.toUpperCase()},</strong
+              >
               testów na prawo jazdy z <CurrentYear /> roku.
             </p>
             <p>
-              <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
-                Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
+              <a
+                href={URLS.DRIVING_LICENSE_CATEGIRIES}
+                class="text-decoration-none"
+              >
+                Zmień domyślną kategorię pytań z testów na prawo jazdy jaką
+                chcesz się uczyć!
               </a>
             </p>
           </div>
@@ -273,13 +316,19 @@ const currentYear = new Date().getFullYear();
             <div class="mt-5 pb-5 text-start">
               <p>
                 Pamiętaj, że jedno konkretne pytanie z
-                <strong> testów na prawo jazdy aktualnych w <CurrentYear client:load /></strong>
-                może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe należy to kategorii {
+                <strong>
+                  testów na prawo jazdy aktualnych w <CurrentYear
+                    client:load
+                  /></strong
+                >
+                może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe
+                należy to kategorii {
                   questionPageData.categories.join(", ").toUpperCase()
                 }
               </p>
               <p>
-                Wszystkie dostępne kategorie pytań z testów na prawo jazdy w lutym <CurrentYear client:load /> to
+                Wszystkie dostępne kategorie pytań z testów na prawo jazdy w
+                lutym <CurrentYear client:load /> to
                 <strong>{allCategories.join(", ").toUpperCase()}</strong>
               </p>
             </div>
@@ -295,9 +344,18 @@ const currentYear = new Date().getFullYear();
 
         <p>
           <a
-            href={`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}
+            href={`https://poznaj-testy.pl/${createQuestionUrl(
+              questionPageData,
+              "b"
+            )}`}
             target="_blank"
-            rel="noopener noreferrer">{`https://poznaj-testy.pl/${createQuestionUrl(questionPageData, "b")}`}</a
+            rel="noopener noreferrer"
+            >{
+              `https://poznaj-testy.pl/${createQuestionUrl(
+                questionPageData,
+                "b"
+              )}`
+            }</a
           >
         </p>
       </div>
@@ -327,7 +385,67 @@ const currentYear = new Date().getFullYear();
 
       <GivenAnswers client:load />
     </div>
-  <p><a href={mediaUrl} target="_blank">{mediaUrl}</a></p>
+    <p><a href={mediaUrl} target="_blank">{mediaUrl}</a></p>
   </div>
 </Layout>
- 
+
+<script>
+  const videoWrappers = document.querySelectorAll(
+    ".__video-wrapper"
+  ) as NodeListOf<HTMLElement>;
+
+  videoWrappers.forEach((videoWrapper) => {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video, index) => {
+      const playIcon = videoWrapper.querySelector(
+        ".__video-wrapper--play-icon"
+      ) as HTMLDivElement | null;
+
+      playIcon?.addEventListener("click", () => {
+        console.log(index, "playIcon click");
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("canplay", () => {
+        video.controls = false;
+        console.log(index, "video can play", video.duration);
+      });
+
+      video.addEventListener("loadedmetadata", () => {
+        console.log(index, "video loadedmetadata", video.duration);
+      });
+
+      video.addEventListener("play", () => {
+        console.log(index, "video is playing");
+        playIcon?.classList.add("d-none");
+      });
+
+      video.addEventListener("pause", () => {
+        console.log(index, "video is paused");
+        playIcon?.classList.remove("d-none");
+      });
+
+      video.addEventListener("ended", () => {
+        console.log(index, "video ended");
+      });
+
+      video.addEventListener("error", () => {
+        console.log(index, "video error");
+      });
+
+      video.addEventListener("click", () => {
+        console.log(index, "video click");
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    });
+  });
+</script>

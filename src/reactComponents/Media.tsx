@@ -16,7 +16,10 @@ export default function Media(props: MediaProps) {
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const pngRef = React.useRef<HTMLImageElement | null>(null);
 
-  const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE[size] + media;
+  const mediaUrl =
+    media === "placeholder.png"
+      ? "/placeholder.png"
+      : MEDIA_HOST + MEDIA_SIZE[size] + media;
   const isVideo = media.endsWith(".mp4");
 
   function playCallback() {
@@ -73,12 +76,22 @@ export default function Media(props: MediaProps) {
           <div style={{ scale: "1.0" }}>
             {isVideo ? (
               <div className="position-relative" onClick={clickOnVideo}>
-                <video className="w-100 shadow border border-dark" ref={videoRef} src={mediaUrl}>
+                <video
+                  className="w-100 shadow border border-dark"
+                  ref={videoRef}
+                  src={mediaUrl}
+                >
                   <p>{text || media}</p>
                 </video>
-                <div className={`position-absolute ${showPlayIcon || "d-none"}`} style={{ top: "50%", left: "50%" }}>
+                <div
+                  className={`position-absolute ${showPlayIcon || "d-none"}`}
+                  style={{ top: "50%", left: "50%" }}
+                >
                   <div style={{ transform: "translate(-50%,-50%)" }}>
-                    <i style={{ fontSize: "2rem", cursor: "pointer" }} className="larger bi bi-play-circle"></i>
+                    <i
+                      style={{ fontSize: "2rem", cursor: "pointer" }}
+                      className="larger bi bi-play-circle"
+                    ></i>
                   </div>
                 </div>
               </div>
