@@ -17,29 +17,18 @@ import type { WordpressPost } from "../types/types";
 import type { ApiDataItem, DataReceivedFromSessionStorage, GivenAnswer, Question } from "../store/types";
 import { _changeNextQuestionUrl, _changePrevQuestionUrl } from "../store/store";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { doc, setDoc } from "firebase/firestore";
+
+export async function addToFirebaseDocument(db: any , collectionName: string, documentName: string, data: any) {
+ 
+  const cityRef = doc(db, collectionName, documentName);
+  return  setDoc(cityRef, data, { merge: true });
+}
+
 
 export async function signIn(auth: any) {
-
-  return signInWithEmailAndPassword(auth, "michal.trabski+4@gmail.com", "123123")
-
-  //   .then((userCredential: any) => {
-  //     // Signed in
-
-  //     console.log(111111111111111111, "userCredential", userCredential);
-
-  //     const user = userCredential.user;
-  //     const uid = user?.uid;
-
-  //     return uid;
-  //   })
-  //   .catch((error: any) => {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-
-  //     return errorMessage;
-  //   });
-
-  // return null;
+  return signInWithEmailAndPassword(auth, "michal.trabski+4@gmail.com", "123123");
 }
 
 export function randomPrevNextQuestion(

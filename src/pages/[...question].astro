@@ -16,6 +16,7 @@ import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 import Modal from "../reactComponents/Modal";
 import { URLS } from "../urls/urls";
 import type { QuestionPageData } from "../store/types";
+import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
 
 interface ArrayToGeneratePages {
   params: {
@@ -82,13 +83,39 @@ const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
 const { text, category, score, media, expls, lows } = questionPageData;
 
+const mediaUrl = media === "placeholder.png" ? "/placeholder.png" : MEDIA_HOST + MEDIA_SIZE.large + media;
+const isVideo = mediaUrl.includes(".mp4");
+
 const currentYear = new Date().getFullYear();
 ---
 
 <Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <Media client:load text={text} media={media} size="large" />
+      <!-- MEDIA START -->
+      <div class="MEDIA row">
+        <div class="col p-0 p-lg-3">
+          {
+            isVideo ? (
+              <div class="position-relative">
+      
+                <video class="w-100 shadow border border-dark" src={mediaUrl} controls autoplay>
+                  <p>{text || media}</p>
+                </video>
+              </div>
+            ) : (
+            <div class="position-relative">
+              <img class="w-100 shadow border border-dark img-fluid" src={mediaUrl} alt={text || mediaUrl} />
+            </div>  
+              )
+          }
+        </div>
+      </div>
+      <!-- MEDIA END -->
+
+ 
+
+      <!-- <Media client:load text={text} media={media} size="large" /> -->
 
       <QuestionText client:load question={questionPageData} />
 
@@ -300,11 +327,7 @@ const currentYear = new Date().getFullYear();
 
       <GivenAnswers client:load />
     </div>
+  <p><a href={mediaUrl} target="_blank">{mediaUrl}</a></p>
   </div>
 </Layout>
-
-<script>
-  const h1 = document.querySelector("h1#h1");
-
-  h1?.remove();
-</script>
+ 

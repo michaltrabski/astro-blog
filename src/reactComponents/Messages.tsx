@@ -3,12 +3,18 @@ import React, { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, onSnapshot, getDoc } from "firebase/firestore";
-import { signIn } from "../utils/utils";
+import { addToFirebaseDocument, signIn } from "../utils/utils";
+import { useStore } from "@nanostores/react";
+import { _auth } from "../store/store";
 
 export default function Messages() {
+  const auth = useStore(_auth)
+ 
   const [user, setUser] = useState<any | null>(null);
   const [singleFirebaseDocument, setSingleFirebaseDocument] = useState<any | null>(null);
 
+
+  console.log(111111111111,auth, "auth")
   const singleFirebaseDocumentArr = singleFirebaseDocument ? Object.entries(singleFirebaseDocument) : [];
 
   useEffect(() => {
@@ -31,7 +37,7 @@ export default function Messages() {
     const auth = getAuth(app);
 
     signIn(auth).then((res) => {
-      console.log(111111111, res)
+      console.log(111111111, res);
       setUser(res.user);
     });
 
@@ -43,9 +49,26 @@ export default function Messages() {
     });
   }, []);
 
+  async function add() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyB5URsFrQos2JW2psYkja9f84m-Kn-Caaw",
+      authDomain: "prawojazdy-a20bd.firebaseapp.com",
+      projectId: "prawojazdy-a20bd",
+      storageBucket: "prawojazdy-a20bd.appspot.com",
+      messagingSenderId: "706828517872",
+      appId: "1:706828517872:web:56c06206eefeb42cfedd35",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    addToFirebaseDocument(db, "messages", "messages", { test: "test" });
+  }
+
   return (
     <div>
       <h1>Auth</h1>
+      <button onClick={add}>add</button>
       <p>user.uid = {user?.uid}</p>
       {/* <pre>userData = {JSON.stringify(singleFirebaseDocument, null, 2)}</pre> */}
 

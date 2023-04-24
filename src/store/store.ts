@@ -17,6 +17,8 @@ import type {
   QuestionId,
 } from "./types";
 
+export const _db = atom<any>(null);
+export const _auth = atom<any>(null);
 export const _nextQuestionUrl = atom<string | null>(null);
 export const _prevQuestionUrl = atom<string | null>(null);
 export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
@@ -27,6 +29,12 @@ export const _currentCategory = atom(getCurrentCategoryInitialValue());
 export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAnswers());
 export const _correctGivenAnswersCount = atom(0);
 export const _wrongGivenAnswersCount = atom(0);
+
+export const _initializeDbAndAuth = (db: any, auth: any) => {
+  _db.set(db);
+  _auth.set(auth);
+};
+
 
 export const _changeNextQuestionUrl = (url: string) => {
   _nextQuestionUrl.set(url);
