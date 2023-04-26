@@ -1,0 +1,85 @@
+---
+export interface PrevNextQuestionProps {
+  prevSlug: string;
+  nextSlug: string;
+}
+
+const { prevSlug, nextSlug } = Astro.props as PrevNextQuestionProps;
+---
+
+<div class="row mb-3 bg-warning">
+  <div class="col-6 mb-2">
+    {
+      prevSlug && (
+        <a href={prevSlug} class="btn btn-primary btn-lg btn-block w-100">
+          <i class="bi bi-arrow-left-short" />
+
+          <span> Poprzednie</span>
+          {prevSlug}
+        </a>
+      )
+    }
+  </div>
+
+  <div class="col-6 mb-2 text-end">
+    {
+      nextSlug && (
+        <a href={nextSlug} class="btn btn-primary btn-lg btn-block w-100">
+          <span>Następne </span>
+
+          <i class="bi bi-arrow-right-short" />
+          {nextSlug}
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<script>
+  import type { QuestionPageData } from "../store/types";
+  import { createQuestionUrl } from "../utils/utils";
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
+
+    const READY_TO_USE_DATA_AS_STRING =
+      sessionStorage.getItem("READY_TO_USE_DATA");
+
+    const READY_TO_USE_DATA = READY_TO_USE_DATA_AS_STRING
+      ? JSON.parse(READY_TO_USE_DATA_AS_STRING)
+      : [];
+
+    const allQuestions: QuestionPageData[] = READY_TO_USE_DATA.allQuestions;
+
+    console.log("allQuestions", allQuestions);
+
+    const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
+
+    console.log(
+      "aallQuestionsShuffled",
+      allQuestionsShuffled.map((q) => q.id).slice(0, 10)
+    );
+
+    const _givenAnswersObjStr = localStorage.getItem("_givenAnswers");
+    const givenAnswersArr = _givenAnswersObjStr
+      ? JSON.parse(_givenAnswersObjStr)
+      : {};
+
+    console.log("givenAnswersIdsArr", Object.keys(givenAnswersArr));
+
+    const allQuestionsShuffledFiltered = allQuestionsShuffled.filter(
+      (q) => !givenAnswersArr[q.id]
+    );
+
+    console.log(
+      "allQuestionsShuffledFiltered.length",
+      allQuestionsShuffledFiltered.length
+    );
+
+    const nextQuesionsUrls = allQuestionsShuffledFiltered.map((question) =>
+      createQuestionUrl(question, "b")
+    );
+
+    console.log("nextQuesionsUrls", nextQuesionsUrls.slice(0, 11));
+  });
+</script>

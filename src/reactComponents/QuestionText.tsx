@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import SwipeableViews from "react-swipeable-views";
 
-import { _mp3Items, _nextQuestionUrl, _playMp3Item, _prevQuestionUrl } from "../store/store";
+import {
+  _mp3Items,
+  _nextQuestionUrl,
+  _playMp3Item,
+  _prevQuestionUrl,
+} from "../store/store";
 import { _addMp3Item } from "../store/store";
 import { getSlug } from "../utils/utils";
 import type { QuestionPageData } from "../store/types";
@@ -12,7 +17,12 @@ interface QuestionTextProps {
 }
 
 export default function QuestionText(props: QuestionTextProps) {
-  const { text, prevSlug: prevSlugFromProps, nextSlug: nextSlugFromProps } = props.question;
+  const {
+    text,
+    prevSlug: prevSlugFromProps,
+    nextSlug: nextSlugFromProps,
+    score,
+  } = props.question;
 
   useStore(_mp3Items); // calling this hook is needed to update the component when the store changes
   const prevQuestionUrl = useStore(_prevQuestionUrl);
@@ -48,7 +58,12 @@ export default function QuestionText(props: QuestionTextProps) {
             index={1}
             onChangeIndex={(index: number, indexLatest: number, meta: any) => {
               if (index === 0 && indexLatest === 1) {
-                console.log("go to previous question", index, indexLatest, meta);
+                console.log(
+                  "go to previous question",
+                  index,
+                  indexLatest,
+                  meta
+                );
                 window.location.href = prevSlug;
               }
 
@@ -62,7 +77,10 @@ export default function QuestionText(props: QuestionTextProps) {
               <p className="h-100 d-flex align-items-center align-sefl-center small">
                 Nastąpi automatyczne przekierowanie do poprzedniego pytania.
               </p>
-              <a href={prevSlug} className="h-100 d-flex align-items-center btn btn-primary btn-lg align-sefl-center">
+              <a
+                href={prevSlug}
+                className="h-100 d-flex align-items-center btn btn-primary btn-lg align-sefl-center"
+              >
                 <i className="bi bi-arrow-left-short"></i>
               </a>
             </div>
@@ -75,8 +93,10 @@ export default function QuestionText(props: QuestionTextProps) {
               }}
               className="text-start shadow-bottom"
             >
-              {text}
-
+              {text}{" "}
+              <span style={{ fontWeight: "300" }} className="text-secondary">
+                ({score} pkt)
+              </span>
               {canplay && (
                 <span
                   style={{ cursor: "pointer" }}
@@ -91,7 +111,10 @@ export default function QuestionText(props: QuestionTextProps) {
             </h1>
 
             <div className="ps-3 h-100 d-flex justify-content-between align-items-center">
-              <a href={nextSlug} className="h-100 d-flex align-items-center btn btn-primary btn-lg align-sefl-center">
+              <a
+                href={nextSlug}
+                className="h-100 d-flex align-items-center btn btn-primary btn-lg align-sefl-center"
+              >
                 <i className="bi bi-arrow-right-short"></i>
               </a>
               <p className="h-100 d-flex align-items-center align-sefl-center small">
@@ -108,7 +131,10 @@ export default function QuestionText(props: QuestionTextProps) {
             }}
             className="text-start shadow-bottom"
           >
-            {text}
+            {text}{" "}
+            <span style={{ fontWeight: "300" }} className="text-secondary">
+              ({score} pkt)
+            </span>
           </h1>
         )}
       </div>

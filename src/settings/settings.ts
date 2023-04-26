@@ -4,9 +4,7 @@ export const LOCALHOST = "http://localhost:3000";
 export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 
 // LIMITS FOR DEVELOPMENT
-export const limitedCategories = ["b"]; // ["a", "b", "c"];
-export const showLimitedCategories = true;
-export const postsFromOldWordpressLimit = 20; // 123456;
+export const postsFromOldWordpressLimit = 123456;
 export const allQuestionsLimit = 123456;
 
 export const MEDIA_HOST =

@@ -1,0 +1,118 @@
+---
+import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
+
+export interface MediaProps {
+  text: string;
+  media: string;
+}
+
+const { text, media } = Astro.props as MediaProps;
+
+const mediaUrl =
+  media === "placeholder.png"
+    ? "/placeholder.png"
+    : MEDIA_HOST + MEDIA_SIZE.large + media;
+const isVideo = mediaUrl.includes(".mp4");
+---
+
+<!-- MEDIA START -->
+<div class="MEDIA row">
+  <div class="col p-0 p-lg-3">
+    {
+      isVideo ? (
+        <div class="__video-wrapper position-relative">
+          <video
+            style={{ cursor: "pointer" }}
+            class="w-100 shadow border border-dark"
+            src={mediaUrl}
+            controls
+            autoplay
+          >
+            <p>{text || media}</p>
+          </video>
+          <div
+            class="__video-wrapper--play-icon position-absolute d-none"
+            style={{ top: "50%", left: "50%" }}
+          >
+            <div style={{ transform: "translate(-50%,-50%)" }}>
+              <i
+                style={{ fontSize: "2rem", cursor: "pointer" }}
+                class="larger bi bi-play-circle"
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="position-relative">
+          <img
+            class="w-100 shadow border border-dark img-fluid"
+            src={mediaUrl}
+            alt={text || mediaUrl}
+          />
+        </div>
+      )
+    }
+  </div>
+</div>
+<!-- MEDIA END -->
+
+<script>
+  const videoWrappers = document.querySelectorAll(
+    ".__video-wrapper"
+  ) as NodeListOf<HTMLElement>;
+
+  videoWrappers.forEach((videoWrapper) => {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video, index) => {
+      const playIcon = videoWrapper.querySelector(
+        ".__video-wrapper--play-icon"
+      ) as HTMLDivElement | null;
+
+      playIcon?.addEventListener("click", () => {
+        console.log(index, "playIcon click");
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("canplay", () => {
+        video.controls = false;
+        console.log(index, "video can play", video.duration);
+      });
+
+      video.addEventListener("loadedmetadata", () => {
+        console.log(index, "video loadedmetadata", video.duration);
+      });
+
+      video.addEventListener("play", () => {
+        console.log(index, "video is playing");
+        playIcon?.classList.add("d-none");
+      });
+
+      video.addEventListener("pause", () => {
+        console.log(index, "video is paused");
+        playIcon?.classList.remove("d-none");
+      });
+
+      video.addEventListener("ended", () => {
+        console.log(index, "video ended");
+      });
+
+      video.addEventListener("error", () => {
+        console.log(index, "video error");
+      });
+
+      video.addEventListener("click", () => {
+        console.log(index, "video click");
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    });
+  });
+</script>

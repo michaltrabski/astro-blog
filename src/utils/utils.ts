@@ -7,28 +7,38 @@ import {
   DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
   DEPLOY_URL,
   KEY,
-  limitedCategories,
   LOCALHOST,
   postsFromOldWordpressLimit,
-  showLimitedCategories,
 } from "../settings/settings";
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
-import type { ApiDataItem, DataReceivedFromSessionStorage, GivenAnswer, Question } from "../store/types";
+import type {
+  ApiDataItem,
+  DataReceivedFromSessionStorage,
+  GivenAnswer,
+  Question,
+} from "../store/types";
 import { _changeNextQuestionUrl, _changePrevQuestionUrl } from "../store/store";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
 
-export async function addToFirebaseDocument(db: any , collectionName: string, documentName: string, data: any) {
- 
+export async function addToFirebaseDocument(
+  db: any,
+  collectionName: string,
+  documentName: string,
+  data: any
+) {
   const cityRef = doc(db, collectionName, documentName);
-  return  setDoc(cityRef, data, { merge: true });
+  return setDoc(cityRef, data, { merge: true });
 }
 
-
 export async function signIn(auth: any) {
-  return signInWithEmailAndPassword(auth, "michal.trabski+4@gmail.com", "123123");
+  return signInWithEmailAndPassword(
+    auth,
+    "michal.trabski+4@gmail.com",
+    "123123"
+  );
 }
 
 export function randomPrevNextQuestion(
@@ -59,7 +69,8 @@ export function randomPrevNextQuestion(
       randomIndex = Math.floor(Math.random() * questions.length);
       const randomQuestion = questions[randomIndex];
 
-      randomQuestionSupportCurrentCategory = randomQuestion.categories.includes(currentCategory);
+      randomQuestionSupportCurrentCategory =
+        randomQuestion.categories.includes(currentCategory);
       isQuestionInGivenAnswers = !!givenAnswers[randomQuestion.id];
 
       console.log(
@@ -69,13 +80,21 @@ export function randomPrevNextQuestion(
         givenAnswers,
         givenAnswers[randomQuestion.id]
       );
-    } while (counter < 100 && !randomQuestionSupportCurrentCategory && !isQuestionInGivenAnswers);
+    } while (
+      counter < 100 &&
+      !randomQuestionSupportCurrentCategory &&
+      !isQuestionInGivenAnswers
+    );
 
     const nextQuestion = questions[randomIndex];
     const prevQuestion = nextQuestion;
 
-    _changeNextQuestionUrl(getFullUrl(createQuestionUrl(nextQuestion, currentCategory)));
-    _changePrevQuestionUrl(getFullUrl(createQuestionUrl(prevQuestion, currentCategory)));
+    _changeNextQuestionUrl(
+      getFullUrl(createQuestionUrl(nextQuestion, currentCategory))
+    );
+    _changePrevQuestionUrl(
+      getFullUrl(createQuestionUrl(prevQuestion, currentCategory))
+    );
 
     resolve({ nextQuestion, prevQuestion });
   });
@@ -84,11 +103,14 @@ export function randomPrevNextQuestion(
 export const createBigObjectDataFromApiDataForBuildTime = () => {
   const apiData = _apiData as ApiDataItem[];
 
-  const _postsFromOldWordpress = postsFromOldWordpress as { postsFromOldWordpress: WordpressPost[] };
-  const postsFromOldWordpresOrdered = _.orderBy(_postsFromOldWordpress.postsFromOldWordpress, ["date"], ["desc"]).slice(
-    0,
-    postsFromOldWordpressLimit
-  );
+  const _postsFromOldWordpress = postsFromOldWordpress as {
+    postsFromOldWordpress: WordpressPost[];
+  };
+  const postsFromOldWordpresOrdered = _.orderBy(
+    _postsFromOldWordpress.postsFromOldWordpress,
+    ["date"],
+    ["desc"]
+  ).slice(0, postsFromOldWordpressLimit);
 
   const _allCategories: string[] = [];
 
@@ -98,10 +120,13 @@ export const createBigObjectDataFromApiDataForBuildTime = () => {
 
   const allCategories = getAllCategoriesFromData(apiData);
 
-  const allQuestions: Question[] = mapApiData(apiData).slice(0, allQuestionsLimit);
+  const allQuestions: Question[] = mapApiData(apiData).slice(
+    0,
+    allQuestionsLimit
+  );
 
   return {
-    allCategories: showLimitedCategories ? limitedCategories : allCategories,
+    allCategories,
     allQuestions,
     postsFromOldWordpresOrdered,
     postsFromOldWordpresOrdered50: postsFromOldWordpresOrdered.slice(0, 50),
@@ -109,7 +134,9 @@ export const createBigObjectDataFromApiDataForBuildTime = () => {
 };
 
 export const createQuestionUrl = (question: Question, category: string) => {
-  const slug = `${getSlug(question.text.slice(0, 160))}-id-pytania-${question.id.replace("id", "")}`;
+  const slug = `${getSlug(
+    question.text.slice(0, 160)
+  )}-id-pytania-${question.id.replace("id", "")}`;
 
   if (category === "b") {
     return `${slug}`;
@@ -119,7 +146,8 @@ export const createQuestionUrl = (question: Question, category: string) => {
 };
 
 export const getFullUrl = (url: string) => {
-  const domain = import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
+  const domain =
+    import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
 
   if (!url || url === "/") {
     return domain;
@@ -170,7 +198,10 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
   });
 };
 
-export const getInitialValue = (key: KEY, initialValue: string | number | string[]) => {
+export const getInitialValue = (
+  key: KEY,
+  initialValue: string | number | string[]
+) => {
   try {
     const valueFromSessionStorage = sessionStorage.getItem(key);
 
@@ -194,7 +225,9 @@ export const getInitialValue = (key: KEY, initialValue: string | number | string
 
 export const getCurrentCategoryInitialValue = () => {
   try {
-    const currentCategory = sessionStorage.getItem(KEY.CURRENT_CATEGORY) || DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    const currentCategory =
+      sessionStorage.getItem(KEY.CURRENT_CATEGORY) ||
+      DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
     return currentCategory;
   } catch (err) {
     return DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
@@ -203,15 +236,16 @@ export const getCurrentCategoryInitialValue = () => {
 
 export const getDataFromSessionStorage = () => {
   try {
-    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(KEY.READY_TO_USE_DATA);
+    const dataReceivedFromSessionStorageAsString = sessionStorage.getItem(
+      KEY.READY_TO_USE_DATA
+    );
 
     if (!dataReceivedFromSessionStorageAsString) {
       return null;
     }
 
-    const dataReceivedFromSessionStorage: DataReceivedFromSessionStorage = JSON.parse(
-      dataReceivedFromSessionStorageAsString
-    );
+    const dataReceivedFromSessionStorage: DataReceivedFromSessionStorage =
+      JSON.parse(dataReceivedFromSessionStorageAsString);
 
     return dataReceivedFromSessionStorage;
   } catch (err) {
@@ -239,7 +273,10 @@ export const sessionStorageSetArrayItem = (key: string, arr: any[]) => {
   }
 };
 
-export const sessionStorageSetObj = (key: string, obj: { [key: string]: any }) => {
+export const sessionStorageSetObj = (
+  key: string,
+  obj: { [key: string]: any }
+) => {
   try {
     sessionStorage.setItem(key, JSON.stringify(obj));
   } catch (err) {

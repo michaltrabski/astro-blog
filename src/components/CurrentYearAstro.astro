@@ -1,0 +1,15 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<span class="__current-year">{currentYear}</span>
+
+<script>
+  const currentYearSpans = document.querySelectorAll(
+    ".__current-year"
+  ) as NodeListOf<HTMLSpanElement>;
+
+  currentYearSpans.forEach((currentYearSpan) => {
+    currentYearSpan.innerHTML = "" + new Date().getFullYear();
+  });
+</script>

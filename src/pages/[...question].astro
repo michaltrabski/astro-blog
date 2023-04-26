@@ -1,6 +1,9 @@
 ---
-import CurrentYear from "../reactComponents/CurrentYear";
 import Layout from "../layouts/Layout.astro";
+import Media from "../components/Media.astro";
+// import PrevNextQuestion from "../components/PrevNextQuestion.astro";
+import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
+import CurrentYearAstro from "../components/CurrentYearAstro.astro";
 
 import masterQuestionsJson from "../data/masterQuestions.json";
 import {
@@ -11,8 +14,6 @@ import {
 
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
-import Media from "../reactComponents/Media";
-import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import QuestionText from "../reactComponents/QuestionText";
 import QuestionTable from "../reactComponents/QuestionTable";
 import GivenAnswers from "../reactComponents/GivenAnswers";
@@ -20,7 +21,6 @@ import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 import Modal from "../reactComponents/Modal";
 import { URLS } from "../urls/urls";
 import type { QuestionPageData } from "../store/types";
-import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
 
 interface ArrayToGeneratePages {
   params: {
@@ -88,71 +88,24 @@ export async function getStaticPaths() {
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
-const { text, category, score, media, expls, lows } = questionPageData;
-
-const mediaUrl =
-  media === "placeholder.png"
-    ? "/placeholder.png"
-    : MEDIA_HOST + MEDIA_SIZE.large + media;
-const isVideo = mediaUrl.includes(".mp4");
-
-const currentYear = new Date().getFullYear();
+const { text, category, score, media, expls, lows, prevSlug, nextSlug } =
+  questionPageData;
 ---
 
-<Layout title={`${text} | Darmowe testy na prawo jazdy ${currentYear}`}>
+<Layout
+  title={`${text} | Darmowe testy na prawo jazdy ${new Date().getFullYear()}`}
+>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <!-- MEDIA START -->
-      <div class="MEDIA row">
-        <div class="col p-0 p-lg-3">
-          {
-            isVideo ? (
-              <div class="__video-wrapper position-relative">
-                <video
-                  style={{ cursor: "pointer" }}
-                  class="w-100 shadow border border-dark"
-                  src={mediaUrl}
-                  controls
-                  autoplay
-                >
-                  <p>{text || media}</p>
-                </video>
-                <div
-                  class="position-absolute"
-                  style={{ top: "50%", left: "50%" }}
-                >
-                  <div
-                    class="__video-wrapper--play-icon"
-                    style={{ transform: "translate(-50%,-50%)" }}
-                  >
-                    <i
-                      style={{ fontSize: "2rem", cursor: "pointer" }}
-                      class="larger bi bi-play-circle"
-                    />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div class="position-relative">
-                <img
-                  class="w-100 shadow border border-dark img-fluid"
-                  src={mediaUrl}
-                  alt={text || mediaUrl}
-                />
-              </div>
-            )
-          }
-        </div>
-      </div>
-      <!-- MEDIA END -->
-
-      <!-- <Media client:load text={text} media={media} size="large" /> -->
+      <Media media={media} text={text} />
 
       <QuestionText client:load question={questionPageData} />
 
       <AnswerAbc client:load question={questionPageData} />
 
       <AnswerYesNo client:load question={questionPageData} />
+
+      <!-- <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} /> -->
 
       <PrevNextQuestion client:load question={questionPageData} />
 
@@ -176,7 +129,7 @@ const currentYear = new Date().getFullYear();
           ].map(({ label, colSize }) => (
             <div class={`col-${colSize}`}>
               <div class="text-secondary h-100 d-flex justify-content-center align-items-center">
-                <span>{label}</span>
+                {label}
               </div>
             </div>
           ))
@@ -263,7 +216,7 @@ const currentYear = new Date().getFullYear();
               To pytanie należy do kategorii <strong
                 >{category.toUpperCase()},</strong
               >
-              testów na prawo jazdy z <CurrentYear /> roku.
+              testów na prawo jazdy z <CurrentYearAstro /> roku.
             </p>
             <p>
               <a
@@ -317,8 +270,7 @@ const currentYear = new Date().getFullYear();
               <p>
                 Pamiętaj, że jedno konkretne pytanie z
                 <strong>
-                  testów na prawo jazdy aktualnych w <CurrentYear
-                    client:load
+                  testów na prawo jazdy aktualnych w <CurrentYearAstro
                   /></strong
                 >
                 może należeć do wielu różnych kategorii prawa jazdy. To pytanie testowe
@@ -328,7 +280,7 @@ const currentYear = new Date().getFullYear();
               </p>
               <p>
                 Wszystkie dostępne kategorie pytań z testów na prawo jazdy w
-                lutym <CurrentYear client:load /> to
+                lutym <CurrentYearAstro /> to
                 <strong>{allCategories.join(", ").toUpperCase()}</strong>
               </p>
             </div>
@@ -368,84 +320,10 @@ const currentYear = new Date().getFullYear();
           <h2>Blog i artykuły:</h2>
 
           <PostsFromOldWordpress />
-          <!-- <div class="text-start">
-            {
-              postsFromOldWordpresOrdered.slice(0, 50).map((post, index) => (
-                <p>
-                  {index + 1}.{" "}
-                  <a href={post.slug} class="text-decoration-none">
-                    {post.title}
-                  </a>
-                </p>
-              ))
-            }
-          </div> -->
         </div>
       </div>
 
       <GivenAnswers client:load />
     </div>
-    <p><a href={mediaUrl} target="_blank">{mediaUrl}</a></p>
   </div>
 </Layout>
-
-<script>
-  const videoWrappers = document.querySelectorAll(
-    ".__video-wrapper"
-  ) as NodeListOf<HTMLElement>;
-
-  videoWrappers.forEach((videoWrapper) => {
-    const videos = document.querySelectorAll("video");
-
-    videos.forEach((video, index) => {
-      const playIcon = videoWrapper.querySelector(
-        ".__video-wrapper--play-icon"
-      ) as HTMLDivElement | null;
-
-      playIcon?.addEventListener("click", () => {
-        console.log(index, "playIcon click");
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-
-      video.addEventListener("canplay", () => {
-        video.controls = false;
-        console.log(index, "video can play", video.duration);
-      });
-
-      video.addEventListener("loadedmetadata", () => {
-        console.log(index, "video loadedmetadata", video.duration);
-      });
-
-      video.addEventListener("play", () => {
-        console.log(index, "video is playing");
-        playIcon?.classList.add("d-none");
-      });
-
-      video.addEventListener("pause", () => {
-        console.log(index, "video is paused");
-        playIcon?.classList.remove("d-none");
-      });
-
-      video.addEventListener("ended", () => {
-        console.log(index, "video ended");
-      });
-
-      video.addEventListener("error", () => {
-        console.log(index, "video error");
-      });
-
-      video.addEventListener("click", () => {
-        console.log(index, "video click");
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    });
-  });
-</script>

@@ -8,15 +8,14 @@ const Modal = (props: ModalProps) => {
 
   return (
     <>
-      <div>
-        <span
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          // data-bs-whatever="@mdo"
-        >
-          {openModalText} <i className={openModalIcon}></i>
-        </span>
-      </div>
+      <span
+        style={{ cursor: "pointer" }}
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        // data-bs-whatever="@mdo"
+      >
+        {openModalText} <i className={openModalIcon}></i>
+      </span>
 
       {/* <button
         type="button"
@@ -41,7 +40,12 @@ const Modal = (props: ModalProps) => {
               <h5 className="modal-title" id="exampleModalLabel">
                 {modalTitle}
               </h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div className="modal-body text-start">
               <form>
@@ -55,15 +59,26 @@ const Modal = (props: ModalProps) => {
                   <label htmlFor="message-text" className="col-form-label">
                     Napisz co się stało:
                   </label>
-                  <textarea className="form-control" id="message-text"></textarea>
+                  <textarea
+                    className="form-control"
+                    id="message-text"
+                  ></textarea>
                 </div>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
                 Zamknij
               </button>
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
                 Wyślij
               </button>
             </div>
