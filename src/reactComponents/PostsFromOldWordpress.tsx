@@ -1,7 +1,7 @@
-import { createBigObjectDataFromApiDataForBuildTime, getFullUrl } from "../utils/utils";
+import { getDataForBuild, getFullUrl } from "../utils/utils";
 
 export default function PostsFromOldWordpress() {
-  const { postsFromOldWordpresOrdered50 } = createBigObjectDataFromApiDataForBuildTime();
+  const { postsFromOldWordpresOrdered50 } = getDataForBuild();
 
   return (
     <div className="text-start">

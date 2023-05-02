@@ -1,42 +1,74 @@
 ---
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
-import CurrentYear from "../reactComponents/CurrentYear";
-import { createBigObjectDataFromApiDataForBuildTime } from "../utils/utils";
+import CurrentYearAstro from "../components/CurrentYearAstro.astro";
+import NextQuestionButtonAstro from "../components/NextQuestionButtonAstro.astro";
+
+import { getDataForBuild } from "../utils/utils";
 import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
-import { map } from "nanostores";
-import type { WordpressPost } from "../types/types";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 
-const { allCategories, allQuestions  } = createBigObjectDataFromApiDataForBuildTime();
+const { allCategories, allQuestions, firstQuestionUrlsObj, questionsCountObj } =
+  getDataForBuild();
 
 const currentYear = new Date().getFullYear();
 ---
 
-<Layout title={`Darmowe testy na prawo jazdy ${currentYear}, wszystkie kategorie prawa jazdy: A,B,C,D`}>
+<Layout
+  title={`Darmowe testy na prawo jazdy ${currentYear}, wszystkie kategorie prawa jazdy:
+   ${allCategories.join(", ").toUpperCase()} - w sumie ${
+    allQuestions.length
+  } pytań testowych`}
+>
   <div class="row pb-3">
     <div class="LEFT MAIN col-12 col-lg-6">
       <div class="row pb-3">
         <div class="col">
           <h1 class="display-3 fw-bold">
-            Testy na prawo jazdy <CurrentYear client:load />
+            Testy na prawo jazdy <CurrentYearAstro />
           </h1>
           <p class="lead">
-            Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na prawo jazdy lub przeglądaj pytania
-            testowe.
+            Wszystkie pytania egzaminacyjne! Rozpocznij egzamin teoretyczny na
+            prawo jazdy lub przeglądaj pytania testowe.
           </p>
         </div>
       </div>
 
-      <StartLearningButtons client:load allCategories={allCategories} allQuestions={allQuestions} />
+      <pre>
+        {JSON.stringify(firstQuestionUrlsObj, null, 2)}
+      </pre>
+
+      <pre>
+        {JSON.stringify(questionsCountObj, null, 2)}
+      </pre>
+
+      {
+        allCategories.map((category) => (
+          <NextQuestionButtonAstro
+            category={category}
+            initialUrl={firstQuestionUrlsObj[category] || "#"}
+            count={questionsCountObj[category] || 0}
+          />
+        ))
+      }
+
+      <!-- <StartLearningButtons
+        client:load
+        allCategories={allCategories}
+        allQuestions={allQuestions}
+      /> -->
 
       <div class="row pb-3">
         <p>
-          <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-decoration-none">
-            Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz się uczyć!
+          <a
+            href={URLS.DRIVING_LICENSE_CATEGIRIES}
+            class="text-decoration-none"
+          >
+            Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
+            się uczyć!
           </a>
         </p>
       </div>
@@ -44,7 +76,8 @@ const currentYear = new Date().getFullYear();
       <!-- ROW ROW  -->
       <div class="row pb-3">
         <p>
-          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYear client:load /> roku.
+          Ostatnią aktualizację bazy pytań testowych zrobiłem w lutym <CurrentYearAstro
+          /> roku.
         </p>
       </div>
 
@@ -57,7 +90,9 @@ const currentYear = new Date().getFullYear();
               {allQuestions.length}
             </span>
 
-            <span> wszystkich pytań testowych na prawo jazdy wszystkich kategorii!!!</span>
+            <span>
+              wszystkich pytań testowych na prawo jazdy wszystkich kategorii!!!</span
+            >
           </h2>
 
           <h3>Posiadamy w naszej bazie pytania wszystkich kategorii!</h3>
@@ -75,7 +110,8 @@ const currentYear = new Date().getFullYear();
         <div class="col">
           <p>
             <strong>
-              Kliknij poniżej i wybierz aktualną kategorię z testów na prawo jazdy której chcesz się teraz uczyć:
+              Kliknij poniżej i wybierz aktualną kategorię z testów na prawo
+              jazdy której chcesz się teraz uczyć:
             </strong>
           </p>
 
@@ -110,7 +146,6 @@ const currentYear = new Date().getFullYear();
           <h2>Blog i artykuły:</h2>
 
           <PostsFromOldWordpress client:load />
- 
         </div>
       </div>
 

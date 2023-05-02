@@ -25,8 +25,10 @@ export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);
-export const _currentCategory = atom(getCurrentCategoryInitialValue());
-export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(initialGivenAnswers());
+export const _currentCategory = atom("b"); // atom("getCurrentCategoryInitialValue()");
+export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(
+  initialGivenAnswers()
+);
 export const _correctGivenAnswersCount = atom(0);
 export const _wrongGivenAnswersCount = atom(0);
 
@@ -34,7 +36,6 @@ export const _initializeDbAndAuth = (db: any, auth: any) => {
   _db.set(db);
   _auth.set(auth);
 };
-
 
 export const _changeNextQuestionUrl = (url: string) => {
   _nextQuestionUrl.set(url);
@@ -80,7 +81,10 @@ function initialGivenAnswers() {
   }
 }
 
-export function _addAnswer(questionId: QuestionId, newGivenAnswer: GivenAnswer) {
+export function _addAnswer(
+  questionId: QuestionId,
+  newGivenAnswer: GivenAnswer
+) {
   const existingGivenAnswer = _givenAnswers.get()[questionId];
 
   const answerWithExtraData: GivenAnswer = {
@@ -142,7 +146,10 @@ export function _playMp3Item(id: Mp3Item["id"]) {
   }
 }
 
-export function _updateMp3ItemState(id: Mp3Item["id"], state: Mp3Item["state"]) {
+export function _updateMp3ItemState(
+  id: Mp3Item["id"],
+  state: Mp3Item["state"]
+) {
   const selectedItem = _mp3Items.get()[id];
 
   if (selectedItem) {
@@ -153,7 +160,10 @@ export function _updateMp3ItemState(id: Mp3Item["id"], state: Mp3Item["state"]) 
   }
 }
 
-export function _updateMp3ItemCanPlay(id: Mp3Item["id"], canplay: Mp3Item["canplay"]) {
+export function _updateMp3ItemCanPlay(
+  id: Mp3Item["id"],
+  canplay: Mp3Item["canplay"]
+) {
   const selectedItem = _mp3Items.get()[id];
 
   if (selectedItem) {
@@ -166,7 +176,7 @@ export function _updateMp3ItemCanPlay(id: Mp3Item["id"], canplay: Mp3Item["canpl
 
 export const changeCategory = (newCategory: string) => {
   _currentCategory.set(newCategory);
-  storageSetStringItem(KEY.CURRENT_CATEGORY, newCategory);
+  localStorage.setItem(KEY.CURRENT_CATEGORY, newCategory);
 };
 
 export const getDataFromEndpoint = async () => {
@@ -180,10 +190,15 @@ export const getDataFromEndpoint = async () => {
     }
 
     const fetchResponse = await fetch("../api-data.json");
-    const dataReceivedFromEndpoint: DataReceivedFromEndpoint = await fetchResponse.json();
+    const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
+      await fetchResponse.json();
 
     const dataToStoreSessionStorage: DataReceivedFromSessionStorage = {
-      allQuestions: mapApiData(dataReceivedFromEndpoint.allQuestions.sort((a, b) => 0.5 - Math.random())),
+      allQuestions: mapApiData(
+        dataReceivedFromEndpoint.allQuestions.sort(
+          (a, b) => 0.5 - Math.random()
+        )
+      ),
       allQuestionsCount: dataReceivedFromEndpoint.allQuestionsCount,
       allCategories: dataReceivedFromEndpoint.allCategories,
     };

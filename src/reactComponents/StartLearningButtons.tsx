@@ -34,29 +34,32 @@ export default function StartLearningButtons(props: StartLearningButtonsProps) {
         <div className="d-grid gap-3">
           {allCategories.map((category) => {
             let randomIndex = 0;
-            let limit = 0;
-            do {
-              limit++;
-              randomIndex = Math.floor(Math.random() * allQuestions.length);
-            } while (
-              !allQuestions[randomIndex].categories.includes(category) &&
-              limit < 100
-            );
+            // let limit = 0;
+            // do {
+            //   limit++;
+            //   randomIndex = Math.floor(Math.random() * allQuestions.length);
+            // } while (
+            //   !allQuestions[randomIndex].categories.includes(category) &&
+            //   limit < 100
+            // );
 
             const btnColor =
-              category === curentCategory ? "btn-primary" : "d-none";
+              category === curentCategory ? "btn-primary" : "btn-secondary"; // "d-none";
+
+            const href = getFullUrl(
+              createQuestionUrl(allQuestions[randomIndex], category)
+            );
 
             return (
               <a
-                href={getFullUrl(
-                  createQuestionUrl(allQuestions[randomIndex], category)
-                )}
+                href={href}
                 key={category}
                 className={clsx("btn btn-lg", btnColor)}
                 role="button"
               >
                 Rozpocznij naukę testów na prawo jazdy <CurrentYear />,{" "}
                 <strong>kategorii: {category.toUpperCase()}</strong>
+                <small>{href}</small>
               </a>
             );
           })}

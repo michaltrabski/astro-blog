@@ -5,7 +5,7 @@ export interface QuestionReceivedFromEndpoint {
   a?: string;
   b?: string;
   c?: string;
-  r: string;
+  r: PossibleAnswers;
   cats: string[];
   s: number;
 }
@@ -54,7 +54,7 @@ export interface Question {
   correctAnswer: PossibleAnswers;
   categories: string[];
   score: number;
-  isVideo: boolean;
+  // isVideo: boolean;
 }
 
 export interface QuestionPageData extends Question {

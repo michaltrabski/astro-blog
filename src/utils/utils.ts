@@ -1,12 +1,12 @@
 import _apiData from "../data/api-data";
+import _data from "../data/data";
 
 import _ from "lodash";
 import slugify from "slugify";
 import {
-  allQuestionsLimit,
-  DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE,
   DEPLOY_URL,
   KEY,
+  LIMIT_OF_QUESTIONS_IN_API_DATA,
   LOCALHOST,
   postsFromOldWordpressLimit,
 } from "../settings/settings";
@@ -22,6 +22,92 @@ import { _changeNextQuestionUrl, _changePrevQuestionUrl } from "../store/store";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
+
+export const getDataForBuild = () => {
+  const data = _data as ApiDataItem[];
+  const dataWithLimit = data.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
+
+  const _postsFromOldWordpress = postsFromOldWordpress as {
+    postsFromOldWordpress: WordpressPost[];
+  };
+  const postsFromOldWordpresOrdered = _.orderBy(
+    _postsFromOldWordpress.postsFromOldWordpress,
+    ["date"],
+    ["desc"]
+  ).slice(0, postsFromOldWordpressLimit);
+
+  const allCategories = getAllCategoriesFromData(dataWithLimit);
+
+  const allQuestions: Question[] = mapApiData(dataWithLimit);
+  const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
+
+  const firstQuestionUrlsObj: { [key: string]: string } = {};
+  const questionsCountObj: { [key: string]: number } = {};
+
+  allCategories.forEach((category) => {
+    const count = allQuestions.filter((question) =>
+      question.categories.includes(category)
+    ).length;
+
+    questionsCountObj[category] = count;
+
+    const firstQuestion = allQuestionsShuffled
+      .sort(() => Math.random() - 0.5)
+      .find((question) => question.categories.includes(category));
+
+    if (firstQuestion) {
+      firstQuestionUrlsObj[category] = createQuestionUrl(
+        firstQuestion,
+        category
+      );
+    }
+  });
+
+  return {
+    allCategories,
+    allQuestions: allQuestionsShuffled,
+    firstQuestionUrlsObj,
+    questionsCountObj,
+    postsFromOldWordpresOrdered,
+    postsFromOldWordpresOrdered50: postsFromOldWordpresOrdered.slice(0, 50),
+  };
+};
+
+export function getCurrentLearningCategoryFromLS() {
+  const currentLearningCategory = getStringFromLocalStorage(
+    "CURRENT_LEARNING_CATEGORY_STORAGE_KEY",
+    "b"
+  );
+
+  return currentLearningCategory;
+}
+
+export function setStringToSessionStorage(key: string, value: string) {
+  sessionStorage.setItem(key, value);
+}
+
+export function setArrayToSessionStorage(key: string, value: any[]) {
+  sessionStorage.setItem(key, JSON.stringify(value));
+}
+
+export const getStringFromLocalStorage = (
+  key: string,
+  defaultValue: string
+) => {
+  const value = localStorage.getItem(key);
+
+  return value || defaultValue;
+};
+
+export const getArrayFromSessionStorage = (key: string) => {
+  const data = sessionStorage.getItem(key);
+
+  if (!data) {
+    return [];
+  }
+
+  return JSON.parse(data) as any[];
+};
 
 export async function addToFirebaseDocument(
   db: any,
@@ -100,39 +186,6 @@ export function randomPrevNextQuestion(
   });
 }
 
-export const createBigObjectDataFromApiDataForBuildTime = () => {
-  const apiData = _apiData as ApiDataItem[];
-
-  const _postsFromOldWordpress = postsFromOldWordpress as {
-    postsFromOldWordpress: WordpressPost[];
-  };
-  const postsFromOldWordpresOrdered = _.orderBy(
-    _postsFromOldWordpress.postsFromOldWordpress,
-    ["date"],
-    ["desc"]
-  ).slice(0, postsFromOldWordpressLimit);
-
-  const _allCategories: string[] = [];
-
-  apiData.forEach((item) => {
-    _allCategories.push(...item.cats);
-  });
-
-  const allCategories = getAllCategoriesFromData(apiData);
-
-  const allQuestions: Question[] = mapApiData(apiData).slice(
-    0,
-    allQuestionsLimit
-  );
-
-  return {
-    allCategories,
-    allQuestions,
-    postsFromOldWordpresOrdered,
-    postsFromOldWordpresOrdered50: postsFromOldWordpresOrdered.slice(0, 50),
-  };
-};
-
 export const createQuestionUrl = (question: Question, category: string) => {
   const slug = `${getSlug(
     question.text.slice(0, 160)
@@ -191,7 +244,6 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
       correctAnswer: q.r,
       categories: q.cats,
       score: q.s,
-      isVideo: q.m ? q.m.endsWith(".mp4") : false,
     };
 
     return newQuestion;
@@ -225,12 +277,10 @@ export const getInitialValue = (
 
 export const getCurrentCategoryInitialValue = () => {
   try {
-    const currentCategory =
-      sessionStorage.getItem(KEY.CURRENT_CATEGORY) ||
-      DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    const currentCategory = localStorage.getItem(KEY.CURRENT_CATEGORY) || "b";
     return currentCategory;
   } catch (err) {
-    return DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE;
+    return "b";
   }
 };
 

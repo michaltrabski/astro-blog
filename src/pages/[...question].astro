@@ -1,16 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Media from "../components/Media.astro";
-// import PrevNextQuestion from "../components/PrevNextQuestion.astro";
-import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
+import PrevNextQuestion from "../components/PrevNextQuestion.astro";
+// import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
 
 import masterQuestionsJson from "../data/masterQuestions.json";
-import {
-  createBigObjectDataFromApiDataForBuildTime,
-  createQuestionUrl,
-  getFullUrl,
-} from "../utils/utils";
+import { createQuestionUrl, getDataForBuild, getFullUrl } from "../utils/utils";
 
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
@@ -32,8 +28,7 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const { allCategories, allQuestions } =
-    createBigObjectDataFromApiDataForBuildTime();
+  const { allCategories, allQuestions } = getDataForBuild();
   const explanations = masterQuestionsJson.allQuestions;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
@@ -105,9 +100,9 @@ const { text, category, score, media, expls, lows, prevSlug, nextSlug } =
 
       <AnswerYesNo client:load question={questionPageData} />
 
-      <!-- <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} /> -->
+      <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} />
 
-      <PrevNextQuestion client:load question={questionPageData} />
+      <!-- <PrevNextQuestion client:load question={questionPageData} /> -->
 
       <div data-info class="row mb-3 bg-light">
         {

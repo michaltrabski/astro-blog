@@ -4,8 +4,8 @@ export const LOCALHOST = "http://localhost:3000";
 export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 
 // LIMITS FOR DEVELOPMENT
-export const postsFromOldWordpressLimit = 123456;
-export const allQuestionsLimit = 123456;
+export const LIMIT_OF_QUESTIONS_IN_API_DATA = 130; // 10099999;
+export const postsFromOldWordpressLimit = 2; // 123456;
 
 export const MEDIA_HOST =
   "https://dacmwwxjyw.cfolks.pl/files/testy-na-prawo-jazdy/";
@@ -19,16 +19,12 @@ export const MEDIA_SIZE = {
 export const MP3_DIR = "mp3/";
 export const MP3_EXTENSION = ".mp3";
 
-export const DEFAUTL_INITIAL_CURRENT_CATEGORY_VALUE = "b";
-
 export enum KEY {
   CURRENT_CATEGORY = "CURRENT_CATEGORY",
   API_DATA = "API_DATA",
   CATEGORIES = "CATEGORIES",
   READY_TO_USE_DATA = "READY_TO_USE_DATA",
 }
-
-export const LIMIT_OF_QUESTIONS_IN_API_DATA = 10099999;
 
 export const adverticements = [
   "Napisz w komentarzu odpowiedź na to pytanie i wejdź na stronę poznaj-testy.pl.",

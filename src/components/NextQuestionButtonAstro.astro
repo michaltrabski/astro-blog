@@ -1,0 +1,69 @@
+---
+export interface Props {
+  category: string;
+  initialUrl: string;
+  count: number;
+}
+
+const { category, initialUrl, count } = Astro.props as Props;
+
+const selector = "set-href-for-next-question-url";
+---
+
+<a
+  href={initialUrl}
+  data-selector={selector}
+  data-category={category}
+  class="btn btn-primary mb-3 w-100"
+>
+  {category}
+  <br />
+  {initialUrl}
+  <br />
+  {count}
+  <br />
+
+  Rozpocznij naukę testów na prawo jazdy
+  <strong>kategorii: {category.toUpperCase()}</strong></a
+>
+
+<script>
+  import {
+    getArrayFromSessionStorage,
+    getCurrentLearningCategoryFromLS,
+    getStringFromLocalStorage,
+  } from "../utils/utils";
+  const elemetsToHide = document.querySelectorAll(
+    "[data-category]"
+  ) as NodeListOf<HTMLElement>;
+
+  const currentLearningCategory = getCurrentLearningCategoryFromLS();
+
+  elemetsToHide.forEach((element) => {
+    if (element.dataset.category !== currentLearningCategory) {
+      // element.style.display = "none";
+    }
+  });
+
+  const linksElementsToSetNextQuestionUrl = document.querySelectorAll(
+    "[data-selector='set-href-for-next-question-url']"
+  ) as NodeListOf<HTMLAnchorElement>;
+
+  const nextQuestionUrls = getArrayFromSessionStorage(
+    "NEXT_QUESTION_URLS_STORAGE_KEY"
+  ) as string[];
+
+  console.log(
+    "NextQuestionButtonAstro",
+    linksElementsToSetNextQuestionUrl,
+    nextQuestionUrls.length
+  );
+
+  if (nextQuestionUrls.length > 0) {
+    const nextQuestionUrl = nextQuestionUrls[nextQuestionUrls.length - 1];
+
+    linksElementsToSetNextQuestionUrl.forEach((link) => {
+      link.href = nextQuestionUrl;
+    });
+  }
+</script>

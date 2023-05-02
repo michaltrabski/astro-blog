@@ -1,15 +1,17 @@
-import apiData from "../data/api-data";
+import data from "../data/data";
 import { LIMIT_OF_QUESTIONS_IN_API_DATA } from "../settings/settings";
 import type { DataReceivedFromEndpoint } from "../store/types";
 
 import { getAllCategoriesFromData } from "../utils/utils";
 
-const allQuestions = apiData.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
+const allQuestions = data.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
 const allQuestionsCount = allQuestions.length;
-const allCategories = getAllCategoriesFromData(apiData);
+const allCategories = getAllCategoriesFromData(data);
+
+const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
 
 const dataReceivedFromEndpoint: DataReceivedFromEndpoint = {
-  allQuestions,
+  allQuestions: allQuestionsShuffled,
   allQuestionsCount,
   allCategories,
 };

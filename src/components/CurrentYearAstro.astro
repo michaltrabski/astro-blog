@@ -2,14 +2,14 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<span class="__current-year">{currentYear}</span>
+<span data-set-current-year class="__current-year">{currentYear}</span>
 
 <script>
-  const currentYearSpans = document.querySelectorAll(
-    ".__current-year"
+  const spanElementsToSetCurrentYear = document.querySelectorAll(
+    "[data-set-current-year]"
   ) as NodeListOf<HTMLSpanElement>;
 
-  currentYearSpans.forEach((currentYearSpan) => {
-    currentYearSpan.innerHTML = "" + new Date().getFullYear();
+  spanElementsToSetCurrentYear.forEach((spanElement) => {
+    spanElement.innerHTML = "" + new Date().getFullYear();
   });
 </script>
