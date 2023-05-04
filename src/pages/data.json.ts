@@ -1,17 +1,11 @@
-import data from "../data/data";
-import { LIMIT_OF_QUESTIONS_IN_API_DATA } from "../settings/settings";
 import type { DataReceivedFromEndpoint } from "../store/types";
+import { dataForBuild } from "../utils/utils";
 
-import { getAllCategoriesFromData } from "../utils/utils";
-
-const allQuestions = data.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
-const allQuestionsCount = allQuestions.length;
-const allCategories = getAllCategoriesFromData(data);
-
-const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
+const { allQuestionsFromEndpoint, allQuestionsCount, allCategories } =
+  dataForBuild;
 
 const dataReceivedFromEndpoint: DataReceivedFromEndpoint = {
-  allQuestions: allQuestionsShuffled,
+  allQuestionsFromEndpoint,
   allQuestionsCount,
   allCategories,
 };

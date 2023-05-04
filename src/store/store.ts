@@ -3,10 +3,12 @@ import { KEY } from "../settings/settings";
 
 import {
   getDataFromSessionStorage,
-  getCurrentCategoryInitialValue,
   mapApiData,
   storageSetStringItem,
   sessionStorageSetObj,
+  getCurrentLearningCategoryFromLS,
+  getAllQuestionsFromSS,
+  getAllCategoriesFromSS,
 } from "../utils/utils";
 import type {
   DataReceivedFromEndpoint,
@@ -25,7 +27,7 @@ export const _themeName = atom(localStorage.getItem("_themeName") || "jasny");
 export const _mp3Items = map<Record<string, Mp3Item>>({});
 export const _questions = atom<Question[]>([]);
 export const _allCategories = atom<string[]>([]);
-export const _currentCategory = atom("b"); // atom("getCurrentCategoryInitialValue()");
+export const _currentCategory = atom("b");
 export const _givenAnswers = map<Record<QuestionId, GivenAnswer>>(
   initialGivenAnswers()
 );
@@ -189,7 +191,7 @@ export const getDataFromEndpoint = async () => {
       return;
     }
 
-    const fetchResponse = await fetch("../api-data.json");
+    const fetchResponse = await fetch("../data.json");
     const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
       await fetchResponse.json();
 

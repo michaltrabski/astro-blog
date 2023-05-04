@@ -1,7 +1,7 @@
-import { getDataForBuild, getFullUrl } from "../utils/utils";
+import { dataForBuild, getFullUrl } from "../utils/utils";
 
 export default function PostsFromOldWordpress() {
-  const { postsFromOldWordpresOrdered50 } = getDataForBuild();
+  const { postsFromOldWordpresOrdered50 } = dataForBuild;
 
   return (
     <div className="text-start">

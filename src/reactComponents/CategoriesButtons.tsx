@@ -2,12 +2,12 @@ import { useStore } from "@nanostores/react";
 import clsx from "clsx";
 
 import { changeCategory, _currentCategory } from "../store/store";
-import { getDataForBuild } from "../utils/utils";
+import { dataForBuild } from "../utils/utils";
 
 export default function CategoriesButtons() {
   const curentCategory = useStore(_currentCategory);
 
-  const { allCategories } = getDataForBuild();
+  const { allCategories } = dataForBuild;
 
   return (
     <div className="pb-3">

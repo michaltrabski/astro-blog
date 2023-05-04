@@ -18,6 +18,7 @@ interface QuestionTextProps {
 
 export default function QuestionText(props: QuestionTextProps) {
   const {
+    id,
     text,
     prevSlug: prevSlugFromProps,
     nextSlug: nextSlugFromProps,
@@ -44,6 +45,18 @@ export default function QuestionText(props: QuestionTextProps) {
     _addMp3Item({ id: questionTextAsSlug });
     // _addMp3Item({ id: getSlug(adverticementRef.current) });
   }, []);
+
+  const textContent = (
+    <>
+      <span style={{ fontWeight: "300" }} className="text-secondary">
+        {id.replace("id", "")}.
+      </span>{" "}
+      {text}{" "}
+      <span style={{ fontWeight: "300" }} className="text-secondary">
+        ({score} pkt)
+      </span>
+    </>
+  );
 
   return (
     <div className="row mb-3">
@@ -93,10 +106,7 @@ export default function QuestionText(props: QuestionTextProps) {
               }}
               className="text-start shadow-bottom"
             >
-              {text}{" "}
-              <span style={{ fontWeight: "300" }} className="text-secondary">
-                ({score} pkt)
-              </span>
+              {textContent}
               {canplay && (
                 <span
                   style={{ cursor: "pointer" }}
@@ -131,10 +141,7 @@ export default function QuestionText(props: QuestionTextProps) {
             }}
             className="text-start shadow-bottom"
           >
-            {text}{" "}
-            <span style={{ fontWeight: "300" }} className="text-secondary">
-              ({score} pkt)
-            </span>
+            {textContent}
           </h1>
         )}
       </div>

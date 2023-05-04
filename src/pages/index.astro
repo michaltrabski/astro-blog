@@ -2,17 +2,17 @@
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
-import NextQuestionButtonAstro from "../components/NextQuestionButtonAstro.astro";
-
-import { getDataForBuild } from "../utils/utils";
-import { URLS } from "../urls/urls";
 import StartLearningButtons from "../reactComponents/StartLearningButtons";
+
+import { dataForBuild } from "../utils/utils";
+import { URLS } from "../urls/urls";
+import StartLearningButtonAstro from "../components/StartLearningButtonAstro.astro";
+
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 
-const { allCategories, allQuestions, firstQuestionUrlsObj, questionsCountObj } =
-  getDataForBuild();
+const { allCategories, allQuestions, firstQuestionUrlsObj } = dataForBuild;
 
 const currentYear = new Date().getFullYear();
 ---
@@ -37,25 +37,17 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <pre>
-        {JSON.stringify(firstQuestionUrlsObj, null, 2)}
-      </pre>
-
-      <pre>
-        {JSON.stringify(questionsCountObj, null, 2)}
-      </pre>
-
       {
         allCategories.map((category) => (
-          <NextQuestionButtonAstro
+          <StartLearningButtonAstro
             category={category}
             initialUrl={firstQuestionUrlsObj[category] || "#"}
-            count={questionsCountObj[category] || 0}
           />
         ))
       }
 
-      <!-- <StartLearningButtons
+      <!-- <br /><br /><br /><br /><br />
+      <StartLearningButtons
         client:load
         allCategories={allCategories}
         allQuestions={allQuestions}

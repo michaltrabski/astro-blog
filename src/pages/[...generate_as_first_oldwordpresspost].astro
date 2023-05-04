@@ -2,13 +2,12 @@
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 
-import { getDataForBuild } from "../utils/utils";
+import { dataForBuild } from "../utils/utils";
 
 import QuestionsTable from "../reactComponents/QuestionsTable";
 
 export async function getStaticPaths() {
-  const bigData = getDataForBuild();
-  const { postsFromOldWordpresOrdered } = bigData;
+  const { postsFromOldWordpresOrdered } = dataForBuild;
 
   // IMPORTANT
   // IMPORTANT

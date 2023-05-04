@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Media from "../components/Media.astro";
-import PrevNextQuestion from "../components/PrevNextQuestion.astro";
+// import PrevNextQuestion from "../components/PrevNextQuestion.astro";
 // import PrevNextQuestion from "../reactComponents/PrevNextQuestion";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
+import NextQuestionButtonAstro from "../components/NextQuestionButtonAstro.astro";
 
 import masterQuestionsJson from "../data/masterQuestions.json";
-import { createQuestionUrl, getDataForBuild, getFullUrl } from "../utils/utils";
+import { createQuestionUrl, dataForBuild, getFullUrl } from "../utils/utils";
 
 import AnswerAbc from "../reactComponents/AnswerAbc";
 import AnswerYesNo from "../reactComponents/AnswerYesNo";
@@ -28,7 +29,7 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const { allCategories, allQuestions } = getDataForBuild();
+  const { allCategories, allQuestions } = dataForBuild;
   const explanations = masterQuestionsJson.allQuestions;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
@@ -83,7 +84,7 @@ export async function getStaticPaths() {
 
 const questionPageData: QuestionPageData = Astro.props.questionPageData;
 const allCategories = Astro.props.allCategories;
-const { text, category, score, media, expls, lows, prevSlug, nextSlug } =
+const { id, text, category, score, media, expls, lows, prevSlug, nextSlug } =
   questionPageData;
 ---
 
@@ -100,16 +101,18 @@ const { text, category, score, media, expls, lows, prevSlug, nextSlug } =
 
       <AnswerYesNo client:load question={questionPageData} />
 
-      <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} />
+      <NextQuestionButtonAstro text="następne" initialUrl={nextSlug} />
+
+      <!-- <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} /> -->
 
       <!-- <PrevNextQuestion client:load question={questionPageData} /> -->
 
       <div data-info class="row mb-3 bg-light">
         {
           [
-            // { label: id },
-            { colSize: 3, label: `kat: ${category.toUpperCase()}` },
-            { colSize: 3, label: `pkt: ${score}` },
+            { colSize: 2, label: `nr: ${id.replace("id", "")}` },
+            { colSize: 2, label: `kat: ${category.toUpperCase()}` },
+            { colSize: 2, label: `pkt: ${score}` },
             {
               colSize: 6,
               label: (

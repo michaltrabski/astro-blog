@@ -11,7 +11,7 @@ export interface QuestionReceivedFromEndpoint {
 }
 
 export interface DataReceivedFromEndpoint {
-  allQuestions: QuestionReceivedFromEndpoint[];
+  allQuestionsFromEndpoint: QuestionReceivedFromEndpoint[];
   allQuestionsCount: number;
   allCategories: string[];
 }

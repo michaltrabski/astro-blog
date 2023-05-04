@@ -2,11 +2,11 @@
 import CurrentYearAstro from "./CurrentYearAstro.astro";
 
 export interface Props {
-  text: "poprzednie" | "następne";
+  category: string;
   initialUrl: string;
 }
 
-const { text, initialUrl } = Astro.props as Props;
+const { category, initialUrl } = Astro.props as Props;
 
 const selector = "set-href-for-next-question-url";
 ---
@@ -14,23 +14,37 @@ const selector = "set-href-for-next-question-url";
 <a
   href={initialUrl}
   data-selector={selector}
+  data-category={category}
   class="btn btn-primary btn-lg mb-3 w-100"
 >
-  {text === "poprzednie" && <i class="bi bi-arrow-left-short" />}
-
-  {text}
-
-  {text === "następne" && <i class="bi bi-arrow-right-short" />}</a
+  Rozpocznij naukę testów na prawo jazdy <CurrentYearAstro />
+  <strong>kategorii: {category.toUpperCase()}</strong></a
 >
 
 <script>
-  import { getNextQuestionUrlsFromSS } from "../utils/utils";
+  import {
+    getArrayFromSessionStorage,
+    getCurrentLearningCategoryFromLS,
+  } from "../utils/utils";
+  const elemetsToHide = document.querySelectorAll(
+    "[data-category]"
+  ) as NodeListOf<HTMLElement>;
+
+  const currentLearningCategory = getCurrentLearningCategoryFromLS();
+
+  elemetsToHide.forEach((element) => {
+    if (element.dataset.category !== currentLearningCategory) {
+      element.style.display = "none";
+    }
+  });
 
   const linksElementsToSetNextQuestionUrl = document.querySelectorAll(
     "[data-selector='set-href-for-next-question-url']"
   ) as NodeListOf<HTMLAnchorElement>;
 
-  const nextQuestionUrls = getNextQuestionUrlsFromSS();
+  const nextQuestionUrls = getArrayFromSessionStorage(
+    "NEXT_QUESTION_URLS_STORAGE_KEY"
+  ) as string[];
 
   console.log(
     "NextQuestionButtonAstro",

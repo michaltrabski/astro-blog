@@ -1,5 +1,4 @@
-import _apiData from "../data/api-data";
-import _data from "../data/data";
+import data from "../data/data";
 
 import _ from "lodash";
 import slugify from "slugify";
@@ -23,9 +22,24 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
 
-export const getDataForBuild = () => {
-  const data = _data as ApiDataItem[];
-  const dataWithLimit = data.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
+export const dataForBuild = getDataForBuild();
+
+function getDataForBuild() {
+  const randomNr = Math.floor(Math.random() * 1000000);
+
+  const allQuestionsFromEndpoint = data as ApiDataItem[];
+  const allQuestionsFromEndpointShuffled = allQuestionsFromEndpoint.sort(
+    () => Math.random() - 0.5
+  );
+  const allQuestionsFromEndpointShuffledWithLimit =
+    allQuestionsFromEndpointShuffled.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
+
+  const allQuestionsShuffled: Question[] = mapApiData(
+    allQuestionsFromEndpointShuffledWithLimit
+  );
+  const allCategories = getAllCategoriesFromData(
+    allQuestionsFromEndpointShuffledWithLimit
+  );
 
   const _postsFromOldWordpress = postsFromOldWordpress as {
     postsFromOldWordpress: WordpressPost[];
@@ -36,16 +50,11 @@ export const getDataForBuild = () => {
     ["desc"]
   ).slice(0, postsFromOldWordpressLimit);
 
-  const allCategories = getAllCategoriesFromData(dataWithLimit);
-
-  const allQuestions: Question[] = mapApiData(dataWithLimit);
-  const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
-
   const firstQuestionUrlsObj: { [key: string]: string } = {};
   const questionsCountObj: { [key: string]: number } = {};
 
   allCategories.forEach((category) => {
-    const count = allQuestions.filter((question) =>
+    const count = allQuestionsShuffled.filter((question) =>
       question.categories.includes(category)
     ).length;
 
@@ -64,14 +73,40 @@ export const getDataForBuild = () => {
   });
 
   return {
+    randomNr,
+    allQuestionsFromEndpoint: allQuestionsFromEndpointShuffledWithLimit,
     allCategories,
     allQuestions: allQuestionsShuffled,
+    allQuestionsCount: allQuestionsShuffled.length,
     firstQuestionUrlsObj,
     questionsCountObj,
     postsFromOldWordpresOrdered,
     postsFromOldWordpresOrdered50: postsFromOldWordpresOrdered.slice(0, 50),
   };
-};
+}
+
+export function getAllQuestionsFromSS() {
+  const allQuestions = getArrayFromSessionStorage(
+    "ALL_QUESTIONS_STORAGE_KEY"
+  ) as Question[];
+
+  return allQuestions;
+}
+
+export function getAllCategoriesFromSS() {
+  const allCategories = getArrayFromSessionStorage(
+    "ALL_CATEGORIES_STORAGE_KEY"
+  ) as string[];
+  return allCategories;
+}
+
+export function getNextQuestionUrlsFromSS() {
+  const nextQuestionUrls = getArrayFromSessionStorage(
+    "NEXT_QUESTION_URLS_STORAGE_KEY"
+  ) as string[];
+
+  return nextQuestionUrls;
+}
 
 export function getCurrentLearningCategoryFromLS() {
   const currentLearningCategory = getStringFromLocalStorage(
@@ -90,16 +125,13 @@ export function setArrayToSessionStorage(key: string, value: any[]) {
   sessionStorage.setItem(key, JSON.stringify(value));
 }
 
-export const getStringFromLocalStorage = (
-  key: string,
-  defaultValue: string
-) => {
+export function getStringFromLocalStorage(key: string, defaultValue: string) {
   const value = localStorage.getItem(key);
 
   return value || defaultValue;
-};
+}
 
-export const getArrayFromSessionStorage = (key: string) => {
+export function getArrayFromSessionStorage(key: string) {
   const data = sessionStorage.getItem(key);
 
   if (!data) {
@@ -107,7 +139,7 @@ export const getArrayFromSessionStorage = (key: string) => {
   }
 
   return JSON.parse(data) as any[];
-};
+}
 
 export async function addToFirebaseDocument(
   db: any,
@@ -186,7 +218,7 @@ export function randomPrevNextQuestion(
   });
 }
 
-export const createQuestionUrl = (question: Question, category: string) => {
+export function createQuestionUrl(question: Question, category: string) {
   const slug = `${getSlug(
     question.text.slice(0, 160)
   )}-id-pytania-${question.id.replace("id", "")}`;
@@ -196,9 +228,9 @@ export const createQuestionUrl = (question: Question, category: string) => {
   }
 
   return `kat-${category}/${slug}`;
-};
+}
 
-export const getFullUrl = (url: string) => {
+export function getFullUrl(url: string) {
   const domain =
     import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
 
@@ -207,9 +239,9 @@ export const getFullUrl = (url: string) => {
   }
 
   return domain + "/" + url;
-};
+}
 
-export const getSlug = (text: string) => {
+export function getSlug(text: string) {
   return slugify(text, {
     replacement: "-", // replace spaces with replacement character, defaults to `-`
     remove: /[*+~,.()/'"!:@?;]/g, // remove characters that match regex, defaults to `undefined`
@@ -218,9 +250,9 @@ export const getSlug = (text: string) => {
     locale: "pl", // language code of the locale to use
     trim: true, // trim leading and trailing replacement chars, defaults to `true`
   });
-};
+}
 
-export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
+export function getAllCategoriesFromData(data: ApiDataItem[]) {
   const _allCategories: string[] = [];
 
   data.forEach((item) => {
@@ -230,9 +262,9 @@ export const getAllCategoriesFromData = (data: ApiDataItem[]) => {
   const allCategories = [...new Set(_allCategories)].sort();
 
   return allCategories;
-};
+}
 
-export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
+export function mapApiData(apiData: ApiDataItem[]): Question[] {
   return apiData.map((q) => {
     const newQuestion: Question = {
       id: q.id,
@@ -248,7 +280,7 @@ export const mapApiData = (apiData: ApiDataItem[]): Question[] => {
 
     return newQuestion;
   });
-};
+}
 
 export const getInitialValue = (
   key: KEY,
@@ -275,14 +307,14 @@ export const getInitialValue = (
   }
 };
 
-export const getCurrentCategoryInitialValue = () => {
-  try {
-    const currentCategory = localStorage.getItem(KEY.CURRENT_CATEGORY) || "b";
-    return currentCategory;
-  } catch (err) {
-    return "b";
-  }
-};
+// export const getCurrentCategoryInitialValue = () => {
+//   try {
+//     const currentCategory = localStorage.getItem(KEY.CURRENT_CATEGORY) || "b";
+//     return currentCategory;
+//   } catch (err) {
+//     return "b";
+//   }
+// };
 
 export const getDataFromSessionStorage = () => {
   try {

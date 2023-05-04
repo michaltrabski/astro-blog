@@ -15,7 +15,11 @@
   import type { DataReceivedFromEndpoint, Question } from "../store/types";
   import {
     createQuestionUrl,
+    getAllCategoriesFromSS,
+    getAllQuestionsFromSS,
     getArrayFromSessionStorage,
+    getCurrentLearningCategoryFromLS,
+    getNextQuestionUrlsFromSS,
     getStringFromLocalStorage,
     setArrayToSessionStorage,
   } from "../utils/utils";
@@ -45,19 +49,10 @@
 
   // Define your reducer
   const initialState: RootState = {
-    currentLearningCategory: getStringFromLocalStorage(
-      CURRENT_LEARNING_CATEGORY_STORAGE_KEY,
-      "b"
-    ),
-    allQuestions: getArrayFromSessionStorage(
-      ALL_QUESTIONS_STORAGE_KEY
-    ) as Question[],
-    allCategories: getArrayFromSessionStorage(
-      ALL_CATEGORIES_STORAGE_KEY
-    ) as string[],
-    nextQuestionUrls: getArrayFromSessionStorage(
-      NEXT_QUESTION_URLS_STORAGE_KEY
-    ) as string[],
+    currentLearningCategory: getCurrentLearningCategoryFromLS(),
+    allQuestions: getAllQuestionsFromSS(),
+    allCategories: getAllCategoriesFromSS(),
+    nextQuestionUrls: getNextQuestionUrlsFromSS(),
   };
 
   // Define your action types
@@ -119,7 +114,7 @@
       }
 
       case FETCH_ALL_QUESTIONS:
-        const allQuestions = action.payload.slice(0, 1);
+        const allQuestions = action.payload;
         setArrayToSessionStorage(ALL_QUESTIONS_STORAGE_KEY, allQuestions);
 
         return { ...state, allQuestions };
@@ -175,7 +170,7 @@
 
       // ALL QUESTIONS
       const allQuestions: Question[] =
-        dataReceivedFromEndpoint.allQuestions.map(
+        dataReceivedFromEndpoint.allQuestionsFromEndpoint.map(
           (questionReceivedFromEndpoint, index) => {
             const q = questionReceivedFromEndpoint;
 
@@ -228,11 +223,7 @@
     const preElements = document.querySelectorAll("[data-myreduxstate]");
 
     preElements.forEach((preElement) => {
-      preElement.innerHTML = JSON.stringify(
-        store.getState().nextQuestionUrls,
-        null,
-        2
-      );
+      preElement.innerHTML = JSON.stringify(store.getState(), null, 2);
     });
   };
 
