@@ -22,14 +22,14 @@
     getNextQuestionUrlsFromSS,
     getStringFromLocalStorage,
     setArrayToSessionStorage,
+    setStringToLS,
   } from "../utils/utils";
 
-  const FETCH_STORE_ACTION = "FETCH_STORE_ACTION";
-  const ACTION_SET_CURRENT_LEARNING_CATEGORY =
-    "ACTION_SET_CURRENT_LEARNING_CATEGORY";
-  const FETCH_ALL_QUESTIONS = "FETCH_ALL_QUESTIONS";
-  const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
-  const ACTION_RAND_NEXT_QUESTION_URLS = "ACTION_RAND_NEXT_QUESTION_URLS";
+  const FETCH_STORE = "FETCH_STORE";
+  const SET_CURRENT_LEARNING_CATEGORY = "SET_CURRENT_LEARNING_CATEGORY";
+  // const FETCH_ALL_QUESTIONS = "FETCH_ALL_QUESTIONS";
+  // const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
+  // const ACTION_RAND_NEXT_QUESTION_URLS = "ACTION_RAND_NEXT_QUESTION_URLS";
   const POP_ELEMENT_FROM_NEXT_QUESTION_URLS =
     "POP_ELEMENT_FROM_NEXT_QUESTION_URLS";
 
@@ -56,23 +56,23 @@
   };
 
   // Define your action types
-  interface FetchAllQuestionsAction {
-    type: typeof FETCH_ALL_QUESTIONS;
-    payload: Question[];
-  }
+  // interface fetchStoreAction {
+  //   type: typeof FETCH_ALL_QUESTIONS;
+  //   payload: Question[];
+  // }
 
-  interface FetchAllCategoriesAction {
-    type: typeof FETCH_ALL_CATEGORIES;
-    payload: string[];
-  }
+  // interface FetchAllCategoriesAction {
+  //   type: typeof FETCH_ALL_CATEGORIES;
+  //   payload: string[];
+  // }
 
-  interface ActionRandNextQuestionUrls {
-    type: typeof ACTION_RAND_NEXT_QUESTION_URLS;
-    payload: string[];
-  }
+  // interface ActionRandNextQuestionUrls {
+  //   type: typeof ACTION_RAND_NEXT_QUESTION_URLS;
+  //   payload: string[];
+  // }
 
-  interface FetchStoreAction {
-    type: typeof FETCH_STORE_ACTION;
+  interface FetchStore {
+    type: typeof FETCH_STORE;
     payload: {
       allQuestions: Question[];
       allCategories: string[];
@@ -84,16 +84,22 @@
     type: typeof POP_ELEMENT_FROM_NEXT_QUESTION_URLS;
   }
 
+  interface SetCurrentLearningCategory {
+    type: typeof SET_CURRENT_LEARNING_CATEGORY;
+    payload: string;
+  }
+
   type AllActions =
-    | FetchStoreAction
-    | FetchAllQuestionsAction
-    | FetchAllCategoriesAction
-    | ActionRandNextQuestionUrls
-    | PopElementFromNextQuestionUrls;
+    | FetchStore
+    // | fetchStoreAction
+    // | FetchAllCategoriesAction
+    // | ActionRandNextQuestionUrls
+    | PopElementFromNextQuestionUrls
+    | SetCurrentLearningCategory;
 
   const rootReducer = (state: RootState = initialState, action: AllActions) => {
     switch (action.type) {
-      case FETCH_STORE_ACTION: {
+      case FETCH_STORE: {
         const allQuestions = action.payload.allQuestions;
         const allCategories = action.payload.allCategories;
         const nextQuestionUrls = action.payload.nextQuestionUrls;
@@ -113,20 +119,20 @@
         };
       }
 
-      case FETCH_ALL_QUESTIONS:
-        const allQuestions = action.payload;
-        setArrayToSessionStorage(ALL_QUESTIONS_STORAGE_KEY, allQuestions);
+      // case FETCH_ALL_QUESTIONS:
+      //   const allQuestions = action.payload;
+      //   setArrayToSessionStorage(ALL_QUESTIONS_STORAGE_KEY, allQuestions);
 
-        return { ...state, allQuestions };
-      case FETCH_ALL_CATEGORIES:
-        const allCategories = action.payload;
-        setArrayToSessionStorage(ALL_CATEGORIES_STORAGE_KEY, allCategories);
+      //   return { ...state, allQuestions };
+      // case FETCH_ALL_CATEGORIES:
+      //   const allCategories = action.payload;
+      //   setArrayToSessionStorage(ALL_CATEGORIES_STORAGE_KEY, allCategories);
 
-        return { ...state, allCategories };
-      case ACTION_RAND_NEXT_QUESTION_URLS:
-        return { ...state, nextQuestionUrls: action.payload };
+      //   return { ...state, allCategories };
+      // case ACTION_RAND_NEXT_QUESTION_URLS:
+      //   return { ...state, nextQuestionUrls: action.payload };
 
-      case POP_ELEMENT_FROM_NEXT_QUESTION_URLS:
+      case POP_ELEMENT_FROM_NEXT_QUESTION_URLS: {
         const nextQuestionUrls = state.nextQuestionUrls.slice(0, -1);
 
         setArrayToSessionStorage(
@@ -135,6 +141,17 @@
         );
 
         return { ...state, nextQuestionUrls };
+      }
+      case SET_CURRENT_LEARNING_CATEGORY: {
+        const currentLearningCategory = action.payload;
+
+        setStringToLS(
+          CURRENT_LEARNING_CATEGORY_STORAGE_KEY,
+          currentLearningCategory
+        );
+
+        return { ...state, currentLearningCategory };
+      }
       default:
         return state;
     }
@@ -146,7 +163,7 @@
   console.log("store is ready: ", store.getState());
 
   // Define your Thunk action
-  export const fetchAllQuestions = (): ThunkAction<
+  export const fetchStore = (): ThunkAction<
     void,
     RootState,
     unknown,
@@ -208,7 +225,7 @@
         );
 
       dispatch({
-        type: FETCH_STORE_ACTION,
+        type: FETCH_STORE,
         payload: {
           allQuestions: allQuestionsShuffled,
           allCategories,
@@ -235,13 +252,18 @@
     type: POP_ELEMENT_FROM_NEXT_QUESTION_URLS,
   });
 
+  store.dispatch({
+    type: SET_CURRENT_LEARNING_CATEGORY,
+    payload: "b",
+  });
+
   // To stop listening for changes:
   // unsubscribe();
 
   // Dispatch your Thunk action
   // store.dispatch(addQuestion(6)); // Note: You should use store.dispatch to dispatch Thunk actions
 
-  store.dispatch(fetchAllQuestions());
+  store.dispatch(fetchStore());
 
   // Example event listener for a button that dispatches the Thunk action
   const button = document.getElementById("add-question-button");

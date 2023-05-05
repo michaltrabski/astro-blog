@@ -121,6 +121,10 @@ export function setStringToSessionStorage(key: string, value: string) {
   sessionStorage.setItem(key, value);
 }
 
+export function setStringToLS(key: string, value: string) {
+  localStorage.setItem(key, value);
+}
+
 export function setArrayToSessionStorage(key: string, value: any[]) {
   sessionStorage.setItem(key, JSON.stringify(value));
 }
