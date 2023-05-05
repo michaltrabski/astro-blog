@@ -6,6 +6,7 @@ export async function get({ params, request }) {
       "strona3",
       "strona4",
       "strona5",
+      "strona6",
     ]),
   };
 }
