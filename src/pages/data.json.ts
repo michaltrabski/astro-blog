@@ -1,10 +1,11 @@
 import type { DataReceivedFromEndpoint } from "../store/types";
 import { dataForBuild } from "../utils/utils";
 
-const { allQuestionsFromEndpoint, allQuestionsCount, allCategories } =
+const { randomNr, allQuestionsFromEndpoint, allQuestionsCount, allCategories } =
   dataForBuild;
 
 const dataReceivedFromEndpoint: DataReceivedFromEndpoint = {
+  randomNr,
   allQuestionsFromEndpoint,
   allQuestionsCount,
   allCategories,

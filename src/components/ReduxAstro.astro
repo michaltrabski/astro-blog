@@ -160,7 +160,6 @@
   // Create your store with Thunk middleware
   const store = createStore(rootReducer, applyMiddleware(thunk));
   // export default store;
-  console.log("store is ready: ", store.getState());
 
   // Define your Thunk action
   export const fetchStore = (): ThunkAction<
@@ -237,6 +236,8 @@
 
   // Subscribe to changes in the store
   const update = () => {
+    console.log("store is ready: ", store.getState());
+
     const preElements = document.querySelectorAll("[data-myreduxstate]");
 
     preElements.forEach((preElement) => {

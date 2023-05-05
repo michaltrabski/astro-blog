@@ -5,9 +5,9 @@ import { features } from "../settings/settings";
 export default function Features() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
 
-useEffect(() => {
-  setFeaturesIndex(Math.floor(Math.random() * features.length));
-}, []);
+  useEffect(() => {
+    setFeaturesIndex(Math.floor(Math.random() * features.length));
+  }, []);
 
   const randomFeature = features[featuresIndex];
 
@@ -26,7 +26,7 @@ useEffect(() => {
         </p>
 
         {features.map((feature, index) => (
-          <p>
+          <p key={index}>
             {index + 2}. {feature}
           </p>
         ))}

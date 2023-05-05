@@ -19,6 +19,8 @@ import Modal from "../reactComponents/Modal";
 import { URLS } from "../urls/urls";
 import type { QuestionPageData } from "../store/types";
 
+ 
+
 interface ArrayToGeneratePages {
   params: {
     question: string;
@@ -29,7 +31,7 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
-  const { allCategories, allQuestions } = dataForBuild;
+  const { randomNr, allCategories, allQuestions } = dataForBuild;
   const explanations = masterQuestionsJson.allQuestions;
 
   const arrayToGeneratePages: ArrayToGeneratePages[] = [];

@@ -90,6 +90,7 @@ export function getAllQuestionsFromSS() {
     "ALL_QUESTIONS_STORAGE_KEY"
   ) as Question[];
 
+  console.log("getAllQuestionsFromSS", allQuestions.length, allQuestions);
   return allQuestions;
 }
 

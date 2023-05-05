@@ -11,6 +11,7 @@ export interface QuestionReceivedFromEndpoint {
 }
 
 export interface DataReceivedFromEndpoint {
+  randomNr: number;
   allQuestionsFromEndpoint: QuestionReceivedFromEndpoint[];
   allQuestionsCount: number;
   allCategories: string[];
