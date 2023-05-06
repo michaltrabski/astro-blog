@@ -1,3 +1,32 @@
+export type AnswerA = "a";
+export type AnswerB = "b";
+export type AnswerC = "c";
+export type AnswerT = "t";
+export type AnswerN = "n";
+
+export type PossibleAnswers = AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
+
+export interface _Question {
+  id: string;
+  t: string;
+  m?: string;
+  a?: string;
+  b?: string;
+  c?: string;
+  r: PossibleAnswers;
+  cats: string[];
+  s: number;
+}
+
+export interface ApiResponse {
+  allCategories: string[];
+  questionsPerCategoryCount: Record<string, number>;
+  allQuestionsCount: number;
+  allQuestions: _Question[];
+}
+
+// powyżej są nowe interface poniżej deprecated
+
 export interface QuestionReceivedFromEndpoint {
   id: string;
   t: string;
@@ -23,8 +52,6 @@ export interface DataReceivedFromSessionStorage {
   allCategories: string[];
 }
 
-export type PossibleAnswers = AnswerA | AnswerB | AnswerC | AnswerT | AnswerN;
-
 export interface ApiDataItem {
   id: string;
   t: string;
@@ -38,12 +65,6 @@ export interface ApiDataItem {
 }
 
 export type QuestionId = string;
-
-export type AnswerA = "a";
-export type AnswerB = "b";
-export type AnswerC = "c";
-export type AnswerT = "t";
-export type AnswerN = "n";
 
 export interface Question {
   id: QuestionId;

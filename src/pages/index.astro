@@ -11,8 +11,20 @@ import StartLearningButtonAstro from "../components/StartLearningButtonAstro.ast
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
+import type { ApiResponse } from "../store/types";
 
-const { allCategories, allQuestions, firstQuestionUrlsObj } = dataForBuild;
+// const data: Promise<ApiResponse> = fetch(
+//   "https://poznaj-testy-astro.netlify.app/api/all-questions/20.json"
+// ).then((response) => response.json() as Promise<ApiResponse>);
+
+// const {
+//   allCategories,
+//   questionsPerCategoryCount,
+//   allQuestionsCount,
+//   allQuestions,
+// } = await data;
+
+const { allCategories, firstQuestionUrlsObj, allQuestions } = dataForBuild;
 
 const currentYear = new Date().getFullYear();
 ---

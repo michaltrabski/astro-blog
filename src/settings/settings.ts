@@ -16,7 +16,7 @@ export const LIMITS = {
   LIMIT_500: 500,
   LIMIT_1000: 1000,
   LIMIT_2000: 2000,
-  LIMIT_5000: 5000,
+  NO_LIMIT: 100200300,
 };
 export const LIMIT_OF_QUESTIONS_IN_API_DATA = 111; // 10099999;
 export const postsFromOldWordpressLimit = 15; // 123456;

@@ -1,6 +1,7 @@
 import allQuestions from "../../../data/all-questions";
 import type { APIRoute } from "astro";
 import { LIMITS } from "../../../settings/settings";
+import type { ApiResponse } from "../../../store/types";
 
 export const get: APIRoute = ({ params, request }) => {
   const limit = +(params.allQuestionsWithLimit ?? "0");
@@ -9,7 +10,7 @@ export const get: APIRoute = ({ params, request }) => {
   const allQuestionsLimited = allQuestionsShuffled.slice(0, limit);
   const allCategories = [
     ...new Set(allQuestionsLimited.flatMap((question: any) => question.cats)),
-  ].sort();
+  ].sort() as string[];
 
   const questionsPerCategoryCount = {};
 
@@ -19,13 +20,14 @@ export const get: APIRoute = ({ params, request }) => {
     ).length;
   });
 
+  const apiResponse: ApiResponse = {
+    allCategories,
+    questionsPerCategoryCount,
+    allQuestionsCount: allQuestionsLimited.length,
+    allQuestions: allQuestionsLimited,
+  };
   return {
-    body: JSON.stringify({
-      allCategories,
-      questionsPerCategoryCount,
-      allQuestionsCoutn: allQuestionsLimited.length,
-      allQuestion: allQuestionsLimited,
-    }),
+    body: JSON.stringify(apiResponse),
   };
 };
 
