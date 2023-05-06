@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "f": "prettier -w .",
-    "generate-api": "node ./src/data/generate-data.ts"
+    "generate-all-questions": "node ./src/data/generate-all-questions.ts"
   },
   "devDependencies": {
     "@astrojs/react": "^1.0.0",

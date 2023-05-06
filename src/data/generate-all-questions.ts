@@ -2,10 +2,14 @@ const fs = require("fs-extra");
 const path = require("path");
 const excelToJson = require("convert-excel-to-json");
 
-const LIMIT = 100999999;
-
 const EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV =
   "Baza_pytań_na_egzamin_na_prawo_jazdy_22_02_2022r.xlsx";
+
+console.log(
+  "generating allQuestions from excel===",
+  EXCEL_FILE_NAME_WITH_QUESTIONS_DATA_FROM_GOV
+);
+
 const EXCEL_SHEET_NAME_WITH_QUESTIONS_DATA_FROM_GOV = "Treść pytania";
 
 const excelContent = excelToJson({
@@ -20,19 +24,24 @@ const excelContent = excelToJson({
   },
 });
 
-const allQuestions =
+const allQuestionsFromExcel =
   excelContent[EXCEL_SHEET_NAME_WITH_QUESTIONS_DATA_FROM_GOV];
 
-// {
-//   "id": "id99",
-//   "t": "Czy w tej sytuacji masz obowiązek zatrzymać pojazd?",
-//   "m": "AK_D05_06_org.mp4",
-//   "right": "t",
-//   "cats": ["x"],
-//   "s": 3
-// },
+// interface SingleQuestion {
+//   id: string;
+//   t: string;
+//   m?: string;
+//   r: string;
+//   cats: string[];
+//   s: number;
+//   a?: string;
+//   b?: string;
+//   c?: string;
+// }
 
-const objToBePlacedInApiEndpoint = allQuestions.map((question) => {
+// : SingleQuestion[]
+
+const allQuestions = allQuestionsFromExcel.map((question) => {
   const newQuestion = {
     id: `id${question["Numer pytania"]}`,
     t: question["Pytanie"],
@@ -58,13 +67,6 @@ const objToBePlacedInApiEndpoint = allQuestions.map((question) => {
   return newQuestion;
 });
 
-fs.writeJsonSync(
-  path.resolve(__dirname, "api-data.json"),
-  objToBePlacedInApiEndpoint.slice(0, LIMIT)
-);
+fs.writeJsonSync(path.resolve(__dirname, "all-questions.json"), allQuestions);
 
-console.log(
-  "Generating data...",
-  allQuestions[0],
-  objToBePlacedInApiEndpoint.slice(0, 1)
-);
+console.log("allQuestions.length: ", allQuestions.length);
