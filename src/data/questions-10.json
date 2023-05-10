@@ -1,1 +1,168 @@
-{"allCategories":["a","a1","a2","am","b","b1","c","c1","d","d1","pt","t"],"allQuestions":[{"id":"id6259","slug":"czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","t":"Czy w tej sytuacji możesz spodziewać się wtargnięcia pieszego na jezdnię?","r":"t","categories":["a","b","c","d","t","am","a1","a2","b1","c1","d1"],"s":"3","m":"1B221.mp4"},{"id":"id13040","slug":"czy-konstrukcja-motoroweru-powinna-ograniczac-jego-predkosc-jazdy-id-pytania-13040","t":"Czy konstrukcja motoroweru powinna ograniczać jego prędkość jazdy?","r":"c","categories":["am"],"s":"3","a":"Nie","b":"Tak, do 40 km/h","c":"Tak, do 45 km/h."},{"id":"id11124","slug":"znajdujesz-sie-w-obszarze-zabudowanym-czy-w-przedstawionej-sytuacji-byles-obowiazany-umozliwic-kierujacemu-autobusem-wlaczenie-sie-do-ruchu-id-pytania-11124","t":"Znajdujesz się w obszarze zabudowanym. Czy w przedstawionej sytuacji byłeś obowiązany umożliwić kierującemu autobusem  włączenie się do ruchu?","r":"t","categories":["am"],"s":"3","m":"F35.mp4"},{"id":"id11108","slug":"czy-w-tej-sytuacji-wolno-ci-zatrzymac-pojazd-na-poboczu-id-pytania-11108","t":"Czy w tej sytuacji wolno Ci zatrzymać pojazd na poboczu?","r":"n","categories":["am"],"s":"2","m":"F15.mp4"},{"id":"id11141","slug":"czy-widoczny-znak-ostrzega-o-poprzecznych-nierownosciach-jezdni-wystepujacych-na-odcinku-15-metrow-od-miejsca-ustawienia-znaku-id-pytania-11141","t":"Czy widoczny znak ostrzega o poprzecznych nierównościach jezdni występujących na odcinku 15 metrów od miejsca ustawienia znaku?","r":"n","categories":["am"],"s":"2","m":"DSC_0015.JPG"},{"id":"id11424","slug":"ktory-z-przedstawionych-pojazdow-przewozi-towary-niebezpieczne-id-pytania-11424","t":"Który z przedstawionych pojazdów przewozi towary niebezpieczne?","r":"b","categories":["c","c1"],"s":"3","m":"5D121.png","a":"A.","b":"B.","c":"C."},{"id":"id7150","slug":"czy-na-tym-skrzyzowaniu-mozesz-zawrocic-z-lewego-pasa-ruchu-id-pytania-7150","t":"Czy na tym skrzyżowaniu możesz zawrócić z lewego pasa ruchu?","r":"t","categories":["a","b","c","d","t","am","a1","a2","b1","c1","d1"],"s":"2","m":"1A5233.png"},{"id":"id11140","slug":"czy-widoczny-znak-ostrzega-o-przejsciu-dla-pieszych-id-pytania-11140","t":"Czy widoczny znak ostrzega o przejściu dla pieszych?","r":"n","categories":["am"],"s":"2","m":"DSC_0013.JPG"},{"id":"id7071","slug":"czy-w-tej-sytuacji-jednoczesna-jazda-obu-tramwajow-na-wprost-jest-dozwolona-id-pytania-7071","t":"Czy w tej sytuacji jednoczesna jazda obu tramwajów na wprost jest dozwolona?","r":"c","categories":["pt"],"s":"3","m":"8B201.png","a":"Tak, bez ograniczeń.","b":"Tak, pod warunkiem nieprzekraczania prędkości 5 km/h.","c":"Nie."},{"id":"id11151","slug":"czy-znak-ten-wraz-z-tabliczka-zabrania-zatrzymywania-sie-przed-nim-po-tej-stronie-drogi-po-ktorej-sie-znajduje-id-pytania-11151","t":"Czy znak ten, wraz z tabliczką, zabrania zatrzymywania się przed nim po tej stronie drogi, po której się znajduje?","r":"t","categories":["am"],"s":"3","m":"DSC_0057.JPG"}],"questionsPerCategoryCountObj":{"a":2,"a1":2,"a2":2,"am":8,"b":2,"b1":2,"c":3,"c1":3,"d":2,"d1":2,"pt":1,"t":2},"firstQuestionUrlsObj":{"a":"kat-a/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","a1":"kat-a1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","a2":"kat-a2/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","am":"kat-am/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","b":"czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","b1":"kat-b1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","c":"kat-c/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","c1":"kat-c1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","d":"kat-d/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","d1":"kat-d1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259","pt":"kat-pt/czy-w-tej-sytuacji-jednoczesna-jazda-obu-tramwajow-na-wprost-jest-dozwolona-id-pytania-7071","t":"kat-t/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259"}}
+{
+  "allCategories": [
+    "a",
+    "a1",
+    "a2",
+    "am",
+    "b",
+    "b1",
+    "c",
+    "c1",
+    "d",
+    "d1",
+    "pt",
+    "t"
+  ],
+  "allQuestions": [
+    {
+      "id": "id6259",
+      "slug": "czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+      "t": "Czy w tej sytuacji możesz spodziewać się wtargnięcia pieszego na jezdnię?",
+      "r": "t",
+      "categories": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "t",
+        "am",
+        "a1",
+        "a2",
+        "b1",
+        "c1",
+        "d1"
+      ],
+      "s": "3",
+      "m": "1B221.mp4"
+    },
+    {
+      "id": "id13040",
+      "slug": "czy-konstrukcja-motoroweru-powinna-ograniczac-jego-predkosc-jazdy-id-pytania-13040",
+      "t": "Czy konstrukcja motoroweru powinna ograniczać jego prędkość jazdy?",
+      "r": "c",
+      "categories": ["am"],
+      "s": "3",
+      "a": "Nie",
+      "b": "Tak, do 40 km/h",
+      "c": "Tak, do 45 km/h."
+    },
+    {
+      "id": "id11124",
+      "slug": "znajdujesz-sie-w-obszarze-zabudowanym-czy-w-przedstawionej-sytuacji-byles-obowiazany-umozliwic-kierujacemu-autobusem-wlaczenie-sie-do-ruchu-id-pytania-11124",
+      "t": "Znajdujesz się w obszarze zabudowanym. Czy w przedstawionej sytuacji byłeś obowiązany umożliwić kierującemu autobusem  włączenie się do ruchu?",
+      "r": "t",
+      "categories": ["am"],
+      "s": "3",
+      "m": "F35.mp4"
+    },
+    {
+      "id": "id11108",
+      "slug": "czy-w-tej-sytuacji-wolno-ci-zatrzymac-pojazd-na-poboczu-id-pytania-11108",
+      "t": "Czy w tej sytuacji wolno Ci zatrzymać pojazd na poboczu?",
+      "r": "n",
+      "categories": ["am"],
+      "s": "2",
+      "m": "F15.mp4"
+    },
+    {
+      "id": "id11141",
+      "slug": "czy-widoczny-znak-ostrzega-o-poprzecznych-nierownosciach-jezdni-wystepujacych-na-odcinku-15-metrow-od-miejsca-ustawienia-znaku-id-pytania-11141",
+      "t": "Czy widoczny znak ostrzega o poprzecznych nierównościach jezdni występujących na odcinku 15 metrów od miejsca ustawienia znaku?",
+      "r": "n",
+      "categories": ["am"],
+      "s": "2",
+      "m": "DSC_0015.JPG"
+    },
+    {
+      "id": "id11424",
+      "slug": "ktory-z-przedstawionych-pojazdow-przewozi-towary-niebezpieczne-id-pytania-11424",
+      "t": "Który z przedstawionych pojazdów przewozi towary niebezpieczne?",
+      "r": "b",
+      "categories": ["c", "c1"],
+      "s": "3",
+      "m": "5D121.png",
+      "a": "A.",
+      "b": "B.",
+      "c": "C."
+    },
+    {
+      "id": "id7150",
+      "slug": "czy-na-tym-skrzyzowaniu-mozesz-zawrocic-z-lewego-pasa-ruchu-id-pytania-7150",
+      "t": "Czy na tym skrzyżowaniu możesz zawrócić z lewego pasa ruchu?",
+      "r": "t",
+      "categories": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "t",
+        "am",
+        "a1",
+        "a2",
+        "b1",
+        "c1",
+        "d1"
+      ],
+      "s": "2",
+      "m": "1A5233.png"
+    },
+    {
+      "id": "id11140",
+      "slug": "czy-widoczny-znak-ostrzega-o-przejsciu-dla-pieszych-id-pytania-11140",
+      "t": "Czy widoczny znak ostrzega o przejściu dla pieszych?",
+      "r": "n",
+      "categories": ["am"],
+      "s": "2",
+      "m": "DSC_0013.JPG"
+    },
+    {
+      "id": "id7071",
+      "slug": "czy-w-tej-sytuacji-jednoczesna-jazda-obu-tramwajow-na-wprost-jest-dozwolona-id-pytania-7071",
+      "t": "Czy w tej sytuacji jednoczesna jazda obu tramwajów na wprost jest dozwolona?",
+      "r": "c",
+      "categories": ["pt"],
+      "s": "3",
+      "m": "8B201.png",
+      "a": "Tak, bez ograniczeń.",
+      "b": "Tak, pod warunkiem nieprzekraczania prędkości 5 km/h.",
+      "c": "Nie."
+    },
+    {
+      "id": "id11151",
+      "slug": "czy-znak-ten-wraz-z-tabliczka-zabrania-zatrzymywania-sie-przed-nim-po-tej-stronie-drogi-po-ktorej-sie-znajduje-id-pytania-11151",
+      "t": "Czy znak ten, wraz z tabliczką, zabrania zatrzymywania się przed nim po tej stronie drogi, po której się znajduje?",
+      "r": "t",
+      "categories": ["am"],
+      "s": "3",
+      "m": "DSC_0057.JPG"
+    }
+  ],
+  "questionsPerCategoryCountObj": {
+    "a": 2,
+    "a1": 2,
+    "a2": 2,
+    "am": 8,
+    "b": 2,
+    "b1": 2,
+    "c": 3,
+    "c1": 3,
+    "d": 2,
+    "d1": 2,
+    "pt": 1,
+    "t": 2
+  },
+  "firstQuestionUrlsObj": {
+    "a": "kat-a/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "a1": "kat-a1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "a2": "kat-a2/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "am": "kat-am/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "b": "czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "b1": "kat-b1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "c": "kat-c/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "c1": "kat-c1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "d": "kat-d/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "d1": "kat-d1/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259",
+    "pt": "kat-pt/czy-w-tej-sytuacji-jednoczesna-jazda-obu-tramwajow-na-wprost-jest-dozwolona-id-pytania-7071",
+    "t": "kat-t/czy-w-tej-sytuacji-mozesz-spodziewac-sie-wtargniecia-pieszego-na-jezdnie-id-pytania-6259"
+  }
+}

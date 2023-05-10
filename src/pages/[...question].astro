@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
 import MediaAstro from "../components/MediaAstro.astro";
 
+// REACT COMPONENTS
+import AnswerAbcReact from "../reactComponents/AnswerAbcReact";
+import AnswerYesNoReact from "../reactComponents/AnswerYesNoReact";
+
+
 import { apiResponse } from "../settings/settings";
 import { getFullUrl } from "../utils/utils";
 
@@ -33,80 +38,6 @@ export interface QuestionPageData extends Question {
   // expls: string[];
   // lows: string[];
 }
-
-// interface ArrayToGeneratePages {
-//   params: {
-//     question: string;
-//   };
-//   props: {
-//     questionPageData: QuestionPageData;
-//   };
-// }
-
-// export async function getStaticPaths() {
-//   const {
-//     allCategories,
-//     allQuestions,
-//     questionsPerCategoryCountObj,
-//     firstQuestionUrlsObj,
-//   } = apiResponse;
-
-//   const explanations = masterQuestionsJson.allQuestions;
-
-//   const arrayToGeneratePages: ArrayToGeneratePages[] = [];
-
-//   allCategories.forEach((category) => {
-//     const arrayToGeneratePagesPerCategory = allQuestions
-//       .filter((q) => q.categories.includes(category))
-//       .map((q) => {
-//         const expls = explanations.find((e) => e.id === q.id)?.expl || [];
-//         const lows = explanations.find((e) => e.id === q.id)?.low || [];
-
-//         const questionPageData: QuestionPageData = {
-//           ...q,
-//           slug: createQuestionUrl(q, category),
-//           category,
-//           prevSlug: "#",
-//           nextSlug: "#",
-//           expls: typeof expls === "string" ? [expls] : expls,
-//           lows,
-//         };
-
-//         return {
-//           params: { question: 111 }, // this is page url
-//           props: {
-//             questionPageData,
-//             allCategories,
-//             questionsPerCategoryCountObj,
-//             firstQuestionUrlsObj,
-//           },
-//         };
-//       });
-
-//     arrayToGeneratePages.push(...arrayToGeneratePagesPerCategory);
-//   });
-
-//   const arrayToGeneratePagesWithPrevNext = arrayToGeneratePages.map(
-//     (page, index) => {
-//       const prevPage = arrayToGeneratePages[index - 1];
-//       const nextPage = arrayToGeneratePages[index + 1];
-
-//       return {
-//         ...page,
-//         props: {
-//           ...page.props,
-//           questionPageData: {
-//             ...page.props.questionPageData,
-//             prevSlug: prevPage ? getFullUrl(prevPage.params.question) : null,
-//             nextSlug: nextPage ? getFullUrl(nextPage.params.question) : null,
-//           },
-//         },
-//       };
-//     }
-//   );
-
-//   return arrayToGeneratePagesWithPrevNext;
-// }
 
 export async function getStaticPaths() {
   // 1
@@ -161,7 +92,7 @@ export async function getStaticPaths() {
 
 const allQuestionsAllCategories = Astro.props.allQuestionsAllCategories;
 const questionPageData = Astro.props.questionPageData as QuestionPageData;
-const { t, m, a, b, c, prevSlug, nextSlug } = questionPageData;
+const { id, t,  a, b, c, r, m, prevSlug, nextSlug } = questionPageData;
 ---
 
 <Layout
@@ -171,32 +102,17 @@ const { t, m, a, b, c, prevSlug, nextSlug } = questionPageData;
     <!-- <pre>{JSON.stringify(Astro.props, null,2)}</pre> -->
     <div class="col-12 col-lg-6">
       <MediaAstro m={m} t={t} />
+     
 
       <h1>{t}</h1>
       <!-- <QuestionText client:load question={questionPageData} /> -->
 
-      {
-        a && (
-          <>
-            {[a, b, c].map((abc, index) => (
-              <p key={abc}>{abc}</p>
-            ))}
-          </>
-        )
+      { a ?  
+        <AnswerAbcReact client:load id={id} a={a} b={b} c={c} r={r} />
+         :
+        <AnswerYesNoReact client:load id={id} r={r} />
       }
-
-      {
-        !a && (
-          <p>
-            {["tak", "nie"].map((taknie, index) => (
-              <span>{taknie} </span>
-            ))}
-          </p>
-        )
-      }
-      <!-- <AnswerAbc client:load question={questionPageData} /> -->
-
-      <!-- <AnswerYesNo client:load question={questionPageData} /> -->
+ 
 
       <!-- <NextQuestionButtonAstro text="następne" initialUrl={nextSlug} /> -->
 

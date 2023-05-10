@@ -20,18 +20,20 @@ const isVideo = mediaUrl.includes(".mp4");
   <div class="col p-0 p-lg-3">
     {
       isVideo ? (
-        <div class="__video-wrapper position-relative">
+        <div data-selector="video" style={{border: "3px solid red"}}>
+        <div class="position-relative">
           <video
             style={{ cursor: "pointer" }}
             class="w-100 shadow border border-dark"
             src={mediaUrl}
             controls
-            autoplay
+       
           >
             <p>{t || m}</p>
           </video>
           <div
-            class="__video-wrapper--play-icon position-absolute d-none"
+            data-selector="play-icon"
+            class="position-absolute d-none"
             style={{ top: "50%", left: "50%" }}
           >
             <div style={{ transform: "translate(-50%,-50%)" }}>
@@ -41,6 +43,7 @@ const isVideo = mediaUrl.includes(".mp4");
               />
             </div>
           </div>
+        </div>
         </div>
       ) : (
         <div class="position-relative">
@@ -57,52 +60,62 @@ const isVideo = mediaUrl.includes(".mp4");
 <!-- MEDIA END -->
 
 <script>
-  const videoWrappers = document.querySelectorAll(
-    ".__video-wrapper"
-  ) as NodeListOf<HTMLElement>;
+  const videoWrappers = document.querySelectorAll("[data-selector=video]") as NodeListOf<HTMLDivElement> ;
+ 
+    
+    videoWrappers.forEach((videoWrapper, i) => {
+      console.log("videoWrappers", videoWrappers.length);
+      // videoWrapper.addEventListener("click", () => {
+      //   console.log("videoWrapper clicked",index);
+      //   const video = videoWrapper.querySelector("video") as HTMLVideoElement;
+      //   video.play();
+      // });
 
-  videoWrappers.forEach((videoWrapper) => {
-    const videos = document.querySelectorAll("video");
+      const playIcon = videoWrapper.querySelector("[data-selector=play-icon]") as HTMLDivElement;
 
-    videos.forEach((video, index) => {
-      const playIcon = videoWrapper.querySelector(
-        ".__video-wrapper--play-icon"
-      ) as HTMLDivElement | null;
+      const video = videoWrapper.querySelector("video") as HTMLVideoElement; 
+      console.log("video", i, video);
 
-      playIcon?.addEventListener("click", () => {
-        console.log(index, "playIcon click");
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-
-      video.addEventListener("canplay", () => {
+      video?.addEventListener("canplay", async () => {
+        console.log( "video canplay" );
+        await video.play();
         video.controls = false;
+        playIcon.classList.add("d-none");
       });
 
-      video.addEventListener("loadedmetadata", () => {});
-
-      video.addEventListener("play", () => {
-        playIcon?.classList.add("d-none");
+      video?.addEventListener("pause", () => {
+        console.log( "video paused" );
+        playIcon.classList.remove("d-none");
+        // playIcon.classList.add("d-block")
       });
 
-      video.addEventListener("pause", () => {
-        playIcon?.classList.remove("d-none");
-      });
-
-      video.addEventListener("ended", () => {});
-
-      video.addEventListener("error", () => {});
-
-      video.addEventListener("click", () => {
+      videoWrapper.addEventListener("click", async () => {
+        console.log("video clicked");
         if (video.paused) {
-          video.play();
+          await video.play();
+          playIcon.classList.add("d-none");
         } else {
           video.pause();
-        }
+                  }
+       
       });
     });
-  });
+ 
+  
+ 
+
+//  videos.forEach(canplay", () => {
+//     console.log("video canplay",index);
+//   });
+  
+  
+
+
+
+
+//    video.addEventListener("click", () => {
+//      console.log("video clicked",index);
+      
+//    });
+//  });
 </script>

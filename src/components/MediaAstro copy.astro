@@ -1,0 +1,124 @@
+---
+import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
+
+export interface MediaProps {
+  t: string;
+  m: string;
+}
+
+const { t, m } = Astro.props as MediaProps;
+
+const mediaUrl =
+  m === "placeholder.png"
+    ? "/placeholder.png"
+    : MEDIA_HOST + MEDIA_SIZE.large + m;
+const isVideo = mediaUrl.includes(".mp4");
+---
+
+<!-- MEDIA START -->
+<div class="MEDIA row">
+  <div class="col p-0 p-lg-3">
+    {
+      isVideo ? (
+        <div data-selector="video" style={{border: "3px solid red"}}>
+        <div class="position-relative">
+          <video
+            style={{ cursor: "pointer" }}
+            class="w-100 shadow border border-dark"
+            src={mediaUrl}
+            controls
+            autoplay
+          >
+            <p>{t || m}</p>
+          </video>
+          <div
+            class="position-absolute d-none"
+            style={{ top: "50%", left: "50%" }}
+          >
+            <div style={{ transform: "translate(-50%,-50%)" }}>
+              <i
+                style={{ fontSize: "2rem", cursor: "pointer" }}
+                class="larger bi bi-play-circle"
+              />
+            </div>
+          </div>
+        </div>
+        </div>
+      ) : (
+        <div class="position-relative">
+          <img
+            class="w-100 shadow border border-dark img-fluid"
+            src={mediaUrl}
+            alt={t || mediaUrl}
+          />
+        </div>
+      )
+    }
+  </div>
+</div>
+<!-- MEDIA END -->
+
+<script>
+
+async function playVideo(video: HTMLVideoElement) {
+  try {
+    console.log("try to play video")
+    await video.play();
+    console.log("video is playing")
+   
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+  const videoWrappers = document.querySelectorAll(
+    ".__video-wrapper"
+  ) as NodeListOf<HTMLElement>;
+
+  videoWrappers.forEach((videoWrapper) => {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video, index) => {
+      const playIcon = videoWrapper.querySelector(
+        ".__video-wrapper--play-icon"
+      ) as HTMLDivElement | null;
+
+      playIcon?.addEventListener("click",   () => {
+        console.log(index, "playIcon click");
+        if (video.paused) {
+          playVideo(video)
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("canplay", () => {
+        video.controls = false;
+      });
+
+      video.addEventListener("loadedmetadata", () => {});
+
+      video.addEventListener("play", () => {
+        playIcon?.classList.add("d-none");
+      });
+
+      video.addEventListener("pause", () => {
+        playIcon?.classList.remove("d-none");
+      });
+
+      video.addEventListener("ended", () => {});
+
+      video.addEventListener("error", () => {});
+
+      video.addEventListener("click",  () => {
+        if (video.paused) {
+          playVideo(video)
+        } else {
+          console.log(" pause video")
+          video.pause();
+        }
+      });
+    });
+  });
+</script>
