@@ -2,13 +2,11 @@
 import _ from "lodash";
 import Layout from "../layouts/Layout.astro";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
-import StartLearningButtons from "../reactComponents/StartLearningButtons";
-import { dataForBuild } from "../utils/utils";
 import { URLS } from "../urls/urls";
 import StartLearningButtonAstro from "../components/StartLearningButtonAstro.astro";
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
-import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
+
 import { apiResponse } from "../settings/settings";
 
 const {
@@ -147,21 +145,17 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      michal
+      <!-- michal
 
       <pre
         class="text-start">
-        
-      
-        
-        {JSON.stringify({
+       {JSON.stringify({
         allCategories,
         allQuestions,
         questionsPerCategoryCountObj,
         firstQuestionUrlsObj,
       }, null,2)}
-      
-    </pre>
+          </pre> -->
     </div>
   </div>
 </Layout>
@@ -170,8 +164,6 @@ const currentYear = new Date().getFullYear();
   import type { ApiResponse } from "../store/types";
 
   import { QUESTIONS_ENDPOINT } from "../settings/settings";
-
-  console.log("QUESTIONS_ENDPOINT", QUESTIONS_ENDPOINT);
 
   const apiResponse: Promise<ApiResponse> = fetch(QUESTIONS_ENDPOINT).then(
     (response) => response.json() as Promise<ApiResponse>
@@ -185,5 +177,5 @@ const currentYear = new Date().getFullYear();
     firstQuestionUrlsObj,
   } = await apiResponse;
 
-  console.log("działa apiResponse", await apiResponse);
+  console.log("QUESTIONS_ENDPOINT", QUESTIONS_ENDPOINT, await apiResponse);
 </script>

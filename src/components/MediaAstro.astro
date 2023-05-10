@@ -2,16 +2,16 @@
 import { MEDIA_HOST, MEDIA_SIZE } from "../settings/settings";
 
 export interface MediaProps {
-  text: string;
-  media: string;
+  t: string;
+  m: string;
 }
 
-const { text, media } = Astro.props as MediaProps;
+const { t, m } = Astro.props as MediaProps;
 
 const mediaUrl =
-  media === "placeholder.png"
+  m === "placeholder.png"
     ? "/placeholder.png"
-    : MEDIA_HOST + MEDIA_SIZE.large + media;
+    : MEDIA_HOST + MEDIA_SIZE.large + m;
 const isVideo = mediaUrl.includes(".mp4");
 ---
 
@@ -28,7 +28,7 @@ const isVideo = mediaUrl.includes(".mp4");
             controls
             autoplay
           >
-            <p>{text || media}</p>
+            <p>{t || m}</p>
           </video>
           <div
             class="__video-wrapper--play-icon position-absolute d-none"
@@ -47,7 +47,7 @@ const isVideo = mediaUrl.includes(".mp4");
           <img
             class="w-100 shadow border border-dark img-fluid"
             src={mediaUrl}
-            alt={text || mediaUrl}
+            alt={t || mediaUrl}
           />
         </div>
       )
