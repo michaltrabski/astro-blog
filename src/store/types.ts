@@ -20,7 +20,8 @@ export interface _Question {
 
 export interface ApiResponse {
   allCategories: string[];
-  questionsPerCategoryCount: Record<string, number>;
+  questionsPerCategoryCountObj: Record<string, number>;
+  firstQuestionUrlsObj: Record<string, string>;
   allQuestionsCount: number;
   allQuestions: _Question[];
 }

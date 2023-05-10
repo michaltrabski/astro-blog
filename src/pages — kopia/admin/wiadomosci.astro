@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import H1 from "../../reactComponents/H1";
+import Messages from "../../reactComponents/Messages";
+
+const title = "Wiadomości od kursantów";
+---
+
+<Layout title={title}>
+  <H1>{title}</H1>
+
+  <Messages client:load />
+</Layout>

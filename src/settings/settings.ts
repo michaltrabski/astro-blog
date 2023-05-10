@@ -1,23 +1,29 @@
-// export const LOCALHOST = "http://127.0.0.1:3000";
+import { getFullUrl } from "../utils/utils";
 export const LOCALHOST = "http://localhost:3000";
 // export const DEPLOY_URL = "https://poznaj-testy.pl";
 export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// import apiResponse10 from "../data/questions-10.json";
+// export const apiResponse = apiResponse10;
+// export const QUESTIONS_ENDPOINT = getFullUrl("api/questions-10.json");
+import apiResponse200 from "../data/questions-200.json";
+export const apiResponse = apiResponse200;
+export const QUESTIONS_ENDPOINT = getFullUrl("api/questions-200.json");
+// import _apiResponse from "../data/questions.json";
+// export const apiResponse = _apiResponse;
+// export const QUESTIONS_ENDPOINT = getFullUrl("api/questions.json");
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
 // LIMITS FOR DEVELOPMENT
 export const LIMITS = {
-  LIMIT_1: 1,
-  LIMIT_2: 2,
-  LIMIT_3: 3,
-  LIMIT_4: 4,
   LIMIT_10: 10,
-  LIMIT_20: 20,
-  LIMIT_100: 100,
   LIMIT_200: 200,
-  LIMIT_500: 500,
-  LIMIT_1000: 1000,
-  LIMIT_2000: 2000,
-  NO_LIMIT: 100200300,
+  NO_LIMIT: 100200,
 };
+
 export const LIMIT_OF_QUESTIONS_IN_API_DATA = 111; // 10099999;
 export const postsFromOldWordpressLimit = 15; // 123456;
 

@@ -9,14 +9,19 @@ import StartLearningButtonAstro from "../components/StartLearningButtonAstro.ast
 import CategoriesButtons from "../reactComponents/CategoriesButtons";
 import Features from "../reactComponents/Features";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
-import { apiResponse } from "../settings/settings";
+import type { ApiResponse } from "../store/types";
+import { ALL_QUESTIONS_ENDPOINT } from "../settings/settings";
+import apiResponse from "../data/api-response-10.json";
+// const apiResponse: Promise<ApiResponse> = fetch(ALL_QUESTIONS_ENDPOINT).then(
+//   (response) => response.json() as Promise<ApiResponse>
+// );
 
 const {
   allCategories,
   allQuestions,
   questionsPerCategoryCountObj,
   firstQuestionUrlsObj,
-} = apiResponse;
+} = apiResponse; //
 
 const currentYear = new Date().getFullYear();
 ---
@@ -143,11 +148,9 @@ const currentYear = new Date().getFullYear();
         <div class="col">
           <h2>Blog i artykuły:</h2>
 
-          <!-- <PostsFromOldWordpress client:load /> -->
+          <PostsFromOldWordpress client:load />
         </div>
       </div>
-
-      michal
 
       <pre
         class="text-start">
@@ -169,11 +172,9 @@ const currentYear = new Date().getFullYear();
 <script>
   import type { ApiResponse } from "../store/types";
 
-  import { QUESTIONS_ENDPOINT } from "../settings/settings";
+  import { ALL_QUESTIONS_ENDPOINT } from "../settings/settings";
 
-  console.log("QUESTIONS_ENDPOINT", QUESTIONS_ENDPOINT);
-
-  const apiResponse: Promise<ApiResponse> = fetch(QUESTIONS_ENDPOINT).then(
+  const apiResponse: Promise<ApiResponse> = fetch(ALL_QUESTIONS_ENDPOINT).then(
     (response) => response.json() as Promise<ApiResponse>
   );
 
@@ -185,5 +186,5 @@ const currentYear = new Date().getFullYear();
     firstQuestionUrlsObj,
   } = await apiResponse;
 
-  console.log("działa apiResponse", await apiResponse);
+  console.log("działa 111111111", await apiResponse);
 </script>

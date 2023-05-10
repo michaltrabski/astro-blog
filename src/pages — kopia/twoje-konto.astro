@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Auth from "../reactComponents/Auth";
+
+const title = "Twoje konto";
+---
+
+<Layout title={title}>
+  <Auth client:load />
+</Layout>

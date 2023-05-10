@@ -3,8 +3,14 @@ import type { APIRoute } from "astro";
 import { LIMITS } from "../../../settings/settings";
 import type { ApiResponse } from "../../../store/types";
 
+import { ALL_QUESTIONS_ENDPOINT } from "../settings/settings";
+
 export const get: APIRoute = ({ params, request }) => {
   const limit = +(params.allQuestionsWithLimit ?? "0");
+
+  const apiResponse: Promise<ApiResponse> = fetch(ALL_QUESTIONS_ENDPOINT).then(
+    (response) => response.json() as Promise<ApiResponse>
+  );
 
   const allQuestionsShuffled = allQuestions.sort(() => Math.random() - 0.5);
   const allQuestionsLimited = allQuestionsShuffled.slice(0, limit);
@@ -12,17 +18,23 @@ export const get: APIRoute = ({ params, request }) => {
     ...new Set(allQuestionsLimited.flatMap((question: any) => question.cats)),
   ].sort() as string[];
 
-  const questionsPerCategoryCount = {};
+  const questionsPerCategoryCountObj = {};
+  const firstQuestionUrlsObj = {};
 
   allCategories.forEach((category) => {
-    questionsPerCategoryCount[category] = allQuestionsLimited.filter(
+    questionsPerCategoryCountObj[category] = allQuestionsLimited.filter(
       (question: any) => question.cats.includes(category)
     ).length;
+
+    firstQuestionUrlsObj[category] = allQuestionsLimited.find((question: any) =>
+      question.cats.includes(category)
+    ).id;
   });
 
   const apiResponse: ApiResponse = {
     allCategories,
-    questionsPerCategoryCount,
+    questionsPerCategoryCountObj,
+    firstQuestionUrlsObj,
     allQuestionsCount: allQuestionsLimited.length,
     allQuestions: allQuestionsLimited,
   };

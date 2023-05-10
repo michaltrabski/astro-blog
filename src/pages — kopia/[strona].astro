@@ -7,18 +7,20 @@ export async function getStaticPaths() {
   let strony: string[] = [];
 
   try {
-    const res = await fetch(getFullUrl("/strony.json"));
+    const res = await fetch(
+      "https://poznaj-testy-astro-api.netlify.app/strony.json"
+    );
     strony = await res.json();
   } catch (error) {
     console.log(error);
   }
 
-  console.log(222222222, strony, getFullUrl("/strony.json"));
+  console.log(222222222, strony);
   // const strony = ["strona1", "strona2", "strona3"];
 
   return strony.map((strona) => ({
     params: {
-      test: strona,
+      strona,
     },
     props: {
       strona,

@@ -22,7 +22,19 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
 
-export const dataForBuild = getDataForBuild();
+export const dataForBuild = {
+  randomNr: 1,
+  allQuestionsFromEndpoint: [],
+  allCategories: [],
+  allQuestions: [],
+  allQuestionsCount: 111,
+  firstQuestionUrlsObj: {},
+  questionsCountObj: {},
+  postsFromOldWordpresOrdered: [],
+  postsFromOldWordpresOrdered50: [],
+};
+
+// export const dataForBuild = getDataForBuild();
 
 function getDataForBuild() {
   const randomNr = Math.floor(Math.random() * 1000000);
@@ -32,7 +44,7 @@ function getDataForBuild() {
     () => Math.random() - 0.5
   );
   const allQuestionsFromEndpointShuffledWithLimit =
-    allQuestionsFromEndpointShuffled.slice(0, LIMIT_OF_QUESTIONS_IN_API_DATA);
+    allQuestionsFromEndpointShuffled.slice(0, 15);
 
   const allQuestionsShuffled: Question[] = mapApiData(
     allQuestionsFromEndpointShuffledWithLimit

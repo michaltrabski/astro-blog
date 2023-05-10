@@ -34,7 +34,7 @@ const selector = "set-href-for-next-question-url";
 
   elemetsToHide.forEach((element) => {
     if (element.dataset.category !== currentLearningCategory) {
-      element.style.display = "none";
+      // element.style.display = "none";
     }
   });
 
@@ -56,7 +56,7 @@ const selector = "set-href-for-next-question-url";
     const nextQuestionUrl = nextQuestionUrls[nextQuestionUrls.length - 1];
 
     linksElementsToSetNextQuestionUrl.forEach((link) => {
-      link.href = nextQuestionUrl;
+      // link.href = nextQuestionUrl;
     });
   }
 </script>

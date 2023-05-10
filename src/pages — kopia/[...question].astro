@@ -17,9 +17,7 @@ import GivenAnswers from "../reactComponents/GivenAnswers";
 import PostsFromOldWordpress from "../reactComponents/PostsFromOldWordpress";
 import Modal from "../reactComponents/Modal";
 import { URLS } from "../urls/urls";
-import type { QuestionPageData } from "../store/types";
-
- 
+import type { ApiResponse, QuestionPageData } from "../store/types";
 
 interface ArrayToGeneratePages {
   params: {
@@ -31,6 +29,20 @@ interface ArrayToGeneratePages {
 }
 
 export async function getStaticPaths() {
+  const data: Promise<ApiResponse> = fetch(
+    "https://poznaj-testy-astro.netlify.app/api/all-questions/20.json"
+  ).then((response) => response.json() as Promise<ApiResponse>);
+
+  const apiResponse = await data;
+
+  // if fetched data then use some fallback values
+  // const allCategories = apiResponse.allCategories ?? [];
+  const questionsPerCategoryCountObj =
+    apiResponse.questionsPerCategoryCountObj ?? {};
+  const firstQuestionUrlsObj = apiResponse.firstQuestionUrlsObj ?? {};
+  // const allQuestionsCount = apiResponse.allQuestionsCount ?? 0;
+  // const allQuestions = apiResponse.allQuestions ?? [];
+
   const { randomNr, allCategories, allQuestions } = dataForBuild;
   const explanations = masterQuestionsJson.allQuestions;
 
@@ -55,7 +67,13 @@ export async function getStaticPaths() {
 
         return {
           params: { question: createQuestionUrl(q, category) },
-          props: { questionPageData, allCategories },
+          props: {
+            questionPageData,
+            allCategories,
+            questionsPerCategoryCountObj,
+            firstQuestionUrlsObj,
+            randomNr,
+          },
         };
       });
 
@@ -94,6 +112,7 @@ const { id, text, category, score, media, expls, lows, prevSlug, nextSlug } =
   title={`${text} | Darmowe testy na prawo jazdy ${new Date().getFullYear()}`}
 >
   <div class="row">
+    <pre>{JSON.stringify(Astro.props, null,2)}</pre>
     <div class="col-12 col-lg-6">
       <Media media={media} text={text} />
 
