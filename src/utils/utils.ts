@@ -23,6 +23,17 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
 
+export function getFullUrl(url: string) {
+  const domain =
+    import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
+
+  if (!url || url === "/") {
+    return domain;
+  }
+
+  return domain + "/" + url;
+}
+
 export const dataForBuild = {
   randomNr: 1,
   allQuestionsFromEndpoint: [],
@@ -262,17 +273,6 @@ export function createQuestionUrl(question: Question, category: string) {
   }
 
   return `kat-${category}/${slug}`;
-}
-
-export function getFullUrl(url: string) {
-  const domain =
-    import.meta.env.MODE === "development" ? LOCALHOST : DEPLOY_URL;
-
-  if (!url || url === "/") {
-    return domain;
-  }
-
-  return domain + "/" + url;
 }
 
 export function getSlug(text: string) {

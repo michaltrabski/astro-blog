@@ -159,22 +159,3 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </Layout>
-
-<!-- <script>
-  import type { ApiResponse } from "../store/types";
-
-  import { QUESTIONS_ENDPOINT } from "../settings/settings";
-
-  const apiResponse: Promise<ApiResponse> = fetch(QUESTIONS_ENDPOINT).then(
-    (response) => response.json() as Promise<ApiResponse>
-  );
-
-  const {
-    allCategories,
-    allQuestions,
-    questionsPerCategoryCountObj,
-    firstQuestionUrlsObj,
-  } = await apiResponse;
-
-  console.log("QUESTIONS_ENDPOINT", QUESTIONS_ENDPOINT, await apiResponse);
-</script> -->

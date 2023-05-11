@@ -13,6 +13,7 @@
     getAllCategoriesFromSS,
     getAllQuestionsFromSS,
     getCurrentLearningCategoryFromLS,
+    getFullUrl,
     getNextQuestionUrlsFromSS,
     getObjFromLS,
     setArrayToSessionStorage,
@@ -175,9 +176,9 @@
         return;
       }
 
-      const apiResponse: Promise<ApiResponse> = fetch(QUESTIONS_ENDPOINT).then(
-        (response) => response.json() as Promise<ApiResponse>
-      );
+      const apiResponse: Promise<ApiResponse> = fetch(
+        getFullUrl(QUESTIONS_ENDPOINT)
+      ).then((response) => response.json() as Promise<ApiResponse>);
 
       const {
         allCategories,

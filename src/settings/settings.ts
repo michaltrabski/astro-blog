@@ -1,4 +1,3 @@
-import { getFullUrl } from "../utils/utils";
 export const LOCALHOST = "http://localhost:3000";
 // export const DEPLOY_URL = "https://poznaj-testy.pl";
 export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
@@ -7,13 +6,13 @@ export const DEPLOY_URL = "https://poznaj-testy-astro.netlify.app";
 ///////////////////////////////////////////////////////////////////////////
 import apiResponse10 from "../data/questions-10.json";
 export const apiResponse = apiResponse10;
-export const QUESTIONS_ENDPOINT = getFullUrl("api/questions-10.json");
+export const QUESTIONS_ENDPOINT = "api/questions-10.json";
 // import apiResponse200 from "../data/questions-200.json";
 // export const apiResponse = apiResponse200;
-// export const QUESTIONS_ENDPOINT = getFullUrl("api/questions-200.json");
+// export const QUESTIONS_ENDPOINT =  "api/questions-200.json";
 // import _apiResponse from "../data/questions.json";
 // export const apiResponse = _apiResponse;
-// export const QUESTIONS_ENDPOINT = getFullUrl("api/questions.json");
+// export const QUESTIONS_ENDPOINT ="api/questions.json";
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
