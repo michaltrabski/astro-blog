@@ -6,7 +6,7 @@ import MediaAstro from "../components/MediaAstro.astro";
 // REACT COMPONENTS
 import AnswerAbcReact from "../reactComponents/AnswerAbcReact";
 import AnswerYesNoReact from "../reactComponents/AnswerYesNoReact";
-
+import TextReact from "../reactComponents/TextReact";
 
 import { apiResponse } from "../settings/settings";
 import { getFullUrl } from "../utils/utils";
@@ -92,7 +92,9 @@ export async function getStaticPaths() {
 
 const allQuestionsAllCategories = Astro.props.allQuestionsAllCategories;
 const questionPageData = Astro.props.questionPageData as QuestionPageData;
-const { id, t,  a, b, c, r, m, prevSlug, nextSlug } = questionPageData;
+const { id, t, a, b, c, r, s, m, prevSlug, nextSlug } = questionPageData;
+
+const isABCQuestion = a && b && c;
 ---
 
 <Layout
@@ -102,23 +104,34 @@ const { id, t,  a, b, c, r, m, prevSlug, nextSlug } = questionPageData;
     <!-- <pre>{JSON.stringify(Astro.props, null,2)}</pre> -->
     <div class="col-12 col-lg-6">
       <MediaAstro m={m} t={t} />
-     
 
-      <h1>{t}</h1>
+      <!-- <h1>{t}</h1> -->
       <!-- <QuestionText client:load question={questionPageData} /> -->
 
-      { a ?  
-        <AnswerAbcReact client:load id={id} a={a} b={b} c={c} r={r} />
-         :
-        <AnswerYesNoReact client:load id={id} r={r} />
+      <TextReact
+        client:load
+        id={id}
+        t={t}
+        prevSlug={prevSlug}
+        nextSlug={nextSlug}
+        s={s}
+      />
+
+      {
+        isABCQuestion ? (
+          <AnswerAbcReact client:load id={id} a={a} b={b} c={c} r={r} />
+        ) : (
+          <AnswerYesNoReact client:load id={id} r={r} />
+        )
       }
- 
 
       <!-- <NextQuestionButtonAstro text="następne" initialUrl={nextSlug} /> -->
 
       <!-- <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} /> -->
-      <p><a href={prevSlug}>prevSlug</a></p>
-      <p><a href={nextSlug}>nextSlug</a></p>
+      <p class="d-flex justify-content-between">
+        <a href={prevSlug}>prevSlug</a>
+        <a href={nextSlug}>nextSlug</a>
+      </p>
       <!-- <PrevNextQuestion client:load question={questionPageData} /> -->
 
       <div class="text-start">
@@ -127,11 +140,11 @@ const { id, t,  a, b, c, r, m, prevSlug, nextSlug } = questionPageData;
         </pre>
       </div>
 
-      <div class="text-start">
+      <!-- <div class="text-start">
         <pre>
           {JSON.stringify(allQuestionsAllCategories, null, 2)}
         </pre>
-      </div>
+      </div> -->
 
       <!-- <div data-info class="row mb-3 bg-light">
         {
