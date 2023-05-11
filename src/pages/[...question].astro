@@ -3,17 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import CurrentYearAstro from "../components/CurrentYearAstro.astro";
 import MediaAstro from "../components/MediaAstro.astro";
 
-// REACT COMPONENTS
-import AnswerAbcReact from "../reactComponents/AnswerAbcReact";
-import AnswerYesNoReact from "../reactComponents/AnswerYesNoReact";
-import TextReact from "../reactComponents/TextReact";
-
 import { apiResponse } from "../settings/settings";
-import { getFullUrl } from "../utils/utils";
+
 import type { ApiResponse, Question, QuestionPageData } from "../store/types";
+import { replace } from "lodash";
 
 export async function getStaticPaths() {
-  // 1
   const {
     allCategories,
     allQuestions,
@@ -21,49 +16,28 @@ export async function getStaticPaths() {
     firstQuestionUrlsObj,
   } = apiResponse as ApiResponse;
 
-  // 2
-  const allQuestionsAllCategories: Question[] = [];
-  allCategories.forEach((category) => {
-    const slugPrefix = category === "b" ? "" : `kat-${category}/`;
-    allQuestions.forEach((question) => {
-      if (question.categories.includes(category)) {
-        const updatedQuestion: Question = {
-          ...question,
-          slug: slugPrefix + question.slug,
-        };
-
-        allQuestionsAllCategories.push(updatedQuestion);
-      }
-    });
-  });
-
-  // 3
-  const allQuestionsAllCategoriesAndPrevNext: QuestionPageData[] =
-    allQuestionsAllCategories.map((question, index) => {
-      const prevQuestion = allQuestionsAllCategories[index - 1];
-      const nextQuestion = allQuestionsAllCategories[index + 1];
+  const allQuestionsPageData: QuestionPageData[] = allQuestions.map(
+    (question, index) => {
+      const prevQuestion = allQuestions[index - 1];
+      const nextQuestion = allQuestions[index + 1];
 
       return {
         ...question,
-        prevSlug: prevQuestion ? getFullUrl(prevQuestion.slug) : null,
-        nextSlug: nextQuestion ? getFullUrl(nextQuestion.slug) : null,
+        slug: question.slug[0] === "/" ? question.slug.slice(1) : question.slug,
+        prevSlug: prevQuestion ? prevQuestion.slug : null,
+        nextSlug: nextQuestion ? nextQuestion.slug : null,
       };
-    });
+    }
+  );
 
-  return allQuestionsAllCategoriesAndPrevNext.map((questionPageData) => {
+  return allQuestionsPageData.map((questionPageData) => {
     return {
       params: { question: questionPageData.slug },
-      props: { questionPageData, allQuestionsAllCategories },
+      props: { questionPageData },
     };
   });
 }
 
-// const questionPageData: QuestionPageData = Astro.props.questionPageData;
-// const allCategories = Astro.props.allCategories;
-// const { id, text, category, score, media, expls, lows, prevSlug, nextSlug } =
-//   questionPageData;
-
-const allQuestionsAllCategories = Astro.props.allQuestionsAllCategories;
 const questionPageData = Astro.props.questionPageData as QuestionPageData;
 const { id, t, a, b, c, r, s, m, prevSlug, nextSlug } = questionPageData;
 
@@ -78,23 +52,29 @@ const isABCQuestion = a && b && c;
     <div class="col-12 col-lg-6">
       <MediaAstro m={m} t={t} />
 
-      <!-- <h1>{t}</h1> -->
+      <h1>{t}</h1>
       <!-- <QuestionText client:load question={questionPageData} /> -->
 
-      <TextReact
+      <!-- <TextReact
         client:load
         id={id}
         t={t}
         prevSlug={prevSlug}
         nextSlug={nextSlug}
         s={s}
-      />
+      /> -->
 
       {
         isABCQuestion ? (
-          <AnswerAbcReact client:load id={id} a={a} b={b} c={c} r={r} />
+          <div>
+            <p>A: {a}</p>
+            <p>B: {b}</p>
+            <p>C: {c}</p>
+          </div>
         ) : (
-          <AnswerYesNoReact client:load id={id} r={r} />
+          <div>
+            <span>TAK / NIE</span>
+          </div>
         )
       }
 
@@ -242,7 +222,7 @@ const isABCQuestion = a && b && c;
 
         <div class="row mb-3">
           <div class="col">
-            <!-- <QuestionTable client:load question={questionPageData} /> -->
+            Testy są aktualne w <CurrentYearAstro />roku!
           </div>
         </div>
 

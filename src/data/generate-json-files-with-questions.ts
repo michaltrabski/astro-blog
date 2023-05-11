@@ -64,7 +64,7 @@ sliceQuestonsByArr.forEach((sliceBy) => {
 
       const newQuestion = {
         id,
-        slug: `${slug}-id-pytania-${id.replace("id", "")}`,
+        slug: `/${slug}-id-pytania-${id.replace("id", "")}`,
         t,
         r: question["Poprawna odp"].toLowerCase(),
         categories: question["Kategorie"].toLowerCase().split(","),
@@ -104,10 +104,8 @@ sliceQuestonsByArr.forEach((sliceBy) => {
       question.categories.includes(category)
     );
 
-    const prefix = category === "b" ? "" : `kat-${category}/`;
-
     if (firstQuestionPerCategory) {
-      firstQuestionUrlsObj[category] = prefix + firstQuestionPerCategory.slug;
+      firstQuestionUrlsObj[category] = firstQuestionPerCategory.slug;
     }
   });
 
