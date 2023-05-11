@@ -12,6 +12,7 @@ import {
 import postsFromOldWordpress from "../data/postsFromOldWordpress.json";
 import type { WordpressPost } from "../types/types";
 import type {
+  AnyObj,
   ApiDataItem,
   DataReceivedFromSessionStorage,
   GivenAnswer,
@@ -128,6 +129,22 @@ export function getCurrentLearningCategoryFromLS() {
   );
 
   return currentLearningCategory;
+}
+
+export function setObjToLS(key: string, obj: AnyObj) {
+  localStorage.setItem(key, JSON.stringify(obj));
+}
+
+export function getObjFromLS(key: string) {
+  try {
+    const objAsString = localStorage.getItem(key);
+    if (!objAsString) {
+      return {};
+    }
+    return JSON.parse(objAsString);
+  } catch (error) {
+    return {};
+  }
 }
 
 export function setStringToSessionStorage(key: string, value: string) {

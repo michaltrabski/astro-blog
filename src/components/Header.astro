@@ -1,11 +1,17 @@
 ---
 import CurrentCategory from "../reactComponents/CurrentCategory";
-import GivenAnswersCount, { GIVEN_ANSWER_CORRECT, GIVEN_ANSWER_WRONG } from "../reactComponents/GivenAnswersCount";
+import GivenAnswersCount, {
+  GIVEN_ANSWER_CORRECT,
+  GIVEN_ANSWER_WRONG,
+} from "../reactComponents/GivenAnswersCount";
 import { URLS } from "../urls/urls";
 ---
 
 <header>
-  <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg Xfixed-top border-bottom border-dark">
+  <nav
+    id="navbar"
+    class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg Xfixed-top border-bottom border-dark"
+  >
     <div class="container-fluid">
       <a class="navbar-brand" href={URLS.HOME}>
         <span>poznaj-<span class="text-danger">testy</span>.pl</span>
@@ -13,17 +19,27 @@ import { URLS } from "../urls/urls";
       <div class="btn-group" role="group" aria-label="Testy prawo jazdy">
         {
           [
-            { href: URLS.GOOD_ANSWERS, css: "btn-success", which: GIVEN_ANSWER_CORRECT as typeof GIVEN_ANSWER_CORRECT },
-            { href: URLS.BAD_ANSWERS, css: "btn-danger", which: GIVEN_ANSWER_WRONG as typeof GIVEN_ANSWER_WRONG },
-          ].map(({ href, css, which }) => (
-            <a href={href} class={`btn btn-sm ${css}`}>
-              <GivenAnswersCount client:load which={which} />
+            {
+              href: URLS.GOOD_ANSWERS,
+              css: "btn-success",
+              selector: "correct-answers-count",
+            },
+            {
+              href: URLS.BAD_ANSWERS,
+              css: "btn-danger",
+              selector: "wrong-answers-count",
+            },
+          ].map(({ href, css, selector }) => (
+            <a href={href} class={`btn btn-sm ${css}`} data-selector={selector}>
+              00
             </a>
           ))
         }
       </div>
       <div>
-        <a href={URLS.DRIVING_LICENSE_CATEGIRIES} class="text-light text-decoration-none"
+        <a
+          href={URLS.DRIVING_LICENSE_CATEGIRIES}
+          class="text-light text-decoration-none"
           >Kat: <CurrentCategory upperCase client:load /></a
         >
       </div>
@@ -38,7 +54,11 @@ import { URLS } from "../urls/urls";
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div style={{ flexGrow: 0 }} class="collapse navbar-collapse" id="navbarNav">
+      <div
+        style={{ flexGrow: 0 }}
+        class="collapse navbar-collapse"
+        id="navbarNav"
+      >
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {
             [
@@ -46,12 +66,18 @@ import { URLS } from "../urls/urls";
               { label: "Cennik", href: URLS.PRICING },
               // { label: "Blog", href: URLS.BLOG },
               { label: "Szkolenia", href: URLS.COURSES },
-              { label: "Kategorie prawa jazdy", href: URLS.DRIVING_LICENSE_CATEGIRIES },
-              { label: "Cennik", href: URLS.PRICING },
+              {
+                label: "Kategorie prawa jazdy",
+                href: URLS.DRIVING_LICENSE_CATEGIRIES,
+              },
+              { label: "Ustawa 108", href: URLS.USTAWA_108 },
               { label: "Kontakt", href: URLS.CONTACT },
             ].map(({ label, href }) => (
               <li class="nav-item">
-                <a class="nav-link text-center h-100 d-flex align-items-center justify-content-center" href={href}>
+                <a
+                  class="nav-link text-center h-100 d-flex align-items-center justify-content-center"
+                  href={href}
+                >
                   {label}
                 </a>
               </li>

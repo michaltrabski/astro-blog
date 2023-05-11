@@ -1,78 +1,57 @@
----
----
-
-<!-- <div>
-  <h1>Redux with vanilla typescript</h1>
-  <button id="add-question-button">add-question-button</button>
-
-  <p>store:</p>
+<div>
+  <h1>Redux with vanilla typescript, store=</h1>
   <pre data-myreduxstate>....</pre>
-</div> -->
+</div>
 <script>
+  import type { AnyObj, ApiResponse, Question } from "../store/types";
   import { createStore, applyMiddleware, Dispatch } from "redux";
   import thunk, { ThunkAction } from "redux-thunk";
 
-  import type { DataReceivedFromEndpoint, Question } from "../store/types";
+  import { QUESTIONS_ENDPOINT } from "../settings/settings";
+
   import {
-    createQuestionUrl,
     getAllCategoriesFromSS,
     getAllQuestionsFromSS,
-    getArrayFromSessionStorage,
     getCurrentLearningCategoryFromLS,
     getNextQuestionUrlsFromSS,
-    getStringFromLocalStorage,
+    getObjFromLS,
     setArrayToSessionStorage,
+    setObjToLS,
     setStringToLS,
   } from "../utils/utils";
-
-  const FETCH_STORE = "FETCH_STORE";
-  const SET_CURRENT_LEARNING_CATEGORY = "SET_CURRENT_LEARNING_CATEGORY";
-  // const FETCH_ALL_QUESTIONS = "FETCH_ALL_QUESTIONS";
-  // const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
-  // const ACTION_RAND_NEXT_QUESTION_URLS = "ACTION_RAND_NEXT_QUESTION_URLS";
-  const POP_ELEMENT_FROM_NEXT_QUESTION_URLS =
-    "POP_ELEMENT_FROM_NEXT_QUESTION_URLS";
 
   const CURRENT_LEARNING_CATEGORY_STORAGE_KEY =
     "CURRENT_LEARNING_CATEGORY_STORAGE_KEY";
   const ALL_QUESTIONS_STORAGE_KEY = "ALL_QUESTIONS_STORAGE_KEY";
   const ALL_CATEGORIES_STORAGE_KEY = "ALL_CATEGORIES_STORAGE_KEY";
   const NEXT_QUESTION_URLS_STORAGE_KEY = "NEXT_QUESTION_URLS_STORAGE_KEY";
+  const USER_ANSWERS_STORAGE_KEY = "USER_ANSWERS_STORAGE_KEY";
 
   // Define your state type
+
   export interface RootState {
+    userAnswers: AnyObj;
     currentLearningCategory: string;
     allQuestions: Question[];
     allCategories: string[];
     nextQuestionUrls: string[];
+    correctAnswersCount: number;
+    wrongAnswersCount: number;
   }
 
   // Define your reducer
   const initialState: RootState = {
+    userAnswers: getObjFromLS(USER_ANSWERS_STORAGE_KEY),
     currentLearningCategory: getCurrentLearningCategoryFromLS(),
     allQuestions: getAllQuestionsFromSS(),
     allCategories: getAllCategoriesFromSS(),
     nextQuestionUrls: getNextQuestionUrlsFromSS(),
+    correctAnswersCount: 0,
+    wrongAnswersCount: 0,
   };
 
-  // Define your action types
-  // interface fetchStoreAction {
-  //   type: typeof FETCH_ALL_QUESTIONS;
-  //   payload: Question[];
-  // }
-
-  // interface FetchAllCategoriesAction {
-  //   type: typeof FETCH_ALL_CATEGORIES;
-  //   payload: string[];
-  // }
-
-  // interface ActionRandNextQuestionUrls {
-  //   type: typeof ACTION_RAND_NEXT_QUESTION_URLS;
-  //   payload: string[];
-  // }
-
   interface FetchStore {
-    type: typeof FETCH_STORE;
+    type: "FETCH_STORE";
     payload: {
       allQuestions: Question[];
       allCategories: string[];
@@ -81,25 +60,28 @@
   }
 
   interface PopElementFromNextQuestionUrls {
-    type: typeof POP_ELEMENT_FROM_NEXT_QUESTION_URLS;
+    type: "POP_ELEMENT_FROM_NEXT_QUESTION_URLS";
   }
 
   interface SetCurrentLearningCategory {
-    type: typeof SET_CURRENT_LEARNING_CATEGORY;
+    type: "SET_CURRENT_LEARNING_CATEGORY";
     payload: string;
+  }
+
+  interface AddUserAnswer {
+    type: "ADD_USER_ANSWER";
+    payload: AnyObj;
   }
 
   type AllActions =
     | FetchStore
-    // | fetchStoreAction
-    // | FetchAllCategoriesAction
-    // | ActionRandNextQuestionUrls
     | PopElementFromNextQuestionUrls
-    | SetCurrentLearningCategory;
+    | SetCurrentLearningCategory
+    | AddUserAnswer;
 
   const rootReducer = (state: RootState = initialState, action: AllActions) => {
     switch (action.type) {
-      case FETCH_STORE: {
+      case "FETCH_STORE": {
         const allQuestions = action.payload.allQuestions;
         const allCategories = action.payload.allCategories;
         const nextQuestionUrls = action.payload.nextQuestionUrls;
@@ -119,20 +101,7 @@
         };
       }
 
-      // case FETCH_ALL_QUESTIONS:
-      //   const allQuestions = action.payload;
-      //   setArrayToSessionStorage(ALL_QUESTIONS_STORAGE_KEY, allQuestions);
-
-      //   return { ...state, allQuestions };
-      // case FETCH_ALL_CATEGORIES:
-      //   const allCategories = action.payload;
-      //   setArrayToSessionStorage(ALL_CATEGORIES_STORAGE_KEY, allCategories);
-
-      //   return { ...state, allCategories };
-      // case ACTION_RAND_NEXT_QUESTION_URLS:
-      //   return { ...state, nextQuestionUrls: action.payload };
-
-      case POP_ELEMENT_FROM_NEXT_QUESTION_URLS: {
+      case "POP_ELEMENT_FROM_NEXT_QUESTION_URLS": {
         const nextQuestionUrls = state.nextQuestionUrls.slice(0, -1);
 
         setArrayToSessionStorage(
@@ -142,7 +111,8 @@
 
         return { ...state, nextQuestionUrls };
       }
-      case SET_CURRENT_LEARNING_CATEGORY: {
+
+      case "SET_CURRENT_LEARNING_CATEGORY": {
         const currentLearningCategory = action.payload;
 
         setStringToLS(
@@ -152,6 +122,31 @@
 
         return { ...state, currentLearningCategory };
       }
+
+      case "ADD_USER_ANSWER": {
+        const userAnswers = { ...state.userAnswers, ...action.payload };
+        setObjToLS(USER_ANSWERS_STORAGE_KEY, userAnswers);
+
+        const correctAnswersCount = Object.values(userAnswers).filter(
+          (answer) =>
+            answer.clickedAnswer &&
+            answer.clickedAnswer === answer.correctAnswer
+        ).length;
+
+        const wrongAnswersCount = Object.values(userAnswers).filter(
+          (answer) =>
+            answer.clickedAnswer &&
+            answer.clickedAnswer !== answer.correctAnswer
+        ).length;
+
+        return {
+          ...state,
+          userAnswers,
+          correctAnswersCount,
+          wrongAnswersCount,
+        };
+      }
+
       default:
         return state;
     }
@@ -159,7 +154,6 @@
 
   // Create your store with Thunk middleware
   const store = createStore(rootReducer, applyMiddleware(thunk));
-  // export default store;
 
   // Define your Thunk action
   export const fetchStore = (): ThunkAction<
@@ -177,39 +171,22 @@
         stateSnapshot.allCategories.length > 0 &&
         stateSnapshot.allQuestions.length > 0
       ) {
+        // means that store is allready fetched from session storage
         return;
       }
 
-      const fetchResponse = await fetch("../data.json");
-      const dataReceivedFromEndpoint: DataReceivedFromEndpoint =
-        await fetchResponse.json();
+      const apiResponse: Promise<ApiResponse> = fetch(QUESTIONS_ENDPOINT).then(
+        (response) => response.json() as Promise<ApiResponse>
+      );
 
-      // ALL QUESTIONS
-      const allQuestions: Question[] =
-        dataReceivedFromEndpoint.allQuestionsFromEndpoint.map(
-          (questionReceivedFromEndpoint, index) => {
-            const q = questionReceivedFromEndpoint;
+      const {
+        allCategories,
+        allQuestions,
+        questionsPerCategoryCountObj,
+        firstQuestionUrlsObj,
+      } = await apiResponse;
 
-            const question: Question = {
-              id: q.id,
-              text: q.t,
-              media: q.m || "placeholder.png",
-              a: q.a || "",
-              b: q.b || "",
-              c: q.c || "",
-              correctAnswer: q.r,
-              categories: q.cats,
-              score: q.s,
-            };
-
-            return question;
-          }
-        );
-
-      const allQuestionsShuffled = allQuestions.sort(() => 0.5 - Math.random());
-
-      // ALL CATEGORIES
-      const allCategories: string[] = dataReceivedFromEndpoint.allCategories;
+      const allQuestionsShuffled = allQuestions; // .sort(() => 0.5 - Math.random());
 
       // NEXT QUESTION URLS
       const nextQuestionUrls: string[] = allQuestionsShuffled
@@ -218,51 +195,38 @@
 
           return true;
         })
-        .slice(0, 500)
-        .map((question) =>
-          createQuestionUrl(question, stateSnapshot.currentLearningCategory)
-        );
+        .slice(0, 10)
+        .map((question, index) => {
+          // createQuestionUrl(question, stateSnapshot.currentLearningCategory)
 
-      dispatch({
-        type: FETCH_STORE,
-        payload: {
-          allQuestions: allQuestionsShuffled,
-          allCategories,
-          nextQuestionUrls,
-        },
-      });
+          return " to bedzie url" + index;
+        });
+
+      setTimeout(() => {
+        dispatch({
+          type: "FETCH_STORE",
+          payload: {
+            allQuestions: allQuestionsShuffled,
+            allCategories,
+            nextQuestionUrls,
+          },
+        });
+      }, 2222);
     };
-  };
-
-  // Subscribe to changes in the store
-  const update = () => {
-    // console.log("store is ready: ", store.getState());
-
-    const preElements = document.querySelectorAll("[data-myreduxstate]");
-
-    preElements.forEach((preElement) => {
-      preElement.innerHTML = JSON.stringify(store.getState(), null, 2);
-    });
   };
 
   const unsubscribe = store.subscribe(update);
 
-  // update(); // call it if no action is dispatched after subscribe !!!
+  update(); // call it if no action is dispatched after subscribe !!!
 
-  store.dispatch({
-    type: POP_ELEMENT_FROM_NEXT_QUESTION_URLS,
-  });
+  // store.dispatch({
+  //   type: "POP_ELEMENT_FROM_NEXT_QUESTION_URLS",
+  // });
 
-  store.dispatch({
-    type: SET_CURRENT_LEARNING_CATEGORY,
-    payload: "b",
-  });
-
-  // To stop listening for changes:
-  // unsubscribe();
-
-  // Dispatch your Thunk action
-  // store.dispatch(addQuestion(6)); // Note: You should use store.dispatch to dispatch Thunk actions
+  // store.dispatch({
+  //   type: "SET_CURRENT_LEARNING_CATEGORY",
+  //   payload: "b",
+  // });
 
   store.dispatch(fetchStore());
 
@@ -271,4 +235,44 @@
   button?.addEventListener("click", () => {
     //  ....
   });
+
+  // ANSWER BUTTONS
+  const answerButtons = document.querySelectorAll("[data-answer]");
+  answerButtons.forEach((answerButton) => {
+    answerButton.addEventListener("click", () => {
+      const clickedAnswer = answerButton.getAttribute("data-answer");
+      const questionId = answerButton.getAttribute("data-question-id");
+      const correctAnswer = answerButton.getAttribute("data-correct-answer");
+
+      if (!questionId) return;
+
+      store.dispatch({
+        type: "ADD_USER_ANSWER",
+        payload: { [questionId]: { questionId, clickedAnswer, correctAnswer } },
+      });
+    });
+  });
+
+  // this function is called on every store change
+  function update() {
+    const storeSnapshot = store.getState();
+
+    const preElements = document.querySelectorAll("[data-myreduxstate]");
+
+    preElements.forEach((preElement) => {
+      preElement.innerHTML = JSON.stringify(store.getState(), null, 2);
+    });
+
+    document
+      .querySelectorAll('[data-selector="correct-answers-count"]')
+      .forEach((el) => {
+        el.innerHTML = storeSnapshot.correctAnswersCount.toString();
+      });
+
+    document
+      .querySelectorAll('[data-selector="wrong-answers-count"]')
+      .forEach((el) => {
+        el.innerHTML = storeSnapshot.wrongAnswersCount.toString();
+      });
+  }
 </script>

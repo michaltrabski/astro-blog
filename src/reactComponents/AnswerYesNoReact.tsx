@@ -52,6 +52,9 @@ export default function AnswerYesNo(props: AnswerYesNoProps) {
               return (
                 <button
                   key={answer.letterIndex}
+                  data-answer={answer.letterIndex}
+                  data-question-id={id}
+                  data-correct-answer={r}
                   onClick={() => {
                     setClickedAnswerValue(answer.letterIndex);
 

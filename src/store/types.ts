@@ -1,3 +1,35 @@
+export type AnyObj = { [key: string]: any };
+
+export interface Question {
+  id: string;
+  slug: string;
+  t: string;
+  r: string;
+  categories: string[];
+  s: string;
+  m?: string;
+  a?: string;
+  b?: string;
+  c?: string;
+}
+
+export interface ApiResponse {
+  allCategories: string[];
+  allQuestions: Question[];
+  questionsPerCategoryCountObj: { [key: string]: number };
+  firstQuestionUrlsObj: { [key: string]: string };
+}
+
+export interface QuestionPageData extends Question {
+  prevSlug: string | null;
+  nextSlug: string | null;
+  // currentLearningCategory: string;
+  // expls: string[];
+  // lows: string[];
+}
+
+/////////////////////////////////
+
 export type AnswerA = "a";
 export type AnswerB = "b";
 export type AnswerC = "c";
@@ -18,13 +50,13 @@ export interface _Question {
   s: number;
 }
 
-export interface ApiResponse {
-  allCategories: string[];
-  questionsPerCategoryCountObj: Record<string, number>;
-  firstQuestionUrlsObj: Record<string, string>;
-  allQuestionsCount: number;
-  allQuestions: _Question[];
-}
+// export interface ApiResponse {
+//   allCategories: string[];
+//   questionsPerCategoryCountObj: Record<string, number>;
+//   firstQuestionUrlsObj: Record<string, string>;
+//   allQuestionsCount: number;
+//   allQuestions: _Question[];
+// }
 
 // powyżej są nowe interface poniżej deprecated
 
@@ -67,27 +99,28 @@ export interface ApiDataItem {
 
 export type QuestionId = string;
 
-export interface Question {
-  id: QuestionId;
-  text: string;
-  media: string;
-  a: string;
-  b: string;
-  c: string;
-  correctAnswer: PossibleAnswers;
-  categories: string[];
-  score: number;
-  // isVideo: boolean;
-}
+// to remove
+// export interface Question {
+//   id: QuestionId;
+//   text: string;
+//   media: string;
+//   a: string;
+//   b: string;
+//   c: string;
+//   correctAnswer: PossibleAnswers;
+//   categories: string[];
+//   score: number;
+//   // isVideo: boolean;
+// }
 
-export interface QuestionPageData extends Question {
-  slug: string;
-  category: string;
-  prevSlug: string;
-  nextSlug: string;
-  expls: string[];
-  lows: any[];
-}
+// export interface QuestionPageData extends Question {
+//   slug: string;
+//   category: string;
+//   prevSlug: string;
+//   nextSlug: string;
+//   expls: string[];
+//   lows: any[];
+// }
 
 export type Mp3Item = {
   id: string;

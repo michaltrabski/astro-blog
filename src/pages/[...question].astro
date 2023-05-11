@@ -10,34 +10,7 @@ import TextReact from "../reactComponents/TextReact";
 
 import { apiResponse } from "../settings/settings";
 import { getFullUrl } from "../utils/utils";
-
-export interface Question {
-  id: string;
-  slug: string;
-  t: string;
-  r: string;
-  categories: string[];
-  s: string;
-  m?: string;
-  a?: string;
-  b?: string;
-  c?: string;
-}
-
-export interface ApiResponse {
-  allCategories: string[];
-  allQuestions: Question[];
-  questionsPerCategoryCountObj: { [key: string]: number };
-  firstQuestionUrlsObj: { [key: string]: string };
-}
-
-export interface QuestionPageData extends Question {
-  prevSlug: string | null;
-  nextSlug: string | null;
-  // currentLearningCategory: string;
-  // expls: string[];
-  // lows: string[];
-}
+import type { ApiResponse, Question, QuestionPageData } from "../store/types";
 
 export async function getStaticPaths() {
   // 1

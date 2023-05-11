@@ -13,6 +13,7 @@ const SZKOLENIA = "szkolenia";
 const KONTAKT = "kontakt";
 const POLITYKA_PRYWATNOSCI = "polityka-prywatnosci";
 const REGULAMIN = "regulamin";
+const USTAWA_108 = "ustawa-108";
 
 export const URLS = {
   HOME: getFullUrl(HOME),
@@ -28,4 +29,5 @@ export const URLS = {
   CONTACT: getFullUrl(KONTAKT),
   PRIVACY_POLICY: getFullUrl(POLITYKA_PRYWATNOSCI),
   TERMS_AND_CONDITIONS: getFullUrl(REGULAMIN),
+  USTAWA_108: getFullUrl(USTAWA_108),
 } as const;

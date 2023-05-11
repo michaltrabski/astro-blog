@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import H1 from "../reactComponents/H1";
+import ustawy from "../data/ustawy.json";
+
+const title = "Ustawa 108";
+const rawHTMLString = ustawy[0]["ustawa_108"];
+---
+
+<Layout title={title}>
+  <H1>{title}</H1>
+
+  <p class="lead">Wkrótce...</p>
+
+  <div set:html={rawHTMLString} />
+</Layout>
