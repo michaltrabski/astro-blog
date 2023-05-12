@@ -120,19 +120,44 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <div class="__right-sidebar col-12 col-lg-6">
+      allQuestions
+
+      <div class="col-12 col-lg-6">
         <div class="row pb-3">
           <div class="col">
-            <h2>Blog i artykuły:</h2>
-            <ul>
-              <li>1. Lorem ipsum dolor sit.</li>
-              <li>2. Lorem ipsum dolor sit.</li>
-              <li>3. Lorem ipsum dolor sit.</li>
-              <li>4. Lorem ipsum dolor sit.</li>
-            </ul>
+            <h2>pytania:</h2>
+            <ul class="text-start">
+              {
+                allQuestions.map((question, i) => {
+                  if (i % 10 !== 0) {
+                    return null;
+                  }
 
-            <!-- <PostsFromOldWordpress client:load /> -->
+                  return (
+                    <li key={question.id} class="mb-3">
+                      {i}. <a href={question.slug}>{question.t}</a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="__right-sidebar col-12 col-lg-6">
+      <div class="row pb-3">
+        <div class="col">
+          <h2>Blog i artykuły:</h2>
+          <ul>
+            <li>1. Lorem ipsum dolor sit.</li>
+            <li>2. Lorem ipsum dolor sit.</li>
+            <li>3. Lorem ipsum dolor sit.</li>
+            <li>4. Lorem ipsum dolor sit.</li>
+          </ul>
+
+          <!-- <PostsFromOldWordpress client:load /> -->
         </div>
       </div>
     </div>

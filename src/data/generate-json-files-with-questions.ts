@@ -46,8 +46,26 @@ const allQuestionsFromExcel =
 const sliceQuestonsByArr = [10, 200, 100200];
 
 sliceQuestonsByArr.forEach((sliceBy) => {
-  const allQuestions = allQuestionsFromExcel
-    .sort(() => Math.random() - 0.5)
+  const allQuestionsShuffled = allQuestionsFromExcel.sort(
+    () => Math.random() - 0.5
+  );
+
+  const allQuestionsWithCategoryB = [];
+  const allQuestionsWithoutCategoryB = [];
+
+  allQuestionsShuffled.forEach((question) => {
+    const categories = question["Kategorie"].toLowerCase().split(",");
+    if (categories.includes("b")) {
+      allQuestionsWithCategoryB.push(question);
+    } else {
+      allQuestionsWithoutCategoryB.push(question);
+    }
+  });
+
+  const allQuestions = [
+    ...allQuestionsWithCategoryB,
+    ...allQuestionsWithoutCategoryB,
+  ]
     .slice(0, sliceBy)
     .map((question) => {
       const id = `id${question["Numer pytania"]}`;
