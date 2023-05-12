@@ -82,7 +82,7 @@ sliceQuestonsByArr.forEach((sliceBy) => {
 
       const newQuestion = {
         id,
-        slug: `/${slug}-id-pytania-${id.replace("id", "")}`,
+        slug: `/${slug.slice(0, 180)}-id-pytania-${id.replace("id", "")}`,
         t,
         r: question["Poprawna odp"].toLowerCase(),
         categories: question["Kategorie"].toLowerCase().split(","),
