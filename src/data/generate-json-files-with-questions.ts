@@ -74,7 +74,10 @@ sliceQuestonsByArr.forEach((sliceBy) => {
       const media = question["Media"];
 
       if (media) {
-        newQuestion.m = media.replace(".wmv", ".mp4").replace(".jpg", ".png");
+        newQuestion.m = media
+          .replace(".wmv", ".mp4")
+          .replace(".jpg", ".png")
+          .replace(".JPG", ".png");
       }
 
       const a = question["Odpowiedź A"];

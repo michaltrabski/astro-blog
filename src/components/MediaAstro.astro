@@ -8,10 +8,7 @@ export interface MediaProps {
 
 const { t, m } = Astro.props as MediaProps;
 
-const mediaUrl =
-  m === "placeholder.png"
-    ? "/placeholder.png"
-    : MEDIA_HOST + MEDIA_SIZE.large + m;
+const mediaUrl = m ? MEDIA_HOST + MEDIA_SIZE.large + m : "/placeholder.png";
 const isVideo = mediaUrl.includes(".mp4");
 ---
 
