@@ -52,7 +52,7 @@ const isABCQuestion = a && b && c;
     <div class="col-12 col-lg-6">
       <MediaAstro m={m} t={t} />
 
-      <h1>{t}</h1>
+      <h1 class="text-start">{t}</h1>
       <!-- <QuestionText client:load question={questionPageData} /> -->
 
       <!-- <TextReact
@@ -66,18 +66,57 @@ const isABCQuestion = a && b && c;
 
       {
         isABCQuestion ? (
-          <div>
-            <p>A: {a}</p>
-            <p>B: {b}</p>
-            <p>C: {c}</p>
+          <div class="row mb-3">
+            <div class="col">
+              <div class="d-grid gap-2 d-block">
+                {["a", "b", "c"].map((letter) => (
+                  <button
+                    type="button"
+                    class:list={[
+                      "__answer btn btn-secondary text-start",
+                      { __correctanswer: letter === r },
+                      { __wronganswer: letter !== r },
+                    ]}
+                  >
+                    <strong>{letter.toUpperCase()}) </strong>{" "}
+                    {questionPageData[letter]} {r}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         ) : (
-          <div>
-            <span>TAK / NIE</span>
+          <div class="row mb-3 text-center">
+            <div class="col">
+              <div class="mb-0">
+                {[
+                  ["t", "Tak"],
+                  ["n", "Nie"],
+                ].map(([value, label]) => (
+                  <button
+                    class:list={[
+                      "__answer btn btn-secondary mx-2",
+                      { __correctanswer: value === r },
+                      { __wronganswer: value !== r },
+                    ]}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         )
       }
 
+      <div>
+        <p class="__showWhenCorrectAnswerClicked d-none">
+          <strong class="text-success">Dobrze</strong>
+        </p>
+        <p class="__showWhenWrongAnswerClicked d-none">
+          <strong class="text-danger">Źle</strong>
+        </p>
+      </div>
       <!-- <NextQuestionButtonAstro text="następne" initialUrl={nextSlug} /> -->
 
       <!-- <PrevNextQuestion prevSlug={prevSlug} nextSlug={nextSlug} /> -->
@@ -87,11 +126,11 @@ const isABCQuestion = a && b && c;
       </p>
       <!-- <PrevNextQuestion client:load question={questionPageData} /> -->
 
-      <div class="text-start">
+      <!-- <div class="text-start">
         <pre>
           {JSON.stringify(questionPageData, null, 2)}
         </pre>
-      </div>
+      </div> -->
 
       <!-- <div class="text-start">
         <pre>
@@ -316,3 +355,70 @@ const isABCQuestion = a && b && c;
     <!-- <GivenAnswers client:load /> -->
   </div>
 </Layout>
+
+<script>
+  const answers = document.querySelectorAll(".__answer");
+  const correctAnswers = document.querySelectorAll(".__correctanswer");
+  const wrongAnswers = document.querySelectorAll(".__wronganswer");
+
+  const showWhenCorrectAnswerClickedElements = document.querySelectorAll(
+    ".__showWhenCorrectAnswerClicked"
+  );
+
+  const showWhenWrongAnswerClickedElements = document.querySelectorAll(
+    ".__showWhenWrongAnswerClicked"
+  );
+
+  correctAnswers.forEach((correctAnswer) => {
+    correctAnswer.addEventListener("click", () => {
+      wrongAnswers.forEach((wrongAnswer) => {
+        console.log("wrongAnswer", wrongAnswer);
+        wrongAnswer.classList.add("btn-secondary");
+        wrongAnswer.classList.remove("btn-danger", "btn-success");
+      });
+
+      correctAnswers.forEach((correctAnswer) => {
+        console.log("correctAnswer", correctAnswer);
+        correctAnswer.classList.add("btn-success");
+        correctAnswer.classList.remove("btn-secondary", "btn-danger");
+      });
+
+      showWhenCorrectAnswerClickedElements.forEach((element) => {
+        element.classList.remove("d-none");
+        element.classList.add("d-block");
+      });
+
+      showWhenWrongAnswerClickedElements.forEach((element) => {
+        element.classList.remove("d-block");
+        element.classList.add("d-none");
+      });
+    });
+  });
+
+  wrongAnswers.forEach((wrongAnswer) => {
+    // WRONG ANSWER CLICKED
+    wrongAnswer.addEventListener("click", () => {
+      wrongAnswers.forEach((wrongAnswer) => {
+        console.log("wrongAnswer", wrongAnswer);
+        wrongAnswer.classList.add("btn-danger");
+        wrongAnswer.classList.remove("btn-secondary", "btn-success");
+      });
+
+      correctAnswers.forEach((correctAnswer) => {
+        console.log("correctAnswer", correctAnswer);
+        correctAnswer.classList.add("btn-success");
+        correctAnswer.classList.remove("btn-secondary", "btn-danger");
+      });
+
+      showWhenWrongAnswerClickedElements.forEach((element) => {
+        element.classList.remove("d-none");
+        element.classList.add("d-block");
+      });
+
+      showWhenCorrectAnswerClickedElements.forEach((element) => {
+        element.classList.remove("d-block");
+        element.classList.add("d-none");
+      });
+    });
+  });
+</script>

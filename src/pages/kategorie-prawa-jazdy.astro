@@ -1,52 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CategoriesButtons from "../reactComponents/CategoriesButtons";
-import CurrentCategory from "../reactComponents/CurrentCategory";
-import H1 from "../reactComponents/H1";
+import H1 from "../components/H1Astro.astro";
 
 const title = "Kategorie prawa jazdy";
 ---
 
 <Layout title="Złe odpowiedzi">
-  <H1>{title}</H1>
-
-  <CategoriesButtons client:load />
+  <H1 title={title} />
 
   <div class="row mb-3">
     <div class="col">
       <h2>
-        Aktualnie ustawiona kategoria prawa jazdy do nauki to kategoria: <CurrentCategory client:load upperCase bold />
+        Aktualnie ustawiona kategoria prawa jazdy do nauki to kategoria: ?????
       </h2>
 
       <p>
-        Witaj na naszej stronie poświęconej nauce jazdy i zdawaniu egzaminów na prawo jazdy! Nasza platforma umożliwia
-        wybór kategorii prawa jazdy, którą chcesz się nauczyć, abyś mógł skoncentrować swoją naukę na potrzebnych
-        umiejętnościach i wymaganiach egzaminacyjnych.
+        Witaj na naszej stronie poświęconej nauce jazdy i zdawaniu egzaminów na
+        prawo jazdy! Nasza platforma umożliwia wybór kategorii prawa jazdy,
+        którą chcesz się nauczyć, abyś mógł skoncentrować swoją naukę na
+        potrzebnych umiejętnościach i wymaganiach egzaminacyjnych.
       </p>
       <p>
-        Nie ważne czy dopiero zaczynasz swoją przygodę z nauką jazdy, czy też potrzebujesz uaktualnić swoje umiejętności
-        przed egzaminem, nasza strona oferuje wszystkie niezbędne informacje i porady, które pomogą Ci osiągnąć swój
-        cel.
+        Nie ważne czy dopiero zaczynasz swoją przygodę z nauką jazdy, czy też
+        potrzebujesz uaktualnić swoje umiejętności przed egzaminem, nasza strona
+        oferuje wszystkie niezbędne informacje i porady, które pomogą Ci
+        osiągnąć swój cel.
       </p>
       <p>
-        W naszej bazie znajdują się wszystkie kategorie prawa jazdy, takie jak kategoria A (motocykle), kategoria B
-        (samochody osobowe), kategoria C (pojazdy ciężarowe), kategoria D (autobusy), a także kategoria T (traktory).
-        Każda z tych kategorii wymaga od kierowcy specjalistycznej wiedzy i umiejętności, które należy opanować przed
-        egzaminem.
+        W naszej bazie znajdują się wszystkie kategorie prawa jazdy, takie jak
+        kategoria A (motocykle), kategoria B (samochody osobowe), kategoria C
+        (pojazdy ciężarowe), kategoria D (autobusy), a także kategoria T
+        (traktory). Każda z tych kategorii wymaga od kierowcy specjalistycznej
+        wiedzy i umiejętności, które należy opanować przed egzaminem.
       </p>
       <p>
-        Nasza strona zawiera kompleksowe informacje na temat wymagań egzaminacyjnych dla każdej kategorii prawa jazdy, a
-        także przydatne wskazówki i porady, jak skutecznie przygotować się do egzaminu. Oferujemy również testy online,
-        które pozwalają na sprawdzenie swojej wiedzy i umiejętności w praktyce.
+        Nasza strona zawiera kompleksowe informacje na temat wymagań
+        egzaminacyjnych dla każdej kategorii prawa jazdy, a także przydatne
+        wskazówki i porady, jak skutecznie przygotować się do egzaminu.
+        Oferujemy również testy online, które pozwalają na sprawdzenie swojej
+        wiedzy i umiejętności w praktyce.
       </p>
       <p>
-        W naszym sklepie internetowym znajdziesz także niezbędne materiały szkoleniowe, takie jak książki i filmy
-        instruktażowe, które pomogą Ci lepiej zrozumieć wymagania egzaminacyjne i przygotować się na każde możliwe
-        pytanie.
+        W naszym sklepie internetowym znajdziesz także niezbędne materiały
+        szkoleniowe, takie jak książki i filmy instruktażowe, które pomogą Ci
+        lepiej zrozumieć wymagania egzaminacyjne i przygotować się na każde
+        możliwe pytanie.
       </p>
       <p>
-        Nie zwlekaj więc i wybierz kategorię prawa jazdy, którą chcesz się nauczyć. Nasza platforma pomoże Ci osiągnąć
-        Twoje cele, zwiększyć swoją wiedzę i umiejętności, a przede wszystkim – zdać egzamin na prawo jazdy!
+        Nie zwlekaj więc i wybierz kategorię prawa jazdy, którą chcesz się
+        nauczyć. Nasza platforma pomoże Ci osiągnąć Twoje cele, zwiększyć swoją
+        wiedzę i umiejętności, a przede wszystkim – zdać egzamin na prawo jazdy!
       </p>
     </div>
   </div>

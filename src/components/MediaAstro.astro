@@ -6,10 +6,10 @@ export interface MediaProps {
   m: string;
 }
 
-const { t, m } = Astro.props as MediaProps;
+const { t, m = "" } = Astro.props as MediaProps;
+const isVideo = m.includes(".mp4");
 
 const mediaUrl = m ? MEDIA_HOST + MEDIA_SIZE.large + m : "/placeholder.png";
-const isVideo = mediaUrl.includes(".mp4");
 ---
 
 <!-- MEDIA START -->
@@ -23,9 +23,10 @@ const isVideo = mediaUrl.includes(".mp4");
               style={{ cursor: "pointer" }}
               class="w-100 shadow border border-dark"
               src={mediaUrl}
+              onerror="this.onerror=null;this.src='/placeholder.mp4';"
               controls
             >
-              <p>{t || m}</p>
+              <p>{t}</p>
             </video>
             <div
               data-selector="play-icon"
@@ -46,7 +47,8 @@ const isVideo = mediaUrl.includes(".mp4");
           <img
             class="w-100 shadow border border-dark img-fluid"
             src={mediaUrl}
-            alt={t || mediaUrl}
+            onerror="this.onerror=null;this.src='/placeholder.png';"
+            alt={t}
           />
         </div>
       )
@@ -61,13 +63,6 @@ const isVideo = mediaUrl.includes(".mp4");
   ) as NodeListOf<HTMLDivElement>;
 
   videoWrappers.forEach((videoWrapper, i) => {
-    console.log("videoWrappers", videoWrappers.length);
-    // videoWrapper.addEventListener("click", () => {
-    //   console.log("videoWrapper clicked",index);
-    //   const video = videoWrapper.querySelector("video") as HTMLVideoElement;
-    //   video.play();
-    // });
-
     const playIcon = videoWrapper.querySelector(
       "[data-selector=play-icon]"
     ) as HTMLDivElement;
@@ -98,14 +93,4 @@ const isVideo = mediaUrl.includes(".mp4");
       }
     });
   });
-
-  //  videos.forEach(canplay", () => {
-  //     console.log("video canplay",index);
-  //   });
-
-  //    video.addEventListener("click", () => {
-  //      console.log("video clicked",index);
-
-  //    });
-  //  });
 </script>

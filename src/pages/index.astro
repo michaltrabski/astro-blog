@@ -46,11 +46,17 @@ const currentYear = new Date().getFullYear();
         ))
       }
 
+      <hr class="my-4" />
+
       <div class="row pb-3">
+        <h2>Posiadamy w naszej bazie pytania wszystkich kategorii!</h2>
+        <p>
+          Kliknij przycisk by wybrać domyślną kategorię testów na prawo jazdy:
+        </p>
         <p>
           <a
             href={URLS.DRIVING_LICENSE_CATEGIRIES}
-            class="text-decoration-none"
+            class="btn btn-outline-secondary btn-lg w-100"
           >
             Zmień domyślną kategorię pytań z testów na prawo jazdy jaką chcesz
             się uczyć!
@@ -103,7 +109,8 @@ const currentYear = new Date().getFullYear();
             {
               allCategories.map((category) => {
                 return (
-                  <button
+                  <a
+                    href={URLS.DRIVING_LICENSE_CATEGIRIES}
                     class="btn btn-outline-secondary p-1 me-1 mb-1"
                     type="button"
                   >
@@ -112,7 +119,7 @@ const currentYear = new Date().getFullYear();
                     <span class="small">
                       {questionsPerCategoryCountObj[category]} - pytań
                     </span>
-                  </button>
+                  </a>
                 );
               })
             }
@@ -122,26 +129,24 @@ const currentYear = new Date().getFullYear();
 
       allQuestions
 
-      <div class="col-12 col-lg-6">
-        <div class="row pb-3">
-          <div class="col">
-            <h2>pytania:</h2>
-            <ul class="text-start">
-              {
-                allQuestions.map((question, i) => {
-                  if (i % 10 !== 0) {
-                    return null;
-                  }
+      <div class="row pb-3">
+        <div class="col">
+          <h2>pytania:</h2>
+          <ul class="text-start">
+            {
+              allQuestions.map((question, i) => {
+                if (i % 10 !== 0) {
+                  return null;
+                }
 
-                  return (
-                    <li key={question.id} class="mb-3">
-                      {i}. <a href={question.slug}>{question.t}</a>
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </div>
+                return (
+                  <li key={question.id} class="mb-3">
+                    {i}. <a href={question.slug}>{question.t}</a>
+                  </li>
+                );
+              })
+            }
+          </ul>
         </div>
       </div>
     </div>
@@ -149,13 +154,13 @@ const currentYear = new Date().getFullYear();
     <div class="__right-sidebar col-12 col-lg-6">
       <div class="row pb-3">
         <div class="col">
-          <h2>Blog i artykuły:</h2>
+          <!-- <h2>Blog i artykuły:</h2>
           <ul>
             <li>1. Lorem ipsum dolor sit.</li>
             <li>2. Lorem ipsum dolor sit.</li>
             <li>3. Lorem ipsum dolor sit.</li>
             <li>4. Lorem ipsum dolor sit.</li>
-          </ul>
+          </ul> -->
 
           <!-- <PostsFromOldWordpress client:load /> -->
         </div>
